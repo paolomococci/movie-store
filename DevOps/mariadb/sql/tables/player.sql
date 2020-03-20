@@ -10,3 +10,5 @@ ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci
 COMMENT='players data table';
+
+ALTER TABLE moviestoredb.player CHANGE uptodate updated timestamp DEFAULT current_timestamp() on update current_timestamp() NOT NULL;
