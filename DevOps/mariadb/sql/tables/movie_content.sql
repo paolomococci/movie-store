@@ -8,4 +8,4 @@ CREATE TABLE moviestoredb.movie_content (
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci
-COMMENT='movie content data table';
+COMMENT='movie_content data table';
