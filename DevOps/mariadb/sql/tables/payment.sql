@@ -1,1 +1,14 @@
-
+CREATE TABLE moviestoredb.payment (
+	id BIGINT UNSIGNED auto_increment NOT NULL,
+	amount DECIMAL NOT NULL,
+	paid DATE NOT NULL,
+	updated TIMESTAMP NOT NULL,
+	CONSTRAINT payment_PK PRIMARY KEY (id),
+	CONSTRAINT payment_FK FOREIGN KEY (id) REFERENCES moviestoredb.rental(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT payment_FK_1 FOREIGN KEY (id) REFERENCES moviestoredb.customer(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+	CONSTRAINT payment_FK_2 FOREIGN KEY (id) REFERENCES moviestoredb.staff(id) ON DELETE RESTRICT ON UPDATE CASCADE
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8
+COLLATE=utf8_general_ci
+COMMENT='payment data table';
