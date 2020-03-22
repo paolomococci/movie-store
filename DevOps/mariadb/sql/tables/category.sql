@@ -1,11 +1,7 @@
-CREATE TABLE moviestoredb.category (
-	id BIGINT UNSIGNED auto_increment NOT NULL,
-	name varchar(50) NOT NULL,
-	description varchar(200) NULL,
-	updated TIMESTAMP NOT NULL,
-	CONSTRAINT category_PK PRIMARY KEY (id)
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8
-COLLATE=utf8_general_ci
-COMMENT='category data table';
+CREATE TABLE `category` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='category data table';
