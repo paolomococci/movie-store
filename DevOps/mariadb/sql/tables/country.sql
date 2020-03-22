@@ -1,12 +1,8 @@
-CREATE TABLE moviestoredb.country (
-	id BIGINT UNSIGNED auto_increment NOT NULL,
-	name varchar(100) NOT NULL,
-	code varchar(3) NOT NULL,
-	CONSTRAINT country_PK PRIMARY KEY (id)
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8
-COLLATE=utf8_general_ci;
-
-ALTER TABLE moviestoredb.country ADD CONSTRAINT country_FK FOREIGN KEY (id) REFERENCES moviestoredb.iso3166(id) ON DELETE RESTRICT ON UPDATE CASCADE;
-ALTER TABLE moviestoredb.country ADD updated TIMESTAMP NOT NULL;
+CREATE TABLE `country` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `code` varchar(3) NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `country_FK` FOREIGN KEY (`id`) REFERENCES `iso3166` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
