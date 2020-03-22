@@ -1,14 +1,10 @@
-CREATE TABLE moviestoredb.rental (
-	id BIGINT UNSIGNED auto_increment NOT NULL,
-	rent DATE NOT NULL,
-	back DATE NOT NULL,
-	updated TIMESTAMP NOT NULL,
-	CONSTRAINT rental_PK PRIMARY KEY (id),
-	CONSTRAINT rental_FK FOREIGN KEY (id) REFERENCES moviestoredb.staff(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-	CONSTRAINT rental_FK_1 FOREIGN KEY (id) REFERENCES moviestoredb.inventory(id) ON DELETE RESTRICT ON UPDATE CASCADE,
-	CONSTRAINT rental_FK_2 FOREIGN KEY (id) REFERENCES moviestoredb.customer(id) ON DELETE RESTRICT ON UPDATE CASCADE
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8
-COLLATE=utf8_general_ci
-COMMENT='rental data table';
+CREATE TABLE `rental` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `rent` date NOT NULL,
+  `back` date NOT NULL,
+  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  CONSTRAINT `rental_FK` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `rental_FK_1` FOREIGN KEY (`id`) REFERENCES `inventory` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `rental_FK_2` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='rental data table';
