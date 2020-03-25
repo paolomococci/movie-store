@@ -18,12 +18,18 @@
 
 package local.example.data.entity;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class Movie {
@@ -32,4 +38,46 @@ public class Movie {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Getter
 	private long id;
+
+	@Getter
+	@Setter
+	@NotNull
+	private String title;
+
+	@Getter
+	@Setter
+	private String subtitle;
+
+	@Getter
+	@Setter
+	@NotNull
+	private String desciption;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Date comeout;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Time duration;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Double cost;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Double rent;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Double rating;
+
+	@Getter
+	private Timestamp updated;
 }
