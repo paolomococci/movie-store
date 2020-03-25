@@ -18,6 +18,8 @@
 
 package local.example.data.entity;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,4 +34,7 @@ public class MovieCategory {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Getter
 	private long id;
+
+	@Getter
+	private Timestamp updated;
 }
