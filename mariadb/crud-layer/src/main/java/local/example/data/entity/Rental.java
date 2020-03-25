@@ -18,12 +18,17 @@
 
 package local.example.data.entity;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class Rental {
@@ -32,4 +37,17 @@ public class Rental {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Getter
 	private long id;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Date rent;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Date back;
+
+	@Getter
+	private Timestamp updated;
 }
