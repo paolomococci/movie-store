@@ -18,12 +18,17 @@
 
 package local.example.data.entity;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class Customer {
@@ -32,4 +37,45 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Getter
 	private long id;
+
+	@Getter
+	@Setter
+	@NotNull
+	private String name;
+
+	@Getter
+	@Setter
+	private String nickname;
+
+	@Getter
+	@Setter
+	@NotNull
+	private String surname;
+
+	@Getter
+	@Setter
+	private String phone;
+
+	@Getter
+	@Setter
+	@NotNull
+	private String mobile;
+
+	@Getter
+	@Setter
+	@NotNull
+	private String email;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Date created;
+
+	@Getter
+	@Setter
+	@NotNull
+	private Boolean active;
+
+	@Getter
+	private Timestamp updated;
 }
