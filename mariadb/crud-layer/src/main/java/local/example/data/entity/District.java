@@ -18,12 +18,16 @@
 
 package local.example.data.entity;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class District {
@@ -32,4 +36,17 @@ public class District {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Getter
 	private long id;
+
+	@Getter
+	@Setter
+	@NotNull
+	private String name;
+
+	@Getter
+	@Setter
+	@NotNull
+	private String code;
+
+	@Getter
+	private Timestamp updated;
 }
