@@ -19,9 +19,11 @@
 package local.example.data.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import local.example.data.entity.District;
 
+@RepositoryRestResource(path = "districts")
 public interface DistrictRestRepository 
 	extends PagingAndSortingRepository<District, Long> {
 
