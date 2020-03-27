@@ -7,15 +7,11 @@ CREATE TABLE `address` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `civic` varchar(10) NOT NULL,
-  `district` varchar(100) NOT NULL,
-  `city` bigint(20) unsigned NOT NULL,
-  `code` varchar(10) NOT NULL,
-  `country` bigint(20) unsigned NOT NULL,
   `phone` varchar(25) DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  KEY `address_city_IDX` (`city`) USING BTREE,
-  CONSTRAINT `address_FK` FOREIGN KEY (`id`) REFERENCES `city` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `address_to_city_FK` FOREIGN KEY (`id`) REFERENCES `city` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `address_to_district_FK` FOREIGN KEY (`id`) REFERENCES `district` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='address data table';
 
 --
@@ -39,10 +35,9 @@ DROP TABLE IF EXISTS `city`;
 CREATE TABLE `city` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `country` bigint(20) unsigned NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `city_FK` FOREIGN KEY (`id`) REFERENCES `country` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `city_to_country_FK` FOREIGN KEY (`id`) REFERENCES `country` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='city data table';
 
 --
@@ -53,7 +48,6 @@ DROP TABLE IF EXISTS `country`;
 CREATE TABLE `country` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `code` varchar(3) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   CONSTRAINT `country_FK` FOREIGN KEY (`id`) REFERENCES `iso3166` (`id`) ON UPDATE CASCADE
@@ -79,6 +73,18 @@ CREATE TABLE `customer` (
   CONSTRAINT `customer_FK` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `customer_FK_1` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='customer data table';
+
+--
+-- Table structure for table `district`
+--
+
+DROP TABLE IF EXISTS `district`;
+CREATE TABLE `district` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `code` varchar(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='district data table';
 
 --
 -- Table structure for table `inventory`
@@ -185,7 +191,6 @@ CREATE TABLE `movie_player` (
 --
 
 DROP TABLE IF EXISTS `payment`;
-CREATE TABLE `payment` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `amount` decimal(10,0) NOT NULL,
   `payed` date NOT NULL,
@@ -208,7 +213,7 @@ CREATE TABLE `player` (
   `surname` varchar(100) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='players data table';
+) ENGINE=InnoDB AUTO_INCREMENT=1010 DEFAULT CHARSET=utf8 COMMENT='players data table';
 
 --
 -- Table structure for table `rental`
