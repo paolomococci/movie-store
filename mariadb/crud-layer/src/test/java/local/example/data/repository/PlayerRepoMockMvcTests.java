@@ -33,6 +33,10 @@ import org.springframework.test.web.servlet.MockMvc;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class PlayerRepoMockMvcTests {
+	
+	private static String PLAYER_TEST_STRING = 
+			"{\"name\":\"John\",\"nickname\":\"one\",\"surname\":\"Do\"}";
+	private static URI uri;
 
 	@Autowired
 	MockMvc mockMvc;
@@ -54,5 +58,23 @@ public class PlayerRepoMockMvcTests {
 			.andDo(print())
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$._links.players").exists());
+	}
+	
+	@Test
+	void createTest() 
+			throws Exception {
+		MvcResult mvcResult = mockMvc
+			.perform(post("/players").content(PLAYER_TEST_STRING))
+			.andExpect(status().isCreated())
+			.andReturn();
+		setUri(new URI(mvcResult.getResponse().getHeader("Location")));
+	}
+
+	public static URI getUri() {
+		return uri;
+	}
+
+	public static void setUri(URI uri) {
+		PlayerRepoMockMvcTests.uri = uri;
 	}
 }
