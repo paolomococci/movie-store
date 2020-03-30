@@ -19,7 +19,10 @@
 package local.example.data.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -32,6 +35,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -64,13 +68,46 @@ public class PlayerRepoMockMvcTests {
 	}
 	
 	@Test
-	void createTest() 
+	void crudTest() 
 			throws Exception {
+		
+		/* create a record */
 		MvcResult mvcResult = mockMvc
 			.perform(post("/players").content(PLAYER_TEST_STRING))
 			.andExpect(status().isCreated())
 			.andReturn();
 		setUri(new URI(mvcResult.getResponse().getHeader("Location")));
+
+		/* read record */
+		mockMvc.perform(get(PlayerRepoMockMvcTests.getUri().getPath())) 
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name").value("John"))
+			.andExpect(jsonPath("$.nickname").value("one"))
+			.andExpect(jsonPath("$.surname").value("Do"));
+
+		/* complete update record */
+		mockMvc.perform(put(PlayerRepoMockMvcTests.getUri().getPath())
+			.content("{\"name\":\"James\",\"nickname\":\"two\",\"surname\":\"Jump\"}"))
+			.andExpect(status().isNoContent()); 
+		mockMvc.perform(get(PlayerRepoMockMvcTests.getUri().getPath()))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name").value("James"))
+			.andExpect(jsonPath("$.nickname").value("two"))
+			.andExpect(jsonPath("$.surname").value("Jump"));
+
+		/* partial update record */
+		mockMvc.perform(patch(PlayerRepoMockMvcTests.getUri().getPath())
+			.content("{\"name\":\"James\"}"))
+			.andExpect(status().isNoContent()); 
+		mockMvc.perform(get(PlayerRepoMockMvcTests.getUri().getPath()))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name").value("James"));
+
+		/* delete record */
+		mockMvc.perform(delete(PlayerRepoMockMvcTests.getUri().getPath()))
+			.andExpect(status().isNoContent());
+		mockMvc.perform(get(PlayerRepoMockMvcTests.getUri().getPath()))
+			.andExpect(status().isNotFound());
 	}
 
 	public static URI getUri() {
