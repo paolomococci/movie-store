@@ -53,6 +53,6 @@ public class StaffRepoMockMvcTests {
 			.perform(get("/"))
 			.andDo(print())
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$._links.staff").exists());
+			.andExpect(jsonPath("$._links.teams").exists());
 	}
 }
