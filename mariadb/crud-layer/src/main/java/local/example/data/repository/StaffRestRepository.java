@@ -23,7 +23,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import local.example.data.entity.Staff;
 
-@RepositoryRestResource(path = "teams")
+@RepositoryRestResource(collectionResourceRel = "teams", path = "teams")
 public interface StaffRestRepository 
 	extends PagingAndSortingRepository<Staff, Long> {
 
