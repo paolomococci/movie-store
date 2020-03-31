@@ -18,6 +18,11 @@
 
 package local.example.data;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.stream.Stream;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -25,62 +30,101 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
+@Execution(ExecutionMode.SAME_THREAD)
 class ApplicationTests {
+	
+	private static String uriString;
 	
 	@BeforeAll
 	static void init() 
 			throws Exception {
-		System.out.println("");
+		setUri(new String("http://127.0.0.1:8080"));
+		//System.out.println("Before all execution set uri: " + getUri());
 	}
 	
 	@BeforeEach
 	void before() 
 			throws Exception {
-		System.out.println("");
+		System.out.println("Before each execution!");
 	}
 
 	@Test
 	@DisplayName("sample test")
 	void sampleTest() 
 			throws Exception {
-		System.out.println("");
+		System.out.println("Sample test!");
+		assertAll("math", 
+					() -> assertEquals(2, 1+1),
+					() -> assertEquals(4, 2*2)
+				);
 	}
 
 	@ParameterizedTest
-	@ValueSource(ints = {1,2,3})
+	@ValueSource(ints = {1})
 	void sampleParametrizedTest(Integer index) 
 			throws Exception {
-		
+		System.out.println("Sample parameter is: " + index);
+		assertEquals(1, index);
 	}
 
 	@ParameterizedTest
-	@ValueSource(ints = {1,2,3})
-	void anotherParametrizedTest(Integer index) 
+	@ValueSource(strings = {"another parameter"})
+	void anotherParametrizedTest(String message) 
 			throws Exception {
-		
+		System.out.println("Another parameter is: " + message);
+		assertEquals(17, message.length());
+	}
+
+	@ParameterizedTest
+	@MethodSource("initUri")
+	void uriParametrizedTest(String uri) 
+			throws Exception {
+		System.out.println("URI is: " + uri);
+	}
+
+	@ParameterizedTest
+	@MethodSource("initUri")
+	void anotherUriParametrizedTest(String uri) 
+			throws Exception {
+		System.out.println("URI is: " + uri + "/players");
 	}
 
 	@Test
 	@Disabled
 	void sampleDisabledTest() 
 			throws Exception {
-		System.out.println("");
+		System.out.println("Sample disabled!");
 	}
 	
 	@AfterEach
 	void after() 
 			throws Exception {
-		System.out.println("");
+		System.out.println("After each execution!");
 	}
 	
 	@AfterAll
 	static void end() 
 			throws Exception {
-		System.out.println("");
+		System.out.println("After all execution!");
+	}
+
+	public static String getUri() {
+		return uriString;
+	}
+
+	public static void setUri(String uri) {
+		ApplicationTests.uriString = uri;
+	}
+	
+	private static Stream<String> initUri() {
+		return Stream.of(getUri());
 	}
 }
