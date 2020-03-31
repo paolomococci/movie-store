@@ -34,6 +34,9 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class AddressRepoMockMvcTests {
 
+	private static String ADDRESS_TEST_STRING = 
+			"{\"type\":\"street\",\"name\":\"first\",\"civic\":\"1212\",\"phone\":\"123-321654987\"}";
+
 	@Autowired
 	MockMvc mockMvc;
 
