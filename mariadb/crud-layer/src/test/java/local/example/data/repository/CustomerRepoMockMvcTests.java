@@ -34,6 +34,9 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class CustomerRepoMockMvcTests {
 
+	private static String CUSTOMER_TEST_STRING = 
+			"{\"name\":\"John\",\"nickname\":\"jumper\",\"surname\":\"Do\",\"phone\":\"123-654321987\",\"mobile\":\"5498746242\",\"email\":\"johndoe@localhost.localdomain\",\"birthday\":\"12-12-2000\",\"active\":\"true\"}";
+
 	@Autowired
 	MockMvc mockMvc;
 
