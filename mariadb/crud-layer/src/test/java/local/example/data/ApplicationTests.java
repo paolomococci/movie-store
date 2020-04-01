@@ -29,7 +29,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -39,6 +42,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Execution(ExecutionMode.SAME_THREAD)
+@TestMethodOrder(OrderAnnotation.class)
 class ApplicationTests {
 	
 	private static String uriString;
@@ -47,7 +51,6 @@ class ApplicationTests {
 	static void init() 
 			throws Exception {
 		setUri(new String("http://127.0.0.1:8080"));
-		//System.out.println("Before all execution set uri: " + getUri());
 	}
 	
 	@BeforeEach
@@ -57,6 +60,7 @@ class ApplicationTests {
 	}
 
 	@Test
+	@Order(value = 1)
 	@DisplayName("sample test")
 	void sampleTest() 
 			throws Exception {
@@ -68,6 +72,7 @@ class ApplicationTests {
 	}
 
 	@ParameterizedTest
+	@Order(value = 2)
 	@ValueSource(ints = {1})
 	void sampleParametrizedTest(Integer index) 
 			throws Exception {
@@ -76,6 +81,7 @@ class ApplicationTests {
 	}
 
 	@ParameterizedTest
+	@Order(value = 3)
 	@ValueSource(strings = {"another parameter"})
 	void anotherParametrizedTest(String message) 
 			throws Exception {
@@ -84,6 +90,7 @@ class ApplicationTests {
 	}
 
 	@ParameterizedTest
+	@Order(value = 4)
 	@MethodSource("initUri")
 	void uriParametrizedTest(String uri) 
 			throws Exception {
@@ -91,6 +98,7 @@ class ApplicationTests {
 	}
 
 	@ParameterizedTest
+	@Order(value = 5)
 	@MethodSource("initUri")
 	void anotherUriParametrizedTest(String uri) 
 			throws Exception {
@@ -98,6 +106,7 @@ class ApplicationTests {
 	}
 
 	@Test
+	@Order(value = 6)
 	@Disabled
 	void sampleDisabledTest() 
 			throws Exception {
