@@ -34,6 +34,8 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class PaymentRepoMockMvcTests {
 
+	private static String PAYMENT_TEST_STRING = "{}";
+
 	@Autowired
 	MockMvc mockMvc;
 
