@@ -69,7 +69,7 @@ public class Customer {
 	@Getter
 	@Setter
 	@NotNull
-	private Date created;
+	private Date birthday;
 
 	@Getter
 	@Setter
