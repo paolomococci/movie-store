@@ -9,6 +9,7 @@ CREATE TABLE `movie` (
   `rent` double NOT NULL,
   `rating` double DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `desciption` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   FULLTEXT KEY `movie_title_IDX` (`title`,`subtitle`,`description`),
   CONSTRAINT `movie_FK` FOREIGN KEY (`id`) REFERENCES `category` (`id`) ON UPDATE CASCADE
