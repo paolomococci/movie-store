@@ -34,6 +34,8 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class InventoryRepoMockMvcTests {
 
+	private static String INVENTORY_TEST_STRING = "{}";
+
 	@Autowired
 	MockMvc mockMvc;
 
