@@ -34,6 +34,8 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class LanguageRepoMockMvcTests {
 
+	private static String LANGUAGE_TEST_STRING = "{}";
+
 	@Autowired
 	MockMvc mockMvc;
 
