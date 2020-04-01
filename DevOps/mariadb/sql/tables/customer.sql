@@ -6,7 +6,7 @@ CREATE TABLE `customer` (
   `phone` varchar(20) DEFAULT NULL,
   `mobile` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `created` date NOT NULL,
+  `birthday` date NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
