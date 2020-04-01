@@ -34,6 +34,8 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class StaffRepoMockMvcTests {
 
+	private static String STAFF_TEST_STRING = "{}";
+
 	@Autowired
 	MockMvc mockMvc;
 
