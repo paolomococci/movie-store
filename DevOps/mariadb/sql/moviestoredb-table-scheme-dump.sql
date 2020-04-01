@@ -9,6 +9,7 @@ CREATE TABLE `address` (
   `civic` varchar(10) NOT NULL,
   `phone` varchar(25) DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `address_to_city_FK` FOREIGN KEY (`id`) REFERENCES `city` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `address_to_district_FK` FOREIGN KEY (`id`) REFERENCES `district` (`id`) ON UPDATE CASCADE
@@ -66,7 +67,7 @@ CREATE TABLE `customer` (
   `phone` varchar(20) DEFAULT NULL,
   `mobile` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `created` date NOT NULL,
+  `birthday` date NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
@@ -83,6 +84,7 @@ CREATE TABLE `district` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `code` varchar(6) NOT NULL,
+  `updated` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='district data table';
 
@@ -142,6 +144,7 @@ CREATE TABLE `movie` (
   `rent` double NOT NULL,
   `rating` double DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `desciption` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   FULLTEXT KEY `movie_title_IDX` (`title`,`subtitle`,`description`),
   CONSTRAINT `movie_FK` FOREIGN KEY (`id`) REFERENCES `category` (`id`) ON UPDATE CASCADE
@@ -191,6 +194,7 @@ CREATE TABLE `movie_player` (
 --
 
 DROP TABLE IF EXISTS `payment`;
+CREATE TABLE `payment` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `amount` decimal(10,0) NOT NULL,
   `payed` date NOT NULL,
@@ -213,7 +217,7 @@ CREATE TABLE `player` (
   `surname` varchar(100) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1010 DEFAULT CHARSET=utf8 COMMENT='players data table';
+) ENGINE=InnoDB AUTO_INCREMENT=4014 DEFAULT CHARSET=utf8 COMMENT='players data table';
 
 --
 -- Table structure for table `rental`
