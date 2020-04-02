@@ -34,8 +34,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class RentalRepoMockMvcTests {
 
-	private static String RENTAL_TEST_STRING = "{}";
-
 	@Autowired
 	MockMvc mockMvc;
 
