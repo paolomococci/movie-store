@@ -18,6 +18,11 @@
 
 package local.example.data.repository;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterAll;
@@ -32,31 +37,49 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestMethodOrder(OrderAnnotation.class)
 public class InventoryRepoMockMvcParametrizedTests {
 
-	private static String INVENTORY_TEST_STRING = "{}";
+	private static String INVENTORY_TEST_STRING = "{}"; // TODO
 	private static String uriString;
 
 	@Autowired
-	MockMvc mockMvc;
+	private static MockMvc mockMvc;
 	
 	@BeforeAll
 	static void init() 
 			throws Exception {
-		
+		MvcResult mvcResult = mockMvc
+				.perform(post("/inventories").content(INVENTORY_TEST_STRING))
+				.andExpect(status().isCreated())
+				.andReturn();
+		setUri(new String(mvcResult.getResponse().getHeader("Location")));
 	}
 
 	@Order(1)
 	@ParameterizedTest
 	@MethodSource("initUri")
-	@DisplayName("sample test")
-	void sampleTest() 
+	@DisplayName("read record")
+	void readTest(String uri) 
 			throws Exception {
-		
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk());
+	}
+
+	@Order(2)
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("delete record")
+	void deleteTest(String uri) 
+			throws Exception {
+		mockMvc.perform(delete(uri))
+			.andExpect(status().isNoContent());
+		mockMvc.perform(get(uri))
+			.andExpect(status().isNotFound());
 	}
 	
 	@AfterAll
@@ -77,4 +100,3 @@ public class InventoryRepoMockMvcParametrizedTests {
 		return Stream.of(getUri());
 	}
 }
-
