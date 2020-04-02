@@ -110,11 +110,11 @@ public class PlayerRepoMockMvcTests {
 			.andExpect(status().isNotFound());
 	}
 
-	public static URI getUri() {
+	private static URI getUri() {
 		return uri;
 	}
 
-	public static void setUri(URI uri) {
+	private static void setUri(URI uri) {
 		PlayerRepoMockMvcTests.uri = uri;
 	}
 }
