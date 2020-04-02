@@ -34,9 +34,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class CountryRepoMockMvcTests {
 
-	private static String COUNTRY_TEST_STRING = 
-			"{\"name\":\"NeverLand\"}";
-
 	@Autowired
 	MockMvc mockMvc;
 
