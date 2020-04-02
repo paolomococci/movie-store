@@ -34,8 +34,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class Iso3166RepoMockMvcTests {
 
-	private static String ISO3166_TEST_STRING = "{}";
-
 	@Autowired
 	MockMvc mockMvc;
 
