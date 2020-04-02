@@ -34,9 +34,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class DistrictRepoMockMvcTests {
 
-	private static String DISTRICT_TEST_STRING = 
-			"{\"name\":\"NeverPoint\",\"code\":\"01234\"}";
-
 	@Autowired
 	MockMvc mockMvc;
 
