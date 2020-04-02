@@ -34,8 +34,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class MovieRepoMockMvcTests {
 
-	private static String MOVIE_TEST_STRING = "{}";
-
 	@Autowired
 	MockMvc mockMvc;
 
