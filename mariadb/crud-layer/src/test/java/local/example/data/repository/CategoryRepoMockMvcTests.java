@@ -34,9 +34,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class CategoryRepoMockMvcTests {
 
-	private static String CATEGORY_TEST_STRING = 
-			"{\"name\":\"action\",\"description\":\"simple action movie\"}";
-
 	@Autowired
 	MockMvc mockMvc;
 
