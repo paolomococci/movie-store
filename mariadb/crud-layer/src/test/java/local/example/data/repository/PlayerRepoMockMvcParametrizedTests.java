@@ -20,16 +20,20 @@ package local.example.data.repository;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.net.URI;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +44,7 @@ import org.springframework.test.web.servlet.MvcResult;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Execution(ExecutionMode.CONCURRENT)
+@TestMethodOrder(OrderAnnotation.class)
 public class PlayerRepoMockMvcParametrizedTests {
 	
 	private static String PLAYER_TEST_STRING = 
@@ -51,6 +55,7 @@ public class PlayerRepoMockMvcParametrizedTests {
 	MockMvc mockMvc;
 	
 	@Test
+	@Order(1)
 	@DisplayName("create a record into player's data table")
 	void createTest() 
 			throws Exception {
@@ -61,6 +66,50 @@ public class PlayerRepoMockMvcParametrizedTests {
 		setUri(new URI(mvcResult.getResponse().getHeader("Location")));
 	}
 
+	@Order(2)
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("read a record from the player's data table identifying it from the uri")
+	void readTest(String uri) 
+			throws Exception {
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name").value("John"))
+			.andExpect(jsonPath("$.nickname").value("one"))
+			.andExpect(jsonPath("$.surname").value("Do"));
+	}
+
+	@Order(3)
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("update a record into the player's data table identifying it from the uri")
+	void putTest(String uri) 
+			throws Exception {
+		mockMvc.perform(put(uri)
+			.content("{\"name\":\"James\",\"nickname\":\"two\",\"surname\":\"Jump\"}"))
+			.andExpect(status().isNoContent()); 
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name").value("James"))
+			.andExpect(jsonPath("$.nickname").value("two"))
+			.andExpect(jsonPath("$.surname").value("Jump"));
+	}
+
+	@Order(4)
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("partial update a record into the player's data table identifying it from the uri")
+	void patchTest(String uri) 
+			throws Exception {
+		mockMvc.perform(patch(uri)
+			.content("{\"name\":\"James\"}"))
+			.andExpect(status().isNoContent()); 
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name").value("James"));
+	}
+
+	@Order(5)
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("delete a record from the player's data table identifying it from the uri")
@@ -68,15 +117,23 @@ public class PlayerRepoMockMvcParametrizedTests {
 			throws Exception {
 		mockMvc.perform(delete(uri))
 			.andExpect(status().isNoContent());
+	}
+
+	@Order(6)
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("try to read a deleted record from the player's data table identifying it from the uri")
+	void notFoundTest(String uri) 
+			throws Exception {
 		mockMvc.perform(get(uri))
 			.andExpect(status().isNotFound());
 	}
 
-	public static URI getUri() {
+	private static URI getUri() {
 		return uri;
 	}
 
-	public static void setUri(URI uri) {
+	private static void setUri(URI uri) {
 		PlayerRepoMockMvcParametrizedTests.uri = uri;
 	}
 	
