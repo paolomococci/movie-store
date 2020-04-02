@@ -34,9 +34,6 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 public class CityRepoMockMvcTests {
 
-	private static String CITY_TEST_STRING = 
-			"{\"name\":\"NeverTown\"}";
-
 	@Autowired
 	MockMvc mockMvc;
 
