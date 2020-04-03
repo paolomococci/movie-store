@@ -27,6 +27,7 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -51,6 +52,7 @@ public class InventoryRepoMockMvcParametrizedTests {
 	private static MockMvc mockMvc;
 	
 	@BeforeAll
+	@Disabled
 	static void init() 
 			throws Exception {
 		MvcResult mvcResult = mockMvc
@@ -61,6 +63,7 @@ public class InventoryRepoMockMvcParametrizedTests {
 	}
 
 	@Order(1)
+	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("read record")
@@ -71,6 +74,7 @@ public class InventoryRepoMockMvcParametrizedTests {
 	}
 
 	@Order(2)
+	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("delete record")
@@ -83,6 +87,7 @@ public class InventoryRepoMockMvcParametrizedTests {
 	}
 	
 	@AfterAll
+	@Disabled
 	static void end() 
 			throws Exception {
 		
