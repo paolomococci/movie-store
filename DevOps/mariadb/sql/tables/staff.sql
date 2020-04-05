@@ -12,6 +12,6 @@ CREATE TABLE `staff` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `staff_FK` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `staff_FK_1` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `staff_to_address_FK` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `staff_to_store_FK` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='staff data table';
