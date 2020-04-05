@@ -4,7 +4,7 @@ CREATE TABLE `payment` (
   `payed` date NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `payment_FK` FOREIGN KEY (`id`) REFERENCES `rental` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `payment_FK_1` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `payment_FK_2` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `payment_to_customer_FK` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `payment_to_rental_FK` FOREIGN KEY (`id`) REFERENCES `rental` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `payment_to_staff_FK` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='payment data table';
