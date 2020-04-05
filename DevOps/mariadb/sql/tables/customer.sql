@@ -10,6 +10,6 @@ CREATE TABLE `customer` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `customer_FK` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `customer_FK_1` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `customer_to_address_FK` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `customer_to_store_FK` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='customer data table';
