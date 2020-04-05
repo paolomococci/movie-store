@@ -6,6 +6,5 @@ CREATE TABLE `address` (
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `address_to_city_FK` FOREIGN KEY (`id`) REFERENCES `city` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `address_to_district_FK` FOREIGN KEY (`id`) REFERENCES `district` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='address data table';
