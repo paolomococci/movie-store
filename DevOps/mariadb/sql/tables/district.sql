@@ -3,5 +3,6 @@ CREATE TABLE `district` (
   `name` varchar(50) NOT NULL,
   `code` varchar(6) NOT NULL,
   `updated` datetime(6) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  CONSTRAINT `district_to_city_FK` FOREIGN KEY (`id`) REFERENCES `city` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='district data table';
