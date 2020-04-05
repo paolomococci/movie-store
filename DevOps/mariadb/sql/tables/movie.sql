@@ -12,5 +12,6 @@ CREATE TABLE `movie` (
   `desciption` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   FULLTEXT KEY `movie_title_IDX` (`title`,`subtitle`,`description`),
-  CONSTRAINT `movie_FK` FOREIGN KEY (`id`) REFERENCES `category` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `movie_to_category_FK` FOREIGN KEY (`id`) REFERENCES `category` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `movie_to_language_FK` FOREIGN KEY (`id`) REFERENCES `language` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie data table';
