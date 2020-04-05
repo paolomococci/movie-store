@@ -29,6 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.net.URI;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -55,6 +56,7 @@ public class DistrictRepoMockMvcParametrizedTests {
 	MockMvc mockMvc;
 	
 	@Test
+	@Disabled
 	@Order(1)
 	@DisplayName("create a record into country's data table")
 	void createTest() 
@@ -67,6 +69,7 @@ public class DistrictRepoMockMvcParametrizedTests {
 	}
 
 	@Order(2)
+	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("read a record from the district's data table identifying it from the uri")
@@ -79,6 +82,7 @@ public class DistrictRepoMockMvcParametrizedTests {
 	}
 
 	@Order(3)
+	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("update a record into the district's data table identifying it from the uri")
@@ -94,6 +98,7 @@ public class DistrictRepoMockMvcParametrizedTests {
 	}
 
 	@Order(4)
+	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("partial update a record into the district's data table identifying it from the uri")
@@ -108,6 +113,7 @@ public class DistrictRepoMockMvcParametrizedTests {
 	}
 
 	@Order(5)
+	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("delete a record from the district's data table identifying it from the uri")
@@ -118,6 +124,7 @@ public class DistrictRepoMockMvcParametrizedTests {
 	}
 
 	@Order(6)
+	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("try to read a deleted record from the district's data table identifying it from the uri")
