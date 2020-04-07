@@ -18,11 +18,14 @@
 
 package local.example.data.entity;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -38,15 +41,21 @@ public class Player {
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 1, max = 100)
 	private String name;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 1, max = 100)
 	private String nickname;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 1, max = 100)
 	private String surname;
+
+	@Getter
+	private Timestamp updated;
 }
