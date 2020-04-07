@@ -25,6 +25,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -40,10 +41,12 @@ public class Category {
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 5, max = 50, message = "range of this value is 5 to 50 characters")
 	private String name;
 
 	@Getter
 	@Setter
+	@Size(min = 5, max = 200, message = "range of this value is 5 to 200 characters")
 	private String description;
 
 	@Getter
