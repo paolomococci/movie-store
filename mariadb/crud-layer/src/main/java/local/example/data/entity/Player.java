@@ -25,6 +25,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -42,18 +43,21 @@ public class Player {
 	@Setter
 	@NotNull
 	@Size(min = 1, max = 100)
+	@Pattern(regexp = "[a-zA-Z_-]{1,100}$")
 	private String name;
 
 	@Getter
 	@Setter
 	@NotNull
 	@Size(min = 1, max = 100)
+	@Pattern(regexp = "[a-zA-Z_-]{1,100}$")
 	private String nickname;
 
 	@Getter
 	@Setter
 	@NotNull
 	@Size(min = 1, max = 100)
+	@Pattern(regexp = "[a-zA-Z_-]{1,100}$")
 	private String surname;
 
 	@Getter
