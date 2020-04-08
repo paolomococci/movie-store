@@ -24,7 +24,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -42,17 +45,21 @@ public class Iso3166 {
 	@Setter
 	@NotNull
 	@Size(min = 3, max = 100)
+	@Pattern(regexp = "[a-zA-Z_-]{3,100}$")
 	private String name;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Min(4)
+	@Max(894)
 	private Integer code;
 
 	@Getter
 	@Setter
 	@NotNull
 	@Size(min = 2, max = 3)
+	@Pattern(regexp = "^[A-Z]{2,3}$")
 	private String signature;
 
 	@Getter
