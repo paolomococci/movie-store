@@ -25,6 +25,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -42,11 +43,19 @@ public class Category {
 	@Setter
 	@NotNull
 	@Size(min = 5, max = 50, message = "range of this value is 5 to 50 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z_-]*$", 
+			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
+			)
 	private String name;
 
 	@Getter
 	@Setter
 	@Size(min = 5, max = 200, message = "range of this value is 5 to 200 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z][a-zA-Z0-9 -]*[a-zA-Z]*$", 
+			message = "only the characters `a-z`, `A-Z`, `_`, `-` and space are allowed"
+			)
 	private String description;
 
 	@Getter
