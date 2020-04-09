@@ -44,7 +44,7 @@ public class Language {
 	@NotNull
 	@Size(min = 1, max = 30, message = "range of this value is 1 to 30 characters")
 	@Pattern(
-			regexp = "^[a-zA-Z_-]$", 
+			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
 			)
 	private String name;
