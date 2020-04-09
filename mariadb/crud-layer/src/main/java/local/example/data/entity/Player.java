@@ -42,22 +42,31 @@ public class Player {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 100)
-	@Pattern(regexp = "[a-zA-Z_-]{1,100}$")
+	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z_-]*$", 
+			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
+			)
 	private String name;
 
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 100)
-	@Pattern(regexp = "[a-zA-Z_-]{1,100}$")
+	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z_-]*$", 
+			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
+			)
 	private String nickname;
 
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 100)
-	@Pattern(regexp = "[a-zA-Z_-]{1,100}$")
+	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z_-]*$", 
+			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
+			)
 	private String surname;
 
 	@Getter
