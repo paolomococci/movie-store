@@ -25,7 +25,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,34 +45,62 @@ public class Customer {
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z-]*$", 
+			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
+			)
 	private String name;
 
 	@Getter
 	@Setter
+	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z-]*$", 
+			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
+			)
 	private String nickname;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z-]*$", 
+			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
+			)
 	private String surname;
 
 	@Getter
 	@Setter
+	@Size(min = 5, max = 20, message = "range of this value is 5 to 20 characters")
+	@Pattern(
+			regexp = "^[0-9-]*$", 
+			message = "only the characters `0-9` and `-` are allowed"
+			)
 	private String phone;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 12, max = 20, message = "range of this value is 12 to 20 characters")
+	@Pattern(
+			regexp = "^[0-9-]*$", 
+			message = "only the characters `0-9` and `-` are allowed"
+			)
 	private String mobile;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Email
+	@Size(min = 5, max = 50, message = "range of this value is 5 to 50 characters")
 	private String email;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Past
 	private Date birthday;
 
 	@Getter
