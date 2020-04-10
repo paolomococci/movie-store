@@ -27,6 +27,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -42,15 +46,30 @@ public class Movie {
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z0-9_-]*$", 
+			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
+			)
 	private String title;
 
 	@Getter
 	@Setter
+	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z0-9_-]*$", 
+			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
+			)
 	private String subtitle;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Size(min = 5, max = 255, message = "range of this value is 5 to 255 characters")
+	@Pattern(
+			regexp = "^[a-zA-Z0-9_-]*$", 
+			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
+			)
 	private String desciption;
 
 	@Getter
@@ -61,21 +80,25 @@ public class Movie {
 	@Getter
 	@Setter
 	@NotNull
+	@Positive
 	private Time duration;
 
 	@Getter
 	@Setter
 	@NotNull
+	@PositiveOrZero
 	private Double cost;
 
 	@Getter
 	@Setter
 	@NotNull
+	@PositiveOrZero
 	private Double rent;
 
 	@Getter
 	@Setter
 	@NotNull
+	@PositiveOrZero
 	private Double rating;
 
 	@Getter
