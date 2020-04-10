@@ -113,6 +113,8 @@ CREATE TABLE `iso3166` (
   `signature` varchar(3) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
+  UNIQUE KEY `code_UN` (`code`),
+  UNIQUE KEY `signature_UN` (`signature`),
   FULLTEXT KEY `iso3166_signature_IDX` (`signature`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
