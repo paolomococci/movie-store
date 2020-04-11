@@ -11,7 +11,7 @@ CREATE TABLE `address` (
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `address_to_district_FK` FOREIGN KEY (`id`) REFERENCES `district` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `district_fk` FOREIGN KEY (`id`) REFERENCES `district` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='address data table';
 
 --
@@ -37,8 +37,20 @@ CREATE TABLE `city` (
   `name` varchar(100) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `city_to_country_FK` FOREIGN KEY (`id`) REFERENCES `country` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `country_fk` FOREIGN KEY (`id`) REFERENCES `country` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='city data table';
+
+--
+-- Table structure for table `content`
+--
+
+DROP TABLE IF EXISTS `content`;
+CREATE TABLE `content` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `subject` text DEFAULT NULL,
+  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='content data table';
 
 --
 -- Table structure for table `country`
@@ -50,7 +62,7 @@ CREATE TABLE `country` (
   `name` varchar(100) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `country_to_iso3166_FK` FOREIGN KEY (`id`) REFERENCES `iso3166` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `iso3166_fk` FOREIGN KEY (`id`) REFERENCES `iso3166` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -70,8 +82,8 @@ CREATE TABLE `customer` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `customer_to_address_FK` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `customer_to_store_FK` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `customer_address_fk` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `customer_store_fk` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='customer data table';
 
 --
@@ -85,7 +97,7 @@ CREATE TABLE `district` (
   `code` varchar(6) NOT NULL,
   `updated` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `district_to_city_FK` FOREIGN KEY (`id`) REFERENCES `city` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `city_fk` FOREIGN KEY (`id`) REFERENCES `city` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='district data table';
 
 --
@@ -97,8 +109,8 @@ CREATE TABLE `inventory` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `inventory_to_movie_FK` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `inventory_to_store_FK` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `inventory_movie_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `inventory_store_fk` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='inventory data table';
 
 --
@@ -149,8 +161,7 @@ CREATE TABLE `movie` (
   `desciption` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   FULLTEXT KEY `movie_title_IDX` (`title`,`subtitle`,`description`),
-  CONSTRAINT `movie_to_category_FK` FOREIGN KEY (`id`) REFERENCES `category` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `movie_to_language_FK` FOREIGN KEY (`id`) REFERENCES `language` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `language_fk` FOREIGN KEY (`id`) REFERENCES `language` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie data table';
 
 --
@@ -162,8 +173,8 @@ CREATE TABLE `movie_category` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `movie_category_to_category_FK` FOREIGN KEY (`id`) REFERENCES `category` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `movie_category_to_movie_FK` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `category_fk` FOREIGN KEY (`id`) REFERENCES `category` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `movie_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie_category data table';
 
 --
@@ -176,7 +187,8 @@ CREATE TABLE `movie_content` (
   `content` text NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `movie_content_to_movie_FK` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `content_table_fk` FOREIGN KEY (`id`) REFERENCES `content` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `movie_table_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie content data table';
 
 --
@@ -188,8 +200,8 @@ CREATE TABLE `movie_player` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   KEY `movie_player_FK_1` (`id`),
-  CONSTRAINT `movie_player_to_movie_FK` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `movie_player_to_palyer_FK` FOREIGN KEY (`id`) REFERENCES `player` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `film_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `player_fk` FOREIGN KEY (`id`) REFERENCES `player` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie_player data table';
 
 --
@@ -203,9 +215,9 @@ CREATE TABLE `payment` (
   `payed` date NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `payment_to_customer_FK` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `payment_to_rental_FK` FOREIGN KEY (`id`) REFERENCES `rental` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `payment_to_staff_FK` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `payment_customer_fk` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `payment_rental_fk` FOREIGN KEY (`id`) REFERENCES `rental` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `payment_staff_fk` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='payment data table';
 
 --
@@ -233,9 +245,9 @@ CREATE TABLE `rental` (
   `back` date NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `rental_to_customer_FK` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `rental_to_inventory_FK` FOREIGN KEY (`id`) REFERENCES `inventory` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `rental_to_staff_FK` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `rental_customer_fk` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `rental_inventory_fk` FOREIGN KEY (`id`) REFERENCES `inventory` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `rental_staff_fk` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='rental data table';
 
 --
@@ -257,8 +269,8 @@ CREATE TABLE `staff` (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
-  CONSTRAINT `staff_to_address_FK` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `staff_to_store_FK` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `staff_address_fk` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `staff_store_fk` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='staff data table';
 
 --
@@ -272,5 +284,5 @@ CREATE TABLE `store` (
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `store_name_IDX` (`name`) USING BTREE,
-  CONSTRAINT `store_to_address_FK` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `store_address_fk` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='store data table';
