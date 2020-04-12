@@ -184,7 +184,6 @@ CREATE TABLE `movie_category` (
 DROP TABLE IF EXISTS `movie_content`;
 CREATE TABLE `movie_content` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `content` text NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   CONSTRAINT `content_table_fk` FOREIGN KEY (`id`) REFERENCES `content` (`id`) ON UPDATE CASCADE,
@@ -199,7 +198,7 @@ DROP TABLE IF EXISTS `movie_player`;
 CREATE TABLE `movie_player` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  KEY `movie_player_FK_1` (`id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `film_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `player_fk` FOREIGN KEY (`id`) REFERENCES `player` (`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie_player data table';
