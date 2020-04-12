@@ -24,12 +24,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Entity(name = "movie_content")
 public class MovieContent {
@@ -38,16 +34,6 @@ public class MovieContent {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Getter
 	private long id;
-
-	@Getter
-	@Setter
-	@NotNull
-	@Size(min = 5, max = 255, message = "range of this value is 5 to 255 characters")
-	@Pattern(
-			regexp = "^[a-zA-Z0-9_-]*$", 
-			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
-			)
-	private String content;
 
 	@Getter
 	private Timestamp updated;
