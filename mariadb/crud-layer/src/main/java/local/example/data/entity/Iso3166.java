@@ -21,6 +21,7 @@ package local.example.data.entity;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -75,7 +76,7 @@ public class Iso3166 {
 	private Timestamp updated;
 	
 	@Getter
-	@OrderBy(value = "name")
-	@OneToMany(mappedBy = "iso3166")
+	@OrderBy(value = "code")
+	@OneToMany(mappedBy = "iso3166", cascade = CascadeType.PERSIST)
 	private List<Country> countries;
 }
