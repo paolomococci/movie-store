@@ -10,8 +10,7 @@ CREATE TABLE `address` (
   `phone` varchar(25) DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `type` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `district_fk` FOREIGN KEY (`id`) REFERENCES `district` (`id`) ON UPDATE CASCADE
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='address data table';
 
 --
@@ -36,8 +35,7 @@ CREATE TABLE `city` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `country_fk` FOREIGN KEY (`id`) REFERENCES `country` (`id`) ON UPDATE CASCADE
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='city data table';
 
 --
@@ -61,8 +59,8 @@ CREATE TABLE `country` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `iso3166_fk` FOREIGN KEY (`id`) REFERENCES `iso3166` (`id`) ON UPDATE CASCADE
+  `iso3166_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -96,8 +94,7 @@ CREATE TABLE `district` (
   `name` varchar(50) NOT NULL,
   `code` varchar(6) NOT NULL,
   `updated` datetime(6) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `city_fk` FOREIGN KEY (`id`) REFERENCES `city` (`id`) ON UPDATE CASCADE
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='district data table';
 
 --
