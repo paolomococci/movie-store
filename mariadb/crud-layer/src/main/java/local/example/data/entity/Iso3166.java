@@ -22,6 +22,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -60,11 +61,13 @@ public class Iso3166 {
 	@NotNull
 	@Min(4)
 	@Max(894)
+	@Column(unique = true)
 	private Integer code;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Column(unique = true)
 	@Size(min = 2, max = 3, message = "range of this value is 2 to 3 characters")
 	@Pattern(
 			regexp = "^[A-Z]*$", 
