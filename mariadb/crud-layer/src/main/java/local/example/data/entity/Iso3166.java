@@ -19,11 +19,14 @@
 package local.example.data.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -70,4 +73,9 @@ public class Iso3166 {
 
 	@Getter
 	private Timestamp updated;
+	
+	@Getter
+	@OrderBy(value = "name")
+	@OneToMany(mappedBy = "iso3166")
+	private List<Country> countries;
 }
