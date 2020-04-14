@@ -10,6 +10,7 @@ CREATE TABLE `address` (
   `phone` varchar(25) DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `type` varchar(255) DEFAULT NULL,
+  `district_fk` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='address data table';
 
@@ -35,6 +36,7 @@ CREATE TABLE `city` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `country_fk` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='city data table';
 
@@ -94,6 +96,7 @@ CREATE TABLE `district` (
   `name` varchar(50) NOT NULL,
   `code` varchar(6) NOT NULL,
   `updated` datetime(6) DEFAULT NULL,
+  `city_fk` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='district data table';
 
