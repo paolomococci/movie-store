@@ -5,5 +5,6 @@ CREATE TABLE `address` (
   `phone` varchar(25) DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `type` varchar(255) DEFAULT NULL,
+  `district_fk` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='address data table';
