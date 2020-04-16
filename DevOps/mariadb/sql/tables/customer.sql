@@ -9,7 +9,11 @@ CREATE TABLE `customer` (
   `birthday` date NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `address_fk` bigint(20) unsigned DEFAULT NULL,
+  `store_fk` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `customer_address_fk` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `customer_store_fk` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+  KEY `customer_to_address_fk` (`address_fk`),
+  KEY `customer_to_store_fk` (`store_fk`),
+  CONSTRAINT `customer_to_address_fk` FOREIGN KEY (`address_fk`) REFERENCES `address` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `customer_to_store_fk` FOREIGN KEY (`store_fk`) REFERENCES `store` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='customer data table';
