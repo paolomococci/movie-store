@@ -19,11 +19,15 @@
 package local.example.data.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -55,4 +59,20 @@ public class Store {
 
 	@Getter
 	private Timestamp updated;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "address_fk")
+	private Address storeAddress;
+	
+	@Getter
+	@Setter
+	@OneToMany(mappedBy = "staffStore")
+	private List<Staff> teams;
+	
+	@Getter
+	@Setter
+	@OneToMany(mappedBy = "customerStore")
+	private List<Customer> customers;
 }
