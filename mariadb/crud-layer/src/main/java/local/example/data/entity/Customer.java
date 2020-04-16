@@ -25,6 +25,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -110,4 +112,16 @@ public class Customer {
 
 	@Getter
 	private Timestamp updated;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "address_fk")
+	private Address customerAddress;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "store_fk")
+	private Store customerStore;
 }
