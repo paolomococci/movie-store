@@ -11,7 +11,11 @@ CREATE TABLE `staff` (
   `password` varchar(20) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `address_fk` bigint(20) unsigned DEFAULT NULL,
+  `store_fk` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `staff_address_fk` FOREIGN KEY (`id`) REFERENCES `address` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `staff_store_fk` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
+  KEY `staff_to_store_fk` (`store_fk`),
+  KEY `staff_to_address_fk` (`address_fk`),
+  CONSTRAINT `staff_to_address_fk` FOREIGN KEY (`address_fk`) REFERENCES `address` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `staff_to_store_fk` FOREIGN KEY (`store_fk`) REFERENCES `store` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='staff data table';
