@@ -26,6 +26,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
@@ -103,4 +105,10 @@ public class Movie {
 
 	@Getter
 	private Timestamp updated;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "language_fk")
+	private Language language;
 }
