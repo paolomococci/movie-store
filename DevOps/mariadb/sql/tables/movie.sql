@@ -10,7 +10,9 @@ CREATE TABLE `movie` (
   `rating` double DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `desciption` varchar(255) NOT NULL,
+  `language_fk` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
+  KEY `movie_to_language_fk` (`language_fk`),
   FULLTEXT KEY `movie_title_IDX` (`title`,`subtitle`,`description`),
-  CONSTRAINT `language_fk` FOREIGN KEY (`id`) REFERENCES `language` (`id`) ON UPDATE CASCADE
+  CONSTRAINT `movie_to_language_fk` FOREIGN KEY (`language_fk`) REFERENCES `language` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie data table';
