@@ -75,4 +75,9 @@ public class Store {
 	@Setter
 	@OneToMany(mappedBy = "customerStore")
 	private List<Customer> customers;
+	
+	@Getter
+	@Setter
+	@OneToMany(mappedBy = "inventoryStore")
+	private List<Inventory> inventories;
 }
