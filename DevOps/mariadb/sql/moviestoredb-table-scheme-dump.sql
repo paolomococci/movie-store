@@ -184,12 +184,13 @@ CREATE TABLE `movie` (
 
 DROP TABLE IF EXISTS `movie_category`;
 CREATE TABLE `movie_category` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `category_fk` FOREIGN KEY (`id`) REFERENCES `category` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `movie_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie_category data table';
+  `movie_id` bigint(20) unsigned NOT NULL,
+  `category_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`movie_id`,`category_id`),
+  KEY `movie_category_to_category_fk` (`category_id`),
+  CONSTRAINT `movie_category_to_category_fk` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
+  CONSTRAINT `movie_category_to_movie_fk` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `movie_content`
@@ -197,12 +198,13 @@ CREATE TABLE `movie_category` (
 
 DROP TABLE IF EXISTS `movie_content`;
 CREATE TABLE `movie_content` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `content_table_fk` FOREIGN KEY (`id`) REFERENCES `content` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `movie_table_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie content data table';
+  `movie_id` bigint(20) unsigned NOT NULL,
+  `content_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`movie_id`,`content_id`),
+  KEY `movie_content_to_content_fk` (`content_id`),
+  CONSTRAINT `movie_content_to_content_fk` FOREIGN KEY (`content_id`) REFERENCES `content` (`id`),
+  CONSTRAINT `movie_content_to_movie_fk` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `movie_player`
@@ -210,12 +212,13 @@ CREATE TABLE `movie_content` (
 
 DROP TABLE IF EXISTS `movie_player`;
 CREATE TABLE `movie_player` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `film_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `player_fk` FOREIGN KEY (`id`) REFERENCES `player` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie_player data table';
+  `movie_id` bigint(20) unsigned NOT NULL,
+  `player_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`movie_id`,`player_id`),
+  KEY `movie_player_to_player_fk` (`player_id`),
+  CONSTRAINT `movie_player_to_movie_fk` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`),
+  CONSTRAINT `movie_player_to_player_fk` FOREIGN KEY (`player_id`) REFERENCES `player` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table `payment`
