@@ -25,6 +25,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
@@ -54,4 +56,22 @@ public class Payment {
 
 	@Getter
 	private Timestamp updated;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "rental_fk")
+	private Rental rental;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "customer_fk")
+	private Customer paymentCustomer;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "staff_fk")
+	private Staff paymentStaff;
 }
