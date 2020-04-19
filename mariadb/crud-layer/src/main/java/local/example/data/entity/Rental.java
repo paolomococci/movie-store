@@ -20,11 +20,15 @@ package local.example.data.entity;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -54,4 +58,27 @@ public class Rental {
 
 	@Getter
 	private Timestamp updated;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "inventory_fk")
+	private Inventory inventory;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "customer_fk")
+	private Customer customer;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "staff_fk")
+	private Staff staff;
+	
+	@Getter
+	@Setter
+	@OneToMany(mappedBy = "rental")
+	private List<Payment> payments;
 }
