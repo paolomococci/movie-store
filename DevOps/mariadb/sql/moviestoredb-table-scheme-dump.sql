@@ -120,10 +120,14 @@ DROP TABLE IF EXISTS `inventory`;
 CREATE TABLE `inventory` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `store_fk` bigint(20) unsigned DEFAULT NULL,
+  `movie_fk` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `inventory_movie_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `inventory_store_fk` FOREIGN KEY (`id`) REFERENCES `store` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='inventory data table';
+  KEY `inventory_to_store_fk` (`store_fk`),
+  KEY `inventory_to_movie_fk` (`movie_fk`),
+  CONSTRAINT `inventory_to_movie_fk` FOREIGN KEY (`movie_fk`) REFERENCES `movie` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `inventory_to_store_fk` FOREIGN KEY (`store_fk`) REFERENCES `store` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='inventory data table'
 
 --
 -- Table structure for table `iso3166`
@@ -230,11 +234,17 @@ CREATE TABLE `payment` (
   `amount` decimal(10,0) NOT NULL,
   `payed` date NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `customer_fk` bigint(20) unsigned DEFAULT NULL,
+  `staff_fk` bigint(20) unsigned DEFAULT NULL,
+  `rental_fk` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `payment_customer_fk` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `payment_rental_fk` FOREIGN KEY (`id`) REFERENCES `rental` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `payment_staff_fk` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='payment data table';
+  KEY `payment_to_customer_fk` (`customer_fk`),
+  KEY `payment_to_rental_fk` (`rental_fk`),
+  KEY `payment_to_staff_fk` (`staff_fk`),
+  CONSTRAINT `payment_to_customer_fk` FOREIGN KEY (`customer_fk`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `payment_to_rental_fk` FOREIGN KEY (`rental_fk`) REFERENCES `rental` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `payment_to_staff_fk` FOREIGN KEY (`staff_fk`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='payment data table'
 
 --
 -- Table structure for table `player`
@@ -260,11 +270,17 @@ CREATE TABLE `rental` (
   `rent` date NOT NULL,
   `back` date NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `inventory_fk` bigint(20) unsigned DEFAULT NULL,
+  `customer_fk` bigint(20) unsigned DEFAULT NULL,
+  `staff_fk` bigint(20) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `rental_customer_fk` FOREIGN KEY (`id`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `rental_inventory_fk` FOREIGN KEY (`id`) REFERENCES `inventory` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `rental_staff_fk` FOREIGN KEY (`id`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='rental data table';
+  KEY `rental_to_inventory_fk` (`inventory_fk`),
+  KEY `rental_to_customer_fk` (`customer_fk`),
+  KEY `rental_to_staff_fk` (`staff_fk`),
+  CONSTRAINT `rental_to_customer_fk` FOREIGN KEY (`customer_fk`) REFERENCES `customer` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `rental_to_inventory_fk` FOREIGN KEY (`inventory_fk`) REFERENCES `inventory` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `rental_to_staff_fk` FOREIGN KEY (`staff_fk`) REFERENCES `staff` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='rental data table'
 
 --
 -- Table structure for table `staff`
