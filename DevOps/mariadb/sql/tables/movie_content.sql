@@ -1,7 +1,8 @@
 CREATE TABLE `movie_content` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  CONSTRAINT `content_table_fk` FOREIGN KEY (`id`) REFERENCES `content` (`id`) ON UPDATE CASCADE,
-  CONSTRAINT `movie_table_fk` FOREIGN KEY (`id`) REFERENCES `movie` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='movie content data table';
+  `movie_id` bigint(20) unsigned NOT NULL,
+  `content_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`movie_id`,`content_id`),
+  KEY `movie_content_to_content_fk` (`content_id`),
+  CONSTRAINT `movie_content_to_content_fk` FOREIGN KEY (`content_id`) REFERENCES `content` (`id`),
+  CONSTRAINT `movie_content_to_movie_fk` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
