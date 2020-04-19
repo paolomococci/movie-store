@@ -19,13 +19,18 @@
 package local.example.data.entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 public class Inventory {
@@ -37,4 +42,21 @@ public class Inventory {
 
 	@Getter
 	private Timestamp updated;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "store_fk")
+	private Store inventoryStore;
+	
+	@Getter
+	@Setter
+	@ManyToOne
+	@JoinColumn(name = "movie_fk")
+	private Movie movie;
+	
+	@Getter
+	@Setter
+	@OneToMany(mappedBy = "inventory")
+	private List<Rental> rentals;
 }
