@@ -21,12 +21,15 @@ package local.example.data.entity;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -111,4 +114,31 @@ public class Movie {
 	@ManyToOne
 	@JoinColumn(name = "language_fk")
 	private Language language;
+	
+	@Getter
+	@Setter
+	@ManyToMany
+	@JoinTable(
+			name = "movie_category",
+			joinColumns = {@JoinColumn(name = "movie_id")},
+			inverseJoinColumns = {@JoinColumn(name = "category_id")})
+	private List<Category> categories;
+	
+	@Getter
+	@Setter
+	@ManyToMany
+	@JoinTable(
+			name = "movie_content",
+			joinColumns = {@JoinColumn(name = "movie_id")},
+			inverseJoinColumns = {@JoinColumn(name = "content_id")})
+	private List<Category> contents;
+	
+	@Getter
+	@Setter
+	@ManyToMany
+	@JoinTable(
+			name = "movie_player",
+			joinColumns = {@JoinColumn(name = "movie_id")},
+			inverseJoinColumns = {@JoinColumn(name = "player_id")})
+	private List<Category> players;
 }
