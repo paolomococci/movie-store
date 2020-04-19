@@ -31,6 +31,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
@@ -114,6 +115,11 @@ public class Movie {
 	@ManyToOne
 	@JoinColumn(name = "language_fk")
 	private Language language;
+	
+	@Getter
+	@Setter
+	@OneToMany(mappedBy = "movie")
+	private List<Inventory> inventories;
 	
 	@Getter
 	@Setter
