@@ -27,6 +27,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -41,6 +42,7 @@ public class Content {
 
 	@Getter
 	@Setter
+	@Size(min = 5, max = 255, message = "range of this value is 5 to 255 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z][a-zA-Z0-9 -]*[a-zA-Z]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_`, `-` and space are allowed"
