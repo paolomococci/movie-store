@@ -51,7 +51,7 @@ CREATE TABLE `city` (
 DROP TABLE IF EXISTS `content`;
 CREATE TABLE `content` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `subject` text DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='content data table';
@@ -127,7 +127,7 @@ CREATE TABLE `inventory` (
   KEY `inventory_to_movie_fk` (`movie_fk`),
   CONSTRAINT `inventory_to_movie_fk` FOREIGN KEY (`movie_fk`) REFERENCES `movie` (`id`) ON DELETE SET NULL,
   CONSTRAINT `inventory_to_store_fk` FOREIGN KEY (`store_fk`) REFERENCES `store` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='inventory data table'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='inventory data table';
 
 --
 -- Table structure for table `iso3166`
@@ -219,7 +219,6 @@ CREATE TABLE `movie_player` (
   `movie_id` bigint(20) unsigned NOT NULL,
   `player_id` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`movie_id`,`player_id`),
-  KEY `movie_player_to_player_fk` (`player_id`),
   CONSTRAINT `movie_player_to_movie_fk` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`),
   CONSTRAINT `movie_player_to_player_fk` FOREIGN KEY (`player_id`) REFERENCES `player` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -231,7 +230,7 @@ CREATE TABLE `movie_player` (
 DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `amount` decimal(10,0) NOT NULL,
+  `amount` double NOT NULL,
   `payed` date NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `customer_fk` bigint(20) unsigned DEFAULT NULL,
@@ -244,7 +243,7 @@ CREATE TABLE `payment` (
   CONSTRAINT `payment_to_customer_fk` FOREIGN KEY (`customer_fk`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `payment_to_rental_fk` FOREIGN KEY (`rental_fk`) REFERENCES `rental` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `payment_to_staff_fk` FOREIGN KEY (`staff_fk`) REFERENCES `staff` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='payment data table'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='payment data table';
 
 --
 -- Table structure for table `player`
@@ -280,7 +279,7 @@ CREATE TABLE `rental` (
   CONSTRAINT `rental_to_customer_fk` FOREIGN KEY (`customer_fk`) REFERENCES `customer` (`id`) ON DELETE SET NULL,
   CONSTRAINT `rental_to_inventory_fk` FOREIGN KEY (`inventory_fk`) REFERENCES `inventory` (`id`) ON DELETE SET NULL,
   CONSTRAINT `rental_to_staff_fk` FOREIGN KEY (`staff_fk`) REFERENCES `staff` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='rental data table'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='rental data table';
 
 --
 -- Table structure for table `staff`
