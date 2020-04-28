@@ -18,28 +18,75 @@
 
 package local.example.data.repository;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.net.URI;
 import java.util.stream.Stream;
 
+import javax.validation.ConstraintViolationException;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestMethodOrder(OrderAnnotation.class)
 public class MovieRepoMockMvcParametrizedTests {
 
-	private static String MOVIE_TEST_STRING = "{}"; // TODO
+	private static String MOVIE_TEST_STRING = 
+			"{\"title\":\"\",\"subtitle\":\"\",\"description\":\"\",\"comeout\":\"\",\"duration\":0,\"cost\":0.0,\"rent\":0.0,\"rating\":0.0}";
 	private static URI uri;
 
 	@Autowired
 	MockMvc mockMvc;
-	
-	// TODO
+
+	@Test
+	@Order(1)
+	@DisplayName("create a record into movie's data table")
+	void createTest() throws 
+			Exception, 
+			DataIntegrityViolationException, 
+			ConstraintViolationException {
+		MvcResult mvcResult = mockMvc
+			.perform(post("/movies").content(MOVIE_TEST_STRING))
+			.andExpect(status().isCreated())
+			.andReturn();
+		setUri(new URI(mvcResult.getResponse().getHeader("Location")));
+	}
+
+	@Order(2)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("read a record from the movie's data table identifying it from the uri")
+	void readTest(String uri) 
+			throws Exception {
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.title").value(""))
+			.andExpect(jsonPath("$.subtitle").value(""))
+			.andExpect(jsonPath("$.description").value(""))
+			.andExpect(jsonPath("$.comeout").value(""))
+			.andExpect(jsonPath("$.duration").value(0))
+			.andExpect(jsonPath("$.cost").value(0.0))
+			.andExpect(jsonPath("$.rent").value(0.0))
+			.andExpect(jsonPath("$.rating").value(0.0));
+	}
 
 	private static URI getUri() {
 		return uri;
