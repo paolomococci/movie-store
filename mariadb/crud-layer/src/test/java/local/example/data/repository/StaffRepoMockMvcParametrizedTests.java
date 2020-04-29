@@ -18,7 +18,9 @@
 
 package local.example.data.repository;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -49,7 +51,7 @@ import org.springframework.test.web.servlet.MvcResult;
 public class StaffRepoMockMvcParametrizedTests {
 
 	private static String STAFF_TEST_STRING = 
-			"{\"name\":\"\",\"nickname\":\"\",\"surname\":\"\",\"phone\":\"\",\"mobile\":\"\",\"email\":\"\",\"username\":\"password\",\"\":\"\",\"active\":true}";
+			"{\"name\":\"John\",\"nickname\":\"jump\",\"surname\":\"Do\",\"phone\":\"987654321\",\"mobile\":\"012-12345678\",\"email\":\"johndo@example.local\",\"username\":\"johndo\",\"password\":\"secretpassword\",\"active\":true}";
 	private static URI uri;
 
 	@Autowired
@@ -78,15 +80,52 @@ public class StaffRepoMockMvcParametrizedTests {
 			throws Exception {
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.name").value(""))
-			.andExpect(jsonPath("$.nickname").value(""))
-			.andExpect(jsonPath("$.surname").value(""))
-			.andExpect(jsonPath("$.phone").value(""))
-			.andExpect(jsonPath("$.mobile").value(""))
-			.andExpect(jsonPath("$.email").value(""))
-			.andExpect(jsonPath("$.username").value(""))
-			.andExpect(jsonPath("$.password").value(""))
-			.andExpect(jsonPath("$.active").value(""));
+			.andExpect(jsonPath("$.name").value("John"))
+			.andExpect(jsonPath("$.nickname").value("jump"))
+			.andExpect(jsonPath("$.surname").value("Do"))
+			.andExpect(jsonPath("$.phone").value("987654321"))
+			.andExpect(jsonPath("$.mobile").value("012-12345678"))
+			.andExpect(jsonPath("$.email").value("johndo@example.local"))
+			.andExpect(jsonPath("$.username").value("johndo"))
+			.andExpect(jsonPath("$.password").value("secretpassword"))
+			.andExpect(jsonPath("$.active").value(true));
+	}
+
+	@Order(3)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("partial update a record into the staff's data table identifying it from the uri")
+	void patchTest(String uri) 
+			throws Exception {
+		mockMvc.perform(patch(uri)
+			.content("{\"surname\":\"Jump\"}"))
+			.andExpect(status().isNoContent()); 
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.surname").value("Jump"));
+	}
+
+	@Order(4)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("delete a record from the staff's data table identifying it from the uri")
+	void deleteTest(String uri) 
+			throws Exception {
+		mockMvc.perform(delete(uri))
+			.andExpect(status().isNoContent());
+	}
+
+	@Order(5)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("try to read a deleted record from the staff's data table identifying it from the uri")
+	void notFoundTest(String uri) 
+			throws Exception {
+		mockMvc.perform(get(uri))
+			.andExpect(status().isNotFound());
 	}
 
 	private static URI getUri() {
