@@ -18,8 +18,10 @@
 
 package local.example.data.repository;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -78,6 +80,43 @@ public class StoreRepoMockMvcParametrizedTests {
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.name").value("More_Example_Store"));
+	}
+
+	@Order(3)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("update a record into the store's data table identifying it from the uri")
+	void putTest(String uri) 
+			throws Exception {
+		mockMvc.perform(put(uri)
+			.content("{\"name\":\"Less_Example_Store\"}"))
+			.andExpect(status().isNoContent()); 
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.name").value("Less_Example_Store"));
+	}
+
+	@Order(4)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("delete a record from the store's data table identifying it from the uri")
+	void deleteTest(String uri) 
+			throws Exception {
+		mockMvc.perform(delete(uri))
+			.andExpect(status().isNoContent());
+	}
+
+	@Order(5)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("try to read a deleted record from the store's data table identifying it from the uri")
+	void notFoundTest(String uri) 
+			throws Exception {
+		mockMvc.perform(get(uri))
+			.andExpect(status().isNotFound());
 	}
 
 	private static URI getUri() {
