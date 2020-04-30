@@ -34,9 +34,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -81,12 +82,13 @@ public class Movie {
 	@Getter
 	@Setter
 	@NotNull
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date comeout;
 
 	@Getter
 	@Setter
 	@NotNull
-	@Positive
+	@JsonFormat(pattern = "HH:mm:ss")
 	private Time duration;
 
 	@Getter
