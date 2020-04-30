@@ -31,6 +31,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,6 +54,7 @@ public class Payment {
 	@Setter
 	@NotNull
 	@PastOrPresent
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date payed;
 
 	@Getter
