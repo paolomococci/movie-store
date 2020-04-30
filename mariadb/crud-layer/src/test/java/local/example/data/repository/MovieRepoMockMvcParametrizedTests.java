@@ -18,8 +18,11 @@
 
 package local.example.data.repository;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -86,6 +89,65 @@ public class MovieRepoMockMvcParametrizedTests {
 			.andExpect(jsonPath("$.cost").value(0.0))
 			.andExpect(jsonPath("$.rent").value(0.0))
 			.andExpect(jsonPath("$.rating").value(0.0));
+	}
+
+	@Order(3)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("update a record into the movie's data table identifying it from the uri")
+	void putTest(String uri) 
+			throws Exception {
+		mockMvc.perform(put(uri)
+			.content("{\"title\":\"\",\"subtitle\":\"\",\"description\":\"\",\"comeout\":\"\",\"duration\":\"\",\"cost\":\"\",\"rent\":\"\",\"rating\":\"\"}"))
+			.andExpect(status().isNoContent()); 
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.title").value(""))
+			.andExpect(jsonPath("$.subtitle").value(""))
+			.andExpect(jsonPath("$.description").value(""))
+			.andExpect(jsonPath("$.comeout").value(""))
+			.andExpect(jsonPath("$.duration").value(0))
+			.andExpect(jsonPath("$.cost").value(0.0))
+			.andExpect(jsonPath("$.rent").value(0.0))
+			.andExpect(jsonPath("$.rating").value(0.7));
+	}
+
+	@Order(4)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("partial update a record into the movie's data table identifying it from the uri")
+	void patchTest(String uri) 
+			throws Exception {
+		mockMvc.perform(patch(uri)
+			.content("{\"rating\":0.45}"))
+			.andExpect(status().isNoContent()); 
+		mockMvc.perform(get(uri))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.rating").value(0.45));
+	}
+
+	@Order(5)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("delete a record from the movie's data table identifying it from the uri")
+	void deleteTest(String uri) 
+			throws Exception {
+		mockMvc.perform(delete(uri))
+			.andExpect(status().isNoContent());
+	}
+
+	@Order(6)
+	@Disabled
+	@ParameterizedTest
+	@MethodSource("initUri")
+	@DisplayName("try to read a deleted record from the movie's data table identifying it from the uri")
+	void notFoundTest(String uri) 
+			throws Exception {
+		mockMvc.perform(get(uri))
+			.andExpect(status().isNotFound());
 	}
 
 	private static URI getUri() {
