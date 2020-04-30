@@ -33,6 +33,8 @@ import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -48,12 +50,14 @@ public class Rental {
 	@Setter
 	@NotNull
 	@PastOrPresent
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date rent;
 
 	@Getter
 	@Setter
 	@NotNull
 	@FutureOrPresent
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date back;
 
 	@Getter
