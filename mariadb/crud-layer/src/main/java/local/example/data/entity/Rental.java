@@ -29,7 +29,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -48,12 +50,14 @@ public class Rental {
 	@Setter
 	@NotNull
 	@JsonFormat(pattern = "yyyy-MM-dd")
+	@PastOrPresent(groups = java.sql.Date.class)
 	private Date rent;
 
 	@Getter
 	@Setter
 	@NotNull
 	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Future(groups = java.sql.Date.class)
 	private Date back;
 
 	@Getter
