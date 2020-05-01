@@ -28,7 +28,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -53,7 +52,6 @@ public class Payment {
 	@Getter
 	@Setter
 	@NotNull
-	@PastOrPresent
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date payed;
 
