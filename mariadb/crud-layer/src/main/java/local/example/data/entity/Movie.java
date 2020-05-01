@@ -33,6 +33,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
@@ -83,6 +84,7 @@ public class Movie {
 	@Setter
 	@NotNull
 	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Past(groups = java.util.Date.class)
 	private Date comeout;
 
 	@Getter
