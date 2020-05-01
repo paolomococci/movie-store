@@ -51,7 +51,7 @@ import org.springframework.test.web.servlet.MvcResult;
 @TestMethodOrder(OrderAnnotation.class)
 public class RentalRepoMockMvcParametrizedTests {
 
-	private static String RENTAL_TEST_STRING = "{\"rent\":\"\",\"back\":\"\"}";
+	private static String RENTAL_TEST_STRING = "{\"rent\":\"2020-04-28\",\"back\":\"2020-05-01\"}";
 	private static URI uri;
 
 	@Autowired
@@ -80,8 +80,8 @@ public class RentalRepoMockMvcParametrizedTests {
 			throws Exception {
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.rent").value(""))
-			.andExpect(jsonPath("$.back").value(""));
+			.andExpect(jsonPath("$.rent").value("2020-04-28"))
+			.andExpect(jsonPath("$.back").value("2020-05-01"));
 	}
 
 	@Order(3)
@@ -92,12 +92,12 @@ public class RentalRepoMockMvcParametrizedTests {
 	void putTest(String uri) 
 			throws Exception {
 		mockMvc.perform(put(uri)
-			.content("{\"rent\":\"\",\"back\":\"\"}"))
+			.content("{\"rent\":\"2020-04-29\",\"back\":\"2020-05-02\"}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.rent").value(""))
-			.andExpect(jsonPath("$.back").value(""));
+			.andExpect(jsonPath("$.rent").value("2020-04-29"))
+			.andExpect(jsonPath("$.back").value("2020-05-02"));
 	}
 
 	@Order(4)
@@ -108,11 +108,11 @@ public class RentalRepoMockMvcParametrizedTests {
 	void patchTest(String uri) 
 			throws Exception {
 		mockMvc.perform(patch(uri)
-			.content("{\"back\":\"\"}"))
+			.content("{\"back\":\"2020-05-03\"}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.back").value(""));
+			.andExpect(jsonPath("$.back").value("2020-05-03"));
 	}
 
 	@Order(5)
