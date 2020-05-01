@@ -51,7 +51,7 @@ import org.springframework.test.web.servlet.MvcResult;
 @TestMethodOrder(OrderAnnotation.class)
 public class PaymentRepoMockMvcParametrizedTests {
 
-	private static String PAYMENT_TEST_STRING = "{\"amount\":0.0,\"payed\":\"\"}";
+	private static String PAYMENT_TEST_STRING = "{\"amount\":1.3,\"payed\":\"2020-04-28\"}";
 	private static URI uri;
 
 	@Autowired
@@ -80,8 +80,8 @@ public class PaymentRepoMockMvcParametrizedTests {
 			throws Exception {
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.amount").value(0.0))
-			.andExpect(jsonPath("$.payed").value(""));
+			.andExpect(jsonPath("$.amount").value(1.3))
+			.andExpect(jsonPath("$.payed").value("2020-04-28"));
 	}
 
 	@Order(3)
@@ -92,12 +92,12 @@ public class PaymentRepoMockMvcParametrizedTests {
 	void putTest(String uri) 
 			throws Exception {
 		mockMvc.perform(put(uri)
-			.content("{\"amount\":0.0,\"payed\":\"\"}"))
+			.content("{\"amount\":1.2,\"payed\":\"2020-04-29\"}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.amount").value(0.0))
-			.andExpect(jsonPath("$.payed").value(""));
+			.andExpect(jsonPath("$.amount").value(1.2))
+			.andExpect(jsonPath("$.payed").value("2020-04-29"));
 	}
 
 	@Order(4)
@@ -108,11 +108,11 @@ public class PaymentRepoMockMvcParametrizedTests {
 	void patchTest(String uri) 
 			throws Exception {
 		mockMvc.perform(patch(uri)
-			.content("{\"payed\":\"\"}"))
+			.content("{\"payed\":\"2020-04-30\"}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.payed").value(""));
+			.andExpect(jsonPath("$.payed").value("2020-04-30"));
 	}
 
 	@Order(5)
