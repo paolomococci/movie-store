@@ -77,7 +77,7 @@ public class Movie {
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
 			)
-	private String desciption;
+	private String description;
 
 	@Getter
 	@Setter
