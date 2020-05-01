@@ -52,7 +52,7 @@ import org.springframework.test.web.servlet.MvcResult;
 public class MovieRepoMockMvcParametrizedTests {
 
 	private static String MOVIE_TEST_STRING = 
-			"{\"title\":\"\",\"subtitle\":\"\",\"description\":\"\",\"comeout\":\"\",\"duration\":0,\"cost\":0.0,\"rent\":0.0,\"rating\":0.0}";
+			"{\"title\":\"Action_H2O\",\"subtitle\":\"splashing_action_movie\",\"description\":\"like_a_comic_book\",\"comeout\":\"2019-05-01\",\"duration\":\"01:45:00\",\"cost\":0.45,\"rent\":1.3,\"rating\":0.35}";
 	private static URI uri;
 
 	@Autowired
@@ -81,14 +81,14 @@ public class MovieRepoMockMvcParametrizedTests {
 			throws Exception {
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.title").value(""))
-			.andExpect(jsonPath("$.subtitle").value(""))
-			.andExpect(jsonPath("$.description").value(""))
-			.andExpect(jsonPath("$.comeout").value(""))
-			.andExpect(jsonPath("$.duration").value(0))
-			.andExpect(jsonPath("$.cost").value(0.0))
-			.andExpect(jsonPath("$.rent").value(0.0))
-			.andExpect(jsonPath("$.rating").value(0.0));
+			.andExpect(jsonPath("$.title").value("Action_H2O"))
+			.andExpect(jsonPath("$.subtitle").value("splashing_action_movie"))
+			.andExpect(jsonPath("$.description").value("like_a_comic_book"))
+			.andExpect(jsonPath("$.comeout").value("2019-05-01"))
+			.andExpect(jsonPath("$.duration").value("01:45:00"))
+			.andExpect(jsonPath("$.cost").value(0.45))
+			.andExpect(jsonPath("$.rent").value(1.3))
+			.andExpect(jsonPath("$.rating").value(0.35));
 	}
 
 	@Order(3)
@@ -99,18 +99,18 @@ public class MovieRepoMockMvcParametrizedTests {
 	void putTest(String uri) 
 			throws Exception {
 		mockMvc.perform(put(uri)
-			.content("{\"title\":\"\",\"subtitle\":\"\",\"description\":\"\",\"comeout\":\"\",\"duration\":\"\",\"cost\":\"\",\"rent\":\"\",\"rating\":\"\"}"))
+			.content("{\"title\":\"Splashing_Water\",\"subtitle\":\"swim_action_movie\",\"description\":\"like_a_manga_book\",\"comeout\":\"2019-05-05\",\"duration\":\"01:26:10\",\"cost\":0.4,\"rent\":0.95,\"rating\":0.2}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.title").value(""))
-			.andExpect(jsonPath("$.subtitle").value(""))
-			.andExpect(jsonPath("$.description").value(""))
-			.andExpect(jsonPath("$.comeout").value(""))
-			.andExpect(jsonPath("$.duration").value(0))
-			.andExpect(jsonPath("$.cost").value(0.0))
-			.andExpect(jsonPath("$.rent").value(0.0))
-			.andExpect(jsonPath("$.rating").value(0.7));
+			.andExpect(jsonPath("$.title").value("Splashing_Water"))
+			.andExpect(jsonPath("$.subtitle").value("swim_action_movie"))
+			.andExpect(jsonPath("$.description").value("like_a_manga_book"))
+			.andExpect(jsonPath("$.comeout").value("2019-05-05"))
+			.andExpect(jsonPath("$.duration").value("01:26:10"))
+			.andExpect(jsonPath("$.cost").value(0.4))
+			.andExpect(jsonPath("$.rent").value(0.95))
+			.andExpect(jsonPath("$.rating").value(0.2));
 	}
 
 	@Order(4)
@@ -121,11 +121,11 @@ public class MovieRepoMockMvcParametrizedTests {
 	void patchTest(String uri) 
 			throws Exception {
 		mockMvc.perform(patch(uri)
-			.content("{\"rating\":0.45}"))
+			.content("{\"rating\":0.25}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.rating").value(0.45));
+			.andExpect(jsonPath("$.rating").value(0.25));
 	}
 
 	@Order(5)
