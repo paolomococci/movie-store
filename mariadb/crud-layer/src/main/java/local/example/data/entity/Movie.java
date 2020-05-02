@@ -38,6 +38,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
@@ -84,7 +86,7 @@ public class Movie {
 	@Setter
 	@NotNull
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	@Past(groups = java.util.Date.class)
+	@Past(groups = java.sql.Date.class)
 	private Date comeout;
 
 	@Getter
@@ -108,7 +110,7 @@ public class Movie {
 	@Getter
 	@Setter
 	@NotNull
-	@PositiveOrZero
+	@Range(min = 0L, max = 1L, message = "values between zero and one are allowed")
 	private Double rating;
 
 	@Getter
