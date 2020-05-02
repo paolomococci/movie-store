@@ -115,11 +115,11 @@ public class CustomerRepoMockMvcParametrizedTests {
 	void patchTest(String uri) 
 			throws Exception {
 		mockMvc.perform(patch(uri)
-			.content("{\"active\":\"false\"}"))
+			.content("{\"active\":false}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.active").value("false"));
+			.andExpect(jsonPath("$.active").value(false));
 	}
 
 	@Order(5)
