@@ -54,7 +54,7 @@ public class Payment {
 	@Setter
 	@NotNull
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	@PastOrPresent(groups = java.util.Date.class)
+	@PastOrPresent(groups = java.sql.Date.class)
 	private Date payed;
 
 	@Getter
