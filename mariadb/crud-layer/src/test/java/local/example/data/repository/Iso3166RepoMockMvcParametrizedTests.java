@@ -42,12 +42,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+/* 
+ * Warning: before you can perform this series of tests 
+ * it's necessary to change the maximum acceptable value 
+ * from the field "code" in the class Iso3166 
+ * ...
+ * @Max(901)
+ * ...
+ */
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestMethodOrder(OrderAnnotation.class)
 public class Iso3166RepoMockMvcParametrizedTests {
 
-	private static String ISO3166_TEST_STRING = "{\"name\": \"Italy\",\"code\":380,\"signature\":\"ITA\"}";
+	private static String ISO3166_TEST_STRING = "{\"name\": \"NeverLand\",\"code\":900,\"signature\":\"NVL\"}";
 	private static URI uri;
 
 	@Autowired
@@ -73,9 +82,9 @@ public class Iso3166RepoMockMvcParametrizedTests {
 			throws Exception {
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.name").value("Italy"))
-			.andExpect(jsonPath("$.code").value(380))
-			.andExpect(jsonPath("$.signature").value("ITA"));
+			.andExpect(jsonPath("$.name").value("NeverLand"))
+			.andExpect(jsonPath("$.code").value(900))
+			.andExpect(jsonPath("$.signature").value("NVL"));
 	}
 
 	@Order(3)
@@ -85,11 +94,11 @@ public class Iso3166RepoMockMvcParametrizedTests {
 	void putTest(String uri) 
 			throws Exception {
 		mockMvc.perform(put(uri)
-			.content("{\"name\": \"Italy\",\"code\":380,\"signature\":\"IT\"}"))
+			.content("{\"name\": \"Never_Land\",\"code\":901,\"signature\":\"NNN\"}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.signature").value("IT"));
+			.andExpect(jsonPath("$.signature").value("NNN"));
 	}
 
 	@Order(4)
@@ -99,11 +108,11 @@ public class Iso3166RepoMockMvcParametrizedTests {
 	void patchTest(String uri) 
 			throws Exception {
 		mockMvc.perform(patch(uri)
-			.content("{\"signature\":\"ITA\"}"))
+			.content("{\"signature\":\"NNL\"}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.signature").value("ITA"));
+			.andExpect(jsonPath("$.signature").value("NNL"));
 	}
 
 	@Order(5)
