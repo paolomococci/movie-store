@@ -29,7 +29,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.net.URI;
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -49,14 +48,13 @@ import org.springframework.test.web.servlet.MvcResult;
 public class DistrictRepoMockMvcParametrizedTests {
 
 	private static String DISTRICT_TEST_STRING = 
-			"{\"name\":\"NeverPoint\",\"code\":\"01234\"}";
+			"{\"name\":\"NeverPoint\",\"code\":\"001234\"}";
 	private static URI uri;
 
 	@Autowired
 	MockMvc mockMvc;
 	
 	@Test
-	@Disabled
 	@Order(1)
 	@DisplayName("create a record into country's data table")
 	void createTest() 
@@ -69,7 +67,6 @@ public class DistrictRepoMockMvcParametrizedTests {
 	}
 
 	@Order(2)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("read a record from the district's data table identifying it from the uri")
@@ -78,27 +75,25 @@ public class DistrictRepoMockMvcParametrizedTests {
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.name").value("NeverPoint"))
-			.andExpect(jsonPath("$.code").value("01234"));
+			.andExpect(jsonPath("$.code").value("001234"));
 	}
 
 	@Order(3)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("update a record into the district's data table identifying it from the uri")
 	void putTest(String uri) 
 			throws Exception {
 		mockMvc.perform(put(uri)
-			.content("{\"name\":\"GreenPoint\",\"code\":\"98765\"}"))
+			.content("{\"name\":\"GreenPoint\",\"code\":\"098765\"}"))
 			.andExpect(status().isNoContent()); 
 		mockMvc.perform(get(uri))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.name").value("GreenPoint"))
-			.andExpect(jsonPath("$.code").value("98765"));
+			.andExpect(jsonPath("$.code").value("098765"));
 	}
 
 	@Order(4)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("partial update a record into the district's data table identifying it from the uri")
@@ -113,7 +108,6 @@ public class DistrictRepoMockMvcParametrizedTests {
 	}
 
 	@Order(5)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("delete a record from the district's data table identifying it from the uri")
@@ -124,7 +118,6 @@ public class DistrictRepoMockMvcParametrizedTests {
 	}
 
 	@Order(6)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("try to read a deleted record from the district's data table identifying it from the uri")
