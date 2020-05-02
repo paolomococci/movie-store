@@ -31,12 +31,11 @@ import java.util.stream.Stream;
 
 import javax.validation.ConstraintViolationException;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +72,6 @@ public class MovieRepoMockMvcParametrizedTests {
 	}
 
 	@Order(2)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("read a record from the movie's data table identifying it from the uri")
@@ -92,7 +90,6 @@ public class MovieRepoMockMvcParametrizedTests {
 	}
 
 	@Order(3)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("update a record into the movie's data table identifying it from the uri")
@@ -114,7 +111,6 @@ public class MovieRepoMockMvcParametrizedTests {
 	}
 
 	@Order(4)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("partial update a record into the movie's data table identifying it from the uri")
@@ -129,7 +125,6 @@ public class MovieRepoMockMvcParametrizedTests {
 	}
 
 	@Order(5)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("delete a record from the movie's data table identifying it from the uri")
@@ -140,7 +135,6 @@ public class MovieRepoMockMvcParametrizedTests {
 	}
 
 	@Order(6)
-	@Disabled
 	@ParameterizedTest
 	@MethodSource("initUri")
 	@DisplayName("try to read a deleted record from the movie's data table identifying it from the uri")
