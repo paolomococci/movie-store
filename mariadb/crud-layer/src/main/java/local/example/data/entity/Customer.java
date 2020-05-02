@@ -35,6 +35,8 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -104,7 +106,8 @@ public class Customer {
 	@Getter
 	@Setter
 	@NotNull
-	@Past
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	@Past(groups = java.sql.Date.class)
 	private Date birthday;
 
 	@Getter
