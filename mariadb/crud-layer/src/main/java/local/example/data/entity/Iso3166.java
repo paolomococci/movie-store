@@ -49,7 +49,7 @@ public class Iso3166 {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 3, max = 100, message = "range of this value is 3 to 100 characters")
+	@Size(min = 3, max = 100, message = "size range of this field is 3 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
@@ -68,7 +68,7 @@ public class Iso3166 {
 	@Setter
 	@NotNull
 	@Column(unique = true)
-	@Size(min = 2, max = 3, message = "range of this value is 2 to 3 characters")
+	@Size(min = 2, max = 3, message = "range of this field is 2 to 3 characters")
 	@Pattern(
 			regexp = "^[A-Z]*$", 
 			message = "only the characters`A-Z` are allowed"
