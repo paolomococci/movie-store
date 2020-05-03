@@ -51,7 +51,7 @@ public class Customer {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z-]*$", 
 			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
@@ -60,7 +60,7 @@ public class Customer {
 
 	@Getter
 	@Setter
-	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Size(max = 100, message = "max of this field is 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z-]*$", 
 			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
@@ -70,7 +70,7 @@ public class Customer {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z-]*$", 
 			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
@@ -79,7 +79,7 @@ public class Customer {
 
 	@Getter
 	@Setter
-	@Size(min = 5, max = 20, message = "range of this value is 5 to 20 characters")
+	@Size(max = 20, message = "max of this field is 20 characters")
 	@Pattern(
 			regexp = "^[0-9-]*$", 
 			message = "only the characters `0-9` and `-` are allowed"
@@ -89,7 +89,7 @@ public class Customer {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 12, max = 20, message = "range of this value is 12 to 20 characters")
+	@Size(min = 12, max = 20, message = "size range of this field is 12 to 20 characters")
 	@Pattern(
 			regexp = "^[0-9-]*$", 
 			message = "only the characters `0-9` and `-` are allowed"
@@ -100,7 +100,7 @@ public class Customer {
 	@Setter
 	@NotNull
 	@Email
-	@Size(min = 5, max = 50, message = "range of this value is 5 to 50 characters")
+	@Size(min = 5, max = 50, message = "size range of this field is 5 to 50 characters")
 	private String email;
 
 	@Getter
