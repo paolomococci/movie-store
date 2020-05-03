@@ -49,7 +49,7 @@ public class Store {
 	@Size(
 			min = 1, 
 			max = 50, 
-			message = "range of this value is 1 to 50 characters"
+			message = "size range of this field is 1 to 50 characters"
 			)
 	@Pattern(
 			regexp = "^[a-zA-Z0-9_-]*$", 
