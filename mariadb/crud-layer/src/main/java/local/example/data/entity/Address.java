@@ -47,7 +47,7 @@ public class Address {
 
 	@Getter
 	@Setter
-	@Size(min = 1, max = 255, message = "range of this value is 1 to 255 characters")
+	@Size(max = 255, message = "max of this field is 255 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z]*$", 
 			message = "only the characters `a-z` and `A-Z` characters"
@@ -57,7 +57,7 @@ public class Address {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
@@ -67,7 +67,7 @@ public class Address {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 10, message = "range of this value is 1 to 10 characters")
+	@Size(min = 1, max = 10, message = "size range of this field is 1 to 10 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9` and `-` are allowed"
@@ -76,7 +76,7 @@ public class Address {
 
 	@Getter
 	@Setter
-	@Size(min = 5, max = 25, message = "range of this value is 5 to 25 characters")
+	@Size(max = 25, message = "max of this field is 25 characters")
 	@Pattern(
 			regexp = "^[0-9-]*$", 
 			message = "only the characters `0-9` and `-` are allowed"
