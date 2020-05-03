@@ -48,7 +48,7 @@ public class City {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
