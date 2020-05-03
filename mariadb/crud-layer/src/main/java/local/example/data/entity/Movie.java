@@ -56,7 +56,7 @@ public class Movie {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
@@ -65,7 +65,7 @@ public class Movie {
 
 	@Getter
 	@Setter
-	@Size(min = 1, max = 100, message = "range of this value is 1 to 100 characters")
+	@Size(max = 100, message = "max of this field is 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
@@ -75,7 +75,7 @@ public class Movie {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 5, max = 255, message = "range of this value is 5 to 255 characters")
+	@Size(min = 5, max = 255, message = "size range of this field is 5 to 255 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
@@ -110,7 +110,7 @@ public class Movie {
 	@Getter
 	@Setter
 	@NotNull
-	@Range(min = 0L, max = 1L, message = "values between zero and one are allowed")
+	@Range(min = 0L, max = 1L, message = "fields between zero and one are allowed")
 	private Double rating;
 
 	@Getter
