@@ -1,3 +1,35 @@
 #!/bin/bash
 
-curl -v -i -H "Content-Type:application/json" -d '{"name":"","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"action","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"adventure","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"apocalyptic","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"biker","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"biographical","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"children","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"comedy","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"comic","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"detective","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"disaster","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"drama","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"fantasy","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"erotic","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"grotesque","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"historical","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"horror","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"investigation","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"journalistic","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"martial-arts","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"mythological","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"musical","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"noir","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"religious","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"romance","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"romantic","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"sci-fi","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"sports","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"superhero","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"teen","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"terrorism","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"thriller","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"war","description":""}' http://127.0.0.1:8080/categories
+curl -v -i -H "Content-Type:application/json" -d '{"name":"western","description":""}' http://127.0.0.1:8080/categories
