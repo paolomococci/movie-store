@@ -44,7 +44,7 @@ public class Category {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 5, max = 50, message = "range of this value is 5 to 50 characters")
+	@Size(min = 3, max = 50, message = "size range of this field is 3 to 50 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
@@ -53,9 +53,9 @@ public class Category {
 
 	@Getter
 	@Setter
-	@Size(min = 5, max = 200, message = "range of this value is 5 to 200 characters")
+	@Size(max = 200, message = "max field is 200 characters")
 	@Pattern(
-			regexp = "^[a-zA-Z][a-zA-Z0-9 -]*[a-zA-Z]*$", 
+			regexp = "^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_`, `-` and space are allowed"
 			)
 	private String description;
