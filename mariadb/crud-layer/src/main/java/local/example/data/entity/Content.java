@@ -42,9 +42,9 @@ public class Content {
 
 	@Getter
 	@Setter
-	@Size(min = 5, max = 255, message = "range of this value is 5 to 255 characters")
+	@Size(max = 255, message = "max of this field is 255 characters")
 	@Pattern(
-			regexp = "^[a-zA-Z][a-zA-Z0-9 -]*[a-zA-Z]*$", 
+			regexp = "^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_`, `-` and space are allowed"
 			)
 	private String subject;
