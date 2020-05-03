@@ -48,7 +48,7 @@ public class District {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 1, max = 50, message = "range of this value is 1 to 50 characters")
+	@Size(min = 1, max = 50, message = "size range of this field is 1 to 50 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the charactersy `a-z`, `A-Z`, `_` and `-` are allowed"
@@ -58,7 +58,7 @@ public class District {
 	@Getter
 	@Setter
 	@NotNull
-	@Size(min = 3, max = 6, message = "range of this value is 3 to 6 characters")
+	@Size(min = 3, max = 6, message = "size range of this field is 3 to 6 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
