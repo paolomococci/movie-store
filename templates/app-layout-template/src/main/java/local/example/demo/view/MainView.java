@@ -18,6 +18,20 @@
 
 package local.example.demo.view;
 
-public class MainView {
+import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 
+import local.example.demo.view.layout.MainLayout;
+
+@Route(value = "", layout = MainLayout.class)
+@PageTitle(value = "main")
+public class MainView 
+		extends Main {
+
+	private static final long serialVersionUID = -2639492726122990799L;
+
+	public MainView() {
+		super();
+	}
 }
