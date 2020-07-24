@@ -18,6 +18,23 @@
 
 package local.example.demo.view;
 
-public class FourthView {
+import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 
+import local.example.demo.view.layout.MainLayout;
+
+@Route(value = "fourth", layout = MainLayout.class)
+@PageTitle(value = "fourth")
+public class FourthView 
+		extends Main {
+
+	private static final long serialVersionUID = -4571286337365641679L;
+
+	@SuppressWarnings("unused")
+	private static final String RESTFUL_URI = "";
+
+	public FourthView() {
+		super();
+	}
 }
