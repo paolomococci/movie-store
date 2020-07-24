@@ -18,6 +18,26 @@
 
 package local.example.demo.view.layout;
 
-public class MainLayout {
+import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.page.Push;
+import com.vaadin.flow.router.AfterNavigationEvent;
+import com.vaadin.flow.router.AfterNavigationObserver;
 
+@Push
+@CssImport(value = "style.css")
+public class MainLayout 
+		extends AppLayout 
+		implements AfterNavigationObserver {
+
+	private static final long serialVersionUID = 8822844864605786754L;
+
+	public MainLayout() {
+		super();
+	}
+
+	@Override
+	public void afterNavigation(AfterNavigationEvent afterNavigationEvent) {
+		// TODO
+	}
 }
