@@ -18,6 +18,23 @@
 
 package local.example.demo.view;
 
-public class FirstView {
+import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 
+import local.example.demo.view.layout.MainLayout;
+
+@Route(value = "first", layout = MainLayout.class)
+@PageTitle(value = "first")
+public class FirstView 
+		extends Main {
+	
+	private static final long serialVersionUID = -8065708225330695536L;
+
+	@SuppressWarnings("unused")
+	private static final String RESTFUL_URI = "";
+
+	public FirstView() {
+		super();
+	}
 }
