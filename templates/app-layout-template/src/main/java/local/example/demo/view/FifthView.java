@@ -18,6 +18,23 @@
 
 package local.example.demo.view;
 
-public class FifthView {
+import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 
+import local.example.demo.view.layout.MainLayout;
+
+@Route(value = "fifth", layout = MainLayout.class)
+@PageTitle(value = "fifth")
+public class FifthView 
+		extends Main {
+
+	private static final long serialVersionUID = 1757542175322369252L;
+
+	@SuppressWarnings("unused")
+	private static final String RESTFUL_URI = "";
+
+	public FifthView() {
+		super();
+	}
 }
