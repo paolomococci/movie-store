@@ -18,6 +18,54 @@
 
 package local.example.demo.view;
 
-public class ItemView {
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
+import org.springframework.web.server.ResponseStatusException;
+
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
+import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+import local.example.demo.model.Item;
+import local.example.demo.retrieve.ItemRestfulRetriever;
+import local.example.demo.view.layout.MainLayout;
+
+@Route(value = "item", layout = MainLayout.class)
+@PageTitle(value = "item view")
+public class ItemView 
+		extends Main {
+
+	private static final long serialVersionUID = 4294516240578204103L;
+
+	private static final String RESTFUL_URI = "http://127.0.0.1:8091/";
+	
+	private final Grid<Item> itemGrid;
+	private final Button retrieveButton;
+
+	public ItemView() {
+		super();
+		this.itemGrid = new Grid<>();
+		this.itemGrid.addColumn(item -> item.getCode()).setHeader("code").setSortable(true).setTextAlign(ColumnTextAlign.START);
+		this.itemGrid.addColumn(item -> item.getName()).setHeader("name").setSortable(true);
+		this.retrieveButton = new Button(
+				"recovers all items", 
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(), 
+				listener -> {
+						try {
+							this.itemGrid.setItems(ItemRestfulRetriever.getListOfItems(new URI(RESTFUL_URI)));
+						} catch (
+								ResponseStatusException | IOException | URISyntaxException exception) {
+							exception.printStackTrace();
+						}
+				});
+		this.retrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+		this.add(this.retrieveButton, this.itemGrid);
+	}
 }
