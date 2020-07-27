@@ -20,41 +20,33 @@ package local.example.demo.retrieve;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.client.Traverson;
+import org.springframework.hateoas.client.Traverson.TraversalBuilder;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import local.example.demo.model.Item;
 
 public class ItemRestfulRetriever {
 
-	public static Item getIdentifiedItem(URI uri, Long id) 
-			throws JsonMappingException, JsonProcessingException {
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<String> response = restTemplate.getForEntity(uri+"/"+id, String.class);
-		ObjectMapper objectMapper = new ObjectMapper();
-		JsonNode jsonNode = objectMapper.readTree(response.getBody());
-		Item item = new Item();
-		item.setId(id);
-		item.setCode(jsonNode.path("code").toString());
-		item.setName(jsonNode.path("nome").toString());
-		return item;
-	}
-
-	@SuppressWarnings("unused")
-	public static List<Item> getItems(URI uri) 
+	public static List<Item> getListOfItems(URI uri) 
 			throws JsonMappingException, JsonProcessingException {
 		List<Item> items = new ArrayList<>();
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
-		ObjectMapper objectMapper = new ObjectMapper();	
-		// TODO parse response
+		Traverson traverson = new Traverson(uri, MediaTypes.HAL_JSON);
+		TraversalBuilder traversalBuilder = traverson.follow("items");
+		ParameterizedTypeReference<CollectionModel<Item>> parameterizedTypeReference = new ParameterizedTypeReference<CollectionModel<Item>>() {};
+		CollectionModel<Item> collectionModelOfItems = traversalBuilder.toObject(parameterizedTypeReference);
+		Collection<Item> collectionOfItems = collectionModelOfItems.getContent();
+		for (Item item : collectionOfItems) {
+			items.add(item);
+		}
 		return items;
 	}
 }
