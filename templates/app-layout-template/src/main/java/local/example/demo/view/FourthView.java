@@ -18,14 +18,17 @@
 
 package local.example.demo.view;
 
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.component.html.Paragraph;
+import com.vaadin.flow.component.html.Section;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.demo.view.layout.MainLayout;
 
 @Route(value = "fourth", layout = MainLayout.class)
-@PageTitle(value = "fourth")
+@PageTitle(value = "fourth view")
 public class FourthView 
 		extends Main {
 
@@ -34,7 +37,16 @@ public class FourthView
 	@SuppressWarnings("unused")
 	private static final String RESTFUL_URI = "";
 
+	private final Section section;
+	private final H2 subtitle;
+	private final Paragraph paragraph;
+
 	public FourthView() {
 		super();
+		this.paragraph = new Paragraph();
+		this.subtitle = new H2("sample of subtitle");
+		this.paragraph.add("sample of paragraph");
+		this.section = new Section(this.subtitle, this.paragraph);
+		this.add(this.section);
 	}
 }
