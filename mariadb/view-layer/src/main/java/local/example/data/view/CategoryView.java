@@ -18,10 +18,7 @@
 
 package local.example.data.view;
 
-import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
-import com.vaadin.flow.component.html.Paragraph;
-import com.vaadin.flow.component.html.Section;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -37,16 +34,8 @@ public class CategoryView
 	@SuppressWarnings("unused")
 	private static final String RESTFUL_URI = "";
 
-	private final Section section;
-	private final H2 subtitle;
-	private final Paragraph paragraph;
-
 	public CategoryView() {
 		super();
-		this.paragraph = new Paragraph();
-		this.subtitle = new H2("category view");
-		this.paragraph.add("sample of paragraph");
-		this.section = new Section(this.subtitle, this.paragraph);
-		this.add(this.section);
+		// TODO
 	}
 }
