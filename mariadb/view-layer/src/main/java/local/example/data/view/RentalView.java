@@ -18,7 +18,10 @@
 
 package local.example.data.view;
 
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.component.html.Paragraph;
+import com.vaadin.flow.component.html.Section;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
@@ -29,13 +32,14 @@ import local.example.data.view.layout.MainLayout;
 public class RentalView 
 		extends Main {
 
-	private static final long serialVersionUID = -8468861132583732634L;
-
-	@SuppressWarnings("unused")
 	private static final String RESTFUL_URI = "";
 
 	public RentalView() {
 		super();
-		// TODO
+		Paragraph paragraph = new Paragraph();
+		H2 subtitle = new H2("rental view");
+		paragraph.add("sample of paragraph");
+		Section section = new Section(subtitle, paragraph);
+		this.add(section);
 	}
 }
