@@ -32,17 +32,12 @@ import local.example.data.view.layout.MainLayout;
 public class MainView 
 		extends Main {
 
-	private static final long serialVersionUID = -8877126810754852496L;
-	private final Section mainSection;
-	private final H2 subtitle;
-	private final Paragraph paragraph;
-
 	public MainView() {
 		super();
-		this.paragraph = new Paragraph();
-		this.subtitle = new H2("access through a RESTful web service");
-		this.paragraph.add("open the navigation bar and click on the link that interests you");
-		this.mainSection = new Section(this.subtitle, this.paragraph);
-		this.add(this.mainSection);
+		Paragraph paragraph = new Paragraph();
+		H2 subtitle = new H2("access through a RESTful web service");
+		paragraph.add("open the navigation bar and click on the link that interests you");
+		Section mainSection = new Section(subtitle, paragraph);
+		this.add(mainSection);
 	}
 }
