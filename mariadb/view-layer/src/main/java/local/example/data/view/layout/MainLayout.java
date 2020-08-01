@@ -55,8 +55,6 @@ public class MainLayout
 		extends AppLayout 
 		implements AfterNavigationObserver {
 	
-	private static final long serialVersionUID = 7140957578695381316L;
-	
 	private final H1 title;
 	private final RouterLink mainView;
 	
@@ -76,18 +74,11 @@ public class MainLayout
 	private final RouterLink rentalView;
 	private final RouterLink staffView;	
 	private final RouterLink storeView;
-	
-	private final UnorderedList unorderedList;
-	private final Header header;
-	private final Nav nav;
 
 	public MainLayout() {
 		super();
-		
 		this.title = new H1("reactive RESTful web service data accessing");
-		
 		this.mainView = new RouterLink("main view", MainView.class);
-		
 		this.addressView = new RouterLink("address view", AddressView.class);
 		this.categoryView = new RouterLink("category view", CategoryView.class);
 		this.cityView = new RouterLink("city view", CityView.class);
@@ -104,14 +95,14 @@ public class MainLayout
 		this.rentalView = new RouterLink("rental view", RentalView.class);
 		this.staffView = new RouterLink("staff view", StaffView.class);
 		this.storeView = new RouterLink("store view", StoreView.class);
-		
-		this.unorderedList = new UnorderedList(
-				new ListItem(this.mainView), 
-				new ListItem(this.addressView),  
-				new ListItem(this.categoryView), 
-				new ListItem(this.cityView), 
-				new ListItem(this.contentView), 
-				new ListItem(this.coutryView),  
+
+		UnorderedList unorderedList = new UnorderedList(
+				new ListItem(this.mainView),
+				new ListItem(this.addressView),
+				new ListItem(this.categoryView),
+				new ListItem(this.cityView),
+				new ListItem(this.contentView),
+				new ListItem(this.coutryView),
 				new ListItem(this.customerView),
 				new ListItem(this.districtView),
 				new ListItem(this.inventoryView),
@@ -124,12 +115,12 @@ public class MainLayout
 				new ListItem(this.staffView),
 				new ListItem(this.storeView)
 		);
+
+		Header header = new Header(new DrawerToggle(), this.title);
+		Nav nav = new Nav(unorderedList);
 		
-		this.header = new Header(new DrawerToggle(), this.title);
-		this.nav = new Nav(this.unorderedList);
-		
-		this.addToNavbar(this.header);
-		this.addToDrawer(this.nav);
+		this.addToNavbar(header);
+		this.addToDrawer(nav);
 		this.setPrimarySection(Section.DRAWER);
 		this.setDrawerOpened(false);
 	}
