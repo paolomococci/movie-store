@@ -1,4 +1,5 @@
-CREATE TABLE `category` (
+DROP TABLE IF EXISTS moviestoredb.category;
+CREATE TABLE moviestoredb.category (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` varchar(200) DEFAULT NULL,
