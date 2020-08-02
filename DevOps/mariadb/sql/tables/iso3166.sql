@@ -1,4 +1,5 @@
-CREATE TABLE `iso3166` (
+DROP TABLE IF EXISTS moviestoredb.iso3166;
+CREATE TABLE moviestoredb.iso3166 (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `code` int(11) NOT NULL,
