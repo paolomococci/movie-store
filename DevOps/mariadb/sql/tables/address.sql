@@ -1,4 +1,5 @@
-CREATE TABLE `address` (
+DROP TABLE IF EXISTS moviestoredb.address;
+CREATE TABLE moviestoredb.address (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `civic` varchar(10) NOT NULL,
