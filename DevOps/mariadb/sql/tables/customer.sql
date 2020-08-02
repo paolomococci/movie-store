@@ -1,4 +1,5 @@
-CREATE TABLE `customer` (
+DROP TABLE IF EXISTS moviestoredb.customer;
+CREATE TABLE moviestoredb.customer (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `nickname` varchar(100) DEFAULT NULL,
