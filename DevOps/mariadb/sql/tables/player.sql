@@ -1,4 +1,5 @@
-CREATE TABLE `player` (
+DROP TABLE IF EXISTS moviestoredb.player;
+CREATE TABLE moviestoredb.player (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `nickname` varchar(100) NOT NULL,
