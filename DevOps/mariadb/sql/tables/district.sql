@@ -1,4 +1,5 @@
-CREATE TABLE `district` (
+DROP TABLE IF EXISTS moviestoredb.district;
+CREATE TABLE moviestoredb.district (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `code` varchar(6) NOT NULL,
