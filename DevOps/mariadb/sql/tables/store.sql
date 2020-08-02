@@ -1,4 +1,5 @@
-CREATE TABLE `store` (
+DROP TABLE IF EXISTS moviestoredb.store;
+CREATE TABLE moviestoredb.store (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
