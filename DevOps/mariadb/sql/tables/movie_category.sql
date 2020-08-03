@@ -1,4 +1,5 @@
-CREATE TABLE `movie_category` (
+DROP TABLE IF EXISTS moviestoredb.movie_category;
+CREATE TABLE moviestoredb.movie_category (
   `movie_id` bigint(20) unsigned NOT NULL,
   `category_id` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`movie_id`,`category_id`),
