@@ -1,4 +1,5 @@
-CREATE TABLE `movie_content` (
+DROP TABLE IF EXISTS moviestoredb.movie_content;
+CREATE TABLE moviestoredb.movie_content (
   `movie_id` bigint(20) unsigned NOT NULL,
   `content_id` bigint(20) unsigned NOT NULL,
   PRIMARY KEY (`movie_id`,`content_id`),
