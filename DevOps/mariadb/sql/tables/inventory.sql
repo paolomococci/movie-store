@@ -1,4 +1,5 @@
-CREATE TABLE `inventory` (
+DROP TABLE IF EXISTS moviestoredb.inventory;
+CREATE TABLE moviestoredb.inventory (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `store_fk` bigint(20) unsigned DEFAULT NULL,
@@ -8,4 +9,4 @@ CREATE TABLE `inventory` (
   KEY `inventory_to_movie_fk` (`movie_fk`),
   CONSTRAINT `inventory_to_movie_fk` FOREIGN KEY (`movie_fk`) REFERENCES `movie` (`id`) ON DELETE SET NULL,
   CONSTRAINT `inventory_to_store_fk` FOREIGN KEY (`store_fk`) REFERENCES `store` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='inventory data table'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='inventory data table';
