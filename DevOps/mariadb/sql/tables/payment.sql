@@ -1,4 +1,5 @@
-CREATE TABLE `payment` (
+DROP TABLE IF EXISTS moviestoredb.payment;
+CREATE TABLE moviestoredb.payment (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `amount` double NOT NULL,
   `payed` date NOT NULL,
