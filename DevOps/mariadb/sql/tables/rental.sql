@@ -1,4 +1,5 @@
-CREATE TABLE `rental` (
+DROP TABLE IF EXISTS moviestoredb.rental;
+CREATE TABLE moviestoredb.rental (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `rent` date NOT NULL,
   `back` date NOT NULL,
@@ -13,4 +14,4 @@ CREATE TABLE `rental` (
   CONSTRAINT `rental_to_customer_fk` FOREIGN KEY (`customer_fk`) REFERENCES `customer` (`id`) ON DELETE SET NULL,
   CONSTRAINT `rental_to_inventory_fk` FOREIGN KEY (`inventory_fk`) REFERENCES `inventory` (`id`) ON DELETE SET NULL,
   CONSTRAINT `rental_to_staff_fk` FOREIGN KEY (`staff_fk`) REFERENCES `staff` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='rental data table'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='rental data table';
