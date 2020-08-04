@@ -18,28 +18,61 @@
 
 package local.example.data.view;
 
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
+import local.example.data.model.Address;
+import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "address", layout = MainLayout.class)
 @PageTitle(value = "address view")
 public class AddressView 
 		extends Main {
 
-	private static final String RESTFUL_URI = "";
+	private static final String RESTFUL_URI = "http://127.0.0.1:8080/";
+
+	private final Grid<Address> addressGrid;
+	private final RestfulRetriever<Address> addressRestfulRetriever;
 
 	public AddressView() {
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("address view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered addresses");
 		Section section = new Section(subtitle, paragraph);
+		this.addressGrid = new Grid<>();
+		this.addressGrid.addColumn(Address::getType).setHeader("type").setTextAlign(ColumnTextAlign.START);
+		this.addressGrid.addColumn(Address::getName).setHeader("name").setSortable(true);
+		this.addressGrid.addColumn(Address::getCivic).setHeader("civic");
+		this.addressGrid.addColumn(Address::getPhone).setHeader("phone");
+		this.addressRestfulRetriever = new RestfulRetriever<>();
+		Button retrieveButton = new Button(
+				"recovers all addresses",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.addressGrid.setItems(
+								this.addressRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "addresses")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
+		retrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
 }
