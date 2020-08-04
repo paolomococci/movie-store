@@ -35,4 +35,20 @@ public class Address
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String type;
+
+	@Getter
+	@Setter
+	private String name;
+
+	@Getter
+	@Setter
+	private String civic;
+
+	@Getter
+	@Setter
+	private String phone;
 }
