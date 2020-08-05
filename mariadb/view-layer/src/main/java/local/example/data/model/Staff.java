@@ -35,4 +35,40 @@ public class Staff
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String name;
+
+	@Getter
+	@Setter
+	private String nickname;
+
+	@Getter
+	@Setter
+	private String surname;
+
+	@Getter
+	@Setter
+	private String phone;
+
+	@Getter
+	@Setter
+	private String mobile;
+
+	@Getter
+	@Setter
+	private String email;
+
+	@Getter
+	@Setter
+	private String username;
+
+	@Getter
+	@Setter
+	private String password;
+
+	@Getter
+	@Setter
+	private Boolean active;
 }
