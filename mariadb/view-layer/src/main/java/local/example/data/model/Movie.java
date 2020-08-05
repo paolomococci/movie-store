@@ -26,6 +26,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.Date;
+import java.sql.Time;
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,4 +38,36 @@ public class Movie
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String title;
+
+	@Getter
+	@Setter
+	private String subtitle;
+
+	@Getter
+	@Setter
+	private String description;
+
+	@Getter
+	@Setter
+	private Date comeout;
+
+	@Getter
+	@Setter
+	private Time duration;
+
+	@Getter
+	@Setter
+	private Double cost;
+
+	@Getter
+	@Setter
+	private Double rent;
+
+	@Getter
+	@Setter
+	private Double rating;
 }
