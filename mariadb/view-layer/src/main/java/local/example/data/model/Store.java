@@ -35,4 +35,8 @@ public class Store
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String name;
 }
