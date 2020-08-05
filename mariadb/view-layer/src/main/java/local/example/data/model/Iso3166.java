@@ -35,4 +35,16 @@ public class Iso3166
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String name;
+
+	@Getter
+	@Setter
+	private Integer code;
+
+	@Getter
+	@Setter
+	private String signature;
 }
