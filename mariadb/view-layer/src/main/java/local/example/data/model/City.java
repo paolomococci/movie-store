@@ -35,4 +35,8 @@ public class City
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String name;
 }
