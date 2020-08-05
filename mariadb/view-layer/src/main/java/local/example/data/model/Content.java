@@ -35,4 +35,8 @@ public class Content
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String subject;
 }
