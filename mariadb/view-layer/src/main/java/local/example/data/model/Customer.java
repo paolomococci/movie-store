@@ -26,6 +26,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.Date;
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,4 +37,36 @@ public class Customer
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String name;
+
+	@Getter
+	@Setter
+	private String nickname;
+
+	@Getter
+	@Setter
+	private String surname;
+
+	@Getter
+	@Setter
+	private String phone;
+
+	@Getter
+	@Setter
+	private String mobile;
+
+	@Getter
+	@Setter
+	private String email;
+
+	@Getter
+	@Setter
+	private Date birthday;
+
+	@Getter
+	@Setter
+	private Boolean active;
 }
