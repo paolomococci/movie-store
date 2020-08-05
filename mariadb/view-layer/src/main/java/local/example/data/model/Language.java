@@ -35,4 +35,8 @@ public class Language
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private String name;
 }
