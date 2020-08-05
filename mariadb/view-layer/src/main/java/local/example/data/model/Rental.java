@@ -26,6 +26,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.Date;
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,4 +37,12 @@ public class Rental
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private Date rent;
+
+	@Getter
+	@Setter
+	private Date back;
 }
