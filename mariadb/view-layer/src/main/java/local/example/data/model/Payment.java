@@ -26,6 +26,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.Date;
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,4 +37,12 @@ public class Payment
 	@Getter
 	@Setter
 	private Long id;
+
+	@Getter
+	@Setter
+	private Double amount;
+
+	@Getter
+	@Setter
+	private Date payed;
 }
