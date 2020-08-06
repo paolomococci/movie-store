@@ -18,6 +18,9 @@
 
 package local.example.data.view;
 
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
@@ -25,6 +28,8 @@ import com.vaadin.flow.component.html.Section;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import local.example.data.model.District;
+import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
 
 @Route(value = "district", layout = MainLayout.class)
@@ -32,7 +37,10 @@ import local.example.data.view.layout.MainLayout;
 public class DistrictView 
 		extends Main {
 
-	private static final String RESTFUL_URI = "";
+	private static final String RESTFUL_URI = "http://127.0.0.1:8080/";
+
+	private final Grid<District> districtGrid;
+	private final RestfulRetriever<District> districtRestfulRetriever;
 
 	public DistrictView() {
 		super();
@@ -40,6 +48,10 @@ public class DistrictView
 		H2 subtitle = new H2("district view");
 		paragraph.add("sample of paragraph");
 		Section section = new Section(subtitle, paragraph);
+		this.districtGrid = new Grid<>();
+		this.districtRestfulRetriever = new RestfulRetriever<>();
+		Button districtRetrieveButton = new Button();
+		districtRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
 }
