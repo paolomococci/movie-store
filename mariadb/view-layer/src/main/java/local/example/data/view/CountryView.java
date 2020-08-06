@@ -18,6 +18,9 @@
 
 package local.example.data.view;
 
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
@@ -25,6 +28,8 @@ import com.vaadin.flow.component.html.Section;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import local.example.data.model.Country;
+import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
 
 @Route(value = "country", layout = MainLayout.class)
@@ -32,7 +37,10 @@ import local.example.data.view.layout.MainLayout;
 public class CountryView 
 		extends Main {
 
-	private static final String RESTFUL_URI = "";
+	private static final String RESTFUL_URI = "http://127.0.0.1:8080/";
+
+	private final Grid<Country> countryGrid;
+	private final RestfulRetriever<Country> countryRestfulRetriever;
 
 	public CountryView() {
 		super();
@@ -40,6 +48,10 @@ public class CountryView
 		H2 subtitle = new H2("country view");
 		paragraph.add("sample of paragraph");
 		Section section = new Section(subtitle, paragraph);
+		this.countryGrid = new Grid<>();
+		this.countryRestfulRetriever = new RestfulRetriever<>();
+		Button countryRetrieveButton = new Button();
+		countryRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
 }
