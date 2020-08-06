@@ -18,6 +18,9 @@
 
 package local.example.data.view;
 
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
@@ -25,6 +28,8 @@ import com.vaadin.flow.component.html.Section;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import local.example.data.model.Iso3166;
+import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
 
 @Route(value = "iso3166", layout = MainLayout.class)
@@ -32,7 +37,10 @@ import local.example.data.view.layout.MainLayout;
 public class Iso3166View 
 		extends Main {
 
-	private static final String RESTFUL_URI = "";
+	private static final String RESTFUL_URI = "http://127.0.0.1:8080/";
+
+	private final Grid<Iso3166> iso3166Grid;
+	private final RestfulRetriever<Iso3166> iso3166RestfulRetriever;
 
 	public Iso3166View() {
 		super();
@@ -40,6 +48,10 @@ public class Iso3166View
 		H2 subtitle = new H2("iso3166 view");
 		paragraph.add("sample of paragraph");
 		Section section = new Section(subtitle, paragraph);
+		this.iso3166Grid = new Grid<>();
+		this.iso3166RestfulRetriever = new RestfulRetriever<>();
+		Button iso3166RetrieveButton = new Button();
+		iso3166RetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
 }
