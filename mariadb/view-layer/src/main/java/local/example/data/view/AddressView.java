@@ -59,7 +59,7 @@ public class AddressView
 		this.addressGrid.addColumn(Address::getCivic).setHeader("civic");
 		this.addressGrid.addColumn(Address::getPhone).setHeader("phone");
 		this.addressRestfulRetriever = new RestfulRetriever<>();
-		Button retrieveButton = new Button(
+		Button addressRetrieveButton = new Button(
 				"recovers all addresses",
 				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
 				listener -> {
@@ -72,7 +72,7 @@ public class AddressView
 						exception.printStackTrace();
 					}
 				});
-		retrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+		addressRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
 }
