@@ -25,12 +25,17 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.District;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "district", layout = MainLayout.class)
 @PageTitle(value = "district view")
@@ -46,11 +51,23 @@ public class DistrictView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("district view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered districts");
 		Section section = new Section(subtitle, paragraph);
 		this.districtGrid = new Grid<>();
 		this.districtRestfulRetriever = new RestfulRetriever<>();
-		Button districtRetrieveButton = new Button();
+		Button districtRetrieveButton = new Button(
+				"recovers all districts",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.districtGrid.setItems(
+								this.districtRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "districts")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		districtRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
