@@ -25,12 +25,17 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.Iso3166;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "iso3166", layout = MainLayout.class)
 @PageTitle(value = "iso3166 view")
@@ -46,11 +51,23 @@ public class Iso3166View
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("iso3166 view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered country codes");
 		Section section = new Section(subtitle, paragraph);
 		this.iso3166Grid = new Grid<>();
 		this.iso3166RestfulRetriever = new RestfulRetriever<>();
-		Button iso3166RetrieveButton = new Button();
+		Button iso3166RetrieveButton = new Button(
+				"recovers all country codes",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.iso3166Grid.setItems(
+								this.iso3166RestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "countryCodes")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		iso3166RetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
