@@ -25,12 +25,17 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.City;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "city", layout = MainLayout.class)
 @PageTitle(value = "city view")
@@ -46,11 +51,23 @@ public class CityView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("city view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered cities");
 		Section section = new Section(subtitle, paragraph);
 		this.cityGrid = new Grid<>();
 		this.cityRestfulRetriever = new RestfulRetriever<>();
-		Button cityRetrieveButton = new Button();
+		Button cityRetrieveButton = new Button(
+				"recovers all cities",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.cityGrid.setItems(
+								this.cityRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "cities")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		cityRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
