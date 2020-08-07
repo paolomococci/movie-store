@@ -25,12 +25,17 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.Country;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "country", layout = MainLayout.class)
 @PageTitle(value = "country view")
@@ -46,11 +51,23 @@ public class CountryView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("country view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered countries");
 		Section section = new Section(subtitle, paragraph);
 		this.countryGrid = new Grid<>();
 		this.countryRestfulRetriever = new RestfulRetriever<>();
-		Button countryRetrieveButton = new Button();
+		Button countryRetrieveButton = new Button(
+				"recovers all countries",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.countryGrid.setItems(
+								this.countryRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "countries")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		countryRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
