@@ -25,12 +25,17 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.Content;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "content", layout = MainLayout.class)
 @PageTitle(value = "content view")
@@ -46,11 +51,23 @@ public class ContentView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("content view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered contents");
 		Section section = new Section(subtitle, paragraph);
 		this.contentGrid = new Grid<>();
 		this.contentRestfulRetriever = new RestfulRetriever<>();
-		Button contentRetrieveButton = new Button();
+		Button contentRetrieveButton = new Button(
+				"recovers all contents",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.contentGrid.setItems(
+								this.contentRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "contents")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		contentRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
