@@ -20,17 +20,23 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.Movie;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "movie", layout = MainLayout.class)
 @PageTitle(value = "movie view")
@@ -46,11 +52,30 @@ public class MovieView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("movie view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered movies");
 		Section section = new Section(subtitle, paragraph);
 		this.movieGrid = new Grid<>();
+		this.movieGrid.addColumn(Movie::getTitle)
+				.setHeader("title")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
+		this.movieGrid.addColumn(Movie::getComeout).setHeader("come-out").setSortable(true);
+		this.movieGrid.addColumn(Movie::getDuration).setHeader("duration");
+		this.movieGrid.addColumn(Movie::getRating).setHeader("rating");
 		this.movieRestfulRetriever = new RestfulRetriever<>();
-		Button movieRetrieveButton = new Button();
+		Button movieRetrieveButton = new Button(
+				"recovers all movies",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.movieGrid.setItems(
+								this.movieRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "movies")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		movieRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
