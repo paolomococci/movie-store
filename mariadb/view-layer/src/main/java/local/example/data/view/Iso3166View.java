@@ -20,6 +20,7 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
@@ -54,6 +55,12 @@ public class Iso3166View
 		paragraph.add("this is the list of registered country codes");
 		Section section = new Section(subtitle, paragraph);
 		this.iso3166Grid = new Grid<>();
+		this.iso3166Grid.addColumn(Iso3166::getName)
+				.setHeader("name")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
+		this.iso3166Grid.addColumn(Iso3166::getCode).setHeader("code").setSortable(true);
+		this.iso3166Grid.addColumn(Iso3166::getSignature).setHeader("signature").setSortable(true);
 		this.iso3166RestfulRetriever = new RestfulRetriever<>();
 		Button iso3166RetrieveButton = new Button(
 				"recovers all country codes",
