@@ -20,6 +20,7 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
@@ -54,6 +55,14 @@ public class CustomerView
 		paragraph.add("this is the list of registered customers");
 		Section section = new Section(subtitle, paragraph);
 		this.customerGrid = new Grid<>();
+		this.customerGrid.addColumn(Customer::getName)
+				.setHeader("name")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
+		this.customerGrid.addColumn(Customer::getNickname).setHeader("nickname");
+		this.customerGrid.addColumn(Customer::getSurname).setHeader("surname").setSortable(true);
+		this.customerGrid.addColumn(Customer::getEmail).setHeader("email");
+		this.customerGrid.addColumn(Customer::getMobile).setHeader("mobile");
 		this.customerRestfulRetriever = new RestfulRetriever<>();
 		Button customerRetrieveButton = new Button(
 				"recovers all customers",
