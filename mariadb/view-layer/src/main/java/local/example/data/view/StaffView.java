@@ -20,17 +20,23 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.Staff;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "staff", layout = MainLayout.class)
 @PageTitle(value = "staff view")
@@ -46,11 +52,31 @@ public class StaffView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("staff view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered teams");
 		Section section = new Section(subtitle, paragraph);
 		this.staffGrid = new Grid<>();
+		this.staffGrid.addColumn(Staff::getName)
+				.setHeader("name")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
+		this.staffGrid.addColumn(Staff::getNickname).setHeader("nickname");
+		this.staffGrid.addColumn(Staff::getSurname).setHeader("surname");
+		this.staffGrid.addColumn(Staff::getEmail).setHeader("email");
+		this.staffGrid.addColumn(Staff::getMobile).setHeader("mobile");
 		this.staffRestfulRetriever = new RestfulRetriever<>();
-		Button staffRetrieveButton = new Button();
+		Button staffRetrieveButton = new Button(
+				"recovers all teams",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.staffGrid.setItems(
+								this.staffRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "teams")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		staffRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
