@@ -53,7 +53,7 @@ public class CategoryView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("category view");
 		paragraph.add("this is the list of registered categories");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.categoryGrid = new Grid<>();
 		this.categoryGrid.addColumn(Category::getName)
 				.setHeader("name")
@@ -76,6 +76,7 @@ public class CategoryView
 					}
 				});
 		categoryRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section categorySectionView = new Section(categoryRetrieveButton, this.categoryGrid);
+		this.add(introductionSection, categorySectionView);
 	}
 }
