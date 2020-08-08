@@ -53,7 +53,7 @@ public class PaymentView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("payment view");
 		paragraph.add("this is the list of registered payments");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.paymentGrid = new Grid<>();
 		this.paymentGrid.addColumn(Payment::getAmount)
 				.setHeader("amount")
@@ -74,6 +74,7 @@ public class PaymentView
 					}
 				});
 		paymentRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section paymentSectionView = new Section(paymentRetrieveButton, this.paymentGrid);
+		this.add(introductionSection, paymentSectionView);
 	}
 }
