@@ -52,7 +52,7 @@ public class AddressView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("address view");
 		paragraph.add("this is the list of registered addresses");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.addressGrid = new Grid<>();
 		this.addressGrid.addColumn(Address::getType).setHeader("type").setTextAlign(ColumnTextAlign.START);
 		this.addressGrid.addColumn(Address::getName).setHeader("name").setSortable(true);
@@ -73,6 +73,7 @@ public class AddressView
 					}
 				});
 		addressRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section addressSectionView = new Section(addressRetrieveButton, this.addressGrid);
+		this.add(introductionSection, addressSectionView);
 	}
 }
