@@ -20,6 +20,7 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
@@ -54,6 +55,10 @@ public class CountryView
 		paragraph.add("this is the list of registered countries");
 		Section section = new Section(subtitle, paragraph);
 		this.countryGrid = new Grid<>();
+		this.countryGrid.addColumn(Country::getName)
+				.setHeader("name")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
 		this.countryRestfulRetriever = new RestfulRetriever<>();
 		Button countryRetrieveButton = new Button(
 				"recovers all countries",
