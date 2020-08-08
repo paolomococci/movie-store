@@ -53,7 +53,7 @@ public class CustomerView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("customer view");
 		paragraph.add("this is the list of registered customers");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.customerGrid = new Grid<>();
 		this.customerGrid.addColumn(Customer::getName)
 				.setHeader("name")
@@ -78,6 +78,7 @@ public class CustomerView
 					}
 				});
 		customerRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section customerSectionView = new Section(customerRetrieveButton, this.customerGrid);
+		this.add(introductionSection);
 	}
 }
