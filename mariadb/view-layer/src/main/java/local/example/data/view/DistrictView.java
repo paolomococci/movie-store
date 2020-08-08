@@ -20,6 +20,7 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
@@ -54,6 +55,11 @@ public class DistrictView
 		paragraph.add("this is the list of registered districts");
 		Section section = new Section(subtitle, paragraph);
 		this.districtGrid = new Grid<>();
+		this.districtGrid.addColumn(District::getName)
+				.setHeader("name")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
+		this.districtGrid.addColumn(District::getCode).setHeader("code").setSortable(true);
 		this.districtRestfulRetriever = new RestfulRetriever<>();
 		Button districtRetrieveButton = new Button(
 				"recovers all districts",
