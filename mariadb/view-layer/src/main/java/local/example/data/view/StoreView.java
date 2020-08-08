@@ -53,7 +53,7 @@ public class StoreView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("store view");
 		paragraph.add("this is the list of registered stores");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.storeGrid = new Grid<>();
 		this.storeGrid.addColumn(Store::getName)
 				.setHeader("name")
@@ -74,6 +74,7 @@ public class StoreView
 					}
 				});
 		storeRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section storeSectionView = new Section(storeRetrieveButton, this.storeGrid);
+		this.add(introductionSection, storeSectionView);
 	}
 }
