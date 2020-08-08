@@ -20,17 +20,23 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.Store;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "store", layout = MainLayout.class)
 @PageTitle(value = "store view")
@@ -46,11 +52,27 @@ public class StoreView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("store view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered stores");
 		Section section = new Section(subtitle, paragraph);
 		this.storeGrid = new Grid<>();
+		this.storeGrid.addColumn(Store::getName)
+				.setHeader("name")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
 		this.storeRestfulRetriever = new RestfulRetriever<>();
-		Button storeRetrieveButton = new Button();
+		Button storeRetrieveButton = new Button(
+				"recovers all stores",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.storeGrid.setItems(
+								this.storeRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "stores")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		storeRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
