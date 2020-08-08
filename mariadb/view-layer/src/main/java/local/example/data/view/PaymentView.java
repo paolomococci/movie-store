@@ -20,17 +20,23 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.Payment;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "payment", layout = MainLayout.class)
 @PageTitle(value = "payment view")
@@ -46,11 +52,27 @@ public class PaymentView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("payment view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered payments");
 		Section section = new Section(subtitle, paragraph);
 		this.paymentGrid = new Grid<>();
+		this.paymentGrid.addColumn(Payment::getAmount)
+				.setHeader("amount")
+				.setTextAlign(ColumnTextAlign.START);
+		this.paymentGrid.addColumn(Payment::getPayed).setHeader("payed");
 		this.paymentRestfulRetriever = new RestfulRetriever<>();
-		Button paymentRetrieveButton = new Button();
+		Button paymentRetrieveButton = new Button(
+				"recovers all payments",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.paymentGrid.setItems(
+								this.paymentRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "payments")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		paymentRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
