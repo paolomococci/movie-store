@@ -20,6 +20,7 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
@@ -54,6 +55,10 @@ public class CityView
 		paragraph.add("this is the list of registered cities");
 		Section section = new Section(subtitle, paragraph);
 		this.cityGrid = new Grid<>();
+		this.cityGrid.addColumn(City::getName)
+				.setHeader("name")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
 		this.cityRestfulRetriever = new RestfulRetriever<>();
 		Button cityRetrieveButton = new Button(
 				"recovers all cities",
