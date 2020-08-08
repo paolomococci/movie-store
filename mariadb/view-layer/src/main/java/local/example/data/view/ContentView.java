@@ -53,7 +53,7 @@ public class ContentView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("content view");
 		paragraph.add("this is the list of registered contents");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.contentGrid = new Grid<>();
 		this.contentGrid.addColumn(Content::getSubject)
 				.setHeader("subject")
@@ -74,6 +74,7 @@ public class ContentView
 					}
 				});
 		contentRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section contentSectionView = new Section(contentRetrieveButton, this.contentGrid);
+		this.add(introductionSection, contentSectionView);
 	}
 }
