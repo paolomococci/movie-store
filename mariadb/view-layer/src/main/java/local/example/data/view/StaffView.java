@@ -53,7 +53,7 @@ public class StaffView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("staff view");
 		paragraph.add("this is the list of registered teams");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.staffGrid = new Grid<>();
 		this.staffGrid.addColumn(Staff::getName)
 				.setHeader("name")
@@ -78,6 +78,7 @@ public class StaffView
 					}
 				});
 		staffRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section staffSectionView = new Section(staffRetrieveButton, this.staffGrid);
+		this.add(introductionSection, staffSectionView);
 	}
 }
