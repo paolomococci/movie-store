@@ -53,7 +53,7 @@ public class Iso3166View
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("iso3166 view");
 		paragraph.add("this is the list of registered country codes");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.iso3166Grid = new Grid<>();
 		this.iso3166Grid.addColumn(Iso3166::getName)
 				.setHeader("name")
@@ -76,6 +76,7 @@ public class Iso3166View
 					}
 				});
 		iso3166RetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section iso3166SectionView = new Section(iso3166RetrieveButton, this.iso3166Grid);
+		this.add(introductionSection, iso3166SectionView);
 	}
 }
