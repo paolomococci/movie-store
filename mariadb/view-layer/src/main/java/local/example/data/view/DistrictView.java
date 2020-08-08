@@ -53,7 +53,7 @@ public class DistrictView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("district view");
 		paragraph.add("this is the list of registered districts");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.districtGrid = new Grid<>();
 		this.districtGrid.addColumn(District::getName)
 				.setHeader("name")
@@ -75,6 +75,7 @@ public class DistrictView
 					}
 				});
 		districtRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section districtSectionView = new Section(districtRetrieveButton, this.districtGrid);
+		this.add(introductionSection, districtSectionView);
 	}
 }
