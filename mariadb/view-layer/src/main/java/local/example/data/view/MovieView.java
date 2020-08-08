@@ -53,7 +53,7 @@ public class MovieView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("movie view");
 		paragraph.add("this is the list of registered movies");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.movieGrid = new Grid<>();
 		this.movieGrid.addColumn(Movie::getTitle)
 				.setHeader("title")
@@ -77,6 +77,7 @@ public class MovieView
 					}
 				});
 		movieRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section movieSectionView = new Section(movieRetrieveButton, this.movieGrid);
+		this.add(introductionSection, movieSectionView);
 	}
 }
