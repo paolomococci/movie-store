@@ -53,7 +53,7 @@ public class CountryView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("country view");
 		paragraph.add("this is the list of registered countries");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.countryGrid = new Grid<>();
 		this.countryGrid.addColumn(Country::getName)
 				.setHeader("name")
@@ -74,6 +74,7 @@ public class CountryView
 					}
 				});
 		countryRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section countrySectionView = new Section(countryRetrieveButton, this.countryGrid);
+		this.add(introductionSection, countrySectionView);
 	}
 }
