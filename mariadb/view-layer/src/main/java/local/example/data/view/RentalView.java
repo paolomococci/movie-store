@@ -53,7 +53,7 @@ public class RentalView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("rental view");
 		paragraph.add("this is the list of registered rentals");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.rentalGrid = new Grid<>();
 		this.rentalGrid.addColumn(Rental::getRent)
 				.setHeader("rent")
@@ -75,6 +75,7 @@ public class RentalView
 					}
 				});
 		rentalRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section rentalSectionView = new Section(rentalRetrieveButton, this.rentalGrid);
+		this.add(introductionSection, rentalSectionView);
 	}
 }
