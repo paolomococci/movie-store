@@ -53,7 +53,7 @@ public class CityView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("city view");
 		paragraph.add("this is the list of registered cities");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.cityGrid = new Grid<>();
 		this.cityGrid.addColumn(City::getName)
 				.setHeader("name")
@@ -74,6 +74,7 @@ public class CityView
 					}
 				});
 		cityRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section citySectionView = new Section(cityRetrieveButton, this.cityGrid);
+		this.add(introductionSection, citySectionView);
 	}
 }
