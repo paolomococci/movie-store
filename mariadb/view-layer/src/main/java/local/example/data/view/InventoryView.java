@@ -52,7 +52,7 @@ public class InventoryView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("inventory view");
 		paragraph.add("this is the list of registered inventories");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.inventoryGrid = new Grid<>();
 		this.inventoryRestfulRetriever = new RestfulRetriever<>();
 		Button inventoryRetrieveButton = new Button(
@@ -69,6 +69,7 @@ public class InventoryView
 					}
 				});
 		inventoryRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section inventorySectionView = new Section(inventoryRetrieveButton, this.inventoryGrid);
+		this.add(introductionSection);
 	}
 }
