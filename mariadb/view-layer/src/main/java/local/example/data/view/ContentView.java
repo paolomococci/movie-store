@@ -20,6 +20,7 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
@@ -54,6 +55,10 @@ public class ContentView
 		paragraph.add("this is the list of registered contents");
 		Section section = new Section(subtitle, paragraph);
 		this.contentGrid = new Grid<>();
+		this.contentGrid.addColumn(Content::getSubject)
+				.setHeader("subject")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
 		this.contentRestfulRetriever = new RestfulRetriever<>();
 		Button contentRetrieveButton = new Button(
 				"recovers all contents",
