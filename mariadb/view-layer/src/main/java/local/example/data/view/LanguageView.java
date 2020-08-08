@@ -20,6 +20,7 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
@@ -54,6 +55,10 @@ public class LanguageView
 		paragraph.add("this is the list of registered languages");
 		Section section = new Section(subtitle, paragraph);
 		this.languageGrid = new Grid<>();
+		this.languageGrid.addColumn(Language::getName)
+				.setHeader("name")
+				.setSortable(true)
+				.setTextAlign(ColumnTextAlign.START);
 		this.languageRestfulRetriever = new RestfulRetriever<>();
 		Button languageRetrieveButton = new Button(
 				"recovers all languages",
