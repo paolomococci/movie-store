@@ -20,17 +20,23 @@ package local.example.data.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.ColumnTextAlign;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.html.Section;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import local.example.data.model.Player;
 import local.example.data.retrieve.RestfulRetriever;
 import local.example.data.view.layout.MainLayout;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.io.IOException;
+import java.net.URI;
 
 @Route(value = "player", layout = MainLayout.class)
 @PageTitle(value = "player view")
@@ -46,11 +52,28 @@ public class PlayerView
 		super();
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("player view");
-		paragraph.add("sample of paragraph");
+		paragraph.add("this is the list of registered players");
 		Section section = new Section(subtitle, paragraph);
 		this.playerGrid = new Grid<>();
+		this.playerGrid.addColumn(Player::getName)
+				.setHeader("name")
+				.setTextAlign(ColumnTextAlign.START);
+		this.playerGrid.addColumn(Player::getNickname).setHeader("nickname");
+		this.playerGrid.addColumn(Player::getSurname).setHeader("surname").setSortable(true);
 		this.playerRestfulRetriever = new RestfulRetriever<>();
-		Button playerRetrieveButton = new Button();
+		Button playerRetrieveButton = new Button(
+				"recovers all players",
+				VaadinIcon.ARROW_CIRCLE_DOWN_O.create(),
+				listener -> {
+					try {
+						this.playerGrid.setItems(
+								this.playerRestfulRetriever.getListOfItems(URI.create(RESTFUL_URI), "players")
+						);
+					} catch (
+							ResponseStatusException | IOException exception) {
+						exception.printStackTrace();
+					}
+				});
 		playerRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 		this.add(section);
 	}
