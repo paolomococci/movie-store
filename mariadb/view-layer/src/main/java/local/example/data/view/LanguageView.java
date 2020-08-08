@@ -53,7 +53,7 @@ public class LanguageView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("language view");
 		paragraph.add("this is the list of registered languages");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.languageGrid = new Grid<>();
 		this.languageGrid.addColumn(Language::getName)
 				.setHeader("name")
@@ -74,6 +74,7 @@ public class LanguageView
 					}
 				});
 		languageRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section languageSectionView = new Section(languageRetrieveButton, this.languageGrid);
+		this.add(introductionSection, languageSectionView);
 	}
 }
