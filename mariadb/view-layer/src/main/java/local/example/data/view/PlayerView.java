@@ -53,7 +53,7 @@ public class PlayerView
 		Paragraph paragraph = new Paragraph();
 		H2 subtitle = new H2("player view");
 		paragraph.add("this is the list of registered players");
-		Section section = new Section(subtitle, paragraph);
+		Section introductionSection = new Section(subtitle, paragraph);
 		this.playerGrid = new Grid<>();
 		this.playerGrid.addColumn(Player::getName)
 				.setHeader("name")
@@ -75,6 +75,7 @@ public class PlayerView
 					}
 				});
 		playerRetrieveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-		this.add(section);
+		Section playerSectionView = new Section(playerRetrieveButton, this.playerGrid);
+		this.add(introductionSection, playerSectionView);
 	}
 }
