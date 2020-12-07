@@ -5,7 +5,7 @@
   "description": "example of Vue.js web application",
   "author": "Paolo Mococci",
   "license": "Apache-2.0",
-  "homepage": "",
+  "homepage": "https://github.com/paolomococci/movie-store/tree/master/mariadb/frontend-layer",
   "keywords": [
     "frontend"
   ],
