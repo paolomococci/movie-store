@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1><span v-text="msg"></span></h1>
+    <h1 v-text="msg"></h1>
   </div>
 </template>
 
