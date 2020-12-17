@@ -51,7 +51,7 @@ public class District {
 	@Size(min = 1, max = 50, message = "size range of this field is 1 to 50 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
-			message = "only the charactersy `a-z`, `A-Z`, `_` and `-` are allowed"
+			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
 			)
 	private String name;
 
