@@ -18,10 +18,38 @@
 
 package local.example.data.controller;
 
+import local.example.data.reference.PaymentReference;
+import local.example.data.repository.PaymentRestRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/api/references")
+@RequestMapping(value = "/api/payment/references")
 public class PaymentRestController {
+
+    @Autowired
+    PaymentRestRepository paymentRestRepository;
+
+    @PatchMapping("/subscribe")
+    public ResponseEntity<?> subscribeUpdate(
+            @RequestBody PaymentReference paymentReference
+    )
+            throws Exception {
+        // TODO
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    }
+
+    @PatchMapping("/debar")
+    public ResponseEntity<?> debarUpdate(
+            @RequestBody PaymentReference paymentReference
+    )
+            throws Exception {
+        // TODO
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    }
 }
