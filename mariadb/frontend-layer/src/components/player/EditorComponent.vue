@@ -6,9 +6,21 @@
 
 <script>
 export default {
-  name: 'PlayerEditorComponent',
+  name: 'EditorComponent',
   props: {
     uri: String
+  },
+  data: () => ({
+    // TODO
+  }),
+  methods: {
+    // TODO
+  },
+  computed: {
+    // TODO
+  },
+  mounted() {
+    // TODO
   }
 }
 </script>
