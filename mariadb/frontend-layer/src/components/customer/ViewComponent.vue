@@ -6,9 +6,21 @@
 
 <script>
 export default {
-  name: 'CustomerComponent',
+  name: 'ViewComponent',
   props: {
     msg: String
+  },
+  data: () => ({
+    // TODO
+  }),
+  methods: {
+    // TODO
+  },
+  computed: {
+    // TODO
+  },
+  mounted() {
+    // TODO
   }
 }
 </script>
