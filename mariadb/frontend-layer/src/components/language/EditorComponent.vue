@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'LanguageEditorComponent',
+  name: 'EditorComponent',
   props: {
     uri: String
   }
