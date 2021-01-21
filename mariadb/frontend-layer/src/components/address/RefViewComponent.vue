@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'RefViewComponentt',
+  name: 'RefViewComponent',
   props: {
     msg: String
   },
