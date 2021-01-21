@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'RefEditorComponentt',
+  name: 'RefEditorComponent',
   props: {
     msg: String
   },
