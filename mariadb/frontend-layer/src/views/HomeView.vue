@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <welcome msg="home view"/>
-  </div>
+  <main>
+    <home-component msg="you can view and edit this type of entities:"/>
+  </main>
 </template>
 
 <script>
-import WelcomeComponent from '@/components/WelcomeComponent.vue'
+import HomeComponent from '@/components/HomeComponent.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    welcome: WelcomeComponent
+    'home-component': HomeComponent
   }
 }
 </script>
