@@ -10,24 +10,24 @@
             size="xl"
             variant="outline-secondary"
             href="#/address"
-            v-b-popover.hover.top="'click to view the list of registered companies'"
-            title="companies">company</b-button>
+            v-b-popover.hover.top="'click to view the list of registered addresses'"
+            title="addresses">addresses</b-button>
         </b-col>
         <b-col>
           <b-button
             size="xl"
             variant="outline-secondary"
             href="#/category"
-            v-b-popover.hover.top="'click to view the list of registered contests'"
-            title="contests">contest</b-button>
+            v-b-popover.hover.top="'click to view the list of registered categories'"
+            title="categories">categories</b-button>
         </b-col>
         <b-col>
           <b-button
             size="xl"
             variant="outline-secondary"
             href="#/city"
-            v-b-popover.hover.top="'click to view the list of registered employees'"
-            title="employees">employee</b-button>
+            v-b-popover.hover.top="'click to view the list of registered cities'"
+            title="cities">cities</b-button>
         </b-col>
       </b-row>
     </b-jumbotron>
