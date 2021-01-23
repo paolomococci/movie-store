@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <h1 v-text="msg"></h1>
-  </div>
+  <section>
+    <aside>
+      <!-- todo aside to show add button -->
+    </aside>
+    <!-- todo sub-section to show the table list -->
+  </section>
 </template>
 
 <script>
