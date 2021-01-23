@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <h1 v-text="msg"></h1>
-  </div>
+  <section>
+    <b-jumbotron>
+      <template #header><span v-text="msg"></span></template>
+      <hr class="my-4">
+    </b-jumbotron>
+  </section>
 </template>
 
 <script>
