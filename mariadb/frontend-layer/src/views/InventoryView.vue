@@ -1,16 +1,19 @@
 <template>
-  <div>
+  <main>
     <welcome msg="inventory view"/>
-  </div>
+    <inventory-view-component/>
+  </main>
 </template>
 
 <script>
 import WelcomeComponent from '@/components/WelcomeComponent.vue'
+import ViewComponent from '@/components/inventory/ViewComponent.vue'
 
 export default {
   name: 'InventoryView',
   components: {
-    welcome: WelcomeComponent
+    welcome: WelcomeComponent,
+    'inventory-view-component': ViewComponent
   }
 }
 </script>
