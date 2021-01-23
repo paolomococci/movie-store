@@ -17,6 +17,19 @@
             <b-dropdown-item to="/address">address</b-dropdown-item>
             <b-dropdown-item to="/category">category</b-dropdown-item>
             <b-dropdown-item to="/city">city</b-dropdown-item>
+            <b-dropdown-item to="/content">content</b-dropdown-item>
+            <b-dropdown-item to="/country">country</b-dropdown-item>
+            <b-dropdown-item to="/customer">customer</b-dropdown-item>
+            <b-dropdown-item to="/district">district</b-dropdown-item>
+            <b-dropdown-item to="/inventory">inventory</b-dropdown-item>
+            <b-dropdown-item to="/iso3166">iso3166</b-dropdown-item>
+            <b-dropdown-item to="/language">language</b-dropdown-item>
+            <b-dropdown-item to="/movie">movie</b-dropdown-item>
+            <b-dropdown-item to="/payment">payment</b-dropdown-item>
+            <b-dropdown-item to="/player">player</b-dropdown-item>
+            <b-dropdown-item to="/rental">rental</b-dropdown-item>
+            <b-dropdown-item to="/staff">staff</b-dropdown-item>
+            <b-dropdown-item to="/store">store</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
