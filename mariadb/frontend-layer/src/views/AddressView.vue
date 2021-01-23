@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <main>
     <welcome msg="address view"/>
     <address-view-component/>
-  </div>
+  </main>
 </template>
 
 <script>
