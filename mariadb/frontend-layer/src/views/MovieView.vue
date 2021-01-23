@@ -1,16 +1,19 @@
 <template>
-  <div>
+  <main>
     <welcome msg="movie view"/>
-  </div>
+    <movie-view-component/>
+  </main>
 </template>
 
 <script>
 import WelcomeComponent from '@/components/WelcomeComponent.vue'
+import ViewComponent from '@/components/movie/ViewComponent.vue'
 
 export default {
   name: 'MovieView',
   components: {
-    welcome: WelcomeComponent
+    welcome: WelcomeComponent,
+    'movie-view-component': ViewComponent
   }
 }
 </script>
