@@ -1,16 +1,19 @@
 <template>
-  <div>
+  <main>
     <welcome msg="category view"/>
-  </div>
+    <category-view-component/>
+  </main>
 </template>
 
 <script>
 import WelcomeComponent from '@/components/WelcomeComponent.vue'
+import ViewComponent from '@/components/category/ViewComponent.vue'
 
 export default {
   name: 'CategoryView',
   components: {
-    welcome: WelcomeComponent
+    welcome: WelcomeComponent,
+    'category-view-component': ViewComponent
   }
 }
 </script>
