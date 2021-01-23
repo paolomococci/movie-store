@@ -1,19 +1,19 @@
 <template>
   <main>
-    <welcome msg="staff view"/>
-    <staff-view-component/>
+    <welcome msg="store view"/>
+    <store-view-component/>
   </main>
 </template>
 
 <script>
 import WelcomeComponent from '@/components/WelcomeComponent.vue'
-import ViewComponent from '@/components/staff/ViewComponent.vue'
+import ViewComponent from '@/components/store/ViewComponent.vue'
 
 export default {
-  name: 'StaffView',
+  name: 'StoreView',
   components: {
     welcome: WelcomeComponent,
-    'staff-view-component': ViewComponent
+    'store-view-component': ViewComponent
   }
 }
 </script>
