@@ -4,27 +4,27 @@ import restful from '../../restful-config'
 class CategoryRestfulApiService {
 
     create(data) {
-        // TODO
+        return restful.post('/categories', data);
     }
 
     read(uri) {
-        // TODO
+        return axios.get(uri);
     }
 
     readAll() {
-        // TODO
+        return restful.get('/categories');
     }
 
     update(uri, data) {
-        // TODO
+        return axios.put(uri, data);
     }
 
     partialUpdate(uri, data) {
-        // TODO
+        return axios.patch(uri, data);
     }
 
     delete(uri) {
-        // TODO
+        return axios.delete(uri);
     }
 }
 
