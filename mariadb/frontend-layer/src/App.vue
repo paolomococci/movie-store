@@ -1,16 +1,18 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link class="routerLink" to="/">home</router-link> |
-      <router-link class="routerLink" to="/about">about</router-link>
+      <header-component/>
     </div>
     <router-view/>
   </div>
 </template>
 
+<script>
+import HeaderComponent from '@/components/HeaderComponent'
 
-<style lang="scss">
-.routerLink {
-  margin: 5px;
+export default {
+  components: {
+    'header-component': HeaderComponent
+  }
 }
-</style>
+</script>
