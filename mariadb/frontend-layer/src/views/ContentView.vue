@@ -1,16 +1,19 @@
 <template>
-  <div>
+  <main>
     <welcome msg="content view"/>
-  </div>
+    <content-view-component/>
+  </main>
 </template>
 
 <script>
 import WelcomeComponent from '@/components/WelcomeComponent.vue'
+import ViewComponent from '@/components/content/ViewComponent.vue'
 
 export default {
   name: 'ContentView',
   components: {
-    welcome: WelcomeComponent
+    welcome: WelcomeComponent,
+    'content-view-component': ViewComponent
   }
 }
 </script>
