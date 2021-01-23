@@ -4,27 +4,27 @@ import restful from '../../restful-config'
 class ContentRestfulApiService {
 
     create(data) {
-        // TODO
+        return restful.post('/contents', data);
     }
 
     read(uri) {
-        // TODO
+        return axios.get(uri);
     }
 
     readAll() {
-        // TODO
+        return restful.get('/contents');
     }
 
     update(uri, data) {
-        // TODO
+        return axios.put(uri, data);
     }
 
     partialUpdate(uri, data) {
-        // TODO
+        return axios.patch(uri, data);
     }
 
     delete(uri) {
-        // TODO
+        return axios.delete(uri);
     }
 }
 
