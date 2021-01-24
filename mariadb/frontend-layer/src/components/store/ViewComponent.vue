@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import StoreRestfulApiService from '../../services/StoreRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveStores() {
+      StoreRestfulApiService.readAll()
+        .then(response => {
+          this.stores = response.data._embedded.stores;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
