@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import ContentRestfulApiService from '../../services/ContentRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveContents() {
+      ContentRestfulApiService.readAll()
+        .then(response => {
+          this.contents = response.data._embedded.contents;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
