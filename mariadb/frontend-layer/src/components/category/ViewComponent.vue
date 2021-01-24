@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import CategoryRestfulApiService from '../../services/CategoryRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveCategories() {
+      CategoryRestfulApiService.readAll()
+        .then(response => {
+          this.categories = response.data._embedded.categories;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
