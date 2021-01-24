@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import InventoryRestfulApiService from '../../services/InventoryRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveInventories() {
+      InventoryRestfulApiService.readAll()
+        .then(response => {
+          this.inventories = response.data._embedded.inventories;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
