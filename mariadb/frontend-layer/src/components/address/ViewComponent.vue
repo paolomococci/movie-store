@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import AddressRestfulApiService from '../../services/AddressRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveAddresses() {
+      AddressRestfulApiService.readAll()
+        .then(response => {
+          this.addresses = response.data._embedded.addresses;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
