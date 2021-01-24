@@ -2,7 +2,7 @@
   <section>
     <b-navbar toggleable="lg" type="dark" variant="info">
       <b-navbar-brand to="/">
-        <b-avatar size="6em">movie<br>store
+        <b-avatar size="7em">movie<br>store
           <template #badge><b-icon icon="film"></b-icon></template>
         </b-avatar>
       </b-navbar-brand>
