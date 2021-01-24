@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import MovieRestfulApiService from '../../services/MovieRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveMovies() {
+      MovieRestfulApiService.readAll()
+        .then(response => {
+          this.movies = response.data._embedded.movies;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
