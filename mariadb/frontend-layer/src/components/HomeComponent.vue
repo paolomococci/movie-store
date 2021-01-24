@@ -3,33 +3,26 @@
     <b-jumbotron>
       <template #header>in this web application</template>
       <hr class="my-4">
-      <p v-text="msg"></p>
-      <b-row>
-        <b-col>
-          <b-button
-            size="xl"
-            variant="outline-secondary"
-            href="#/address"
-            v-b-popover.hover.top="'click to view the list of registered addresses'"
-            title="addresses">addresses</b-button>
-        </b-col>
-        <b-col>
-          <b-button
-            size="xl"
-            variant="outline-secondary"
-            href="#/category"
-            v-b-popover.hover.top="'click to view the list of registered categories'"
-            title="categories">categories</b-button>
-        </b-col>
-        <b-col>
-          <b-button
-            size="xl"
-            variant="outline-secondary"
-            href="#/city"
-            v-b-popover.hover.top="'click to view the list of registered cities'"
-            title="cities">cities</b-button>
-        </b-col>
-      </b-row>
+      <h3 v-text="msg"></h3>
+      <b-table
+        id="data-grid"
+        :items="items"
+        :per-page="pages"
+        :current-page="current">
+      </b-table>
+      <hr class="my-3">
+      <b-pagination
+        v-model="current"
+        pills
+        :total-rows="rows"
+        :per-page="pages"
+        aria-controls="data-grid"
+        first-text="first"
+        prev-text="prev"
+        next-text="next"
+        last-text="last"
+        size="lg">
+      </b-pagination>
     </b-jumbotron>
   </section>
 </template>
@@ -40,6 +33,33 @@ export default {
   name: 'HomeComponent',
   props: {
     msg: String
+  },
+  data: () => ({
+    pages: 4,
+    current: 1,
+    items: [
+      {entities: "address"},
+      {entities: "category"},
+      {entities: "city"},
+      {entities: "content"},
+      {entities: "country"},
+      {entities: "customer"},
+      {entities: "district"},
+      {entities: "inventory"},
+      {entities: "iso3166"},
+      {entities: "language"},
+      {entities: "movie"},
+      {entities: "payment"},
+      {entities: "player"},
+      {entities: "rental"},
+      {entities: "staff"},
+      {entities: "store"}
+    ]
+  }),
+  computed: {
+    rows() {
+      return this.items.length;
+    }
   }
 }
 </script>
