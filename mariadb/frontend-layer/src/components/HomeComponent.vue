@@ -10,7 +10,7 @@
         :per-page="pages"
         :current-page="current"
         selectable
-        @row-selected="onRowSelected">>
+        @row-selected="onRowSelected">
       </b-table>
       <hr class="my-3">
       <b-pagination
@@ -64,8 +64,8 @@ export default {
     }
   },
   methods: {
-    onRowSelected() {
-      // TODO
+    onRowSelected(item) {
+      this.$router.push(item[0].entities);
     }
   }
 }
