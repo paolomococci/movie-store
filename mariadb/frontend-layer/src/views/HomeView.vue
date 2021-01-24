@@ -1,6 +1,6 @@
 <template>
   <main>
-    <home-component msg="you can view and edit this type of entities:"/>
+    <home-component msg="you can view and edit this type of:"/>
   </main>
 </template>
 
