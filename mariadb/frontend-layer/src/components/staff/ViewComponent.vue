@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import StaffRestfulApiService from '../../services/StaffRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveTeams() {
+      StaffRestfulApiService.readAll()
+        .then(response => {
+          this.teams = response.data._embedded.teams;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
