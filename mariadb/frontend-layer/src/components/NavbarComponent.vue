@@ -2,7 +2,9 @@
   <section>
     <b-navbar toggleable="lg" type="dark" variant="info">
       <b-navbar-brand to="/">
-        <b-avatar size="6em" rounded>movie<br>store</b-avatar>
+        <b-avatar size="6em">movie<br>store
+          <template #badge><b-icon icon="film"></b-icon></template>
+        </b-avatar>
       </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
