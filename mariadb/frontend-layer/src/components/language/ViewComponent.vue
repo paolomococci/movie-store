@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import LanguageRestfulApiService from '../../services/LanguageRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveLanguages() {
+      LanguageRestfulApiService.readAll()
+        .then(response => {
+          this.languages = response.data._embedded.languages;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
