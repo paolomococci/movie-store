@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import CityRestfulApiService from '../../services/CityRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveCities() {
+      CityRestfulApiService.readAll()
+        .then(response => {
+          this.cities = response.data._embedded.cities;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
