@@ -8,7 +8,10 @@
         id="data-grid"
         :items="items"
         :per-page="pages"
-        :current-page="current">
+        :current-page="current"
+        selectable
+        :select-mode="single"
+        @row-selected="onRowSelected">>
       </b-table>
       <hr class="my-3">
       <b-pagination
@@ -59,6 +62,11 @@ export default {
   computed: {
     rows() {
       return this.items.length;
+    }
+  },
+  methods: {
+    onRowSelected() {
+      // TODO
     }
   }
 }
