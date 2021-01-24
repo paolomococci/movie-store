@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import PlayerRestfulApiService from '../../services/PlayerRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrievePlayers() {
+      PlayerRestfulApiService.readAll()
+        .then(response => {
+          this.players = response.data._embedded.players;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
