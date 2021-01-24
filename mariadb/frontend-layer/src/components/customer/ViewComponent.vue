@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import CustomerRestfulApiService from '../../services/CustomerRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveCustomers() {
+      CustomerRestfulApiService.readAll()
+        .then(response => {
+          this.customers = response.data._embedded.customers;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
