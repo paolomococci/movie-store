@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import PaymentRestfulApiService from '../../services/PaymentRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrievePayments() {
+      PaymentRestfulApiService.readAll()
+        .then(response => {
+          this.payments = response.data._embedded.payments;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
