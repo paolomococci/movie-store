@@ -10,7 +10,6 @@
         :per-page="pages"
         :current-page="current"
         selectable
-        :select-mode="single"
         @row-selected="onRowSelected">>
       </b-table>
       <hr class="my-3">
