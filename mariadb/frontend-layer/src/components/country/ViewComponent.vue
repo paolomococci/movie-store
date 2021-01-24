@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import CountryRestfulApiService from '../../services/CountryRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveCountries() {
+      CountryRestfulApiService.readAll()
+        .then(response => {
+          this.countries = response.data._embedded.countries;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
