@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import RentalRestfulApiService from '../../services/RentalRestfulApiService'
+
 export default {
   name: 'ViewComponent',
   props: {
@@ -17,6 +19,16 @@ export default {
     // TODO
   }),
   methods: {
+    retrieveRentals() {
+      RentalRestfulApiService.readAll()
+        .then(response => {
+          this.rentals = response.data._embedded.rentals;
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     // TODO
   },
   computed: {
