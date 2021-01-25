@@ -43,6 +43,13 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    deleteItem(uri) {
+      ContentRestfulApiService.delete(uri)
+        .catch(e => {
+          console.log(e);
+        });
+      this.updateView();
     }
     // TODO
   },
