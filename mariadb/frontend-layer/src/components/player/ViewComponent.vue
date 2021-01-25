@@ -43,6 +43,13 @@ export default {
         .catch(e => {
           console.log(e);
         });
+    },
+    deleteItem(uri) {
+      PlayerRestfulApiService.delete(uri)
+        .catch(e => {
+          console.log(e);
+        });
+      this.updateView();
     }
     // TODO
   },
