@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    teams: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of teams being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.teams = null;
+          this.retrieveTeams();
+        }, 1000);
+    },
     retrieveTeams() {
       StaffRestfulApiService.readAll()
         .then(response => {
