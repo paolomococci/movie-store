@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    countries: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of countries being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.countries = null;
+          this.retrieveCountries();
+        }, 1000);
+    },
     retrieveCountries() {
       CountryRestfulApiService.readAll()
         .then(response => {
