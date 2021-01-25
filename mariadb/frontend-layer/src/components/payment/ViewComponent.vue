@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    payments: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of payments being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.payments = null;
+          this.retrievePayments();
+        }, 1000);
+    },
     retrievePayments() {
       PaymentRestfulApiService.readAll()
         .then(response => {
