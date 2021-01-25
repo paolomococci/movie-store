@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    contents: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of contents being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.contents = null;
+          this.retrieveContents();
+        }, 1000);
+    },
     retrieveContents() {
       ContentRestfulApiService.readAll()
         .then(response => {
