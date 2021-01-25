@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    categories: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of categories being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.categories = null;
+          this.retrieveCategories();
+        }, 1000);
+    },
     retrieveCategories() {
       CategoryRestfulApiService.readAll()
         .then(response => {
