@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    inventories: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of inventories being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.inventories = null;
+          this.retrieveInventories();
+        }, 1000);
+    },
     retrieveInventories() {
       InventoryRestfulApiService.readAll()
         .then(response => {
