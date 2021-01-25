@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    customers: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of customers being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.customers = null;
+          this.retrieveCustomers();
+        }, 1000);
+    },
     retrieveCustomers() {
       CustomerRestfulApiService.readAll()
         .then(response => {
