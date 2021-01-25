@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    iso3166s: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of country codes being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.iso3166s = null;
+          this.retrieveCountryCodes();
+        }, 1000);
+    },
     retrieveCountryCodes() {
       Iso3166RestfulApiService.readAll()
         .then(response => {
