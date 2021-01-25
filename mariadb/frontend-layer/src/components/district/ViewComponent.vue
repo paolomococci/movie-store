@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    districts: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of districts being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.districts = null;
+          this.retrieveDistricts();
+        }, 1000);
+    },
     retrieveDistricts() {
       DistrictRestfulApiService.readAll()
         .then(response => {
