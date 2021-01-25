@@ -16,9 +16,24 @@ export default {
     msg: String
   },
   data: () => ({
+    movies: []
     // TODO
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of movies being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+          this.movies = null;
+          this.retrieveMovies();
+        }, 1000);
+    },
     retrieveMovies() {
       MovieRestfulApiService.readAll()
         .then(response => {
