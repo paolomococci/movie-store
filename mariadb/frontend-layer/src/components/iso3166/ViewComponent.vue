@@ -17,7 +17,12 @@ export default {
   },
   data: () => ({
     iso3166s: [],
-    fields: []
+    fields: [
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ]
   }),
   methods: {
     async updateView() {
