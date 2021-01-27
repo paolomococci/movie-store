@@ -19,6 +19,11 @@ export default {
     rentals: [],
     fields: [
       {
+        key: 'rent',
+        label: 'rent',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
