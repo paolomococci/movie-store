@@ -19,16 +19,14 @@
 package local.example.data.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -50,7 +48,10 @@ public class Content {
 	private String subject;
 
 	@Getter
-	private Timestamp updated;
+	@Setter
+	@Column(name = "UPDATED")
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate updated;
 	
 	@Getter
 	@Setter
