@@ -17,7 +17,12 @@ export default {
   },
   data: () => ({
     addresses: [],
-    fields: []
+    fields: [
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ]
   }),
   methods: {
     async updateView() {
