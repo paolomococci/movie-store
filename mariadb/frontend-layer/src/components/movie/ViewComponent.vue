@@ -16,8 +16,8 @@ export default {
     msg: String
   },
   data: () => ({
-    movies: []
-    // TODO
+    movies: [],
+    fields: []
   }),
   methods: {
     async updateView() {
