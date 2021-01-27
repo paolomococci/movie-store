@@ -16,8 +16,8 @@ export default {
     msg: String
   },
   data: () => ({
-    addresses: []
-    // TODO
+    addresses: [],
+    fields: []
   }),
   methods: {
     async updateView() {
