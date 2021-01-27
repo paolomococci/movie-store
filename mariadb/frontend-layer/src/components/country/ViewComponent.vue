@@ -17,7 +17,12 @@ export default {
   },
   data: () => ({
     countries: [],
-    fields: []
+    fields: [
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ]
   }),
   methods: {
     async updateView() {
