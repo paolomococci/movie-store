@@ -17,7 +17,12 @@ export default {
   },
   data: () => ({
     players: [],
-    fields: []
+    fields: [
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ]
   }),
   methods: {
     retrievePlayers() {
