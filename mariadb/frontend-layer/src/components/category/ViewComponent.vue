@@ -19,6 +19,11 @@ export default {
     categories: [],
     fields: [
       {
+        key: 'name',
+        label: 'names',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
