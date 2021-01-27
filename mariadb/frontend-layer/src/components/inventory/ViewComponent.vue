@@ -19,6 +19,11 @@ export default {
     inventories: [],
     fields: [
       {
+        key: 'updated',
+        label: 'updated',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
