@@ -17,7 +17,12 @@ export default {
   },
   data: () => ({
     categories: [],
-    fields: []
+    fields: [
+      {
+        key: 'showDetails',
+        label: 'details'
+      }
+    ]
   }),
   methods: {
     async updateView() {
