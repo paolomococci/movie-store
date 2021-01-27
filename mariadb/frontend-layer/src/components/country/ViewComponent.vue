@@ -16,8 +16,8 @@ export default {
     msg: String
   },
   data: () => ({
-    countries: []
-    // TODO
+    countries: [],
+    fields: []
   }),
   methods: {
     async updateView() {
