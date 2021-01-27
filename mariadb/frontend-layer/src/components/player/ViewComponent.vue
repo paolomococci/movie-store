@@ -16,8 +16,8 @@ export default {
     msg: String
   },
   data: () => ({
-    players: []
-    // TODO
+    players: [],
+    fields: []
   }),
   methods: {
     retrievePlayers() {
