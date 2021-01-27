@@ -19,6 +19,11 @@ export default {
     teams: [],
     fields: [
       {
+        key: 'surname',
+        label: 'surnames',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
