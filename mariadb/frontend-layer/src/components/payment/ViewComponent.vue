@@ -16,8 +16,8 @@ export default {
     msg: String
   },
   data: () => ({
-    payments: []
-    // TODO
+    payments: [],
+    fields: []
   }),
   methods: {
     async updateView() {
