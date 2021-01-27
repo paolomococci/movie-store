@@ -19,6 +19,11 @@ export default {
     payments: [],
     fields: [
       {
+        key: 'payed',
+        label: 'payed',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
