@@ -19,6 +19,11 @@ export default {
     languages: [],
     fields: [
       {
+        key: 'name',
+        label: 'names',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
