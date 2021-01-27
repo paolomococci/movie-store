@@ -19,6 +19,11 @@ export default {
     movies: [],
     fields: [
       {
+        key: 'title',
+        label: 'titles',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
