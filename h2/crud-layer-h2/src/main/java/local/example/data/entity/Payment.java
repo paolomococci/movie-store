@@ -20,13 +20,9 @@ package local.example.data.entity;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
@@ -58,7 +54,10 @@ public class Payment {
 	private Date payed;
 
 	@Getter
-	private Timestamp updated;
+	@Setter
+	@Column(name = "UPDATED")
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate updated;
 	
 	@Getter
 	@Setter
