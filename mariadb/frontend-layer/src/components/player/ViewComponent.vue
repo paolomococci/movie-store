@@ -19,6 +19,11 @@ export default {
     players: [],
     fields: [
       {
+        key: 'surname',
+        label: 'surnames',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
