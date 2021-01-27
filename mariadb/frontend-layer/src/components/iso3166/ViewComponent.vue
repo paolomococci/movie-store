@@ -16,8 +16,8 @@ export default {
     msg: String
   },
   data: () => ({
-    iso3166s: []
-    // TODO
+    iso3166s: [],
+    fields: []
   }),
   methods: {
     async updateView() {
