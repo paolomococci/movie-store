@@ -16,8 +16,8 @@ export default {
     msg: String
   },
   data: () => ({
-    languages: []
-    // TODO
+    languages: [],
+    fields: []
   }),
   methods: {
     async updateView() {
