@@ -19,6 +19,11 @@ export default {
     contents: [],
     fields: [
       {
+        key: 'subject',
+        label: 'subject',
+        sortable: true
+      },
+      {
         key: 'showDetails',
         label: 'details'
       }
