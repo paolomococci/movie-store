@@ -19,16 +19,12 @@
 package local.example.data.entity;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -41,7 +37,10 @@ public class Inventory {
 	private long id;
 
 	@Getter
-	private Timestamp updated;
+	@Setter
+	@Column(name = "UPDATED")
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDate updated;
 	
 	@Getter
 	@Setter
