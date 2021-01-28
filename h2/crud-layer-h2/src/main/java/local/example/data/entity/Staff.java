@@ -99,12 +99,12 @@ public class Staff {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-z0-9]*$", 
 			message = "only the characters `a-z` and `0-9` are allowed"
 			)
+	@Column(name = "USERNAME", unique = true, nullable = false, columnDefinition = "VARCHAR(100)")
 	private String username;
 
 	@Getter
