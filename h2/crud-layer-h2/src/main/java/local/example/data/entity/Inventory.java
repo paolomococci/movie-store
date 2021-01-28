@@ -27,6 +27,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "INVENTORY")
 public class Inventory {
 	
 	@Id
