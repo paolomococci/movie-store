@@ -18,15 +18,13 @@
 
 package local.example.data.entity;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.util.List;
-
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Inventory {
