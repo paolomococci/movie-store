@@ -30,7 +30,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "city")
+@Table(name = "CITY")
 public class City {
 	
 	@Id
