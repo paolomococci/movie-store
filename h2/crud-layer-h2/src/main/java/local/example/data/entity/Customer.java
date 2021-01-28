@@ -84,7 +84,7 @@ public class Customer {
 			regexp = "^[0-9-]*$", 
 			message = "only the characters `0-9` and `-` are allowed"
 			)
-	@Column(name = "MOBILE", unique = true, nullable = false, columnDefinition = "VARCHAR(21)")
+	@Column(name = "MOBILE", unique = true, nullable = false, columnDefinition = "VARCHAR(20)")
 	private String mobile;
 
 	@Getter
