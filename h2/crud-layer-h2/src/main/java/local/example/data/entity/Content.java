@@ -29,6 +29,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "CONTENT")
 public class Content {
 	
 	@Id
