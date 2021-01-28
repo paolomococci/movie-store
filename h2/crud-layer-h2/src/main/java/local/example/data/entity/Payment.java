@@ -29,6 +29,7 @@ import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "PAYMENT")
 public class Payment {
 	
 	@Id
