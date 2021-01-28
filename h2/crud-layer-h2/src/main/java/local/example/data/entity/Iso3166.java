@@ -23,7 +23,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -51,11 +53,8 @@ public class Iso3166 {
 
 	@Getter
 	@Setter
-	@NotNull
-	@Min(4)
-	@Max(894)
-	@Column(unique = true)
-	private Integer code;
+	@Column(name = "CODE", unique = true, nullable = false, columnDefinition = "VARCHAR(3)")
+	private String code;
 
 	@Getter
 	@Setter
