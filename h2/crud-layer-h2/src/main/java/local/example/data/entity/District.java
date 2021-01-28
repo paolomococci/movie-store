@@ -53,12 +53,12 @@ public class District {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 3, max = 6, message = "size range of this field is 3 to 6 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
 			)
+	@Column(name = "CODE", unique = true, nullable = false, columnDefinition = "VARCHAR(9)")
 	private String code;
 
 	@Getter
