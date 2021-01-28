@@ -28,6 +28,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(
+		name = "CUSTOMER",
+		uniqueConstraints = @UniqueConstraint(columnNames = {"MOBILE"})
+)
 public class Customer {
 	
 	@Id
