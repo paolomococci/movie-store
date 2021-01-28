@@ -79,12 +79,12 @@ public class Customer {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 12, max = 20, message = "size range of this field is 12 to 20 characters")
 	@Pattern(
 			regexp = "^[0-9-]*$", 
 			message = "only the characters `0-9` and `-` are allowed"
 			)
+	@Column(name = "MOBILE", unique = true, nullable = false, columnDefinition = "VARCHAR(21)")
 	private String mobile;
 
 	@Getter
