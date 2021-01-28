@@ -18,19 +18,15 @@
 
 package local.example.data.entity;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import lombok.Getter;
-import lombok.Setter;
+import java.time.LocalDate;
 
 @Entity
 public class Payment {
@@ -51,7 +47,7 @@ public class Payment {
 	@NotNull
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@PastOrPresent(groups = java.sql.Date.class)
-	private Date payed;
+	private LocalDate payed;
 
 	@Getter
 	@Setter
