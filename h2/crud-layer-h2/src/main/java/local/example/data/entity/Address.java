@@ -77,7 +77,7 @@ public class Address {
 			regexp = "^[0-9-]*$", 
 			message = "only the characters `0-9` and `-` are allowed"
 			)
-	@Column(name = "PHONE", unique = true, nullable = false, columnDefinition = "VARCHAR(21)")
+	@Column(name = "PHONE", unique = true, nullable = false, columnDefinition = "VARCHAR(25)")
 	private String phone;
 
 	@Getter
