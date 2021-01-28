@@ -30,6 +30,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(
+		name = "CATEGORY",
+		uniqueConstraints = @UniqueConstraint(columnNames = {"NAME"})
+)
 public class Category {
 	
 	@Id
