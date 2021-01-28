@@ -30,6 +30,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Table(name = "STORE")
 public class Store {
 	
 	@Id
@@ -50,7 +51,7 @@ public class Store {
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
 			)
 	private String name;
-	
+
 	@Getter
 	@Setter
 	@Column(name = "INAUGURATED")
