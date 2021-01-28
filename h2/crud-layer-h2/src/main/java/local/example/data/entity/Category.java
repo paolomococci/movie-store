@@ -47,7 +47,7 @@ public class Category {
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
 			)
-	@Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(32)")
+	@Column(name = "NAME", unique = true, nullable = false, columnDefinition = "VARCHAR(50)")
 	private String name;
 
 	@Getter
