@@ -18,20 +18,16 @@
 
 package local.example.data.entity;
 
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import lombok.Getter;
-import lombok.Setter;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Rental {
@@ -44,16 +40,18 @@ public class Rental {
 	@Getter
 	@Setter
 	@NotNull
+	@Column(name = "RENT")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@PastOrPresent(groups = java.sql.Date.class)
-	private Date rent;
+	private LocalDate rent;
 
 	@Getter
 	@Setter
 	@NotNull
+	@Column(name = "BACK")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Future(groups = java.sql.Date.class)
-	private Date back;
+	private LocalDate back;
 
 	@Getter
 	@Setter
