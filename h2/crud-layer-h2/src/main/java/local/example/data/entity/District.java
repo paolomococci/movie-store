@@ -58,7 +58,7 @@ public class District {
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
 			)
-	@Column(name = "CODE", unique = true, nullable = false, columnDefinition = "VARCHAR(9)")
+	@Column(name = "CODE", unique = true, nullable = false, columnDefinition = "VARCHAR(6)")
 	private String code;
 
 	@Getter
