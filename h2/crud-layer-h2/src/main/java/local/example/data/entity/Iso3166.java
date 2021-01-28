@@ -28,7 +28,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "iso3166")
+@Table(
+		name = "ISO3166",
+		uniqueConstraints = @UniqueConstraint(columnNames = {"CODE"})
+)
 public class Iso3166 {
 	
 	@Id
