@@ -30,7 +30,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "address")
+@Table(
+		name = "ADDRESS",
+		uniqueConstraints = @UniqueConstraint(columnNames = {"PHONE"})
+)
 public class Address {
 	
 	@Id
