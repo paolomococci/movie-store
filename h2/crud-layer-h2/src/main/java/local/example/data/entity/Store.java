@@ -23,7 +23,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -40,7 +39,6 @@ public class Store {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(
 			min = 1, 
 			max = 50, 
@@ -50,7 +48,7 @@ public class Store {
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
 			)
-	@Column(name = "NAME", columnDefinition = "VARCHAR(50)")
+	@Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(50)")
 	private String name;
 
 	@Getter
