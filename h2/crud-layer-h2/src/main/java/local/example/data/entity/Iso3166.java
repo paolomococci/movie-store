@@ -73,6 +73,7 @@ public class Iso3166 {
 	
 	@Getter
 	@Setter
+	@Column(name = "COUNTRIES")
 	@OneToMany(mappedBy = "iso3166")
 	private List<Country> countries;
 }
