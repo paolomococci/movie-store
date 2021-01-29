@@ -40,12 +40,12 @@ public class Movie {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
 			)
+	@Column(name = "TITLE", nullable = false, columnDefinition = "VARCHAR(100)")
 	private String title;
 
 	@Getter
@@ -55,16 +55,17 @@ public class Movie {
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
 			)
+	@Column(name = "SUBTITLE", columnDefinition = "VARCHAR(100)")
 	private String subtitle;
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 5, max = 255, message = "size range of this field is 5 to 255 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed"
 			)
+	@Column(name = "DESCRIPTION", nullable = false, columnDefinition = "VARCHAR(255)")
 	private String description;
 
 	@Getter
