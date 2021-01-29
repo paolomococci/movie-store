@@ -55,6 +55,7 @@ public class Content {
 	
 	@Getter
 	@Setter
+	@Column(name = "MOVIES")
 	@ManyToMany(mappedBy = "contents")
 	private List<Movie> movies;
 }
