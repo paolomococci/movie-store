@@ -88,17 +88,20 @@ public class Address {
 	
 	@Getter
 	@Setter
+	@Column(name = "DISTRICT")
 	@ManyToOne
 	@JoinColumn(name = "district_fk")
 	private District district;
 	
 	@Getter
 	@Setter
+	@Column(name = "STORES")
 	@OneToMany(mappedBy = "storeAddress")
 	private List<Store> stores;
 	
 	@Getter
 	@Setter
+	@Column(name = "STAFF")
 	@OneToMany(mappedBy = "staffAddress")
 	private List<Staff> staff;
 	
