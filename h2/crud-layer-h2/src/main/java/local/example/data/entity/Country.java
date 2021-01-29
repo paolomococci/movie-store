@@ -55,11 +55,13 @@ public class Country {
 	
 	@Getter
 	@Setter
+	@Column(name = "ISO3166")
 	@ManyToOne
 	private Iso3166 iso3166;
 	
 	@Getter
 	@Setter
+	@Column(name = "CITIES")
 	@OneToMany(mappedBy = "country")
 	private List<City> cities;
 }
