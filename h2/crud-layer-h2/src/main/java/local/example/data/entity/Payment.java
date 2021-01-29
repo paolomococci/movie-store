@@ -23,7 +23,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
@@ -39,13 +38,13 @@ public class Payment {
 
 	@Getter
 	@Setter
-	@NotNull
 	@PositiveOrZero
+	@Column(name = "AMOUNT", nullable = false)
 	private Double amount;
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "PAYED", nullable = false)
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@PastOrPresent(groups = java.sql.Date.class)
 	private LocalDate payed;
@@ -58,18 +57,21 @@ public class Payment {
 	
 	@Getter
 	@Setter
+	@Column(name = "RENTAL")
 	@ManyToOne
 	@JoinColumn(name = "rental_fk")
 	private Rental rental;
 	
 	@Getter
 	@Setter
+	@Column(name = "PAYMENT_CUSTOMER")
 	@ManyToOne
 	@JoinColumn(name = "customer_fk")
 	private Customer paymentCustomer;
 	
 	@Getter
 	@Setter
+	@Column(name = "PAYMENT_STAFF")
 	@ManyToOne
 	@JoinColumn(name = "staff_fk")
 	private Staff paymentStaff;
