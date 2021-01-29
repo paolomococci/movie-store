@@ -58,6 +58,7 @@ public class Language {
 	
 	@Getter
 	@Setter
+	@Column(name = "MOVIES")
 	@OneToMany(mappedBy = "language")
 	private List<Movie> movies;
 }
