@@ -23,7 +23,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -40,12 +39,12 @@ public class Country {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
 			)
+	@Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(100)")
 	private String name;
 
 	@Getter
