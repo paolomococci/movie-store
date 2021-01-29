@@ -23,7 +23,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -32,7 +31,7 @@ import java.util.List;
 @Entity
 @Table(
 		name = "ISO3166",
-		uniqueConstraints = @UniqueConstraint(columnNames = {"CODE"})
+		uniqueConstraints = @UniqueConstraint(columnNames = {"SIGNATURE"})
 )
 public class Iso3166 {
 	
@@ -43,12 +42,12 @@ public class Iso3166 {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 3, max = 100, message = "size range of this field is 3 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
 			)
+	@Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(100)")
 	private String name;
 
 	@Getter
@@ -58,13 +57,12 @@ public class Iso3166 {
 
 	@Getter
 	@Setter
-	@NotNull
-	@Column(unique = true)
 	@Size(min = 2, max = 3, message = "range of this field is 2 to 3 characters")
 	@Pattern(
 			regexp = "^[A-Z]*$", 
 			message = "only the characters`A-Z` are allowed"
 			)
+	@Column(name = "SIGNATURE", unique = true, nullable = false, columnDefinition = "VARCHAR(3)")
 	private String signature;
 
 	@Getter
