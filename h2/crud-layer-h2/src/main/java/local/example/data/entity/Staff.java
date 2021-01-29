@@ -44,12 +44,12 @@ public class Staff {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z-]*$", 
 			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
 			)
+	@Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(100)")
 	private String name;
 
 	@Getter
@@ -59,16 +59,17 @@ public class Staff {
 			regexp = "^[a-zA-Z-]*$", 
 			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
 			)
+	@Column(name = "NICKNAME", columnDefinition = "VARCHAR(100)")
 	private String nickname;
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z-]*$", 
 			message = "only the characters `a-z`, `A-Z` and `-` are allowed"
 			)
+	@Column(name = "SURNAME", nullable = false, columnDefinition = "VARCHAR(100)")
 	private String surname;
 
 	@Getter
@@ -78,23 +79,24 @@ public class Staff {
 			regexp = "^[0-9-]*$", 
 			message = "only the characters `0-9` and `-` are allowed"
 			)
+	@Column(name = "PHONE", columnDefinition = "VARCHAR(20)")
 	private String phone;
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 12, max = 20, message = "size range of this field is 12 to 20 characters")
 	@Pattern(
 			regexp = "^[0-9-]*$", 
 			message = "only the characters `0-9` and `-` are allowed"
 			)
+	@Column(name = "MOBILE", nullable = false, columnDefinition = "VARCHAR(20)")
 	private String mobile;
 
 	@Getter
 	@Setter
-	@NotNull
 	@Email
 	@Size(min = 5, max = 50, message = "size range of this field is 5 to 50 characters")
+	@Column(name = "EMAIL", nullable = false, columnDefinition = "VARCHAR(50)")
 	private String email;
 
 	@Getter
@@ -109,12 +111,12 @@ public class Staff {
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 12, max = 20, message = "size range of this field is 12 to 20 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9]*$", 
 			message = "only the characters `a-z`, `A-Z` and `0-9` are allowed"
 			)
+	@Column(name = "PASSWORD", nullable = false, columnDefinition = "VARCHAR(20)")
 	private String password;
 
 	@Getter
