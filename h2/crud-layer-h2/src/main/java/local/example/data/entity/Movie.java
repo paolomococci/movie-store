@@ -72,7 +72,7 @@ public class Movie {
 	@NotNull
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Past(groups = java.sql.Date.class)
-	private LocalDate comeout;
+	private LocalDate debut;
 
 	@Getter
 	@Setter
