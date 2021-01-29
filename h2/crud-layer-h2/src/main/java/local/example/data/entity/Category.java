@@ -57,6 +57,7 @@ public class Category {
 			regexp = "^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_`, `-` and space are allowed"
 			)
+	@Column(name = "DESCRIPTION", columnDefinition = "VARCHAR(200)")
 	private String description;
 
 	@Getter
