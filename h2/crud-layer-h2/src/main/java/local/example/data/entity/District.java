@@ -68,12 +68,14 @@ public class District {
 	
 	@Getter
 	@Setter
+	@Column(name = "CITY")
 	@ManyToOne
 	@JoinColumn(name = "city_fk")
 	private City city;
 	
 	@Getter
 	@Setter
+	@Column(name = "ADDRESSES")
 	@OneToMany(mappedBy = "district")
 	private List<Address> addresses;
 }
