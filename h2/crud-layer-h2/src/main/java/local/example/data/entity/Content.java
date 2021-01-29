@@ -44,6 +44,7 @@ public class Content {
 			regexp = "^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_`, `-` and space are allowed"
 			)
+	@Column(name = "SUBJECT", columnDefinition = "VARCHAR(255)")
 	private String subject;
 
 	@Getter
