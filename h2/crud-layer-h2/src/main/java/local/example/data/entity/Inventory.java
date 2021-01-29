@@ -43,18 +43,21 @@ public class Inventory {
 	
 	@Getter
 	@Setter
+	@Column(name = "INVENTORY_STORE")
 	@ManyToOne
 	@JoinColumn(name = "store_fk")
 	private Store inventoryStore;
 	
 	@Getter
 	@Setter
+	@Column(name = "MOVIE")
 	@ManyToOne
 	@JoinColumn(name = "movie_fk")
 	private Movie movie;
 	
 	@Getter
 	@Setter
+	@Column(name = "RENTALS")
 	@OneToMany(mappedBy = "inventory")
 	private List<Rental> rentals;
 }
