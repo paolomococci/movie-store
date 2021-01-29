@@ -24,7 +24,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -121,7 +120,7 @@ public class Staff {
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "ACTIVE", nullable = false)
 	private Boolean active;
 
 	@Getter
@@ -132,23 +131,27 @@ public class Staff {
 	
 	@Getter
 	@Setter
+	@Column(name = "STAFF_ADDRESS")
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
 	private Address staffAddress;
 	
 	@Getter
 	@Setter
+	@Column(name = "STAFF_STORE")
 	@ManyToOne
 	@JoinColumn(name = "store_fk")
 	private Store staffStore;
 	
 	@Getter
 	@Setter
+	@Column(name = "RENTALS")
 	@OneToMany(mappedBy = "staff")
 	private List<Rental> rentals;
 	
 	@Getter
 	@Setter
+	@Column(name = "PAYMENTS")
 	@OneToMany(mappedBy = "paymentStaff")
 	private List<Payment> payments;
 }
