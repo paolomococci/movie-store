@@ -68,6 +68,7 @@ public class Category {
 	
 	@Getter
 	@Setter
+	@Column(name = "MOVIES")
 	@ManyToMany(mappedBy = "categories")
 	private List<Movie> movies;
 }
