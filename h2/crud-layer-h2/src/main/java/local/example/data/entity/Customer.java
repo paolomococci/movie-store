@@ -23,7 +23,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -98,14 +101,14 @@ public class Customer {
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "BIRTHDAY", nullable = false)
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Past(groups = java.sql.Date.class)
 	private LocalDate birthday;
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "ACTIVE", nullable = false)
 	private Boolean active;
 
 	@Getter
@@ -116,23 +119,27 @@ public class Customer {
 	
 	@Getter
 	@Setter
+	@Column(name = "CUSTOMER_ADDRESS")
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
 	private Address customerAddress;
 	
 	@Getter
 	@Setter
+	@Column(name = "CUSTOMER_STORE")
 	@ManyToOne
 	@JoinColumn(name = "store_fk")
 	private Store customerStore;
 	
 	@Getter
 	@Setter
+	@Column(name = "RENTALS")
 	@OneToMany(mappedBy = "customer")
 	private List<Rental> rentals;
 	
 	@Getter
 	@Setter
+	@Column(name = "PAYMENTS")
 	@OneToMany(mappedBy = "paymentCustomer")
 	private List<Payment> payments;
 }
