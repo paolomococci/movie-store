@@ -23,7 +23,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -48,26 +47,27 @@ public class Address {
 			regexp = "^[a-zA-Z]*$", 
 			message = "only the characters `a-z` and `A-Z` characters"
 			)
+	@Column(name = "TYPE", columnDefinition = "VARCHAR(255)")
 	private String type;
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 1, max = 100, message = "size range of this field is 1 to 100 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z_-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `_` and `-` are allowed"
 			)
+	@Column(name = "NAME", nullable = false, columnDefinition = "VARCHAR(100)")
 	private String name;
 
 	@Getter
 	@Setter
-	@NotNull
 	@Size(min = 1, max = 10, message = "size range of this field is 1 to 10 characters")
 	@Pattern(
 			regexp = "^[a-zA-Z0-9-]*$", 
 			message = "only the characters `a-z`, `A-Z`, `0-9` and `-` are allowed"
 			)
+	@Column(name = "CIVIC", nullable = false, columnDefinition = "VARCHAR(10)")
 	private String civic;
 
 	@Getter
