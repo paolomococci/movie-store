@@ -24,7 +24,10 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.List;
@@ -70,32 +73,32 @@ public class Movie {
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "DEBUT", nullable = false)
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Past(groups = java.sql.Date.class)
 	private LocalDate debut;
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "DURATION", nullable = false)
 	@JsonFormat(pattern = "HH:mm:ss")
 	private Time duration;
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "COST", nullable = false)
 	@PositiveOrZero
 	private Double cost;
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "RENT", nullable = false)
 	@PositiveOrZero
 	private Double rent;
 
 	@Getter
 	@Setter
-	@NotNull
+	@Column(name = "RANTING", nullable = false)
 	@Range(min = 0L, max = 1L, message = "fields between zero and one are allowed")
 	private Double rating;
 
@@ -107,17 +110,20 @@ public class Movie {
 	
 	@Getter
 	@Setter
+	@Column(name = "LANGUAGE")
 	@ManyToOne
 	@JoinColumn(name = "language_fk")
 	private Language language;
 	
 	@Getter
 	@Setter
+	@Column(name = "INVENTORIES")
 	@OneToMany(mappedBy = "movie")
 	private List<Inventory> inventories;
 	
 	@Getter
 	@Setter
+	@Column(name = "CATEGORIES")
 	@ManyToMany
 	@JoinTable(
 			name = "movie_category",
@@ -127,6 +133,7 @@ public class Movie {
 	
 	@Getter
 	@Setter
+	@Column(name = "CONTENTS")
 	@ManyToMany
 	@JoinTable(
 			name = "movie_content",
@@ -136,6 +143,7 @@ public class Movie {
 	
 	@Getter
 	@Setter
+	@Column(name = "PLAYERS")
 	@ManyToMany
 	@JoinTable(
 			name = "movie_player",
