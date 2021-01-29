@@ -65,22 +65,26 @@ public class Store {
 	
 	@Getter
 	@Setter
+	@Column(name = "STORE_ADDRESS")
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
 	private Address storeAddress;
 	
 	@Getter
 	@Setter
+	@Column(name = "TEAMS")
 	@OneToMany(mappedBy = "staffStore")
 	private List<Staff> teams;
 	
 	@Getter
 	@Setter
+	@Column(name = "CUSTOMERS")
 	@OneToMany(mappedBy = "customerStore")
 	private List<Customer> customers;
 	
 	@Getter
 	@Setter
+	@Column(name = "INVENTORIES")
 	@OneToMany(mappedBy = "inventoryStore")
 	private List<Inventory> inventories;
 }
