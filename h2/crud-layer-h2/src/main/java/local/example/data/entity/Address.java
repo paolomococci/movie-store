@@ -104,6 +104,7 @@ public class Address {
 	
 	@Getter
 	@Setter
+	@Column(name = "RESIDENTS")
 	@OneToMany(mappedBy = "customerAddress")
 	private List<Customer> residents;
 }
