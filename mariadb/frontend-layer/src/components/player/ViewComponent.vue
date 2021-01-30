@@ -30,21 +30,21 @@ export default {
     ]
   }),
   methods: {
+    async updateView() {
+      this.$bvToast.toast('data of players being updated', {
+        title: 'update view',
+        toaster: 'b-toaster-bottom-center',
+        variant: 'info',
+        solid: true,
+        appendToast: true,
+        autoHideDelay: 1000
+      });
+      await setTimeout(() => {
+        this.players = null;
+        this.retrievePlayers();
+      }, 1000);
+  },
     retrievePlayers() {
-      async updateView() {
-        this.$bvToast.toast('data of players being updated', {
-          title: 'update view',
-          toaster: 'b-toaster-bottom-center',
-          variant: 'info',
-          solid: true,
-          appendToast: true,
-          autoHideDelay: 1000
-        });
-        await setTimeout(() => {
-            this.players = null;
-            this.retrievePlayers();
-          }, 1000);
-      },
       PlayerRestfulApiService.readAll()
         .then(response => {
           this.players = response.data._embedded.players;
