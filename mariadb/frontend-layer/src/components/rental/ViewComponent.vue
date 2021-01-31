@@ -9,9 +9,13 @@
 
 <script>
 import RentalRestfulApiService from '../../services/RentalRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'rental-table-component': TableComponent
+  },
   props: {
     msg: String
   },
