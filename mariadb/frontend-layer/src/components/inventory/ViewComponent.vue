@@ -9,9 +9,13 @@
 
 <script>
 import InventoryRestfulApiService from '../../services/InventoryRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'inventory-table-component': TableComponent
+  },
   props: {
     msg: String
   },
