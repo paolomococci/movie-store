@@ -4,6 +4,7 @@
       <!-- todo aside to show add button -->
     </aside>
     <!-- todo sub-section to show the table list -->
+    <city-table-component/>
   </section>
 </template>
 
