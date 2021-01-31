@@ -9,9 +9,13 @@
 
 <script>
 import LanguageRestfulApiService from '../../services/LanguageRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'language-table-component': TableComponent
+  },
   props: {
     msg: String
   },
