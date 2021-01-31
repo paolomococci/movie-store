@@ -14,7 +14,7 @@
           </b-row>
           <b-row>
             <b-button-group>
-              <!-- edit player component -->
+              <!-- player editor component -->
               <!-- view references component -->
               <b-dropdown>
                 <b-dropdown-item></b-dropdown-item>
