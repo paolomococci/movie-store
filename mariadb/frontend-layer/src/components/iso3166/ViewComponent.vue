@@ -9,9 +9,13 @@
 
 <script>
 import Iso3166RestfulApiService from '../../services/Iso3166RestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'iso3166-table-component': TableComponent
+  },
   props: {
     msg: String
   },
