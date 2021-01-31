@@ -9,9 +9,13 @@
 
 <script>
 import PaymentRestfulApiService from '../../services/PaymentRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'payment-table-component': TableComponent
+  },
   props: {
     msg: String
   },
