@@ -14,7 +14,7 @@
           </b-row>
           <b-row>
             <b-button-group>
-              <!-- edit customer component -->
+              <!-- customer editor component -->
               <!-- view references component -->
               <b-dropdown>
                 <b-dropdown-item></b-dropdown-item>
