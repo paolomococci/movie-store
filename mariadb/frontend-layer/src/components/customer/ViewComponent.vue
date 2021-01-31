@@ -4,6 +4,7 @@
       <!-- todo aside to show add button -->
     </aside>
     <!-- todo sub-section to show the table list -->
+    <customer-table-component/>
   </section>
 </template>
 
