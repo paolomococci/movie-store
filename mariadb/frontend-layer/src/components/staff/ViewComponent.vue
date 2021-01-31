@@ -9,9 +9,13 @@
 
 <script>
 import StaffRestfulApiService from '../../services/StaffRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'staff-table-component': TableComponent
+  },
   props: {
     msg: String
   },
