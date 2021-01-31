@@ -9,9 +9,13 @@
 
 <script>
 import DistrictRestfulApiService from '../../services/DistrictRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'district-table-component': TableComponent
+  },
   props: {
     msg: String
   },
