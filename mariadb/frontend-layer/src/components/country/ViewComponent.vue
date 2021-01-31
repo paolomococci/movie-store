@@ -9,9 +9,13 @@
 
 <script>
 import CountryRestfulApiService from '../../services/CountryRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'country-table-component': TableComponent
+  },
   props: {
     msg: String
   },
