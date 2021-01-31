@@ -9,9 +9,13 @@
 
 <script>
 import PlayerRestfulApiService from '../../services/PlayerRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'player-table-component': TableComponent
+  },
   props: {
     msg: String
   },
