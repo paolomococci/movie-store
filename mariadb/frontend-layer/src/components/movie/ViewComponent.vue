@@ -9,9 +9,13 @@
 
 <script>
 import MovieRestfulApiService from '../../services/MovieRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'movie-table-component': TableComponent
+  },
   props: {
     msg: String
   },
