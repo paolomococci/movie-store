@@ -9,9 +9,13 @@
 
 <script>
 import StoreRestfulApiService from '../../services/StoreRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'store-table-component': TableComponent
+  },
   props: {
     msg: String
   },
