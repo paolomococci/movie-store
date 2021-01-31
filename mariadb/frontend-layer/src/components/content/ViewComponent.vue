@@ -9,9 +9,13 @@
 
 <script>
 import ContentRestfulApiService from '../../services/ContentRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'content-table-component': TableComponent
+  },
   props: {
     msg: String
   },
