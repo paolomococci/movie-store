@@ -9,9 +9,13 @@
 
 <script>
 import CityRestfulApiService from '../../services/CityRestfulApiService'
+import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
+  components: {
+    'city-table-component': TableComponent
+  },
   props: {
     msg: String
   },
