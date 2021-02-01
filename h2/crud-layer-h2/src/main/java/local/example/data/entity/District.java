@@ -68,7 +68,6 @@ public class District {
 	
 	@Getter
 	@Setter
-	@Column(name = "CITY")
 	@ManyToOne
 	@JoinColumn(name = "city_fk")
 	private City city;
