@@ -100,7 +100,7 @@ export default {
     }
   },
   mounted() {
-    // TODO
+    this.retrieveStores();
   }
 }
 </script>
