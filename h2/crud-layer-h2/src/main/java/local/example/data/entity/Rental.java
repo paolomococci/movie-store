@@ -62,21 +62,18 @@ public class Rental {
 	
 	@Getter
 	@Setter
-	@Column(name = "INVENTORY")
 	@ManyToOne
 	@JoinColumn(name = "inventory_fk")
 	private Inventory inventory;
 	
 	@Getter
 	@Setter
-	@Column(name = "CUSTOMER")
 	@ManyToOne
 	@JoinColumn(name = "customer_fk")
 	private Customer customer;
 	
 	@Getter
 	@Setter
-	@Column(name = "STAFF")
 	@ManyToOne
 	@JoinColumn(name = "staff_fk")
 	private Staff staff;
