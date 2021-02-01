@@ -110,7 +110,6 @@ public class Movie {
 	
 	@Getter
 	@Setter
-	@Column(name = "LANGUAGE")
 	@ManyToOne
 	@JoinColumn(name = "language_fk")
 	private Language language;
