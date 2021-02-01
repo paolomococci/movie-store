@@ -99,9 +99,6 @@ export default {
       this.updateView();
     }
   },
-  computed: {
-    // TODO
-  },
   mounted() {
     // TODO
   }
