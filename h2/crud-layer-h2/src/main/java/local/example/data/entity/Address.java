@@ -88,7 +88,6 @@ public class Address {
 	
 	@Getter
 	@Setter
-	@Column(name = "DISTRICT")
 	@ManyToOne
 	@JoinColumn(name = "district_fk")
 	private District district;
