@@ -1,23 +1,23 @@
 <template>
   <section>
-    <b-table>
-      <template>
-        <b-form-checkbox>
+    <b-table :items="languages" :fields="fields" striped resposive="sm">
+      <template #cell(showDetails)="row">
+        <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
           language details
         </b-form-checkbox>
       </template>
-      <template>
+      <template #row-details="row">
         <b-card>
-          <b-row>
-            <b-col></b-col>
-            <b-col></b-col>
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><em>URI:</em></b-col>
+            <b-col><output v-text="row.item._links.self.href"></output></b-col>
           </b-row>
           <b-row>
             <b-button-group>
               <!-- language editor component -->
               <!-- view references component -->
               <b-dropdown>
-                <b-dropdown-item></b-dropdown-item>
+                <b-dropdown-item @click="row.toggleDetails">toggle</b-dropdown-item>
                 <b-dropdown-divider/>
                 <b-dropdown-item></b-dropdown-item>
               </b-dropdown>
