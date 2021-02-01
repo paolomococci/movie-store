@@ -119,14 +119,12 @@ public class Customer {
 	
 	@Getter
 	@Setter
-	@Column(name = "CUSTOMER_ADDRESS")
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
 	private Address customerAddress;
 	
 	@Getter
 	@Setter
-	@Column(name = "CUSTOMER_STORE")
 	@ManyToOne
 	@JoinColumn(name = "store_fk")
 	private Store customerStore;
