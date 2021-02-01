@@ -57,21 +57,18 @@ public class Payment {
 	
 	@Getter
 	@Setter
-	@Column(name = "RENTAL")
 	@ManyToOne
 	@JoinColumn(name = "rental_fk")
 	private Rental rental;
 	
 	@Getter
 	@Setter
-	@Column(name = "PAYMENT_CUSTOMER")
 	@ManyToOne
 	@JoinColumn(name = "customer_fk")
 	private Customer paymentCustomer;
 	
 	@Getter
 	@Setter
-	@Column(name = "PAYMENT_STAFF")
 	@ManyToOne
 	@JoinColumn(name = "staff_fk")
 	private Staff paymentStaff;
