@@ -100,7 +100,7 @@ export default {
     }
   },
   mounted() {
-    // TODO
+    this.retrievePlayers();
   }
 }
 </script>
