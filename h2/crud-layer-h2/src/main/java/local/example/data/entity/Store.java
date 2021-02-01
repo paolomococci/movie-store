@@ -65,7 +65,6 @@ public class Store {
 	
 	@Getter
 	@Setter
-	@Column(name = "STORE_ADDRESS")
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
 	private Address storeAddress;
