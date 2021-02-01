@@ -100,7 +100,7 @@ export default {
     }
   },
   mounted() {
-    // TODO
+    this.retrieveCustomers();
   }
 }
 </script>
