@@ -1,23 +1,23 @@
 <template>
   <section>
-    <b-table>
-      <template>
-        <b-form-checkbox>
+    <b-table :items="countryCodes" :fields="fields" striped resposive="sm">
+      <template #cell(showDetails)="row">
+        <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
           country code details
         </b-form-checkbox>
       </template>
-      <template>
+      <template #row-details="row">
         <b-card>
-          <b-row>
-            <b-col></b-col>
-            <b-col></b-col>
+          <b-row class="mb-2">
+            <b-col sm="3" class="text-sm-right"><em>URI:</em></b-col>
+            <b-col><output v-text="row.item._links.self.href"></output></b-col>
           </b-row>
           <b-row>
             <b-button-group>
               <!-- iso3166 editor component -->
               <!-- view references component -->
               <b-dropdown>
-                <b-dropdown-item></b-dropdown-item>
+                <b-dropdown-item @click="row.toggleDetails">toggle</b-dropdown-item>
                 <b-dropdown-divider/>
                 <b-dropdown-item></b-dropdown-item>
               </b-dropdown>
@@ -35,7 +35,7 @@ import Iso3166RestfulApiService from '../../services/Iso3166RestfulApiService'
 export default {
   name: 'TableComponent',
   data: () => ({
-    iso3166s: [],
+    countryCodes: [],
     fields: [
       {
         key: 'name',
@@ -59,14 +59,14 @@ export default {
         autoHideDelay: 1000
       });
       await setTimeout(() => {
-          this.iso3166s = null;
+          this.countryCodes = null;
           this.retrieveCountryCodes();
         }, 1000);
     },
     retrieveCountryCodes() {
       Iso3166RestfulApiService.readAll()
         .then(response => {
-          this.iso3166s = response.data._embedded.iso3166s;
+          this.countryCodes = response.data._embedded.iso3166s;
           console.log(response.data);
         })
         .catch(e => {
