@@ -19,7 +19,9 @@
               <b-dropdown>
                 <b-dropdown-item @click="row.toggleDetails">toggle</b-dropdown-item>
                 <b-dropdown-divider/>
-                <b-dropdown-item></b-dropdown-item>
+                <b-dropdown-item @click="deleteItemConfirm(row.item._links.self.href)">
+                  delete item
+                </b-dropdown-item>
               </b-dropdown>
             </b-button-group>
           </b-row>
