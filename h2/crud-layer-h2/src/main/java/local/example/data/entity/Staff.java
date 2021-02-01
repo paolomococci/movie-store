@@ -131,14 +131,12 @@ public class Staff {
 	
 	@Getter
 	@Setter
-	@Column(name = "STAFF_ADDRESS")
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
 	private Address staffAddress;
 	
 	@Getter
 	@Setter
-	@Column(name = "STAFF_STORE")
 	@ManyToOne
 	@JoinColumn(name = "store_fk")
 	private Store staffStore;
