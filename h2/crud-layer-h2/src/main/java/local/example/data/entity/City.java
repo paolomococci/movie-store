@@ -62,6 +62,7 @@ public class City {
 	
 	@Getter
 	@Setter
+	@Column(name = "DISTRICTS")
 	@OneToMany(mappedBy = "city")
 	private List<District> districts;
 }
