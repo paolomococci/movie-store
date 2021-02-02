@@ -5,17 +5,26 @@
 </template>
 
 <script>
+import { validationMixin } from 'vuelidate'
 
 export default {
   name: 'AddComponent',
+  mixins: [validationMixin],
   data: () => ({
-    // TODO
+    form: {}
   }),
   validations: {
-    // TODO
+    form: {}
   },
   methods: {
-    // TODO
+    onValidateField() {},
+    onResetForm() {},
+    onSubmitForm() {},
+    onConfirm() {},
+    addItem() {},
+    showModalDetail() {},
+    hideModalDetail() {},
+    updateView() {}
   }
 }
 </script>
