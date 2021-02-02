@@ -1,25 +1,20 @@
 <template>
-  <div>
-    <h1 v-text="msg"></h1>
-  </div>
+  <section>
+    <!-- todo -->
+  </section>
 </template>
 
 <script>
+
 export default {
   name: 'AddComponent',
-  props: {
-    msg: String
-  },
   data: () => ({
     // TODO
   }),
+  validations: {
+    // TODO
+  },
   methods: {
-    // TODO
-  },
-  computed: {
-    // TODO
-  },
-  mounted() {
     // TODO
   }
 }
