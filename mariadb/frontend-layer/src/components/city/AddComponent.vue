@@ -45,6 +45,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
+import CityRestfulApiService from '../../services/CityRestfulApiService'
 
 export default {
   name: 'AddComponent',
@@ -60,7 +61,17 @@ export default {
     onResetForm() {},
     onSubmitForm() {},
     onConfirm() {},
-    addItem() {},
+    addItem() {
+      var data = {};
+      CityRestfulApiService.create(data)
+        .then(response => {
+          console.log(response.data);
+        }).catch(e => {
+          console.log(e);
+        });
+      this.$refs['modal-add'].hide();
+      this.updateView();
+    },
     showModalDetail() {},
     hideModalDetail() {},
     updateView() {}
