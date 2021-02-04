@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <!-- todo aside to show add button -->
+      <customer-add-component/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <customer-table-component/>
@@ -9,11 +9,13 @@
 </template>
 
 <script>
+import AddComponent from './AddComponent'
 import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
   components: {
+    'customer-add-component': AddComponent,
     'customer-table-component': TableComponent
   },
   props: {
