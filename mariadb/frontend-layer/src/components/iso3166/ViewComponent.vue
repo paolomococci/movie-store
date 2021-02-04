@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <!-- todo aside to show add button -->
+      <iso3166-add-component/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <iso3166-table-component/>
@@ -9,11 +9,13 @@
 </template>
 
 <script>
+import AddComponent from './AddComponent'
 import TableComponent from './TableComponent'
 
 export default {
   name: 'ViewComponent',
   components: {
+    'iso3166-add-component': AddComponent,
     'iso3166-table-component': TableComponent
   },
   props: {
