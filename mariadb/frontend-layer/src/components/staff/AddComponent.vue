@@ -72,7 +72,9 @@ export default {
       this.$refs['modal-add'].hide();
       this.updateView();
     },
-    showModalDetail() {},
+    showModalDetail() {
+      this.$refs['modal-add'].show();
+    },
     hideModalDetail() {},
     updateView() {}
   }
