@@ -78,7 +78,9 @@ export default {
     hideModalDetail() {
       this.$refs['modal-add'].hide();
     },
-    updateView() {}
+    updateView() {
+      this.$emit('updateView');
+    }
   }
 }
 </script>
