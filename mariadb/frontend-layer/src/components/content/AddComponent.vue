@@ -69,7 +69,7 @@ export default {
         }).catch(e => {
           console.log(e);
         });
-      this.$refs['modal-add'].hide();
+      this.hideModalDetail();
       this.updateView();
     },
     showModalDetail() {
