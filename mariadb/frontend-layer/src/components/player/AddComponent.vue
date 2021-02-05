@@ -60,7 +60,24 @@ export default {
     onValidateField() {},
     onResetForm() {},
     onSubmitForm() {},
-    onConfirm() {},
+    onConfirm() {
+      this.messageBoxToConfirmDeletion = '';
+      this.$bvModal.msgBoxConfirm('are you sure you want to add this item', {
+        title: 'please confirm',
+        size: 'md',
+        buttonSize: 'md',
+        okVariant: 'warning',
+        okTitle: 'yes',
+        cancelTitle: 'no',
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true
+      }).then(value => {
+        if(value) {
+          this.addItem();
+        }
+      });
+    },
     addItem() {
       var data = {};
       PlayerRestfulApiService.create(data)
