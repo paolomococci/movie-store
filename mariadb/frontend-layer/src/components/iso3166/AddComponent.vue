@@ -66,7 +66,7 @@ export default {
     },
     onResetForm() {
       this.form = {
-        // TODO deletes any values ​​assigned to the fields
+        // TODO deletes any values assigned to the fields
       };
       this.$nextTick(() => {
         this.$v.$reset();
