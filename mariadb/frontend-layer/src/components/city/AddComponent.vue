@@ -59,7 +59,14 @@ export default {
   methods: {
     onValidateField() {},
     onResetForm() {},
-    onSubmitForm() {},
+    onSubmitForm() {
+      this.$v.form.$touch();
+      if (this.$v.form.$anyError) {
+        this.onResetForm();
+        return;
+      }
+      this.onConfirm();
+    },
     onConfirm() {
       this.messageBoxToConfirmDeletion = '';
       this.$bvModal.msgBoxConfirm('are you sure you want to add this item', {
