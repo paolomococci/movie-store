@@ -57,8 +57,17 @@ export default {
     form: {}
   },
   methods: {
-    onValidateField() {},
-    onResetForm() {},
+    onValidateField() {
+      // TODO a method for each field
+    },
+    onResetForm() {
+      this.form = {
+        // TODO deletes any values ​​assigned to the fields
+      };
+      this.$nextTick(() => {
+        this.$v.$reset();
+      });
+    },
     onSubmitForm() {
       this.$v.form.$touch();
       if (this.$v.form.$anyError) {
