@@ -51,10 +51,14 @@ export default {
   name: 'AddComponent',
   mixins: [validationMixin],
   data: () => ({
-    form: {}
+    form: {
+      // TODO initialize the fields
+    }
   }),
   validations: {
-    form: {}
+    form: {
+      // TODO validation criteria for each field
+    }
   },
   methods: {
     onValidateField() {
@@ -62,7 +66,7 @@ export default {
     },
     onResetForm() {
       this.form = {
-        // TODO deletes any values ​​assigned to the fields
+        // TODO deletes any values assigned to the fields
       };
       this.$nextTick(() => {
         this.$v.$reset();
