@@ -51,10 +51,14 @@ export default {
   name: 'AddComponent',
   mixins: [validationMixin],
   data: () => ({
-    form: {}
+    form: {
+      // TODO initialize the fields
+    }
   }),
   validations: {
-    form: {}
+    form: {
+      // TODO validation criteria for each field
+    }
   },
   methods: {
     onValidateField() {
