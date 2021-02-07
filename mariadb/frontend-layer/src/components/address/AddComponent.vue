@@ -22,7 +22,7 @@
               :state="onValidateAddressTypeField('addressType')"
               aria-describedby="input-type-feedback-invalid"></b-form-input>
             <b-form-invalid-feedback id="input-type-feedback-invalid">
-              max of this field is 255 characters, only the characters `a-z` and `A-Z` characters are accepted
+              size range of this field is 3 to 255 characters, only the characters `a-z` and `A-Z` characters are accepted
             </b-form-invalid-feedback>
             <b-form-valid-feedback id="input-type-feedback-valid">
               the address type has a correct format
@@ -119,6 +119,7 @@
 <script>
 import moment from 'moment'
 import { validationMixin } from 'vuelidate'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import AddressRestfulApiService from '../../services/AddressRestfulApiService'
 
 export default {
@@ -136,7 +137,26 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      addressType: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(255)
+      },
+      addressName: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100)
+      },
+      addressCivic: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(10)
+      },
+      addressPhone: {
+        required,
+        minLength: minLength(5),
+        maxLength: maxLength(25)
+      }
     }
   },
   methods: {
