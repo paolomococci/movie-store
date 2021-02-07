@@ -75,6 +75,18 @@ export default {
     onValidateAddressTypeField() {
       // TODO
     },
+    onValidateAddressNameField() {
+      // TODO
+    },
+    onValidateAddressCivicField() {
+      // TODO
+    },
+    onValidateAddressPhoneField() {
+      // TODO
+    },
+    onValidateAddressUpdatedField() {
+      // TODO
+    },
     onResetForm() {
       this.form = {
         // TODO deletes any values assigned to the fields
