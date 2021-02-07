@@ -25,9 +25,24 @@
               max of this field is 255 characters, only the characters `a-z` and `A-Z` characters are accepted
             </b-form-invalid-feedback>
             <b-form-valid-feedback id="input-type-feedback-valid">
-              all right
+              the address type has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+            <!-- name field -->
+            <b-form-group id="input-name-group" label="name" label-for="input-name">
+              <b-form-input
+                id="input-name"
+                name="input-name"
+                v-model="$v.form.addressName.$model"
+                :state="onValidateAddressNameField('addressName')"
+                aria-describedby="input-name-feedback-invalid"></b-form-input>
+              <b-form-invalid-feedback id="input-name-feedback-invalid">
+                size range of this field is 1 to 100 characters, only the characters `a-z`, `A-Z`, `_` and `-` are allowed
+              </b-form-invalid-feedback>
+              <b-form-valid-feedback id="input-name-feedback-valid">
+                the address name has a correct format
+              </b-form-valid-feedback>
+            </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
