@@ -28,36 +28,51 @@
               the address type has a correct format
             </b-form-valid-feedback>
           </b-form-group>
-            <!-- name field -->
-            <b-form-group id="input-name-group" label="name" label-for="input-name">
-              <b-form-input
-                id="input-name"
-                name="input-name"
-                v-model="$v.form.addressName.$model"
-                :state="onValidateAddressNameField('addressName')"
-                aria-describedby="input-name-feedback-invalid"></b-form-input>
-              <b-form-invalid-feedback id="input-name-feedback-invalid">
-                size range of this field is 1 to 100 characters, only the characters `a-z`, `A-Z`, `_` and `-` are allowed
-              </b-form-invalid-feedback>
-              <b-form-valid-feedback id="input-name-feedback-valid">
-                the address name has a correct format
-              </b-form-valid-feedback>
-            </b-form-group>
-              <!-- civic field -->
-              <b-form-group id="input-civic-group" label="civic" label-for="input-civic">
-                <b-form-input
-                  id="input-civic"
-                  name="input-civic"
-                  v-model="$v.form.addressCivic.$model"
-                  :state="onValidateAddressCivicField('addressCivic')"
-                  aria-describedby="input-civic-feedback-invalid"></b-form-input>
-                <b-form-invalid-feedback id="input-civic-feedback-invalid">
-                  size range of this field is 1 to 10 characters, only the characters `a-z`, `A-Z`, `0-9` and `-` are allowed
-                </b-form-invalid-feedback>
-                <b-form-valid-feedback id="input-civic-feedback-valid">
-                  the address civic has a correct format
-                </b-form-valid-feedback>
-              </b-form-group>
+          <!-- name field -->
+          <b-form-group id="input-name-group" label="name" label-for="input-name">
+            <b-form-input
+              id="input-name"
+              name="input-name"
+              v-model="$v.form.addressName.$model"
+              :state="onValidateAddressNameField('addressName')"
+              aria-describedby="input-name-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-name-feedback-invalid">
+              size range of this field is 1 to 100 characters, only the characters `a-z`, `A-Z`, `_` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-name-feedback-valid">
+              the address name has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
+          <!-- civic field -->
+          <b-form-group id="input-civic-group" label="civic" label-for="input-civic">
+            <b-form-input
+              id="input-civic"
+              name="input-civic"
+              v-model="$v.form.addressCivic.$model"
+              :state="onValidateAddressCivicField('addressCivic')"
+              aria-describedby="input-civic-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-civic-feedback-invalid">
+              size range of this field is 1 to 10 characters, only the characters `a-z`, `A-Z`, `0-9` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-civic-feedback-valid">
+              the address civic has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
+          <!-- phone field -->
+          <b-form-group id="input-phone-group" label="phone" label-for="input-phone">
+            <b-form-input
+              id="input-phone"
+              name="input-phone"
+              v-model="$v.form.addressPhone.$model"
+              :state="onValidateAddressPhoneField('addressPhone')"
+              aria-describedby="input-phone-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-phone-feedback-invalid">
+              max of this field is 25 characters, only the characters `0-9` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-phone-feedback-valid">
+              the address phone has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
