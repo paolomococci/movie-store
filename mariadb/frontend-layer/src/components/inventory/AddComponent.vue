@@ -52,7 +52,7 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      // TODO initialize the fields
+      inventoryUpdated: ''
     }
   }),
   validations: {
@@ -66,7 +66,7 @@ export default {
     },
     onResetForm() {
       this.form = {
-        // TODO deletes any values assigned to the fields
+        inventoryUpdated: ''
       };
       this.$nextTick(() => {
         this.$v.$reset();
