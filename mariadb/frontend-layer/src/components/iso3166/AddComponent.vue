@@ -52,7 +52,10 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      // TODO initialize the fields
+      iso3166Name: '',
+      iso3166Code: '',
+      iso3166Signature: '',
+      iso3166Updated: ''
     }
   }),
   validations: {
@@ -66,7 +69,10 @@ export default {
     },
     onResetForm() {
       this.form = {
-        // TODO deletes any values assigned to the fields
+        iso3166Name: '',
+        iso3166Code: '',
+        iso3166Signature: '',
+        iso3166Updated: ''
       };
       this.$nextTick(() => {
         this.$v.$reset();
