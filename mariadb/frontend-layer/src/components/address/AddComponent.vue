@@ -119,8 +119,10 @@
 <script>
 import moment from 'moment'
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import AddressRestfulApiService from '../../services/AddressRestfulApiService'
+
+const addressTypeRegex = helpers.regex('addressTypeRegex', /^[a-zA-Z]*$/);
 
 export default {
   name: 'AddComponent',
@@ -140,7 +142,8 @@ export default {
       addressType: {
         required,
         minLength: minLength(3),
-        maxLength: maxLength(255)
+        maxLength: maxLength(255),
+        addressTypeRegex
       },
       addressName: {
         required,
