@@ -123,6 +123,9 @@ import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validator
 import AddressRestfulApiService from '../../services/AddressRestfulApiService'
 
 const addressTypeRegex = helpers.regex('addressTypeRegex', /^[a-zA-Z]*$/);
+const addressNameRegex = helpers.regex('addressNameRegex', /^[a-zA-Z_-]*$/);
+const addressCivicRegex = helpers.regex('addressCivicRegex', /^[a-zA-Z0-9-]*$/);
+const addressPhoneRegex = helpers.regex('addressPhoneRegex', /^[0-9-]*$/);
 
 export default {
   name: 'AddComponent',
@@ -148,17 +151,20 @@ export default {
       addressName: {
         required,
         minLength: minLength(1),
-        maxLength: maxLength(100)
+        maxLength: maxLength(100),
+        addressNameRegex
       },
       addressCivic: {
         required,
         minLength: minLength(1),
-        maxLength: maxLength(10)
+        maxLength: maxLength(10),
+        addressCivicRegex
       },
       addressPhone: {
         required,
         minLength: minLength(5),
-        maxLength: maxLength(25)
+        maxLength: maxLength(25),
+        addressPhoneRegex
       },
       addressUpdated: {
         required
