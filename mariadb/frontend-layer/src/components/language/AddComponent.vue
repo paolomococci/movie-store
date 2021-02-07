@@ -52,7 +52,8 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      // TODO initialize the fields
+      languageName: '',
+      languageUpdated: ''
     }
   }),
   validations: {
@@ -66,7 +67,8 @@ export default {
     },
     onResetForm() {
       this.form = {
-        // TODO deletes any values assigned to the fields
+        languageName: '',
+        languageUpdated: ''
       };
       this.$nextTick(() => {
         this.$v.$reset();
