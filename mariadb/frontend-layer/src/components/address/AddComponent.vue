@@ -13,13 +13,20 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
-          <!-- todo fields -->
-          <b-form-group>
-            <b-form-input></b-form-input>
-            <b-form-invalid-feedback>
-              description of the error
+          <!-- type field -->
+          <b-form-group id="input-type-group" label="type" label-for="input-type">
+            <b-form-input
+              id="input-type"
+              name="input-type"
+              v-model="$v.form.addressType.$model"
+              :state="onValidateAddressTypeField('addressType')"
+              aria-describedby="input-type-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-type-feedback-invalid">
+              max of this field is 255 characters, only the characters `a-z` and `A-Z` characters are accepted
             </b-form-invalid-feedback>
-            <b-form-valid-feedback>all right</b-form-valid-feedback>
+            <b-form-valid-feedback id="input-type-feedback-valid">
+              all right
+            </b-form-valid-feedback>
           </b-form-group>
           <!-- buttons -->
           <b-button
