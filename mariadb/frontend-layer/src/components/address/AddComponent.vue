@@ -156,6 +156,9 @@ export default {
         required,
         minLength: minLength(5),
         maxLength: maxLength(25)
+      },
+      addressUpdated: {
+        required
       }
     }
   },
