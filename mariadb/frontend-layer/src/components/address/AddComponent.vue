@@ -172,20 +172,25 @@ export default {
     }
   },
   methods: {
-    onValidateAddressTypeField() {
-      // TODO
+    onValidateAddressTypeField(addressType) {
+      const { $dirty, $error } = this.$v.form[addressType];
+      return $dirty ? !$error : null;
     },
-    onValidateAddressNameField() {
-      // TODO
+    onValidateAddressNameField(addressName) {
+      const { $dirty, $error } = this.$v.form[addressName];
+      return $dirty ? !$error : null;
     },
-    onValidateAddressCivicField() {
-      // TODO
+    onValidateAddressCivicField(addressCivic) {
+      const { $dirty, $error } = this.$v.form[addressCivic];
+      return $dirty ? !$error : null;
     },
-    onValidateAddressPhoneField() {
-      // TODO
+    onValidateAddressPhoneField(addressPhone) {
+      const { $dirty, $error } = this.$v.form[addressPhone];
+      return $dirty ? !$error : null;
     },
-    onValidateAddressUpdatedField() {
-      // TODO
+    onValidateAddressUpdatedField(addressUpdated) {
+      const { $dirty, $error } = this.$v.form[addressUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
