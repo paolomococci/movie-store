@@ -52,7 +52,10 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      // TODO initialize the fields
+      playerName: '',
+      playerNickname: '',
+      playerSurname: '',
+      playerUpdated: ''
     }
   }),
   validations: {
@@ -66,7 +69,10 @@ export default {
     },
     onResetForm() {
       this.form = {
-        // TODO deletes any values assigned to the fields
+        playerName: '',
+        playerNickname: '',
+        playerSurname: '',
+        playerUpdated: ''
       };
       this.$nextTick(() => {
         this.$v.$reset();
