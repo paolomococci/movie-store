@@ -52,7 +52,11 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      // TODO initialize the fields
+      addressType: '',
+      addressName: '',
+      addressCivic: '',
+      addressPhone: '',
+      addressUpdated: ''
     }
   }),
   validations: {
@@ -61,8 +65,8 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidateAddressTypeField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
