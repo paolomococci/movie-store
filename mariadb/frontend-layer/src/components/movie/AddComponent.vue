@@ -52,7 +52,14 @@ export default {
   mixins: [validationMixin],
   data: () => ({
     form: {
-      // TODO initialize the fields
+      movieTitle: '',
+      movieSubtitle: '',
+      movieDescription: '',
+      movieDebut: '',
+      movieCost: 0.0,
+      movieRent: 0.0,
+      movieRating: 0.0,
+      movieUpdated: ''
     }
   }),
   validations: {
@@ -66,7 +73,14 @@ export default {
     },
     onResetForm() {
       this.form = {
-        // TODO deletes any values assigned to the fields
+        movieTitle: '',
+        movieSubtitle: '',
+        movieDescription: '',
+        movieDebut: '',
+        movieCost: 0.0,
+        movieRent: 0.0,
+        movieRating: 0.0,
+        movieUpdated: ''
       };
       this.$nextTick(() => {
         this.$v.$reset();
