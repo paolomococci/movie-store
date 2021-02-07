@@ -89,7 +89,11 @@ export default {
     },
     onResetForm() {
       this.form = {
-        // TODO deletes any values assigned to the fields
+        addressType: '',
+        addressName: '',
+        addressCivic: '',
+        addressPhone: '',
+        addressUpdated: ''
       };
       this.$nextTick(() => {
         this.$v.$reset();
