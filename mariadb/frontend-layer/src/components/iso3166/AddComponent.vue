@@ -66,7 +66,27 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      iso3166Name: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(100),
+        iso3166NameRegex
+      },
+      iso3166Code: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(3),
+        iso3166CodeRegex
+      },
+      iso3166Name: {
+        required,
+        minLength: minLength(2),
+        maxLength: maxLength(3),
+        iso3166SignatureRegex
+      },
+      iso3166Updated: {
+        required
+      }
     }
   },
   methods: {
