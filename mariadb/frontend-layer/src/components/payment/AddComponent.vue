@@ -63,8 +63,14 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidatePaymentAmountField() {
+      // TODO
+    },
+    onValidatePaymentPayedField() {
+      // TODO
+    },
+    onValidatePaymentUpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
