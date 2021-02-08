@@ -13,13 +13,20 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
-          <!-- todo fields -->
-          <b-form-group>
-            <b-form-input></b-form-input>
-            <b-form-invalid-feedback>
-              description of the error
+          <!-- title field -->
+          <b-form-group id="input-title-group" label="title" label-for="input-title">
+            <b-form-input
+              id="input-title"
+              name="input-title"
+              v-model="$v.form.movieTitle.$model"
+              :state="onValidateMovieTitleField('movieTitle')"
+              aria-describedby="input-title-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-title-feedback-invalid">
+              size range of this field is 1 to 100 characters, only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed
             </b-form-invalid-feedback>
-            <b-form-valid-feedback>all right</b-form-valid-feedback>
+            <b-form-valid-feedback id="input-title-feedback-valid">
+              the movie title has a correct format
+            </b-form-valid-feedback>
           </b-form-group>
           <!-- buttons -->
           <b-button
