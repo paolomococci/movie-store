@@ -65,14 +65,17 @@ export default {
     }
   },
   methods: {
-    onValidatePaymentAmountField() {
-      // TODO
+    onValidatePaymentAmountField(paymentAmount) {
+      const { $dirty, $error } = this.$v.form[paymentAmount];
+      return $dirty ? !$error : null;
     },
-    onValidatePaymentPayedField() {
-      // TODO
+    onValidatePaymentPayedField(paymentPayed) {
+      const { $dirty, $error } = this.$v.form[paymentPayed];
+      return $dirty ? !$error : null;
     },
-    onValidatePaymentUpdatedField() {
-      // TODO
+    onValidatePaymentUpdatedField(paymentUpdated) {
+      const { $dirty, $error } = this.$v.form[paymentUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
