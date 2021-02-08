@@ -49,6 +49,10 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import MovieRestfulApiService from '../../services/MovieRestfulApiService'
 
+const movieTitleRegex = helpers.regex('movieTitleRegex', /^[a-zA-Z0-9_-]*$/);
+const movieSubtitleRegex = helpers.regex('movieSubtitleRegex', /^[a-zA-Z0-9_-]*$/);
+const movieDescriptionRegex = helpers.regex('movieDescriptionRegex', /^[a-zA-Z0-9_-]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -70,29 +74,37 @@ export default {
     }
   },
   methods: {
-    onValidateMovieTitleField() {
-      // TODO
+    onValidateMovieTitleField(movieTitle) {
+      const { $dirty, $error } = this.$v.form[movieTitle];
+      return $dirty ? !$error : null;
     },
-    onValidateMovieSubtitleField() {
-      // TODO
+    onValidateMovieSubtitleField(movieSubtitle) {
+      const { $dirty, $error } = this.$v.form[movieSubtitle];
+      return $dirty ? !$error : null;
     },
-    onValidateMovieDescriptionField() {
-      // TODO
+    onValidateMovieDescriptionField(movieDescription) {
+      const { $dirty, $error } = this.$v.form[movieDescription];
+      return $dirty ? !$error : null;
     },
-    onValidateMovieDebutField() {
-      // TODO
+    onValidateMovieDebutField(movieDebut) {
+      const { $dirty, $error } = this.$v.form[movieDebut];
+      return $dirty ? !$error : null;
     },
-    onValidateMovieCostField() {
-      // TODO
+    onValidateMovieCostField(movieCost) {
+      const { $dirty, $error } = this.$v.form[movieCost];
+      return $dirty ? !$error : null;
     },
-    onValidateMovieRentField() {
-      // TODO
+    onValidateMovieRentField(movieRent) {
+      const { $dirty, $error } = this.$v.form[movieRent];
+      return $dirty ? !$error : null;
     },
-    onValidateMovieRatingField() {
-      // TODO
+    onValidateMovieRatingField(movieRating) {
+      const { $dirty, $error } = this.$v.form[movieRating];
+      return $dirty ? !$error : null;
     },
-    onValidateMovieUpdatedField() {
-      // TODO
+    onValidateMovieUpdatedField(movieUpdated) {
+      const { $dirty, $error } = this.$v.form[movieUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
