@@ -64,13 +64,13 @@ export default {
   },
   methods: {
     onValidateStoreNameField() {
-      // TODO a method for each field
+      // TODO
     },
     onValidateStoreInauguratedField() {
-      // TODO a method for each field
+      // TODO
     },
     onValidateStoreUpdatedField() {
-      // TODO a method for each field
+      // TODO
     },
     onResetForm() {
       this.form = {
