@@ -49,6 +49,8 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import CityRestfulApiService from '../../services/CityRestfulApiService'
 
+const cityNameRegex = helpers.regex('cityNameRegex', /^[a-zA-Z_-]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -64,11 +66,13 @@ export default {
     }
   },
   methods: {
-    onValidateCityNameField() {
-      // TODO
+    onValidateCityNameField(cityName) {
+      const { $dirty, $error } = this.$v.form[cityName];
+      return $dirty ? !$error : null;
     },
-    onValidateCityUpdatedField() {
-      // TODO
+    onValidateCityUpdatedField(cityUpdated) {
+      const { $dirty, $error } = this.$v.form[cityUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
