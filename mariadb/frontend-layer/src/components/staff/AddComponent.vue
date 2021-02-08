@@ -80,35 +80,45 @@ export default {
     }
   },
   methods: {
-    onValidateStaffNameField() {
-      // TODO
+    onValidateStaffNameField(staffName) {
+      const { $dirty, $error } = this.$v.form[staffName];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffNicknameField() {
-      // TODO
+    onValidateStaffNicknameField(staffNickname) {
+      const { $dirty, $error } = this.$v.form[staffNickname];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffSurnameField() {
-      // TODO
+    onValidateStaffSurnameField(staffSurname) {
+      const { $dirty, $error } = this.$v.form[staffSurname];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffPhoneField() {
-      // TODO
+    onValidateStaffPhoneField(staffPhone) {
+      const { $dirty, $error } = this.$v.form[staffPhone];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffMobileField() {
-      // TODO
+    onValidateStaffMobileField(staffMobile) {
+      const { $dirty, $error } = this.$v.form[staffMobile];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffEmailField() {
-      // TODO
+    onValidateStaffEmailField(staffEmail) {
+      const { $dirty, $error } = this.$v.form[staffEmail];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffUsernameField() {
-      // TODO
+    onValidateStaffUsernameField(staffUsername) {
+      const { $dirty, $error } = this.$v.form[staffUsername];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffPasswordField() {
-      // TODO
+    onValidateStaffPasswordField(staffPassword) {
+      const { $dirty, $error } = this.$v.form[staffPassword];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffActiveField() {
-      // TODO
+    onValidateStaffActiveField(staffActive) {
+      const { $dirty, $error } = this.$v.form[staffActive];
+      return $dirty ? !$error : null;
     },
-    onValidateStaffUpdatedField() {
-      // TODO
+    onValidateStaffUpdatedField(staffUpdated) {
+      const { $dirty, $error } = this.$v.form[staffUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
