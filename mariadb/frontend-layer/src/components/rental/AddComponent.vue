@@ -63,7 +63,13 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
+    onValidateRentalRentField() {
+      // TODO a method for each field
+    },
+    onValidateRentalBackField() {
+      // TODO a method for each field
+    },
+    onValidateRentalUpdatedField() {
       // TODO a method for each field
     },
     onResetForm() {
