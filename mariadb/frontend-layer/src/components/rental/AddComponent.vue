@@ -46,6 +46,7 @@
 <script>
 import moment from 'moment'
 import { validationMixin } from 'vuelidate'
+import { required } from 'vuelidate/lib/validators'
 import RentalRestfulApiService from '../../services/RentalRestfulApiService'
 
 export default {
