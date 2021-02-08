@@ -46,7 +46,7 @@
 <script>
 import moment from 'moment'
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, email, helpers } from 'vuelidate/lib/validators'
 import StaffRestfulApiService from '../../services/StaffRestfulApiService'
 
 const staffNameRegex = helpers.regex('staffNameRegex', /^[a-zA-Z-]*$/);
@@ -76,7 +76,56 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      staffName: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        staffNameRegex
+      },
+      staffNickname: {
+        maxLength: maxLength(100),
+        staffNicknameRegex
+      },
+      staffSurname: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        staffSurnameRegex
+      },
+      staffPhone: {
+        maxLength: maxLength(20),
+        staffPhoneRegex
+      },
+      staffMobile: {
+        required,
+        minLength: minLength(12),
+        maxLength: maxLength(20),
+        staffMobileRegex
+      },
+      staffEmail: {
+        required,
+        minLength: minLength(5),
+        maxLength: maxLength(50),
+        email
+      },
+      staffUsername: {
+        required,
+        minLength: minLength(8),
+        maxLength: maxLength(100),
+        staffUsernameRegex
+      },
+      staffPassword: {
+        required,
+        minLength: minLength(12),
+        maxLength: maxLength(20),
+        staffPasswordRegex
+      },
+      staffActive: {
+        required
+      },
+      staffUpdated: {
+        required
+      }
     }
   },
   methods: {
