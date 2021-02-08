@@ -46,6 +46,7 @@
 <script>
 import moment from 'moment'
 import { validationMixin } from 'vuelidate'
+import { required } from 'vuelidate/lib/validators'
 import InventoryRestfulApiService from '../../services/InventoryRestfulApiService'
 
 export default {
@@ -62,8 +63,9 @@ export default {
     }
   },
   methods: {
-    onValidateInventoryUpdatedField() {
-      // TODO
+    onValidateInventoryUpdatedField(inventoryUpdated) {
+      const { $dirty, $error } = this.$v.form[inventoryUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
