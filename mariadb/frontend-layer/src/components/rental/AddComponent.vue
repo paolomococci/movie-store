@@ -65,14 +65,17 @@ export default {
     }
   },
   methods: {
-    onValidateRentalRentField() {
-      // TODO
+    onValidateRentalRentField(rentalRent) {
+      const { $dirty, $error } = this.$v.form[rentalRent];
+      return $dirty ? !$error : null;
     },
-    onValidateRentalBackField() {
-      // TODO
+    onValidateRentalBackField(rentalBack) {
+      const { $dirty, $error } = this.$v.form[rentalBack];
+      return $dirty ? !$error : null;
     },
-    onValidateRentalUpdatedField() {
-      // TODO
+    onValidateRentalUpdatedField(rentalUpdated) {
+      const { $dirty, $error } = this.$v.form[rentalUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
