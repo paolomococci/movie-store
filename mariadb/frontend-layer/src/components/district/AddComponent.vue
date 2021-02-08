@@ -64,7 +64,21 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      districtName: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(50),
+        districtNameRegex
+      },
+      districtCode: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(6),
+        districtCodeRegex
+      },
+      districtUpdated: {
+        required
+      }
     }
   },
   methods: {
