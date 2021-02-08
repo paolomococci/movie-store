@@ -49,6 +49,8 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import StoreRestfulApiService from '../../services/StoreRestfulApiService'
 
+const storeNameRegex = helpers.regex('storeNameRegex', /^[a-zA-Z0-9_-]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
