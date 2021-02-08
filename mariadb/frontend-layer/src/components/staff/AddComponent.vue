@@ -49,6 +49,14 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import StaffRestfulApiService from '../../services/StaffRestfulApiService'
 
+const staffNameRegex = helpers.regex('staffNameRegex', /^[a-zA-Z-]*$/);
+const staffNicknameRegex = helpers.regex('staffNicknameRegex', /^[a-zA-Z-]*$/);
+const staffSurnameRegex = helpers.regex('staffSurnameRegex', /^[a-zA-Z-]*$/);
+const staffPhoneRegex = helpers.regex('staffPhoneRegex', /^[0-9-]*$/);
+const staffMobileRegex = helpers.regex('staffMobileRegex', /^[0-9-]*$/);
+const staffUsernameRegex = helpers.regex('staffUsernameRegex', /^[a-z0-9]*$/);
+const staffPasswordRegex = helpers.regex('staffPasswordRegex', /^[a-zA-Z0-9]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
