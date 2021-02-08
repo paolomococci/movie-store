@@ -49,6 +49,8 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import ContentRestfulApiService from '../../services/ContentRestfulApiService'
 
+const contentSubjectRegex = helpers.regex('contentSubjectRegex', /^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -64,11 +66,13 @@ export default {
     }
   },
   methods: {
-    onValidateContentSubjectField() {
-      // TODO
+    onValidateContentSubjectField(contentSubject) {
+      const { $dirty, $error } = this.$v.form[contentSubject];
+      return $dirty ? !$error : null;
     },
-    onValidateContentUpdatedField() {
-      // TODO
+    onValidateContentUpdatedField(contentUpdated) {
+      const { $dirty, $error } = this.$v.form[contentUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
