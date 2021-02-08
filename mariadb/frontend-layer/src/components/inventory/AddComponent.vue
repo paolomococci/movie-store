@@ -59,7 +59,9 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      inventoryUpdated: {
+        required
+      }
     }
   },
   methods: {
