@@ -63,7 +63,18 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      storeName: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(50),
+        storeNameRegex
+      },
+      storeInaugurated: {
+        required
+      },
+      storeUpdated: {
+        required
+      }
     }
   },
   methods: {
