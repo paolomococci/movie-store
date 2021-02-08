@@ -49,6 +49,8 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import LanguageRestfulApiService from '../../services/LanguageRestfulApiService'
 
+const languageNameRegex = helpers.regex('languageNameRegex', /^[a-zA-Z_-]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -64,11 +66,13 @@ export default {
     }
   },
   methods: {
-    onValidateLanguageNameField() {
-      // TODO
+    onValidateLanguageNameField(languageName) {
+      const { $dirty, $error } = this.$v.form[languageName];
+      return $dirty ? !$error : null;
     },
-    onValidateLanguageUpdatedField() {
-      // TODO
+    onValidateLanguageUpdatedField(languageUpdated) {
+      const { $dirty, $error } = this.$v.form[languageUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
