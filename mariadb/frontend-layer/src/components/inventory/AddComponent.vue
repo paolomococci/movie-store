@@ -13,13 +13,26 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
-          <!-- todo fields -->
-          <b-form-group>
-            <b-form-input></b-form-input>
-            <b-form-invalid-feedback>
-              description of the error
+          <!-- updated field -->
+          <b-form-group id="inventory-updated-group" label="choose a date" label-for="inventory-updated-picker">
+            <b-form-datepicker
+              id="inventory-updated-picker"
+              name="inventory-updated-picker"
+              min="minDate"
+              v-model="$v.form.inventoryUpdated.$model"
+              :state="onValidateInventoryUpdatedField('inventoryUpdated')"
+              aria-describedby="inventory-updated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="inventory-updated-picker-description-feedback-invalid">
+              today or future date are accepted
             </b-form-invalid-feedback>
-            <b-form-valid-feedback>all right</b-form-valid-feedback>
+            <b-form-valid-feedback id="inventory-updated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
           </b-form-group>
           <!-- buttons -->
           <b-button
@@ -55,7 +68,8 @@ export default {
   data: () => ({
     form: {
       inventoryUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
