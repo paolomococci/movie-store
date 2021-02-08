@@ -69,8 +69,32 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidateCustomerNameField() {
+      // TODO
+    },
+    onValidateCustomerNicknameField() {
+      // TODO
+    },
+    onValidateCustomerSurnameField() {
+      // TODO
+    },
+    onValidateCustomerPhoneField() {
+      // TODO
+    },
+    onValidateCustomerMobileField() {
+      // TODO
+    },
+    onValidateCustomerEmailField() {
+      // TODO
+    },
+    onValidateCustomerBirthdayField() {
+      // TODO
+    },
+    onValidateCustomerActiveField() {
+      // TODO
+    },
+    onValidateCustomerUpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
