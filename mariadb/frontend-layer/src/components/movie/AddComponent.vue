@@ -70,7 +70,37 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      movieTitle: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        movieTitleRegex
+      },
+      movieSubtitle: {
+        maxLength: maxLength(100),
+        movieSubtitleRegex
+      },
+      movieDescription: {
+        required,
+        minLength: minLength(5),
+        maxLength: maxLength(255),
+        movieDescriptionRegex
+      },
+      movieDebut: {
+        required
+      },
+      movieCost: {
+        required
+      },
+      movieRent: {
+        required
+      },
+      movieRating: {
+        required
+      },
+      movieUpdated: {
+        required
+      }
     }
   },
   methods: {
