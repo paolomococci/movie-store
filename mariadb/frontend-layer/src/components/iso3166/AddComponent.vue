@@ -64,8 +64,17 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidateIso3166NameField() {
+      // TODO
+    },
+    onValidateIso3166CodeField() {
+      // TODO
+    },
+    onValidateIso3166SignatureField() {
+      // TODO
+    },
+    onValidateIso3166UpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
