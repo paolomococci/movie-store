@@ -70,17 +70,21 @@ export default {
     }
   },
   methods: {
-    onValidatePlayerNameField() {
-      // TODO
+    onValidatePlayerNameField(playerName) {
+      const { $dirty, $error } = this.$v.form[playerName];
+      return $dirty ? !$error : null;
     },
-    onValidatePlayerNicknameField() {
-      // TODO
+    onValidatePlayerNicknameField(playerNickname) {
+      const { $dirty, $error } = this.$v.form[playerNickname];
+      return $dirty ? !$error : null;
     },
-    onValidatePlayerSurnameField() {
-      // TODO
+    onValidatePlayerSurnameField(playerSurname) {
+      const { $dirty, $error } = this.$v.form[playerSurname];
+      return $dirty ? !$error : null;
     },
-    onValidatePlayerUpdatedField() {
-      // TODO
+    onValidatePlayerUpdatedField(playerUpdated) {
+      const { $dirty, $error } = this.$v.form[playerUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
