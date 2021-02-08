@@ -63,7 +63,13 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
+    onValidateStoreNameField() {
+      // TODO a method for each field
+    },
+    onValidateStoreInauguratedField() {
+      // TODO a method for each field
+    },
+    onValidateStoreUpdatedField() {
       // TODO a method for each field
     },
     onResetForm() {
