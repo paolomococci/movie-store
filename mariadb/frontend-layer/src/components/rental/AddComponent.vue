@@ -64,13 +64,13 @@ export default {
   },
   methods: {
     onValidateRentalRentField() {
-      // TODO a method for each field
+      // TODO
     },
     onValidateRentalBackField() {
-      // TODO a method for each field
+      // TODO
     },
     onValidateRentalUpdatedField() {
-      // TODO a method for each field
+      // TODO
     },
     onResetForm() {
       this.form = {
