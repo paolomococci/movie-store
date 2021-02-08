@@ -62,7 +62,15 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      cityName: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        cityNameRegex
+      },
+      cityUpdated: {
+        required
+      }
     }
   },
   methods: {
