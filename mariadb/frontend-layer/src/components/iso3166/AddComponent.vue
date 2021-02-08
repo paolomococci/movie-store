@@ -49,6 +49,10 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import Iso3166RestfulApiService from '../../services/Iso3166RestfulApiService'
 
+const iso3166NameRegex = helpers.regex('iso3166NameRegex', /^[a-zA-Z_-]*$/);
+const iso3166CodeRegex = helpers.regex('iso3166CodeRegex', /^[1-9]*$/);
+const iso3166SignatureRegex = helpers.regex('iso3166SignatureRegex', /^[A-Z]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -66,17 +70,21 @@ export default {
     }
   },
   methods: {
-    onValidateIso3166NameField() {
-      // TODO
+    onValidateIso3166NameField(iso3166Name) {
+      const { $dirty, $error } = this.$v.form[iso3166Name];
+      return $dirty ? !$error : null;
     },
-    onValidateIso3166CodeField() {
-      // TODO
+    onValidateIso3166CodeField(iso3166Code) {
+      const { $dirty, $error } = this.$v.form[iso3166Code];
+      return $dirty ? !$error : null;
     },
-    onValidateIso3166SignatureField() {
-      // TODO
+    onValidateIso3166SignatureField(iso3166Signature) {
+      const { $dirty, $error } = this.$v.form[iso3166Signature];
+      return $dirty ? !$error : null;
     },
-    onValidateIso3166UpdatedField() {
-      // TODO
+    onValidateIso3166UpdatedField(iso3166Updated) {
+      const { $dirty, $error } = this.$v.form[iso3166Updated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
