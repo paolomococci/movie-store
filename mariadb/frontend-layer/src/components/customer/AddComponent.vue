@@ -46,7 +46,7 @@
 <script>
 import moment from 'moment'
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, email, helpers } from 'vuelidate/lib/validators'
 import CustomerRestfulApiService from '../../services/CustomerRestfulApiService'
 
 const customerNameRegex = helpers.regex('customerNameRegex', /^[a-zA-Z-]*$/);
@@ -73,7 +73,49 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      customerName: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        customerNameRegex
+      },
+      customerNickname: {
+        maxLength: maxLength(100),
+        customerNicknameRegex
+      },
+      customerSurname: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        customerSurnameRegex
+      },
+      customerPhone: {
+        required,
+        minLength: minLength(7),
+        maxLength: maxLength(20),
+        customerPhoneRegex
+      },
+      customerMobile: {
+        required,
+        minLength: minLength(12),
+        maxLength: maxLength(20),
+        customerMobileRegex
+      },
+      customerEmail: {
+        required,
+        minLength: minLength(5),
+        maxLength: maxLength(50),
+        email
+      },
+      customerBirthday: {
+        required
+      },
+      customerActive: {
+        required
+      },
+      customerUpdated: {
+        required
+      }
     }
   },
   methods: {
