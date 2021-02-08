@@ -68,8 +68,29 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidateMovieTitleField() {
+      // TODO
+    },
+    onValidateMovieSubtitleField() {
+      // TODO
+    },
+    onValidateMovieDescriptionField() {
+      // TODO
+    },
+    onValidateMovieDebutField() {
+      // TODO
+    },
+    onValidateMovieCostField() {
+      // TODO
+    },
+    onValidateMovieRentField() {
+      // TODO
+    },
+    onValidateMovieRatingField() {
+      // TODO
+    },
+    onValidateMovieUpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
