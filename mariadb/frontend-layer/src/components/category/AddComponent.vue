@@ -64,7 +64,19 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      categoryName: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(50),
+        categoryNameRegex
+      },
+      categoryDescription: {
+        maxLength: maxLength(200),
+        categoryDescriptionRegex
+      },
+      categoryUpdated: {
+        required
+      }
     }
   },
   methods: {
