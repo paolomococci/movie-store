@@ -46,7 +46,7 @@
 <script>
 import moment from 'moment'
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
+import { required, maxLength, helpers } from 'vuelidate/lib/validators'
 import ContentRestfulApiService from '../../services/ContentRestfulApiService'
 
 const contentSubjectRegex = helpers.regex('contentSubjectRegex', /^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*$/);
@@ -62,7 +62,13 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      contentSubject: {
+        maxLength: maxLength(255),
+        contentSubjectRegex
+      },
+      contentUpdated: {
+        required
+      }
     }
   },
   methods: {
