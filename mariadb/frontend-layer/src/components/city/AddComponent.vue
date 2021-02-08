@@ -62,8 +62,11 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidateCityNameField() {
+      // TODO
+    },
+    onValidateCityUpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
