@@ -63,8 +63,14 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidateDistrictNameField() {
+      // TODO
+    },
+    onValidateDistrictCodeField() {
+      // TODO
+    },
+    onValidateDistrictUpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
