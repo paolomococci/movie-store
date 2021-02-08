@@ -63,8 +63,14 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidateCategoryNameField() {
+      // TODO
+    },
+    onValidateCategoryDescriptionField() {
+      // TODO
+    },
+    onValidateCategoryUpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
