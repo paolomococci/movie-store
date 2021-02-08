@@ -67,14 +67,17 @@ export default {
     }
   },
   methods: {
-    onValidateStoreNameField() {
-      // TODO
+    onValidateStoreNameField(storeName) {
+      const { $dirty, $error } = this.$v.form[storeName];
+      return $dirty ? !$error : null;
     },
-    onValidateStoreInauguratedField() {
-      // TODO
+    onValidateStoreInauguratedField(storeInaugurated) {
+      const { $dirty, $error } = this.$v.form[storeInaugurated];
+      return $dirty ? !$error : null;
     },
-    onValidateStoreUpdatedField() {
-      // TODO
+    onValidateStoreUpdatedField(storeUpdated) {
+      const { $dirty, $error } = this.$v.form[storeUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
