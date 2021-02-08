@@ -13,13 +13,26 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
-          <!-- todo fields -->
-          <b-form-group>
-            <b-form-input></b-form-input>
-            <b-form-invalid-feedback>
-              description of the error
+          <!-- updated field -->
+          <b-form-group id="payment-updated-group" label="choose a date" label-for="payment-updated-picker">
+            <b-form-datepicker
+              id="payment-updated-picker"
+              name="payment-updated-picker"
+              min="minDate"
+              v-model="$v.form.paymentUpdated.$model"
+              :state="onValidatePaymentUpdatedField('paymentUpdated')"
+              aria-describedby="payment-updated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="payment-updated-picker-description-feedback-invalid">
+              today or future date are accepted
             </b-form-invalid-feedback>
-            <b-form-valid-feedback>all right</b-form-valid-feedback>
+            <b-form-valid-feedback id="payment-updated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
           </b-form-group>
           <!-- buttons -->
           <b-button
