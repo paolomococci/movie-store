@@ -49,6 +49,8 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import CountryRestfulApiService from '../../services/CountryRestfulApiService'
 
+const countryNameRegex = helpers.regex('countryNameRegex', /^[a-zA-Z_-]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -64,11 +66,13 @@ export default {
     }
   },
   methods: {
-    onValidateCountryNameField() {
-      // TODO
+    onValidateCountryNameField(countryName) {
+      const { $dirty, $error } = this.$v.form[countryName];
+      return $dirty ? !$error : null;
     },
-    onValidateCountryUpdatedField() {
-      // TODO
+    onValidateCountryUpdatedField(countryUpdated) {
+      const { $dirty, $error } = this.$v.form[countryUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
