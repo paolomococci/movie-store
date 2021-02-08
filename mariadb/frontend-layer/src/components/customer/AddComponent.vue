@@ -49,6 +49,12 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import CustomerRestfulApiService from '../../services/CustomerRestfulApiService'
 
+const customerNameRegex = helpers.regex('customerNameRegex', /^[a-zA-Z-]*$/);
+const customerNicknameRegex = helpers.regex('customerNicknameRegex', /^[a-zA-Z-]*$/);
+const customerSurnameRegex = helpers.regex('customerSurnameRegex', /^[a-zA-Z-]*$/);
+const customerPhoneRegex = helpers.regex('customerPhoneRegex', /^[0-9-]*$/);
+const customerMobileRegex = helpers.regex('customerMobileRegex', /^[0-9-]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -71,32 +77,41 @@ export default {
     }
   },
   methods: {
-    onValidateCustomerNameField() {
-      // TODO
+    onValidateCustomerNameField(customerName) {
+      const { $dirty, $error } = this.$v.form[customerName];
+      return $dirty ? !$error : null;
     },
-    onValidateCustomerNicknameField() {
-      // TODO
+    onValidateCustomerNicknameField(customerNickname) {
+      const { $dirty, $error } = this.$v.form[customerNickname];
+      return $dirty ? !$error : null;
     },
-    onValidateCustomerSurnameField() {
-      // TODO
+    onValidateCustomerSurnameField(customerSurname) {
+      const { $dirty, $error } = this.$v.form[customerSurname];
+      return $dirty ? !$error : null;
     },
-    onValidateCustomerPhoneField() {
-      // TODO
+    onValidateCustomerPhoneField(customerPhone) {
+      const { $dirty, $error } = this.$v.form[customerPhone];
+      return $dirty ? !$error : null;
     },
-    onValidateCustomerMobileField() {
-      // TODO
+    onValidateCustomerMobileField(customerMobile) {
+      const { $dirty, $error } = this.$v.form[customerMobile];
+      return $dirty ? !$error : null;
     },
-    onValidateCustomerEmailField() {
-      // TODO
+    onValidateCustomerEmailField(customerEmail) {
+      const { $dirty, $error } = this.$v.form[customerEmail];
+      return $dirty ? !$error : null;
     },
-    onValidateCustomerBirthdayField() {
-      // TODO
+    onValidateCustomerBirthdayField(customerBirthday) {
+      const { $dirty, $error } = this.$v.form[customerBirthday];
+      return $dirty ? !$error : null;
     },
-    onValidateCustomerActiveField() {
-      // TODO
+    onValidateCustomerActiveField(customerActive) {
+      const { $dirty, $error } = this.$v.form[customerActive];
+      return $dirty ? !$error : null;
     },
-    onValidateCustomerUpdatedField() {
-      // TODO
+    onValidateCustomerUpdatedField(customerUpdated) {
+      const { $dirty, $error } = this.$v.form[customerUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
