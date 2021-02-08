@@ -70,7 +70,34 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
+    onValidateStaffNameField() {
+      // TODO a method for each field
+    },
+    onValidateStaffNicknameField() {
+      // TODO a method for each field
+    },
+    onValidateStaffSurnameField() {
+      // TODO a method for each field
+    },
+    onValidateStaffPhoneField() {
+      // TODO a method for each field
+    },
+    onValidateStaffMobileField() {
+      // TODO a method for each field
+    },
+    onValidateStaffEmailField() {
+      // TODO a method for each field
+    },
+    onValidateStaffUsernameField() {
+      // TODO a method for each field
+    },
+    onValidateStaffPasswordField() {
+      // TODO a method for each field
+    },
+    onValidateStaffActiveField() {
+      // TODO a method for each field
+    },
+    onValidateStaffUpdatedField() {
       // TODO a method for each field
     },
     onResetForm() {
