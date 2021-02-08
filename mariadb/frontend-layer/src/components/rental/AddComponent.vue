@@ -57,7 +57,8 @@ export default {
       rentalRent: '',
       rentalBack: '',
       rentalUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
