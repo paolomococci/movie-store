@@ -66,7 +66,27 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      playerName: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        playerNameRegex
+      },
+      playerNickname: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        playerNicknameRegex
+      },
+      playerSurname: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(100),
+        playerSurnameRegex
+      },
+      playerUpdated: {
+        required
+      }
     }
   },
   methods: {
