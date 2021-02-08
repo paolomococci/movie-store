@@ -57,7 +57,8 @@ export default {
       paymentAmount: 0.0,
       paymentPayed: '',
       paymentUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
