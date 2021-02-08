@@ -62,8 +62,11 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidateLanguageNameField() {
+      // TODO
+    },
+    onValidateLanguageUpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
