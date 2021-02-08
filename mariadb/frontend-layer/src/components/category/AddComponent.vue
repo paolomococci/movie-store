@@ -44,7 +44,9 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { validationMixin } from 'vuelidate'
+import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import CategoryRestfulApiService from '../../services/CategoryRestfulApiService'
 
 export default {
