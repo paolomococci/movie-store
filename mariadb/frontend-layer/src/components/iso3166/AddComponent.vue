@@ -13,13 +13,20 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
-          <!-- todo fields -->
-          <b-form-group>
-            <b-form-input></b-form-input>
-            <b-form-invalid-feedback>
-              description of the error
+          <!-- name field -->
+          <b-form-group id="input-name-group" label="name" label-for="input-name">
+            <b-form-input
+              id="input-name"
+              name="input-name"
+              v-model="$v.form.iso3166Name.$model"
+              :state="onValidateIso3166NameField('iso3166Name')"
+              aria-describedby="input-name-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-name-feedback-invalid">
+              size range of this field is 3 to 100 characters, only the characters `a-z`, `A-Z`, `_` and `-` are allowed
             </b-form-invalid-feedback>
-            <b-form-valid-feedback>all right</b-form-valid-feedback>
+            <b-form-valid-feedback id="input-name-feedback-valid">
+              the country code name has a correct format
+            </b-form-valid-feedback>
           </b-form-group>
           <!-- buttons -->
           <b-button
