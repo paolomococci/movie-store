@@ -49,6 +49,9 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import CategoryRestfulApiService from '../../services/CategoryRestfulApiService'
 
+const categoryNameRegex = helpers.regex('categoryNameRegex', /^[a-zA-Z_-]*$/);
+const categoryDescriptionRegex = helpers.regex('categoryDescriptionRegex', /^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -65,14 +68,17 @@ export default {
     }
   },
   methods: {
-    onValidateCategoryNameField() {
-      // TODO
+    onValidateCategoryNameField(categoryName) {
+      const { $dirty, $error } = this.$v.form[categoryName];
+      return $dirty ? !$error : null;
     },
-    onValidateCategoryDescriptionField() {
-      // TODO
+    onValidateCategoryDescriptionField(categoryDescription) {
+      const { $dirty, $error } = this.$v.form[categoryDescription];
+      return $dirty ? !$error : null;
     },
-    onValidateCategoryUpdatedField() {
-      // TODO
+    onValidateCategoryUpdatedField(categoryUpdated) {
+      const { $dirty, $error } = this.$v.form[categoryUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
