@@ -64,8 +64,17 @@ export default {
     }
   },
   methods: {
-    onValidateField() {
-      // TODO a method for each field
+    onValidatePlayerNameField() {
+      // TODO
+    },
+    onValidatePlayerNicknameField() {
+      // TODO
+    },
+    onValidatePlayerSurnameField() {
+      // TODO
+    },
+    onValidatePlayerUpdatedField() {
+      // TODO
     },
     onResetForm() {
       this.form = {
