@@ -49,6 +49,10 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import PlayerRestfulApiService from '../../services/PlayerRestfulApiService'
 
+const playerNameRegex = helpers.regex('playerNameRegex', /^[a-zA-Z_-]*$/);
+const playerNicknameRegex = helpers.regex('playerNicknameRegex', /^[a-zA-Z_-]*$/);
+const playerSurnameRegex = helpers.regex('playerSurnameRegex', /^[a-zA-Z_-]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
