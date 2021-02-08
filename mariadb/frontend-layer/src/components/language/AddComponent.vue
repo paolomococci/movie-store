@@ -62,7 +62,15 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      languageName: {
+        required,
+        minLength: minLength(1),
+        maxLength: maxLength(30),
+        languageNameRegex
+      },
+      languageUpdated: {
+        required
+      }
     }
   },
   methods: {
