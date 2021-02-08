@@ -61,7 +61,15 @@ export default {
   }),
   validations: {
     form: {
-      // TODO validation criteria for each field
+      paymentAmount: {
+        required
+      },
+      paymentPayed: {
+        required
+      },
+      paymentUpdated: {
+        required
+      }
     }
   },
   methods: {
