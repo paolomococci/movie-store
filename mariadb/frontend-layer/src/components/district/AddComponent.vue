@@ -49,6 +49,9 @@ import { validationMixin } from 'vuelidate'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import DistrictRestfulApiService from '../../services/DistrictRestfulApiService'
 
+const districtNameRegex = helpers.regex('districtNameRegex', /^[a-zA-Z_-]*$/);
+const districtCodeRegex = helpers.regex('districtCodeRegex', /^[a-zA-Z0-9_-]*$/);
+
 export default {
   name: 'AddComponent',
   mixins: [validationMixin],
@@ -65,14 +68,17 @@ export default {
     }
   },
   methods: {
-    onValidateDistrictNameField() {
-      // TODO
+    onValidateDistrictNameField(districtName) {
+      const { $dirty, $error } = this.$v.form[districtName];
+      return $dirty ? !$error : null;
     },
-    onValidateDistrictCodeField() {
-      // TODO
+    onValidateDistrictCodeField(districtCode) {
+      const { $dirty, $error } = this.$v.form[districtCode];
+      return $dirty ? !$error : null;
     },
-    onValidateDistrictUpdatedField() {
-      // TODO
+    onValidateDistrictUpdatedField(districtUpdated) {
+      const { $dirty, $error } = this.$v.form[districtUpdated];
+      return $dirty ? !$error : null;
     },
     onResetForm() {
       this.form = {
