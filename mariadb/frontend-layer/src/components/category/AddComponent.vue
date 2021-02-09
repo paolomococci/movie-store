@@ -28,6 +28,21 @@
               the category name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- description field -->
+          <b-form-group id="input-description-group" label="name" label-for="input-description">
+            <b-form-input
+              id="input-description"
+              name="input-description"
+              v-model="$v.form.categoryDescription.$model"
+              :state="onValidateCategoryDescriptionField('categoryDescription')"
+              aria-describedby="input-description-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-description-feedback-invalid">
+              max field is 200 characters, only the characters `a-z`, `A-Z`, `_`, `-` and space are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-description-feedback-valid">
+              the category description has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
