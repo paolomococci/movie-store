@@ -67,7 +67,8 @@ export default {
       districtName: '',
       districtCode: '',
       districtUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
