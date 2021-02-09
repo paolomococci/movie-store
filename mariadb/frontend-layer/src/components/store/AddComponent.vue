@@ -66,7 +66,8 @@ export default {
       storeName: '',
       storeInaugurated: '',
       storeUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
