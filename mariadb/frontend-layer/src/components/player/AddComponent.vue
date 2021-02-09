@@ -69,7 +69,8 @@ export default {
       playerNickname: '',
       playerSurname: '',
       playerUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
