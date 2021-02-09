@@ -28,6 +28,13 @@
               the customer name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- nickname field -->
+          <!-- surname field -->
+          <!-- phone field -->
+          <!-- mobile field -->
+          <!-- email field -->
+          <!-- birthday field -->
+          <!-- active field -->
           <!-- updated field -->
           <b-form-group id="customer-updated-group" label="choose a date" label-for="customer-updated-picker">
             <b-form-datepicker
