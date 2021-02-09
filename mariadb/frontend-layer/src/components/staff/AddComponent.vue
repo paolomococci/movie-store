@@ -79,7 +79,8 @@ export default {
       staffPassword: '',
       staffActive: false,
       staffUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
