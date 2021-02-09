@@ -28,6 +28,27 @@
               the country code name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- updated field -->
+          <b-form-group id="iso3166-updated-group" label="choose a date" label-for="iso3166-updated-picker">
+            <b-form-datepicker
+              id="iso3166-updated-picker"
+              name="iso3166-updated-picker"
+              min="minDate"
+              v-model="$v.form.iso3166Updated.$model"
+              :state="onValidateIso3166UpdatedField('iso3166Updated')"
+              aria-describedby="iso3166-updated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="iso3166-updated-picker-description-feedback-invalid">
+              today or future date are accepted
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="iso3166-updated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
