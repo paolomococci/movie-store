@@ -28,6 +28,14 @@
               the staff name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- nickname field -->
+          <!-- surname field -->
+          <!-- phone field -->
+          <!-- mobile field -->
+          <!-- email field -->
+          <!-- username field -->
+          <!-- password field -->
+          <!-- active field -->
           <!-- updated field -->
           <b-form-group id="staff-updated-group" label="choose a date" label-for="staff-updated-picker">
             <b-form-datepicker
