@@ -65,7 +65,8 @@ export default {
     form: {
       languageName: '',
       languageUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
