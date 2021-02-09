@@ -28,6 +28,7 @@
               the store name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- inaugurated field -->
           <!-- updated field -->
           <b-form-group id="store-updated-group" label="choose a date" label-for="store-updated-picker">
             <b-form-datepicker
