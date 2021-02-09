@@ -13,6 +13,8 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
+          <!-- amount field -->
+          <!-- payed field -->
           <!-- updated field -->
           <b-form-group id="payment-updated-group" label="choose a date" label-for="payment-updated-picker">
             <b-form-datepicker
