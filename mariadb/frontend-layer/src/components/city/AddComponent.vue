@@ -28,6 +28,27 @@
               the city name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- updated field -->
+          <b-form-group id="city-updated-group" label="choose a date" label-for="city-updated-picker">
+            <b-form-datepicker
+              id="city-updated-picker"
+              name="city-updated-picker"
+              min="minDate"
+              v-model="$v.form.cityUpdated.$model"
+              :state="onValidateCityUpdatedField('cityUpdated')"
+              aria-describedby="city-updated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="city-updated-picker-description-feedback-invalid">
+              today or future date are accepted
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="city-updated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
@@ -65,7 +86,8 @@ export default {
     form: {
       cityName: '',
       cityUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
