@@ -28,6 +28,27 @@
               the district name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- updated field -->
+          <b-form-group id="district-updated-group" label="choose a date" label-for="district-updated-picker">
+            <b-form-datepicker
+              id="district-updated-picker"
+              name="district-updated-picker"
+              min="minDate"
+              v-model="$v.form.districtUpdated.$model"
+              :state="onValidateDistrictUpdatedField('districtUpdated')"
+              aria-describedby="district-updated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="district-updated-picker-description-feedback-invalid">
+              today or future date are accepted
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="district-updated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
