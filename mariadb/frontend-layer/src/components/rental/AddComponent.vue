@@ -13,6 +13,8 @@
       <div class="d-block text-center">
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
+          <!-- rent field -->
+          <!-- back field -->
           <!-- updated field -->
           <b-form-group id="rental-updated-group" label="choose a date" label-for="rental-updated-picker">
             <b-form-datepicker
