@@ -73,7 +73,8 @@ export default {
       movieRent: 0.0,
       movieRating: 0.0,
       movieUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
