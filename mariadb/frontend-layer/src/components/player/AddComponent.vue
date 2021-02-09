@@ -28,6 +28,8 @@
               the player name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- nickname field -->
+          <!-- surname field -->
           <!-- updated field -->
           <b-form-group id="player-updated-group" label="choose a date" label-for="player-updated-picker">
             <b-form-datepicker
