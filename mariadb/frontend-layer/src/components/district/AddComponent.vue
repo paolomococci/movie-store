@@ -28,6 +28,7 @@
               the district name has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- code field -->
           <!-- updated field -->
           <b-form-group id="district-updated-group" label="choose a date" label-for="district-updated-picker">
             <b-form-datepicker
