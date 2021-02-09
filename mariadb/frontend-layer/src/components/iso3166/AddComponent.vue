@@ -69,7 +69,8 @@ export default {
       iso3166Code: '',
       iso3166Signature: '',
       iso3166Updated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
