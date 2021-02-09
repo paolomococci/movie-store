@@ -43,6 +43,27 @@
               the category description has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- updated field -->
+          <b-form-group id="category-updated-group" label="choose a date" label-for="category-updated-picker">
+            <b-form-datepicker
+              id="category-updated-picker"
+              name="category-updated-picker"
+              min="minDate"
+              v-model="$v.form.categoryUpdated.$model"
+              :state="onValidateCategoryUpdatedField('categoryUpdated')"
+              aria-describedby="category-updated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="category-updated-picker-description-feedback-invalid">
+              today or future date are accepted
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="category-updated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
@@ -82,7 +103,8 @@ export default {
       categoryName: '',
       categoryDescription: '',
       categoryUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
