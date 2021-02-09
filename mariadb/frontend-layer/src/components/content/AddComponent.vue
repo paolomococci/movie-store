@@ -28,6 +28,27 @@
               the content subject has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- updated field -->
+          <b-form-group id="content-updated-group" label="choose a date" label-for="content-updated-picker">
+            <b-form-datepicker
+              id="content-updated-picker"
+              name="content-updated-picker"
+              min="minDate"
+              v-model="$v.form.contentUpdated.$model"
+              :state="onValidateContentUpdatedField('contentUpdated')"
+              aria-describedby="content-updated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="content-updated-picker-description-feedback-invalid">
+              today or future date are accepted
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="content-updated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
@@ -65,7 +86,8 @@ export default {
     form: {
       contentSubject: '',
       contentUpdated: ''
-    }
+    },
+    minDate: moment()
   }),
   validations: {
     form: {
