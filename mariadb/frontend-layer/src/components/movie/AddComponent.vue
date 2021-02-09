@@ -28,6 +28,12 @@
               the movie title has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- subtitle field -->
+          <!-- description field -->
+          <!-- debut field -->
+          <!-- cost field -->
+          <!-- rent field -->
+          <!-- rating field -->
           <!-- updated field -->
           <b-form-group id="movie-updated-group" label="choose a date" label-for="movie-updated-picker">
             <b-form-datepicker
