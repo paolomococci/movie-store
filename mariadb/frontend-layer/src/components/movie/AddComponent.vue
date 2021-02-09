@@ -28,6 +28,27 @@
               the movie title has a correct format
             </b-form-valid-feedback>
           </b-form-group>
+          <!-- updated field -->
+          <b-form-group id="movie-updated-group" label="choose a date" label-for="movie-updated-picker">
+            <b-form-datepicker
+              id="movie-updated-picker"
+              name="movie-updated-picker"
+              min="minDate"
+              v-model="$v.form.movieUpdated.$model"
+              :state="onValidateMovieUpdatedField('movieUpdated')"
+              aria-describedby="movie-updated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="movie-updated-picker-description-feedback-invalid">
+              today or future date are accepted
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="movie-updated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- buttons -->
           <b-button
             class="mt-3"
