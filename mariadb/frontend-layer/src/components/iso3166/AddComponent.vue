@@ -31,7 +31,7 @@
           <!-- code field -->
           <!-- signature field -->
           <!-- updated field -->
-          <b-form-group id="iso3166-updated-group" label="choose a date" label-for="iso3166-updated-picker">
+          <b-form-group id="iso3166-updated-group" label="updated" label-for="iso3166-updated-picker">
             <b-form-datepicker
               id="iso3166-updated-picker"
               name="iso3166-updated-picker"
