@@ -35,7 +35,7 @@
           <!-- rent field -->
           <!-- rating field -->
           <!-- updated field -->
-          <b-form-group id="movie-updated-group" label="choose a date" label-for="movie-updated-picker">
+          <b-form-group id="movie-updated-group" label="updated" label-for="movie-updated-picker">
             <b-form-datepicker
               id="movie-updated-picker"
               name="movie-updated-picker"
