@@ -44,7 +44,7 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- updated field -->
-          <b-form-group id="category-updated-group" label="choose a date" label-for="category-updated-picker">
+          <b-form-group id="category-updated-group" label="updated" label-for="category-updated-picker">
             <b-form-datepicker
               id="category-updated-picker"
               name="category-updated-picker"
