@@ -29,6 +29,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- code field -->
+          <b-form-group id="input-code-group" label="code" label-for="input-code">
+            <b-form-input
+              id="input-code"
+              name="input-code"
+              v-model="$v.form.districtCode.$model"
+              :state="onValidateDistrictCodeField('districtCode')"
+              aria-describedby="input-code-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-code-feedback-invalid">
+              size range of this field is 3 to 6 characters, only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-code-feedback-valid">
+              the district code has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- updated field -->
           <b-form-group id="district-updated-group" label="updated" label-for="district-updated-picker">
             <b-form-datepicker
