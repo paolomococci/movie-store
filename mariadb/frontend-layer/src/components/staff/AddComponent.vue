@@ -37,7 +37,7 @@
           <!-- password field -->
           <!-- active field -->
           <!-- updated field -->
-          <b-form-group id="staff-updated-group" label="choose a date" label-for="staff-updated-picker">
+          <b-form-group id="staff-updated-group" label="updated" label-for="staff-updated-picker">
             <b-form-datepicker
               id="staff-updated-picker"
               name="staff-updated-picker"
