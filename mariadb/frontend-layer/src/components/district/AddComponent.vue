@@ -30,7 +30,7 @@
           </b-form-group>
           <!-- code field -->
           <!-- updated field -->
-          <b-form-group id="district-updated-group" label="choose a date" label-for="district-updated-picker">
+          <b-form-group id="district-updated-group" label="updated" label-for="district-updated-picker">
             <b-form-datepicker
               id="district-updated-picker"
               name="district-updated-picker"
