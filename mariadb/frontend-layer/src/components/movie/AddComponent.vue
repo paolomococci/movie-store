@@ -29,6 +29,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- subtitle field -->
+          <b-form-group id="input-subtitle-group" label="subtitle" label-for="input-subtitle">
+            <b-form-input
+              id="input-subtitle"
+              name="input-subtitle"
+              v-model="$v.form.movieSubtitle.$model"
+              :state="onValidateMovieSubtitleField('movieSubtitle')"
+              aria-describedby="input-subtitle-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-subtitle-feedback-invalid">
+              max of this field is 100 characters, only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-subtitle-feedback-valid">
+              the movie subtitle has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- description field -->
           <!-- debut field -->
           <!-- cost field -->
