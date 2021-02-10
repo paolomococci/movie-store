@@ -44,6 +44,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- signature field -->
+          <b-form-group id="input-signature-group" label="signature" label-for="input-signature">
+            <b-form-input
+              id="input-signature"
+              name="input-signature"
+              v-model="$v.form.iso3166Signature.$model"
+              :state="onValidateIso3166SignatureField('iso3166Signature')"
+              aria-describedby="input-signature-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-signature-feedback-invalid">
+              range of this field is 2 to 3 characters, only the characters`A-Z` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-signature-feedback-valid">
+              the country code signature has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- updated field -->
           <b-form-group id="iso3166-updated-group" label="updated" label-for="iso3166-updated-picker">
             <b-form-datepicker
