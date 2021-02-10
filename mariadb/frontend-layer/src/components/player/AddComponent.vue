@@ -31,7 +31,7 @@
           <!-- nickname field -->
           <!-- surname field -->
           <!-- updated field -->
-          <b-form-group id="player-updated-group" label="choose a date" label-for="player-updated-picker">
+          <b-form-group id="player-updated-group" label="updated" label-for="player-updated-picker">
             <b-form-datepicker
               id="player-updated-picker"
               name="player-updated-picker"
