@@ -104,9 +104,28 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- birthday field -->
+          <b-form-group id="customer-birthday-group" label="birthday" label-for="customer-birthday-picker">
+            <b-form-datepicker
+              id="customer-birthday-picker"
+              name="customer-birthday-picker"
+              v-model="$v.form.customerBirthday.$model"
+              :state="onValidateCustomerBirthdayField('customerBirthday')"
+              aria-describedby="customer-birthday-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+            <b-form-invalid-feedback id="customer-birthday-picker-description-feedback-invalid">
+              today or future date are accepted
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="customer-birthday-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- active field -->
           <!-- updated field -->
-          <b-form-group id="customer-updated-group" label="choose a date" label-for="customer-updated-picker">
+          <b-form-group id="customer-updated-group" label="updated" label-for="customer-updated-picker">
             <b-form-datepicker
               id="customer-updated-picker"
               name="customer-updated-picker"
