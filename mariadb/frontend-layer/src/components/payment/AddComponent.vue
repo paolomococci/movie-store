@@ -16,7 +16,7 @@
           <!-- amount field -->
           <!-- payed field -->
           <!-- updated field -->
-          <b-form-group id="payment-updated-group" label="choose a date" label-for="payment-updated-picker">
+          <b-form-group id="payment-updated-group" label="updated" label-for="payment-updated-picker">
             <b-form-datepicker
               id="payment-updated-picker"
               name="payment-updated-picker"
