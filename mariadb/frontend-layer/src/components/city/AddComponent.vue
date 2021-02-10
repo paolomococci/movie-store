@@ -29,7 +29,7 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- updated field -->
-          <b-form-group id="city-updated-group" label="choose a date" label-for="city-updated-picker">
+          <b-form-group id="city-updated-group" label="updated" label-for="city-updated-picker">
             <b-form-datepicker
               id="city-updated-picker"
               name="city-updated-picker"
