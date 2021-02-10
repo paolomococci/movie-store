@@ -109,7 +109,7 @@ export default {
         maxLength: maxLength(3),
         iso3166CodeRegex
       },
-      iso3166Name: {
+      iso3166Signature: {
         required,
         minLength: minLength(2),
         maxLength: maxLength(3),
