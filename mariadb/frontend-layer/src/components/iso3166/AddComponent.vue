@@ -29,6 +29,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- code field -->
+          <b-form-group id="input-code-group" label="code" label-for="input-code">
+            <b-form-input
+              id="input-code"
+              name="input-code"
+              v-model="$v.form.iso3166Code.$model"
+              :state="onValidateIso3166CodeField('iso3166Code')"
+              aria-describedby="input-code-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-code-feedback-invalid">
+              only 3 characters and only the characters `0-9` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-code-feedback-valid">
+              the country code has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- signature field -->
           <!-- updated field -->
           <b-form-group id="iso3166-updated-group" label="updated" label-for="iso3166-updated-picker">
@@ -80,7 +94,7 @@ import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validator
 import Iso3166RestfulApiService from '../../services/Iso3166RestfulApiService'
 
 const iso3166NameRegex = helpers.regex('iso3166NameRegex', /^[a-zA-Z_-]*$/);
-const iso3166CodeRegex = helpers.regex('iso3166CodeRegex', /^[1-9]*$/);
+const iso3166CodeRegex = helpers.regex('iso3166CodeRegex', /^[0-9]*$/);
 const iso3166SignatureRegex = helpers.regex('iso3166SignatureRegex', /^[A-Z]*$/);
 
 export default {
