@@ -16,7 +16,7 @@
           <!-- rent field -->
           <!-- back field -->
           <!-- updated field -->
-          <b-form-group id="rental-updated-group" label="choose a date" label-for="rental-updated-picker">
+          <b-form-group id="rental-updated-group" label="updated" label-for="rental-updated-picker">
             <b-form-datepicker
               id="rental-updated-picker"
               name="rental-updated-picker"
