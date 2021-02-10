@@ -14,7 +14,7 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
           <!-- updated field -->
-          <b-form-group id="inventory-updated-group" label="choose a date" label-for="inventory-updated-picker">
+          <b-form-group id="inventory-updated-group" label="updated" label-for="inventory-updated-picker">
             <b-form-datepicker
               id="inventory-updated-picker"
               name="inventory-updated-picker"
