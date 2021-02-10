@@ -61,6 +61,20 @@
           <!-- phone field -->
           <!-- mobile field -->
           <!-- email field -->
+          <b-form-group id="input-email-group" label="email" label-for="input-email">
+            <b-form-input
+              id="input-email"
+              name="input-email"
+              v-model="$v.form.customerEmail.$model"
+              :state="onValidateCustomerEmailField('customerEmail')"
+              aria-describedby="input-email-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-email-feedback-invalid">
+              size range of this field is 5 to 50 characters
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-email-feedback-valid">
+              the customer email has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- birthday field -->
           <!-- active field -->
           <!-- updated field -->
