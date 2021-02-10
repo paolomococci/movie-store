@@ -30,7 +30,7 @@
           </b-form-group>
           <!-- inaugurated field -->
           <!-- updated field -->
-          <b-form-group id="store-updated-group" label="choose a date" label-for="store-updated-picker">
+          <b-form-group id="store-updated-group" label="updated" label-for="store-updated-picker">
             <b-form-datepicker
               id="store-updated-picker"
               name="store-updated-picker"
