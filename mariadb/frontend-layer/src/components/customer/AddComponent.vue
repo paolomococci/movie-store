@@ -29,6 +29,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- nickname field -->
+          <b-form-group id="input-nickname-group" label="nickname" label-for="input-nickname">
+            <b-form-input
+              id="input-nickname"
+              name="input-nickname"
+              v-model="$v.form.customerNickname.$model"
+              :state="onValidateCustomerNicknameField('customerNickname')"
+              aria-describedby="input-nickname-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-nickname-feedback-invalid">
+              max of this field is 100 characters, only the characters `a-z`, `A-Z` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-nickname-feedback-valid">
+              the customer nickname has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- surname field -->
           <!-- phone field -->
           <!-- mobile field -->
