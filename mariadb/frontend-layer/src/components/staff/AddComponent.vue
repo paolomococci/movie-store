@@ -59,6 +59,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- phone field -->
+          <b-form-group id="input-phone-group" label="phone" label-for="input-phone">
+            <b-form-input
+              id="input-phone"
+              name="input-phone"
+              v-model="$v.form.staffPhone.$model"
+              :state="onValidateStaffPhoneField('staffPhone')"
+              aria-describedby="input-phone-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-phone-feedback-invalid">
+              max of this field is 20 characters, only the characters `0-9` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-phone-feedback-valid">
+              the staff phone has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- mobile field -->
           <!-- email field -->
           <!-- username field -->
