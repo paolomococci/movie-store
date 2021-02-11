@@ -59,6 +59,25 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- debut field -->
+          <b-form-group id="movie-debut-group" label="debut" label-for="movie-debut-picker">
+            <b-form-datepicker
+              id="movie-debut-picker"
+              name="movie-debut-picker"
+              v-model="$v.form.movieDebut.$model"
+              :state="onValidateMovieDebutField('movieDebut')"
+              aria-describedby="movie-debut-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'todo'"></b-form-datepicker>
+            <b-form-invalid-feedback id="movie-debut-picker-description-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="movie-debut-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- duration field -->
           <!-- cost field -->
           <b-form-group id="input-cost-group" label="cost" label-for="input-cost">
