@@ -14,6 +14,20 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
           <!-- amount field -->
+          <b-form-group id="input-amount-group" label="amount" label-for="input-amount">
+            <b-form-input
+              id="input-amount"
+              name="input-amount"
+              v-model="$v.form.paymentAmount.$model"
+              :state="onValidatePaymentAmountField('paymentAmount')"
+              aria-describedby="input-amount-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-amount-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-amount-feedback-valid">
+              the payment amount has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- payed field -->
           <!-- updated field -->
           <b-form-group id="payment-updated-group" label="updated" label-for="payment-updated-picker">
