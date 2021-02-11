@@ -14,6 +14,26 @@
         <h3>fields</h3>
         <b-form  @submit.stop.prevent="onSubmitForm">
           <!-- rent field -->
+          <b-form-group id="rental-rent-group" label="rent" label-for="rental-rent-picker">
+            <b-form-datepicker
+              id="rental-rent-picker"
+              name="rental-rent-picker"
+              min="minDate"
+              v-model="$v.form.rentalRent.$model"
+              :state="onValidateRentalRentField('rentalRent')"
+              aria-describedby="rental-rent-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'todo'"></b-form-datepicker>
+            <b-form-invalid-feedback id="rental-rent-picker-description-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="rental-rent-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- back field -->
           <!-- updated field -->
           <b-form-group id="rental-updated-group" label="updated" label-for="rental-updated-picker">
