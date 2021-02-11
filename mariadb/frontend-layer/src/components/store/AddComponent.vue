@@ -29,6 +29,26 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- inaugurated field -->
+          <b-form-group id="store-inaugurated-group" label="inaugurated" label-for="store-inaugurated-picker">
+            <b-form-datepicker
+              id="store-inaugurated-picker"
+              name="store-inaugurated-picker"
+              min="minDate"
+              v-model="$v.form.storeInaugurated.$model"
+              :state="onValidateStoreInauguratedField('storeInaugurated')"
+              aria-describedby="store-inaugurated-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'todo'"></b-form-datepicker>
+            <b-form-invalid-feedback id="store-inaugurated-picker-description-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="store-inaugurated-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- updated field -->
           <b-form-group id="store-updated-group" label="updated" label-for="store-updated-picker">
             <b-form-datepicker
