@@ -119,6 +119,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- password field -->
+          <b-form-group id="input-password-group" label="password" label-for="input-password">
+            <b-form-input
+              id="input-password"
+              name="input-password"
+              v-model="$v.form.staffPassword.$model"
+              :state="onValidateStaffPasswordField('staffPassword')"
+              aria-describedby="input-password-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-password-feedback-invalid">
+              size range of this field is 12 to 20 characters, only the characters `a-z`, `A-Z` and `0-9` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-password-feedback-valid">
+              the staff password has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- active field -->
           <!-- updated field -->
           <b-form-group id="staff-updated-group" label="updated" label-for="staff-updated-picker">
