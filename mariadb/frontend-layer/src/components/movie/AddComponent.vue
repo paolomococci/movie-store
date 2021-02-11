@@ -44,6 +44,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- description field -->
+          <b-form-group id="input-description-group" label="description" label-for="input-description">
+            <b-form-input
+              id="input-description"
+              name="input-description"
+              v-model="$v.form.movieDescription.$model"
+              :state="onValidateMovieDescriptionField('movieDescription')"
+              aria-describedby="input-description-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-description-feedback-invalid">
+              size range of this field is 5 to 255 characters, only the characters `a-z`, `A-Z`, `0-9`, `_` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-description-feedback-valid">
+              the movie description has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- debut field -->
           <!-- cost field -->
           <!-- rent field -->
