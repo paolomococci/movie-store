@@ -76,6 +76,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- rent field -->
+          <b-form-group id="input-rent-group" label="rent" label-for="input-rent">
+            <b-form-input
+              id="input-rent"
+              name="input-rent"
+              v-model="$v.form.movieRent.$model"
+              :state="onValidateMovieRentField('movieRent')"
+              aria-describedby="input-rent-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-rent-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-rent-feedback-valid">
+              the movie rent has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- rating field -->
           <!-- updated field -->
           <b-form-group id="movie-updated-group" label="updated" label-for="movie-updated-picker">
