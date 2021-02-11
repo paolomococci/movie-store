@@ -35,6 +35,26 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- back field -->
+          <b-form-group id="rental-back-group" label="back" label-for="rental-back-picker">
+            <b-form-datepicker
+              id="rental-back-picker"
+              name="rental-back-picker"
+              min="minDate"
+              v-model="$v.form.rentalBack.$model"
+              :state="onValidateRentalBackField('rentalBack')"
+              aria-describedby="rental-back-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'todo'"></b-form-datepicker>
+            <b-form-invalid-feedback id="rental-back-picker-description-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="rental-back-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- updated field -->
           <b-form-group id="rental-updated-group" label="updated" label-for="rental-updated-picker">
             <b-form-datepicker
