@@ -74,6 +74,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- mobile field -->
+          <b-form-group id="input-mobile-group" label="mobile" label-for="input-mobile">
+            <b-form-input
+              id="input-mobile"
+              name="input-mobile"
+              v-model="$v.form.staffMobile.$model"
+              :state="onValidateStaffMobileField('staffMobile')"
+              aria-describedby="input-mobile-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-mobile-feedback-invalid">
+              size range of this field is 12 to 20 characters, only the characters `0-9` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-mobile-feedback-valid">
+              the staff mobile has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- email field -->
           <!-- username field -->
           <!-- password field -->
