@@ -29,6 +29,26 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- payed field -->
+          <b-form-group id="payment-payed-group" label="payed" label-for="payment-payed-picker">
+            <b-form-datepicker
+              id="payment-payed-picker"
+              name="payment-payed-picker"
+              min="minDate"
+              v-model="$v.form.paymentPayed.$model"
+              :state="onValidatePaymentPayedField('paymentPayed')"
+              aria-describedby="payment-payed-picker-description-feedback-invalid"
+              menu-class="w-100"
+              calendar-width="100%"
+              class="mb-2"
+              locale="en-US"
+              v-b-popover.hover.top="'todo'"></b-form-datepicker>
+            <b-form-invalid-feedback id="payment-payed-picker-description-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="payment-payed-picker-description-feedback-valid">
+              the date all right
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- updated field -->
           <b-form-group id="payment-updated-group" label="updated" label-for="payment-updated-picker">
             <b-form-datepicker
