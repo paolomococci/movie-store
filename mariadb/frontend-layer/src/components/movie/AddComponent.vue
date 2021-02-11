@@ -59,7 +59,22 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- debut field -->
+          <!-- duration field -->
           <!-- cost field -->
+          <b-form-group id="input-cost-group" label="cost" label-for="input-cost">
+            <b-form-input
+              id="input-cost"
+              name="input-cost"
+              v-model="$v.form.movieCost.$model"
+              :state="onValidateMovieCostField('movieCost')"
+              aria-describedby="input-cost-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-cost-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-cost-feedback-valid">
+              the movie cost has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- rent field -->
           <!-- rating field -->
           <!-- updated field -->
