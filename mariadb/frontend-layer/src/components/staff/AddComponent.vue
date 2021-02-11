@@ -104,6 +104,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- username field -->
+          <b-form-group id="input-username-group" label="username" label-for="input-username">
+            <b-form-input
+              id="input-username"
+              name="input-username"
+              v-model="$v.form.staffUsername.$model"
+              :state="onValidateStaffUsernameField('staffUsername')"
+              aria-describedby="input-username-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-username-feedback-invalid">
+              size range of this field is 1 to 100 characters, only the characters `a-z` and `0-9` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-username-feedback-valid">
+              the staff username has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- password field -->
           <!-- active field -->
           <!-- updated field -->
