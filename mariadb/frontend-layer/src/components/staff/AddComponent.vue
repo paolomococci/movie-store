@@ -44,6 +44,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- surname field -->
+          <b-form-group id="input-surname-group" label="surname" label-for="input-surname">
+            <b-form-input
+              id="input-surname"
+              name="input-surname"
+              v-model="$v.form.staffSurname.$model"
+              :state="onValidateStaffSurnameField('staffSurname')"
+              aria-describedby="input-surname-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-surname-feedback-invalid">
+              size range of this field is 1 to 100 characters, only the characters `a-z`, `A-Z` and `-` are allowed
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-surname-feedback-valid">
+              the staff surname has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- phone field -->
           <!-- mobile field -->
           <!-- email field -->
