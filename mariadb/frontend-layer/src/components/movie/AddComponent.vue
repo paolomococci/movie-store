@@ -91,6 +91,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- rating field -->
+          <b-form-group id="input-rating-group" label="rating" label-for="input-rating">
+            <b-form-input
+              id="input-rating"
+              name="input-rating"
+              v-model="$v.form.movieRating.$model"
+              :state="onValidateMovieRatingField('movieRating')"
+              aria-describedby="input-rating-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-rating-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-rating-feedback-valid">
+              the movie rating has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- updated field -->
           <b-form-group id="movie-updated-group" label="updated" label-for="movie-updated-picker">
             <b-form-datepicker
