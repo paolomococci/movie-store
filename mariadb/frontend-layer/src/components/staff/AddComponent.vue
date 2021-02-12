@@ -134,6 +134,14 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- active field -->
+          <b-form-checkbox
+            id="checkbox-account-active"
+            name="checkbox-account-active"
+            v-model="staffActive"
+            value="true"
+            unchecked-value="false">
+            Is your account active?
+          </b-form-checkbox>
           <!-- updated field -->
           <b-form-group id="staff-updated-group" label="updated" label-for="staff-updated-picker">
             <b-form-datepicker
