@@ -115,9 +115,9 @@
               calendar-width="100%"
               class="mb-2"
               locale="en-US"
-              v-b-popover.hover.top="'only today\'s or future date are accepted'"></b-form-datepicker>
+              v-b-popover.hover.top="'todo'"></b-form-datepicker>
             <b-form-invalid-feedback id="customer-birthday-picker-description-feedback-invalid">
-              today or future date are accepted
+              todo
             </b-form-invalid-feedback>
             <b-form-valid-feedback id="customer-birthday-picker-description-feedback-valid">
               the date all right
