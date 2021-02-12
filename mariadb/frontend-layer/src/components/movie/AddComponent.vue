@@ -79,6 +79,20 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- duration field -->
+          <b-form-group id="input-duration-group" label="duration in minutes" label-for="input-duration">
+            <b-form-input
+              id="input-duration"
+              name="input-duration"
+              v-model="$v.form.movieDuration.$model"
+              :state="onValidateMovieDurationField('movieDuration')"
+              aria-describedby="input-duration-feedback-invalid"></b-form-input>
+            <b-form-invalid-feedback id="input-duration-feedback-invalid">
+              todo
+            </b-form-invalid-feedback>
+            <b-form-valid-feedback id="input-duration-feedback-valid">
+              the movie duration has a correct format
+            </b-form-valid-feedback>
+          </b-form-group>
           <!-- cost field -->
           <b-form-group id="input-cost-group" label="cost" label-for="input-cost">
             <b-form-input
@@ -186,6 +200,7 @@ export default {
       movieSubtitle: '',
       movieDescription: '',
       movieDebut: '',
+      movieDuration: 0,
       movieCost: 0.0,
       movieRent: 0.0,
       movieRating: 0.0,
