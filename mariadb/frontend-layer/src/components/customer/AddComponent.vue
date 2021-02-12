@@ -124,6 +124,14 @@
             </b-form-valid-feedback>
           </b-form-group>
           <!-- active field -->
+          <b-form-checkbox
+            id="checkbox-account-active"
+            name="checkbox-account-active"
+            v-model="customerActive"
+            value="true"
+            unchecked-value="false">
+            Is your account active?
+          </b-form-checkbox>
           <!-- updated field -->
           <b-form-group id="customer-updated-group" label="updated" label-for="customer-updated-picker">
             <b-form-datepicker
