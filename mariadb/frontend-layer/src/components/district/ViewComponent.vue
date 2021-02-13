@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <district-add-component/>
+      <district-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <district-table-component/>
