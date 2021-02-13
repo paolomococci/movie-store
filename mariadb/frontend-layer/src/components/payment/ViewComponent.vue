@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <payment-add-component/>
+      <payment-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <payment-table-component/>
