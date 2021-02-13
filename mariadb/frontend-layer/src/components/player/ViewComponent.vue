@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <player-add-component/>
+      <player-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <player-table-component/>
