@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <store-add-component/>
+      <store-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <store-table-component/>
