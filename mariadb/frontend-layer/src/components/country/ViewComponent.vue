@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <country-add-component/>
+      <country-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <country-table-component/>
