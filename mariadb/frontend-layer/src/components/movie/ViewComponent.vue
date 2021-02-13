@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <movie-add-component/>
+      <movie-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <movie-table-component/>
