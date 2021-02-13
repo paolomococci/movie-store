@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <address-add-component/>
+      <address-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <address-table-component/>
