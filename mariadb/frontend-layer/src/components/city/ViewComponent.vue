@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <city-add-component/>
+      <city-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <city-table-component/>
