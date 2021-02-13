@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <iso3166-add-component/>
+      <iso3166-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <iso3166-table-component/>
