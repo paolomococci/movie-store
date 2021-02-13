@@ -1,7 +1,7 @@
 <template>
   <section>
     <aside>
-      <rental-add-component/>
+      <rental-add-component @updateView="updateView"/>
     </aside>
     <!-- todo sub-section to show the table list -->
     <rental-table-component/>
