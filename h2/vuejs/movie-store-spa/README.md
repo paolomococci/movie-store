@@ -1,2 +1,2 @@
-# spa-layer
+# movie-store-spa
 Single Page Application layer.
