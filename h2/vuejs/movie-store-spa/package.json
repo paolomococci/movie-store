@@ -1,11 +1,11 @@
 {
-  "name": "spa-layer",
+  "name": "movie-store-spa",
   "version": "0.1.0",
   "private": true,
   "description": "demo of Vue.js web single page application",
   "author": "Paolo Mococci",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/paolomococci/movie-store/tree/master/h2/spa-layer",
+  "homepage": "",
   "keywords": [
     "frontend"
   ],
