@@ -1,7 +1,7 @@
 <template>
   <section>
     <b-jumbotron>
-      <template #header>in this web application</template>
+      <template #header>in Movie Store web application</template>
       <hr class="my-4">
       <h3 v-text="msg"></h3>
       <b-table
