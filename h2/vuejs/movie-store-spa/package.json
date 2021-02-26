@@ -5,9 +5,10 @@
   "description": "demo of Vue.js web single page application",
   "author": "Paolo Mococci",
   "license": "Apache-2.0",
-  "homepage": "",
+  "homepage": "https://github.com/paolomococci/movie-store/tree/master/h2/vuejs/movie-store-spa",
   "keywords": [
-    "frontend"
+    "frontend",
+    "single page application"
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
