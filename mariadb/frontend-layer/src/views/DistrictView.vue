@@ -1,19 +1,19 @@
 <template>
   <main>
-    <welcome msg="customer view"/>
-    <customer-view-component/>
+    <welcome msg="district view"/>
+    <district-view-component/>
   </main>
 </template>
 
 <script>
 import WelcomeComponent from '@/components/WelcomeComponent.vue'
-import ViewComponent from '@/components/customer/ViewComponent.vue'
+import ViewComponent from '@/components/district/ViewComponent.vue'
 
 export default {
-  name: 'CustomerView',
+  name: 'DistrictView',
   components: {
     welcome: WelcomeComponent,
-    'customer-view-component': ViewComponent
+    'district-view-component': ViewComponent
   }
 }
 </script>
