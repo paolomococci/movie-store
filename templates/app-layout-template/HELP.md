@@ -1,1 +1,1 @@
-# Template of view web application
+# Template of view web application developed thanks to Vaadin
