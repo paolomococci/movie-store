@@ -1,0 +1,46 @@
+@page "/fetchdata"
+
+@using WelcomeBlazorApp.Data
+@inject WeatherForecastService ForecastService
+
+<h1>random temperature prediction</h1>
+
+<p>example of fetching data from a web service</p>
+
+@if (items == null)
+{
+    <p><em>Loading&#8230;</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>date</th>
+                <th>temperature (C)</th>
+                <th>temperature (F)</th>
+                <th>temperature (K)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in items)
+            {
+                <tr>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.TemperatureC</td>
+                    <td>@item.TemperatureF</td>
+                    <td>@item.TemperatureK</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private WeatherForecast[] items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        items = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}
