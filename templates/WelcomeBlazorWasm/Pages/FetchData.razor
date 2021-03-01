@@ -1,1 +1,55 @@
+@page "/fetchdata"
+@inject HttpClient Http
 
+<h1>weather</h1>
+
+<p>example of fetching data from the server</p>
+
+@if (data == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>date</th>
+                <th>tempeture (C)</th>
+                <th>tempeture (F)</th>
+                <th>tempeture (K)</th>
+                <th>city</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in data)
+            {
+                <tr>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.AverageTemperatureInCelsius</td>
+                    <td>@item.AverageTemperatureInFahrenheit</td>
+                    <td>@item.AverageTemperatureInKelvin</td>
+                    <td>@item.City</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private TempetureData[] data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        data = await Http.GetFromJsonAsync<TempetureData[]>("sample-data/tempeture.json");
+    }
+
+    public class TempetureData
+    {
+        public DateTime Date { get; set; }
+        public int AverageTemperatureInCelsius { get; set; }
+        public string City { get; set; }
+        public int AverageTemperatureInFahrenheit => 32 + (int)(AverageTemperatureInCelsius / 0.5556);
+        public double AverageTemperatureInKelvin => 273.15 + AverageTemperatureInCelsius;
+    }
+}
