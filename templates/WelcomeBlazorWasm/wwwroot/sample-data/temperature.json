@@ -1,0 +1,33 @@
+[
+    {
+      "date": "2021-03-01",
+      "averageTemperatureInCelsius": 7,
+      "city": "Florence"
+    },
+    {
+      "date": "2021-03-01",
+      "averageTemperatureInCelsius": 2,
+      "city": "Milan"
+    },
+    {
+      "date": "2021-03-01",
+      "averageTemperatureInCelsius": 14,
+      "city": "Naples"
+    },
+    {
+      "date": "2021-03-01",
+      "averageTemperatureInCelsius": 8,
+      "city": "Rome"
+    },
+    {
+      "date": "2021-03-01",
+      "averageTemperatureInCelsius": 1,
+      "city": "Turin"
+    },
+    {
+      "date": "2021-03-01",
+      "averageTemperatureInCelsius": 3,
+      "city": "Venice"
+    }
+  ]
+  
