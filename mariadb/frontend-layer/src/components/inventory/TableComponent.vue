@@ -1,6 +1,6 @@
 <template>
   <section>
-    <b-table :items="inventories" :fields="fields" striped resposive="sm">
+    <b-table :items="inventories" :fields="fields" striped responsive="sm">
       <template #cell(showDetails)="row">
         <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
           inventory details
