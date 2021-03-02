@@ -1,6 +1,6 @@
 <template>
   <section>
-    <b-table :items="movies" :fields="fields" striped resposive="sm">
+    <b-table :items="movies" :fields="fields" striped responsive="sm">
       <template #cell(showDetails)="row">
         <b-form-checkbox v-model="row.detailsShowing" @change="row.toggleDetails">
           movie details
