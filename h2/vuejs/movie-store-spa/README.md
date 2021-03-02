@@ -1,2 +1,2 @@
 # movie-store-spa
-Single Page Application layer.
+Single Page Application developed thanks to Vue.js.
