@@ -1,2 +1,2 @@
 # screenshoots list:
-movie-store-front-end-sreenshot.png
+* movie-store-front-end-sreenshot.png
