@@ -6,7 +6,7 @@ Template of a simple Customer Relationship Management system for a group of vide
 
 ### this is how the application developed in Vue.js looks like:
 
-![movie store front end developed with Vue.js](https://github.com/paolomococci/movie-store/blob/master/screenshot/movie-store-front-end-screenshot.png)
+![movie store front end developed with Vue.js]()
 
 In this collection of demos I am experimenting with various open source technologies, frameworks and programming languages. 
 In addition to the Java ecosystem, such as PHP, Python and C#.
