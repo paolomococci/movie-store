@@ -21,5 +21,6 @@ package local.moviestore.publisher;
 import io.quarkus.test.junit.NativeImageTest;
 
 @NativeImageTest
-public class NativeSampleEndpointIT extends SampleEndpointTest {
+public class NativeSampleEndpointIT
+        extends SampleEndpointTest {
 }
