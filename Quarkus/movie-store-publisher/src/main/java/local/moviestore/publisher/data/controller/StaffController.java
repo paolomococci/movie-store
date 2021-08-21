@@ -18,9 +18,14 @@
 
 package local.moviestore.publisher.data.controller;
 
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
+import local.moviestore.publisher.data.model.Staff;
+import local.moviestore.publisher.data.repository.StaffRepository;
+
 @ResourceProperties(path = "staff")
-public interface StaffController {
+public interface StaffController 
+		extends PanacheRepositoryResource<StaffRepository, Staff, Long> {
 
 }
