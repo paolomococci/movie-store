@@ -20,7 +20,11 @@ package local.moviestore.publisher.data.repository;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import local.moviestore.publisher.data.model.Language;
+
 @ApplicationScoped
-public class LanguageRepository {
+public class LanguageRepository 
+		implements PanacheRepository<Language> {
 
 }
