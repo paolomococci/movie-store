@@ -18,6 +18,11 @@
 
 package local.moviestore.publisher.data.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ISO3166")
 public class Iso3166 {
 
 }
