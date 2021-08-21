@@ -21,6 +21,6 @@ package local.moviestore.publisher.data.controller;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
 @ResourceProperties(path = "city")
-public class CityController {
+public interface CityController {
 
 }
