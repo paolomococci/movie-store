@@ -18,9 +18,14 @@
 
 package local.moviestore.publisher.data.controller;
 
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
+import local.moviestore.publisher.data.model.Language;
+import local.moviestore.publisher.data.repository.LanguageRepository;
+
 @ResourceProperties(path = "language")
-public interface LanguageController {
+public interface LanguageController 
+		extends PanacheRepositoryResource<LanguageRepository, Language, Long> {
 
 }
