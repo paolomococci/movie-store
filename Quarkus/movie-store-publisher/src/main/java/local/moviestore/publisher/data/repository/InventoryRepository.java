@@ -20,7 +20,11 @@ package local.moviestore.publisher.data.repository;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+import local.moviestore.publisher.data.model.Inventory;
+
 @ApplicationScoped
-public class InventoryRepository {
+public class InventoryRepository 
+		implements PanacheRepository<Inventory> {
 
 }
