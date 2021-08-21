@@ -21,6 +21,6 @@ package local.moviestore.publisher.data.controller;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
 @ResourceProperties(path = "iso3166")
-public class Iso3166Controller {
+public interface Iso3166Controller {
 
 }
