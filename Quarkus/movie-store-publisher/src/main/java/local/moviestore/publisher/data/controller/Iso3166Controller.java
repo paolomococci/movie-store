@@ -18,9 +18,14 @@
 
 package local.moviestore.publisher.data.controller;
 
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
+import local.moviestore.publisher.data.model.Iso3166;
+import local.moviestore.publisher.data.repository.Iso3166Repository;
+
 @ResourceProperties(path = "iso3166")
-public interface Iso3166Controller {
+public interface Iso3166Controller 
+		extends PanacheRepositoryResource<Iso3166Repository, Iso3166, Long> {
 
 }
