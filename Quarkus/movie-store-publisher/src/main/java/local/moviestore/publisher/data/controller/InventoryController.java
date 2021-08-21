@@ -21,6 +21,6 @@ package local.moviestore.publisher.data.controller;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
 @ResourceProperties(path = "inventory")
-public class InventoryController {
+public interface InventoryController {
 
 }
