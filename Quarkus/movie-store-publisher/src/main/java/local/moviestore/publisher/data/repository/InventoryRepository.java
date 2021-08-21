@@ -18,6 +18,9 @@
 
 package local.moviestore.publisher.data.repository;
 
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
 public class InventoryRepository {
 
 }
