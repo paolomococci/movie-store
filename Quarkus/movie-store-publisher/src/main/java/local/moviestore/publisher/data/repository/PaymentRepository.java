@@ -21,6 +21,7 @@ package local.moviestore.publisher.data.repository;
 import javax.enterprise.context.ApplicationScoped;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
 import local.moviestore.publisher.data.model.Payment;
 
 @ApplicationScoped
