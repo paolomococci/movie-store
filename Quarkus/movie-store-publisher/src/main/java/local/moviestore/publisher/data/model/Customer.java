@@ -19,10 +19,15 @@
 package local.moviestore.publisher.data.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "CUSTOMER")
 public class Customer {
 
+	@Id
+	@GeneratedValue
+	private Long id;
 }
