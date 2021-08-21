@@ -18,6 +18,9 @@
 
 package local.moviestore.publisher.data.controller;
 
+import io.quarkus.rest.data.panache.ResourceProperties;
+
+@ResourceProperties(path = "payment")
 public class PaymentController {
 
 }
