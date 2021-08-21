@@ -18,6 +18,11 @@
 
 package local.moviestore.publisher.data.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "CITY")
 public class City {
 
 }
