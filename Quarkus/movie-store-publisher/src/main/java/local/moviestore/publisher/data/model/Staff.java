@@ -19,12 +19,17 @@
 package local.moviestore.publisher.data.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "STAFF")
@@ -39,11 +44,28 @@ public class Staff {
 	private String surname;
 	private String phone;
 	private String mobile;
+
+	@Email
 	private String email;
+
 	private String username;
 	private String password;
 	private Boolean active;
 	private Timestamp updated;
+
+	@ManyToOne
+	@JoinColumn(name = "address_fk")
+	private Address staffAddress;
+
+	@ManyToOne
+	@JoinColumn(name = "store_fk")
+	private Store staffStore;
+
+	@OneToMany(mappedBy = "staff")
+	private List<Rental> rentals;
+
+	@OneToMany(mappedBy = "paymentStaff")
+	private List<Payment> payments;
 
 	public Long getId() {
 		return id;
