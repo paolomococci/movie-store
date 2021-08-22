@@ -29,7 +29,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CATEGORY")
+@Table(name = "category")
 public class Category {
 
 	@Id
@@ -39,6 +39,8 @@ public class Category {
 	private String name;
 	private String description;
 	private Timestamp updated;
+
+	/* reference to movie entity */
 
 	@ManyToMany(mappedBy = "categories")
 	private List<Movie> movies;
@@ -65,5 +67,15 @@ public class Category {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/* getter and setter to reference of movie entity */
+
+	public List<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
 	}
 }
