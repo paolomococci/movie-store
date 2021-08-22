@@ -29,7 +29,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PLAYER")
+@Table(name = "player")
 public class Player {
 
 	@Id
@@ -40,6 +40,8 @@ public class Player {
 	private String nickname;
 	private String surname;
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToMany(mappedBy = "players")
 	private List<Movie> movies;
@@ -74,5 +76,19 @@ public class Player {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public List<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
 	}
 }
