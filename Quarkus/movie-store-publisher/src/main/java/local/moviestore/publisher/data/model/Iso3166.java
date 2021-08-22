@@ -29,7 +29,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ISO3166")
+@Table(name = "iso3166")
 public class Iso3166 {
 
 	@Id
@@ -40,6 +40,8 @@ public class Iso3166 {
 	private Integer code;
 	private String signature;
 	private Timestamp updated;
+
+	/* reference to country entity */
 
 	@OneToMany(mappedBy = "iso3166")
 	private List<Country> countries;
@@ -74,5 +76,15 @@ public class Iso3166 {
 
 	public void setSignature(String signature) {
 		this.signature = signature;
+	}
+
+	/* getter and setter to reference of country entity */
+
+	public List<Country> getCountries() {
+		return countries;
+	}
+
+	public void setCountries(List<Country> countries) {
+		this.countries = countries;
 	}
 }
