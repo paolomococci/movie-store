@@ -20,12 +20,17 @@ package local.moviestore.publisher.data.model;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -42,6 +47,8 @@ public class Customer {
 	private String surname;
 	private String phone;
 	private String mobile;
+
+	@Email
 	private String email;
 
 	@JsonFormat(pattern = "yyyy-MM-dd")
@@ -49,6 +56,20 @@ public class Customer {
 
 	private Boolean active;
 	private Timestamp updated;
+
+	@ManyToOne
+	@JoinColumn(name = "address_fk")
+	private Address customerAddress;
+
+	@ManyToOne
+	@JoinColumn(name = "store_fk")
+	private Store customerStore;
+
+	@OneToMany(mappedBy = "customer")
+	private List<Rental> rentals;
+
+	@OneToMany(mappedBy = "paymentCustomer")
+	private List<Payment> payments;
 
 	public Long getId() {
 		return id;
