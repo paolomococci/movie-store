@@ -37,7 +37,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "MOVIE")
+@Table(name = "movie")
 public class Movie {
 
 	@Id
@@ -58,6 +58,8 @@ public class Movie {
 	private Double rent;
 	private Double rating;
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToOne
 	@JoinColumn(name = "language_fk")
@@ -157,5 +159,51 @@ public class Movie {
 
 	public void setRating(Double rating) {
 		this.rating = rating;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public Language getLanguage() {
+		return language;
+	}
+
+	public List<Inventory> getInventories() {
+		return inventories;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public List<Category> getContents() {
+		return contents;
+	}
+
+	public List<Category> getPlayers() {
+		return players;
+	}
+
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
+	public void setLanguage(Language language) {
+		this.language = language;
+	}
+
+	public void setInventories(List<Inventory> inventories) {
+		this.inventories = inventories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	public void setContents(List<Category> contents) {
+		this.contents = contents;
+	}
+
+	public void setPlayers(List<Category> players) {
+		this.players = players;
 	}
 }
