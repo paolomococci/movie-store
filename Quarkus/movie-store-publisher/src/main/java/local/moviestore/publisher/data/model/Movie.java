@@ -24,6 +24,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -34,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Movie {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String title;
@@ -60,67 +61,67 @@ public class Movie {
 		return title;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getSubtitle() {
 		return subtitle;
-	}
-
-	public void setSubtitle(String subtitle) {
-		this.subtitle = subtitle;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public Date getComeout() {
 		return comeout;
-	}
-
-	public void setComeout(Date comeout) {
-		this.comeout = comeout;
 	}
 
 	public Time getDuration() {
 		return duration;
 	}
 
-	public void setDuration(Time duration) {
-		this.duration = duration;
-	}
-
 	public Double getCost() {
 		return cost;
-	}
-
-	public void setCost(Double cost) {
-		this.cost = cost;
 	}
 
 	public Double getRent() {
 		return rent;
 	}
 
-	public void setRent(Double rent) {
-		this.rent = rent;
-	}
-
 	public Double getRating() {
 		return rating;
 	}
 
-	public void setRating(Double rating) {
-		this.rating = rating;
-	}
-
 	public Timestamp getUpdated() {
 		return updated;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setComeout(Date comeout) {
+		this.comeout = comeout;
+	}
+
+	public void setDuration(Time duration) {
+		this.duration = duration;
+	}
+
+	public void setCost(Double cost) {
+		this.cost = cost;
+	}
+
+	public void setRent(Double rent) {
+		this.rent = rent;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
 	}
 }
