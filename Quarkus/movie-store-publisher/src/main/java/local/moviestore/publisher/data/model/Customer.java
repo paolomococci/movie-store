@@ -35,7 +35,7 @@ import javax.validation.constraints.Email;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "CUSTOMER")
+@Table(name = "customer")
 public class Customer {
 
 	@Id
@@ -56,6 +56,8 @@ public class Customer {
 
 	private Boolean active;
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
@@ -141,5 +143,39 @@ public class Customer {
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public Address getCustomerAddress() {
+		return customerAddress;
+	}
+
+	public Store getCustomerStore() {
+		return customerStore;
+	}
+
+	public List<Rental> getRentals() {
+		return rentals;
+	}
+
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setCustomerAddress(Address customerAddress) {
+		this.customerAddress = customerAddress;
+	}
+
+	public void setCustomerStore(Store customerStore) {
+		this.customerStore = customerStore;
+	}
+
+	public void setRentals(List<Rental> rentals) {
+		this.rentals = rentals;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
 	}
 }
