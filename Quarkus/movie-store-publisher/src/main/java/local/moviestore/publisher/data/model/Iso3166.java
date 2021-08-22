@@ -19,11 +19,13 @@
 package local.moviestore.publisher.data.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -38,6 +40,9 @@ public class Iso3166 {
 	private Integer code;
 	private String signature;
 	private Timestamp updated;
+
+	@OneToMany(mappedBy = "iso3166")
+	private List<Country> countries;
 
 	public Long getId() {
 		return id;
