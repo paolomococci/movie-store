@@ -19,11 +19,15 @@
 package local.moviestore.publisher.data.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -35,6 +39,17 @@ public class Inventory {
 	private Long id;
 
 	private Timestamp updated;
+
+	@ManyToOne
+	@JoinColumn(name = "store_fk")
+	private Store inventoryStore;
+
+	@ManyToOne
+	@JoinColumn(name = "movie_fk")
+	private Movie movie;
+
+	@OneToMany(mappedBy = "inventory")
+	private List<Rental> rentals;
 
 	public Long getId() {
 		return id;
