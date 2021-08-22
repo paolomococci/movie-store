@@ -29,7 +29,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CONTENT")
+@Table(name = "content")
 public class Content {
 
 	@Id
@@ -38,6 +38,8 @@ public class Content {
 
 	private String subject;
 	private Timestamp updated;
+
+	/* reference to movie entity */
 
 	@ManyToMany(mappedBy = "contents")
 	private List<Movie> movies;
@@ -56,5 +58,15 @@ public class Content {
 
 	public void setSubject(String subject) {
 		this.subject = subject;
+	}
+
+	/* getter and setter to reference of movie entity */
+
+	public List<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
 	}
 }
