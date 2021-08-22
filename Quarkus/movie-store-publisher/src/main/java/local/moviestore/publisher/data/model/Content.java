@@ -35,4 +35,17 @@ public class Content {
 
 	private String subject;
 	private Timestamp updated;
+
+	public Long getId() {
+		return id;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public Timestamp getUpdated() {
+		return updated;
+	}
 }
