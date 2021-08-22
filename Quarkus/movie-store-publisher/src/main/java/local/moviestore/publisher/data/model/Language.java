@@ -19,11 +19,13 @@
 package local.moviestore.publisher.data.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,6 +38,9 @@ public class Language {
 
 	private String name;
 	private Timestamp updated;
+
+	@OneToMany(mappedBy = "language")
+	private List<Movie> movies;
 
 	public Long getId() {
 		return id;
