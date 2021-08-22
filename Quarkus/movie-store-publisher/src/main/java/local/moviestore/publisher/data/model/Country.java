@@ -30,7 +30,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "COUNTRY")
+@Table(name = "country")
 public class Country {
 
 	@Id
@@ -39,6 +39,8 @@ public class Country {
 
 	private String name;
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToOne
 	private Iso3166 iso3166;
@@ -60,5 +62,23 @@ public class Country {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public Iso3166 getIso3166() {
+		return iso3166;
+	}
+
+	public List<City> getCities() {
+		return cities;
+	}
+
+	public void setIso3166(Iso3166 iso3166) {
+		this.iso3166 = iso3166;
+	}
+
+	public void setCities(List<City> cities) {
+		this.cities = cities;
 	}
 }
