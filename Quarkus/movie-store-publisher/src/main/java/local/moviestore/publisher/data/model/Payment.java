@@ -25,6 +25,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -43,6 +45,18 @@ public class Payment {
 	private Date payed;
 
 	private Timestamp updated;
+
+	@ManyToOne
+	@JoinColumn(name = "rental_fk")
+	private Rental rental;
+
+	@ManyToOne
+	@JoinColumn(name = "customer_fk")
+	private Customer paymentCustomer;
+
+	@ManyToOne
+	@JoinColumn(name = "staff_fk")
+	private Staff paymentStaff;
 
 	public Long getId() {
 		return id;
