@@ -18,6 +18,8 @@
 
 package local.moviestore.publisher.data.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,4 +32,15 @@ public class Staff {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	private String name;
+	private String nickname;
+	private String surname;
+	private String phone;
+	private String mobile;
+	private String email;
+	private String username;
+	private String password;
+	private Boolean active;
+	private Timestamp updated;
 }
