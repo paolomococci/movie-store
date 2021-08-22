@@ -38,9 +38,32 @@ public class Payment {
 
 	private Double amount;
 	
-
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date payed;
 
 	private Timestamp updated;
+
+	public Long getId() {
+		return id;
+	}
+
+	public Double getAmount() {
+		return amount;
+	}
+
+	public Date getPayed() {
+		return payed;
+	}
+
+	public Timestamp getUpdated() {
+		return updated;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+
+	public void setPayed(Date payed) {
+		this.payed = payed;
+	}
 }
