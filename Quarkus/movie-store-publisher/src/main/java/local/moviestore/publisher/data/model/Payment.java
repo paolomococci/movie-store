@@ -32,7 +32,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "PAYMENT")
+@Table(name = "payment")
 public class Payment {
 
 	@Id
@@ -45,6 +45,8 @@ public class Payment {
 	private Date payed;
 
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToOne
 	@JoinColumn(name = "rental_fk")
@@ -80,5 +82,35 @@ public class Payment {
 
 	public void setPayed(Date payed) {
 		this.payed = payed;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public Rental getRental() {
+		return rental;
+	}
+
+	public Customer getPaymentCustomer() {
+		return paymentCustomer;
+	}
+
+	public Staff getPaymentStaff() {
+		return paymentStaff;
+	}
+
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
+	public void setRental(Rental rental) {
+		this.rental = rental;
+	}
+
+	public void setPaymentCustomer(Customer paymentCustomer) {
+		this.paymentCustomer = paymentCustomer;
+	}
+
+	public void setPaymentStaff(Staff paymentStaff) {
+		this.paymentStaff = paymentStaff;
 	}
 }
