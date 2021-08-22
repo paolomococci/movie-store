@@ -18,10 +18,16 @@
 
 package local.moviestore.publisher.data.model;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "MOVIE")
@@ -30,4 +36,19 @@ public class Movie {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	private String title;
+	private String subtitle;
+	private String description;
+
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date comeout;
+
+	@JsonFormat(pattern = "HH:mm:ss")
+	private Time duration;
+
+	private Double cost;
+	private Double rent;
+	private Double rating;
+	private Timestamp updated;
 }
