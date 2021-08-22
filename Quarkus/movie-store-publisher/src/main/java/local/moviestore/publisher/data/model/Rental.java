@@ -43,4 +43,28 @@ public class Rental {
 	private Date back;
 
 	private Timestamp updated;
+
+	public Long getId() {
+		return id;
+	}
+
+	public Date getRent() {
+		return rent;
+	}
+
+	public Date getBack() {
+		return back;
+	}
+
+	public Timestamp getUpdated() {
+		return updated;
+	}
+
+	public void setRent(Date rent) {
+		this.rent = rent;
+	}
+
+	public void setBack(Date back) {
+		this.back = back;
+	}
 }
