@@ -29,7 +29,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "LANGUAGE")
+@Table(name = "language")
 public class Language {
 
 	@Id
@@ -38,6 +38,8 @@ public class Language {
 
 	private String name;
 	private Timestamp updated;
+
+	/* reference to movie entity */
 
 	@OneToMany(mappedBy = "language")
 	private List<Movie> movies;
@@ -56,5 +58,15 @@ public class Language {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/* getter and setter to reference of movie entity */
+
+	public List<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
 	}
 }
