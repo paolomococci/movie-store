@@ -32,7 +32,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
 @Entity
-@Table(name = "STAFF")
+@Table(name = "staff")
 public class Staff {
 
 	@Id
@@ -52,6 +52,8 @@ public class Staff {
 	private String password;
 	private Boolean active;
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
@@ -145,5 +147,43 @@ public class Staff {
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public Address getStaffAddress() {
+		return staffAddress;
+	}
+
+	public Store getStaffStore() {
+		return staffStore;
+	}
+
+	public List<Rental> getRentals() {
+		return rentals;
+	}
+
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
+	public void setStaffAddress(Address staffAddress) {
+		this.staffAddress = staffAddress;
+	}
+
+	public void setStaffStore(Store staffStore) {
+		this.staffStore = staffStore;
+	}
+
+	public void setRentals(List<Rental> rentals) {
+		this.rentals = rentals;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
 	}
 }
