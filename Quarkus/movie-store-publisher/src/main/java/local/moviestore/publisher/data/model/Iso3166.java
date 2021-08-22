@@ -18,6 +18,8 @@
 
 package local.moviestore.publisher.data.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -30,4 +32,9 @@ public class Iso3166 {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	private String name;
+	private Integer code;
+	private String signature;
+	private Timestamp updated;
 }
