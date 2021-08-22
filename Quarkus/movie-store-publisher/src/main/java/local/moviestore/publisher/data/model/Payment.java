@@ -18,10 +18,15 @@
 
 package local.moviestore.publisher.data.model;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "PAYMENT")
@@ -30,4 +35,12 @@ public class Payment {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	private Double amount;
+	
+
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date payed;
+
+	private Timestamp updated;
 }
