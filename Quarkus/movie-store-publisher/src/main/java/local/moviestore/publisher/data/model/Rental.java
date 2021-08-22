@@ -34,7 +34,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "RENTAL")
+@Table(name = "rental")
 public class Rental {
 
 	@Id
@@ -48,6 +48,8 @@ public class Rental {
 	private Date back;
 
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToOne
 	@JoinColumn(name = "inventory_fk")
@@ -86,5 +88,43 @@ public class Rental {
 
 	public void setBack(Date back) {
 		this.back = back;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public Staff getStaff() {
+		return staff;
+	}
+
+	public List<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public void setStaff(Staff staff) {
+		this.staff = staff;
+	}
+
+	public void setPayments(List<Payment> payments) {
+		this.payments = payments;
 	}
 }
