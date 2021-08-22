@@ -19,11 +19,14 @@
 package local.moviestore.publisher.data.model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,6 +39,12 @@ public class Country {
 
 	private String name;
 	private Timestamp updated;
+
+	@ManyToOne
+	private Iso3166 iso3166;
+
+	@OneToMany(mappedBy = "country")
+	private List<City> cities;
 
 	public Long getId() {
 		return id;
