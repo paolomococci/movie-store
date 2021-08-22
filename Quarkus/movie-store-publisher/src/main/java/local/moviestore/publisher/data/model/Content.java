@@ -22,6 +22,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -30,7 +31,7 @@ import javax.persistence.Table;
 public class Content {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String subject;
@@ -39,13 +40,16 @@ public class Content {
 	public Long getId() {
 		return id;
 	}
+
 	public String getSubject() {
 		return subject;
 	}
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
+
 	public Timestamp getUpdated() {
 		return updated;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 }
