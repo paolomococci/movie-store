@@ -51,4 +51,76 @@ public class Movie {
 	private Double rent;
 	private Double rating;
 	private Timestamp updated;
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSubtitle() {
+		return subtitle;
+	}
+
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getComeout() {
+		return comeout;
+	}
+
+	public void setComeout(Date comeout) {
+		this.comeout = comeout;
+	}
+
+	public Time getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Time duration) {
+		this.duration = duration;
+	}
+
+	public Double getCost() {
+		return cost;
+	}
+
+	public void setCost(Double cost) {
+		this.cost = cost;
+	}
+
+	public Double getRent() {
+		return rent;
+	}
+
+	public void setRent(Double rent) {
+		this.rent = rent;
+	}
+
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
+
+	public Timestamp getUpdated() {
+		return updated;
+	}
 }
