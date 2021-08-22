@@ -31,7 +31,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "STORE")
+@Table(name = "store")
 public class Store {
 
 	@Id
@@ -40,6 +40,8 @@ public class Store {
 
 	private String name;
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToOne
 	@JoinColumn(name = "address_fk")
@@ -68,5 +70,43 @@ public class Store {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public Address getStoreAddress() {
+		return storeAddress;
+	}
+
+	public List<Staff> getTeams() {
+		return teams;
+	}
+
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+	public List<Inventory> getInventories() {
+		return inventories;
+	}
+
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
+	public void setStoreAddress(Address storeAddress) {
+		this.storeAddress = storeAddress;
+	}
+
+	public void setTeams(List<Staff> teams) {
+		this.teams = teams;
+	}
+
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
+	}
+
+	public void setInventories(List<Inventory> inventories) {
+		this.inventories = inventories;
 	}
 }
