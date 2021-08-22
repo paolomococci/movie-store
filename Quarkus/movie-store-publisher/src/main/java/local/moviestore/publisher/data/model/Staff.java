@@ -43,4 +43,84 @@ public class Staff {
 	private String password;
 	private Boolean active;
 	private Timestamp updated;
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public Timestamp getUpdated() {
+		return updated;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
 }
