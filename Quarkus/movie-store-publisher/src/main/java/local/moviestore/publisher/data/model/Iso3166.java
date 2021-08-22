@@ -22,6 +22,7 @@ import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -30,7 +31,7 @@ import javax.persistence.Table;
 public class Iso3166 {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String name;
@@ -46,27 +47,27 @@ public class Iso3166 {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public Integer getCode() {
 		return code;
-	}
-
-	public void setCode(Integer code) {
-		this.code = code;
 	}
 
 	public String getSignature() {
 		return signature;
 	}
 
-	public void setSignature(String signature) {
-		this.signature = signature;
-	}
-
 	public Timestamp getUpdated() {
 		return updated;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCode(Integer code) {
+		this.code = code;
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
 	}
 }
