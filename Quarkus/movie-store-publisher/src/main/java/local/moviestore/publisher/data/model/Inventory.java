@@ -31,7 +31,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "INVENTORY")
+@Table(name = "inventory")
 public class Inventory {
 
 	@Id
@@ -39,6 +39,8 @@ public class Inventory {
 	private Long id;
 
 	private Timestamp updated;
+
+	/* references to other entities */
 
 	@ManyToOne
 	@JoinColumn(name = "store_fk")
@@ -57,5 +59,31 @@ public class Inventory {
 
 	public Timestamp getUpdated() {
 		return updated;
+	}
+
+	/* getter and setter to references of other entities */
+
+	public Store getInventoryStore() {
+		return inventoryStore;
+	}
+
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public List<Rental> getRentals() {
+		return rentals;
+	}
+
+	public void setInventoryStore(Store inventoryStore) {
+		this.inventoryStore = inventoryStore;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
+
+	public void setRentals(List<Rental> rentals) {
+		this.rentals = rentals;
 	}
 }
