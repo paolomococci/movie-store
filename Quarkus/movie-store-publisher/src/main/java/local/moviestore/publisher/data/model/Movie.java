@@ -21,11 +21,17 @@ package local.moviestore.publisher.data.model;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -52,6 +58,34 @@ public class Movie {
 	private Double rent;
 	private Double rating;
 	private Timestamp updated;
+
+	@ManyToOne
+	@JoinColumn(name = "language_fk")
+	private Language language;
+	
+	@OneToMany(mappedBy = "movie")
+	private List<Inventory> inventories;
+
+	@ManyToMany
+	@JoinTable(
+			name = "movie_category",
+			joinColumns = {@JoinColumn(name = "movie_id")},
+			inverseJoinColumns = {@JoinColumn(name = "category_id")})
+	private List<Category> categories;
+
+	@ManyToMany
+	@JoinTable(
+			name = "movie_content",
+			joinColumns = {@JoinColumn(name = "movie_id")},
+			inverseJoinColumns = {@JoinColumn(name = "content_id")})
+	private List<Category> contents;
+
+	@ManyToMany
+	@JoinTable(
+			name = "movie_player",
+			joinColumns = {@JoinColumn(name = "movie_id")},
+			inverseJoinColumns = {@JoinColumn(name = "player_id")})
+	private List<Category> players;
 
 	public Long getId() {
 		return id;
