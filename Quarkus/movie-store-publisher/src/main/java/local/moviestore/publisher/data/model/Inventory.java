@@ -34,4 +34,12 @@ public class Inventory {
 	private Long id;
 
 	private Timestamp updated;
+
+	public Long getId() {
+		return id;
+	}
+
+	public Timestamp getUpdated() {
+		return updated;
+	}
 }
