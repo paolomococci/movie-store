@@ -1,5 +1,5 @@
-CREATE TABLE `PLAYER` (
-  `id` bigint(20) NOT NULL,
+CREATE TABLE moviestore_db.player (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `nickname` varchar(255) DEFAULT NULL,
   `surname` varchar(255) DEFAULT NULL,
