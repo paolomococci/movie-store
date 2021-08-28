@@ -20,7 +20,10 @@ package local.moviestore.publisher.data.controller.it;
 
 import io.quarkus.test.junit.NativeImageTest;
 
+import local.moviestore.publisher.data.controller.LanguageControllerTests;
+
 @NativeImageTest
-public class LanguageControllerIT {
+public class LanguageControllerIT 
+		extends LanguageControllerTests {
 
 }
