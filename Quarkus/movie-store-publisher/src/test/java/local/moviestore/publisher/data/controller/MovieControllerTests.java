@@ -18,6 +18,9 @@
 
 package local.moviestore.publisher.data.controller;
 
+import io.quarkus.test.junit.QuarkusTest;
+
+@QuarkusTest
 public class MovieControllerTests {
 
 }
