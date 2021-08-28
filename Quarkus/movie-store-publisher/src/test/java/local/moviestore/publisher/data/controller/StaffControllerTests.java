@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Staff;
 @QuarkusTest
 public class StaffControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Staff> staffList = RestAssured.given()
+				.when().get("/staff")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Staff.class);
+		Assertions.assertTrue(staffList.isEmpty());
+	}
 }
