@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.District;
 @QuarkusTest
 public class DistrictControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<District> districts = RestAssured.given()
+				.when().get("/district")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", District.class);
+		Assertions.assertTrue(districts.isEmpty());
+	}
 }
