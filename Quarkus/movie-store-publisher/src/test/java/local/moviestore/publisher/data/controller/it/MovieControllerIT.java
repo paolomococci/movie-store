@@ -20,7 +20,10 @@ package local.moviestore.publisher.data.controller.it;
 
 import io.quarkus.test.junit.NativeImageTest;
 
+import local.moviestore.publisher.data.controller.MovieControllerTests;
+
 @NativeImageTest
-public class MovieControllerIT {
+public class MovieControllerIT 
+		extends MovieControllerTests {
 
 }
