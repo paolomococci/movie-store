@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Category;
 @QuarkusTest
 public class CategoryControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Category> categories = RestAssured.given()
+				.when().get("/category")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Category.class);
+		Assertions.assertTrue(categories.isEmpty());
+	}
 }
