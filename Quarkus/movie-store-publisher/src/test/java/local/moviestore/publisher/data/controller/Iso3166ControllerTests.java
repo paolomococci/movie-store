@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Iso3166;
 @QuarkusTest
 public class Iso3166ControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Iso3166> iso3166List = RestAssured.given()
+				.when().get("/iso3166")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Iso3166.class);
+		Assertions.assertTrue(iso3166List.isEmpty());
+	}
 }
