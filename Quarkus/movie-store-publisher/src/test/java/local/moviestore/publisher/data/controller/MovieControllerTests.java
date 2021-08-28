@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Movie;
 @QuarkusTest
 public class MovieControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Movie> movies = RestAssured.given()
+				.when().get("/movie")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Movie.class);
+		Assertions.assertTrue(movies.isEmpty());
+	}
 }
