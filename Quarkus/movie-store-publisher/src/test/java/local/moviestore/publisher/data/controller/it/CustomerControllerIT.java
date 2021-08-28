@@ -18,6 +18,9 @@
 
 package local.moviestore.publisher.data.controller.it;
 
+import io.quarkus.test.junit.NativeImageTest;
+
+@NativeImageTest
 public class CustomerControllerIT {
 
 }
