@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Inventory;
 @QuarkusTest
 public class InventoryControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Inventory> inventories = RestAssured.given()
+				.when().get("/inventory")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Inventory.class);
+		Assertions.assertTrue(inventories.isEmpty());
+	}
 }
