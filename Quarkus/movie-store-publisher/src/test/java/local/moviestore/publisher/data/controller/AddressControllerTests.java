@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Address;
 @QuarkusTest
 public class AddressControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Address> addresses = RestAssured.given()
+				.when().get("/address")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Address.class);
+		Assertions.assertTrue(addresses.isEmpty());
+	}
 }
