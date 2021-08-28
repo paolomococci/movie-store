@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Language;
 @QuarkusTest
 public class LanguageControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Language> languages = RestAssured.given()
+				.when().get("/language")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Language.class);
+		Assertions.assertTrue(languages.isEmpty());
+	}
 }
