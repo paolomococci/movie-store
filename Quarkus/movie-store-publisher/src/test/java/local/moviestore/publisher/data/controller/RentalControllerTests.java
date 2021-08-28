@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Rental;
 @QuarkusTest
 public class RentalControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Rental> rentals = RestAssured.given()
+				.when().get("/rental")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Rental.class);
+		Assertions.assertTrue(rentals.isEmpty());
+	}
 }
