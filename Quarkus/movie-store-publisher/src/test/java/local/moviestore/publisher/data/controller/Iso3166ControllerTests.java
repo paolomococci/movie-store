@@ -18,7 +18,15 @@
 
 package local.moviestore.publisher.data.controller;
 
+import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
+
+import local.moviestore.publisher.data.model.Iso3166;
 
 @QuarkusTest
 public class Iso3166ControllerTests {
