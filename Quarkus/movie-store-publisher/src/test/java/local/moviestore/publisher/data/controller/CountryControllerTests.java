@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Country;
 @QuarkusTest
 public class CountryControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Country> countries = RestAssured.given()
+				.when().get("/country")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Country.class);
+		Assertions.assertTrue(countries.isEmpty());
+	}
 }
