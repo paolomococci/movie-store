@@ -31,4 +31,16 @@ import local.moviestore.publisher.data.model.Payment;
 @QuarkusTest
 public class PaymentControllerTests {
 
+	@Test
+	public void readAllEmptyTest() {
+		List<Payment> payments = RestAssured.given()
+				.when().get("/payment")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Payment.class);
+		Assertions.assertTrue(payments.isEmpty());
+	}
 }
