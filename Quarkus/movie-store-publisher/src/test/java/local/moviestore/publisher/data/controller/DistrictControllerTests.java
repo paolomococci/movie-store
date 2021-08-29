@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.District;
 @TestMethodOrder(OrderAnnotation.class)
 public class DistrictControllerTests {
 
+	private static District district;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class DistrictControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static District getDistrict() {
+		return district;
+	}
+
+	public static void setDistrict(District district) {
+		DistrictControllerTests.district = district;
 	}
 }
