@@ -88,7 +88,11 @@ public class PaymentControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/payment/{id}", PaymentControllerTests.getPayment().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Payment getPayment() {
