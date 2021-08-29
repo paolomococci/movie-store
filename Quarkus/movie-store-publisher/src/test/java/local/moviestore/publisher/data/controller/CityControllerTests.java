@@ -70,7 +70,15 @@ public class CityControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		City temporaryCity  = RestAssured.given()
+				.when()
+				.get("/city/{id}", CityControllerTests.getCity().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(City.class);
+		Assertions.assertNotNull(temporaryCity.getId());
+		Assertions.assertTrue(temporaryCity.getName().contentEquals("something"));
 	}
 
 	@Test
