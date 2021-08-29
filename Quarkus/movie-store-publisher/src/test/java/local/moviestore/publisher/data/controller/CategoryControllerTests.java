@@ -48,4 +48,34 @@ public class CategoryControllerTests {
 				.getList(".", Category.class);
 		Assertions.assertTrue(categories.isEmpty());
 	}
+
+	@Test
+	@Order(2)
+	public void createTest() {
+		
+	}
+
+	@Test
+	@Order(3)
+	public void readTest() {
+		
+	}
+
+	@Test
+	@Order(4)
+	public void readAllTest() {
+		
+	}
+
+	@Test
+	@Order(5)
+	public void updateTest() {
+		
+	}
+
+	@Test
+	@Order(6)
+	public void deleteTest() {
+		
+	}
 }
