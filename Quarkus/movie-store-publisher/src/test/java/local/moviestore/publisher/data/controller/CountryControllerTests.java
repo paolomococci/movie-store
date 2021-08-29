@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Country;
 @TestMethodOrder(OrderAnnotation.class)
 public class CountryControllerTests {
 
+	private static Country country;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class CountryControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Country getCountry() {
+		return country;
+	}
+
+	public static void setCountry(Country country) {
+		CountryControllerTests.country = country;
 	}
 }
