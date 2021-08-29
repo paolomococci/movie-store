@@ -28,6 +28,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.moviestore.publisher.data.model.Category;
 
@@ -54,7 +55,16 @@ public class CategoryControllerTests {
 	@Test
 	@Order(2)
 	public void createTest() {
-		
+		CategoryControllerTests.setCategory(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something\"}")
+				.post("/category")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Category.class));
+		Assertions.assertNotNull(CategoryControllerTests.getCategory().getId());
 	}
 
 	@Test
