@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Customer;
 @TestMethodOrder(OrderAnnotation.class)
 public class CustomerControllerTests {
 
+	private static Customer customer;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class CustomerControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Customer getCustomer() {
+		return customer;
+	}
+
+	public static void setCustomer(Customer customer) {
+		CustomerControllerTests.customer = customer;
 	}
 }
