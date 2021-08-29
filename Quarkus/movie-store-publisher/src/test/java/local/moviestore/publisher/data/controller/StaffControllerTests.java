@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Staff;
 @TestMethodOrder(OrderAnnotation.class)
 public class StaffControllerTests {
 
+	private static Staff staff;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class StaffControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Staff getStaff() {
+		return staff;
+	}
+
+	public static void setStaff(Staff staff) {
+		StaffControllerTests.staff = staff;
 	}
 }
