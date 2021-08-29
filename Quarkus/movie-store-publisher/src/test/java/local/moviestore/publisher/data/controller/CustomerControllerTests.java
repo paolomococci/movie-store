@@ -88,7 +88,11 @@ public class CustomerControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/customer/{id}", CustomerControllerTests.getCustomer().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Customer getCustomer() {
