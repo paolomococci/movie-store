@@ -21,7 +21,10 @@ package local.moviestore.publisher.data.controller;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
@@ -29,9 +32,11 @@ import io.restassured.RestAssured;
 import local.moviestore.publisher.data.model.Store;
 
 @QuarkusTest
+@TestMethodOrder(OrderAnnotation.class)
 public class StoreControllerTests {
 
 	@Test
+	@Order(1)
 	public void readAllEmptyTest() {
 		List<Store> stores = RestAssured.given()
 				.when().get("/store")
