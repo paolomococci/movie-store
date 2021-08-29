@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Content;
 @TestMethodOrder(OrderAnnotation.class)
 public class ContentControllerTests {
 
+	private static Content content;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class ContentControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Content getContent() {
+		return content;
+	}
+
+	public static void setContent(Content content) {
+		ContentControllerTests.content = content;
 	}
 }
