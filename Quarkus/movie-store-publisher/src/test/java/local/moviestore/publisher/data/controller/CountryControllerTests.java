@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Order;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.moviestore.publisher.data.model.Country;
 
@@ -54,7 +55,16 @@ public class CountryControllerTests {
 	@Test
 	@Order(2)
 	public void createTest() {
-		
+		CountryControllerTests.setCountry(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something\"}")
+				.post("/country")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Country.class));
+		Assertions.assertNotNull(CountryControllerTests.getCountry().getId());
 	}
 
 	@Test
