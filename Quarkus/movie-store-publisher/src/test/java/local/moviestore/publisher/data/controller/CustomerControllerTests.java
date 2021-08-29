@@ -70,7 +70,15 @@ public class CustomerControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Customer temporaryCustomer  = RestAssured.given()
+				.when()
+				.get("/customer/{id}", CustomerControllerTests.getCustomer().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Customer.class);
+		Assertions.assertNotNull(temporaryCustomer.getId());
+		Assertions.assertTrue(temporaryCustomer.getName().contentEquals("someone"));
 	}
 
 	@Test
