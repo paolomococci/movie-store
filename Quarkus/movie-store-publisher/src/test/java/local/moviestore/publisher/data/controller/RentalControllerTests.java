@@ -70,7 +70,14 @@ public class RentalControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Rental temporaryRental  = RestAssured.given()
+				.when()
+				.get("/rental/{id}", RentalControllerTests.getRental().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Rental.class);
+		Assertions.assertNotNull(temporaryRental.getId());
 	}
 
 	@Test
