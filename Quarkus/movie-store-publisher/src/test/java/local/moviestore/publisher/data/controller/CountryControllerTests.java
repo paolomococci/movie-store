@@ -88,7 +88,11 @@ public class CountryControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/country/{id}", CountryControllerTests.getCountry().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Country getCountry() {
