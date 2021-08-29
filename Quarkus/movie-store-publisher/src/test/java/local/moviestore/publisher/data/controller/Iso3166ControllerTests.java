@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Order;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.moviestore.publisher.data.model.Iso3166;
 
@@ -54,7 +55,16 @@ public class Iso3166ControllerTests {
 	@Test
 	@Order(2)
 	public void createTest() {
-		
+		Iso3166ControllerTests.setIso3166(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something\"}")
+				.post("/iso3166")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Iso3166.class));
+		Assertions.assertNotNull(Iso3166ControllerTests.getIso3166().getId());
 	}
 
 	@Test
