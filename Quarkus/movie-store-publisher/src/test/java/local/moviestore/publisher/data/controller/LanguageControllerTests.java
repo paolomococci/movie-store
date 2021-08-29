@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Language;
 @TestMethodOrder(OrderAnnotation.class)
 public class LanguageControllerTests {
 
+	private static Language language;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class LanguageControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Language getLanguage() {
+		return language;
+	}
+
+	public static void setLanguage(Language language) {
+		LanguageControllerTests.language = language;
 	}
 }
