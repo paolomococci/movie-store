@@ -70,7 +70,15 @@ public class LanguageControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Language temporaryLanguage  = RestAssured.given()
+				.when()
+				.get("/language/{id}", LanguageControllerTests.getLanguage().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Language.class);
+		Assertions.assertNotNull(temporaryLanguage.getId());
+		Assertions.assertTrue(temporaryLanguage.getName().contentEquals("something"));
 	}
 
 	@Test
