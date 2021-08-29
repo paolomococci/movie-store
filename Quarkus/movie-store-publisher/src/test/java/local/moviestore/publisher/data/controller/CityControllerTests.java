@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.City;
 @TestMethodOrder(OrderAnnotation.class)
 public class CityControllerTests {
 
+	private static City city;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class CityControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static City getCity() {
+		return city;
+	}
+
+	public static void setCity(City city) {
+		CityControllerTests.city = city;
 	}
 }
