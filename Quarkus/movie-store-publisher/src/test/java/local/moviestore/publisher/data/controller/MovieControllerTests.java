@@ -88,7 +88,11 @@ public class MovieControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/movie/{id}", MovieControllerTests.getMovie().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Movie getMovie() {
