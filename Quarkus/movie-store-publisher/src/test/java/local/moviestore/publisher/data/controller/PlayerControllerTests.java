@@ -70,7 +70,15 @@ public class PlayerControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Player temporaryPlayer  = RestAssured.given()
+				.when()
+				.get("/player/{id}", PlayerControllerTests.getPlayer().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Player.class);
+		Assertions.assertNotNull(temporaryPlayer.getId());
+		Assertions.assertTrue(temporaryPlayer.getName().contentEquals("someone"));
 	}
 
 	@Test
