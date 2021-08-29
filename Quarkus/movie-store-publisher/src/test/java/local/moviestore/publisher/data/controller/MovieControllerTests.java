@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Order;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.moviestore.publisher.data.model.Movie;
 
@@ -54,7 +55,16 @@ public class MovieControllerTests {
 	@Test
 	@Order(2)
 	public void createTest() {
-		
+		MovieControllerTests.setMovie(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"title\":\"some title\"}")
+				.post("/movie")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Movie.class));
+		Assertions.assertNotNull(MovieControllerTests.getMovie().getId());
 	}
 
 	@Test
