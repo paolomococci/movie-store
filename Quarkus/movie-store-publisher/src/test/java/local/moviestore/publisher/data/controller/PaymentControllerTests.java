@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Payment;
 @TestMethodOrder(OrderAnnotation.class)
 public class PaymentControllerTests {
 
+	private static Payment payment;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class PaymentControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Payment getPayment() {
+		return payment;
+	}
+
+	public static void setPayment(Payment payment) {
+		PaymentControllerTests.payment = payment;
 	}
 }
