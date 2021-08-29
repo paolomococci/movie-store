@@ -70,7 +70,15 @@ public class StoreControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Store temporaryStore  = RestAssured.given()
+				.when()
+				.get("/store/{id}", StoreControllerTests.getStore().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Store.class);
+		Assertions.assertNotNull(temporaryStore.getId());
+		Assertions.assertTrue(temporaryStore.getName().contentEquals("something"));
 	}
 
 	@Test
