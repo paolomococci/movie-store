@@ -70,7 +70,15 @@ public class StaffControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Staff temporaryStaff  = RestAssured.given()
+				.when()
+				.get("/staff/{id}", StaffControllerTests.getStaff().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Staff.class);
+		Assertions.assertNotNull(temporaryStaff.getId());
+		Assertions.assertTrue(temporaryStaff.getName().contentEquals("someone"));
 	}
 
 	@Test
