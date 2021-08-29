@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Player;
 @TestMethodOrder(OrderAnnotation.class)
 public class PlayerControllerTests {
 
+	private static Player player;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class PlayerControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Player getPlayer() {
+		return player;
+	}
+
+	public static void setPlayer(Player player) {
+		PlayerControllerTests.player = player;
 	}
 }
