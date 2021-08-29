@@ -88,7 +88,11 @@ public class InventoryControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/inventory/{id}", InventoryControllerTests.getInventory().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Inventory getInventory() {
