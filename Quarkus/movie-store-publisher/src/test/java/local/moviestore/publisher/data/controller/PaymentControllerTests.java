@@ -70,7 +70,14 @@ public class PaymentControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Payment temporaryPayment  = RestAssured.given()
+				.when()
+				.get("/payment/{id}", PaymentControllerTests.getPayment().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Payment.class);
+		Assertions.assertNotNull(temporaryPayment.getId());
 	}
 
 	@Test
