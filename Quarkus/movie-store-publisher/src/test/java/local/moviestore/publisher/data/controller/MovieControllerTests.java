@@ -70,7 +70,15 @@ public class MovieControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Movie temporaryMovie  = RestAssured.given()
+				.when()
+				.get("/movie/{id}", MovieControllerTests.getMovie().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Movie.class);
+		Assertions.assertNotNull(temporaryMovie.getId());
+		Assertions.assertTrue(temporaryMovie.getTitle().contentEquals("some title"));
 	}
 
 	@Test
