@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Store;
 @TestMethodOrder(OrderAnnotation.class)
 public class StoreControllerTests {
 
+	private static Store store;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class StoreControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Store getStore() {
+		return store;
+	}
+
+	public static void setStore(Store store) {
+		StoreControllerTests.store = store;
 	}
 }
