@@ -88,7 +88,11 @@ public class PlayerControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/player/{id}", PlayerControllerTests.getPlayer().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Player getPlayer() {
