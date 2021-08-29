@@ -88,7 +88,11 @@ public class RentalControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/rental/{id}", RentalControllerTests.getRental().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Rental getRental() {
