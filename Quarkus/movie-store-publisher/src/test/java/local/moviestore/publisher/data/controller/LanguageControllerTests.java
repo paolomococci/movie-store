@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Order;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.moviestore.publisher.data.model.Language;
 
@@ -54,7 +55,16 @@ public class LanguageControllerTests {
 	@Test
 	@Order(2)
 	public void createTest() {
-		
+		LanguageControllerTests.setLanguage(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something\"}")
+				.post("/language")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Language.class));
+		Assertions.assertNotNull(LanguageControllerTests.getLanguage().getId());
 	}
 
 	@Test
