@@ -28,6 +28,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.moviestore.publisher.data.model.Address;
 
@@ -54,7 +55,16 @@ public class AddressControllerTests {
 	@Test
 	@Order(2)
 	public void createTest() {
-		
+		AddressControllerTests.setAddress(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"type\":\"something\"}")
+				.post("/address")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Address.class));
+		Assertions.assertNotNull(AddressControllerTests.getAddress().getId());
 	}
 
 	@Test
