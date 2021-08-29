@@ -88,7 +88,11 @@ public class CategoryControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/category/{id}", CategoryControllerTests.getCategory().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Category getCategory() {
