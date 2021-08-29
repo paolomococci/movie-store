@@ -88,7 +88,11 @@ public class StoreControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/store/{id}", StoreControllerTests.getStore().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Store getStore() {
