@@ -88,7 +88,11 @@ public class DistrictControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/district/{id}", DistrictControllerTests.getDistrict().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static District getDistrict() {
