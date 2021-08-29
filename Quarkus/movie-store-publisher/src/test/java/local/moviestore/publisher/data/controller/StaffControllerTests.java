@@ -88,7 +88,11 @@ public class StaffControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/staff/{id}", StaffControllerTests.getStaff().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Staff getStaff() {
