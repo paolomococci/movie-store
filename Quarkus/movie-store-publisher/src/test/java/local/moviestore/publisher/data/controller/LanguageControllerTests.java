@@ -88,7 +88,11 @@ public class LanguageControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/language/{id}", LanguageControllerTests.getLanguage().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Language getLanguage() {
