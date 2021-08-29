@@ -70,7 +70,15 @@ public class ContentControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Content temporaryContent  = RestAssured.given()
+				.when()
+				.get("/content/{id}", ContentControllerTests.getContent().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Content.class);
+		Assertions.assertNotNull(temporaryContent.getId());
+		Assertions.assertTrue(temporaryContent.getSubject().contentEquals("something"));
 	}
 
 	@Test
