@@ -70,7 +70,15 @@ public class CategoryControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Category temporaryCategory  = RestAssured.given()
+				.when()
+				.get("/category/{id}", CategoryControllerTests.getCategory().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Category.class);
+		Assertions.assertNotNull(temporaryCategory.getId());
+		Assertions.assertTrue(temporaryCategory.getName().contentEquals("something"));
 	}
 
 	@Test
