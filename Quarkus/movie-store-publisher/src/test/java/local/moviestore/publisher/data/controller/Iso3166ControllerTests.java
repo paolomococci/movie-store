@@ -88,7 +88,11 @@ public class Iso3166ControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/iso3166/{id}", Iso3166ControllerTests.getIso3166().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Iso3166 getIso3166() {
