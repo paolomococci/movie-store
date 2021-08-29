@@ -88,7 +88,11 @@ public class ContentControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/content/{id}", ContentControllerTests.getContent().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Content getContent() {
