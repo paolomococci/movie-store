@@ -70,7 +70,15 @@ public class CountryControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Country temporaryCountry  = RestAssured.given()
+				.when()
+				.get("/country/{id}", CountryControllerTests.getCountry().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Country.class);
+		Assertions.assertNotNull(temporaryCountry.getId());
+		Assertions.assertTrue(temporaryCountry.getName().contentEquals("something"));
 	}
 
 	@Test
