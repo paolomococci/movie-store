@@ -70,7 +70,15 @@ public class AddressControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Address temporaryAddress  = RestAssured.given()
+				.when()
+				.get("/address/{id}", AddressControllerTests.getAddress().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Address.class);
+		Assertions.assertNotNull(temporaryAddress.getId());
+		Assertions.assertTrue(temporaryAddress.getType().contentEquals("something"));
 	}
 
 	@Test
