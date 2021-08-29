@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Movie;
 @TestMethodOrder(OrderAnnotation.class)
 public class MovieControllerTests {
 
+	private static Movie movie;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class MovieControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Movie getMovie() {
+		return movie;
+	}
+
+	public static void setMovie(Movie movie) {
+		MovieControllerTests.movie = movie;
 	}
 }
