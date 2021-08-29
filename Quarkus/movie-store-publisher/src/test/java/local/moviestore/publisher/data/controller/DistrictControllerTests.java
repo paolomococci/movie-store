@@ -70,7 +70,15 @@ public class DistrictControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		District temporaryDistrict  = RestAssured.given()
+				.when()
+				.get("/district/{id}", DistrictControllerTests.getDistrict().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(District.class);
+		Assertions.assertNotNull(temporaryDistrict.getId());
+		Assertions.assertTrue(temporaryDistrict.getName().contentEquals("something"));
 	}
 
 	@Test
