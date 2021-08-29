@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Category;
 @TestMethodOrder(OrderAnnotation.class)
 public class CategoryControllerTests {
 
+	private static Category category;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class CategoryControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Category getCategory() {
+		return category;
+	}
+
+	public static void setCategory(Category category) {
+		CategoryControllerTests.category = category;
 	}
 }
