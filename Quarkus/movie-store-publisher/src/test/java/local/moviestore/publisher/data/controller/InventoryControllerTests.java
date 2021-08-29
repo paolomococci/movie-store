@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Inventory;
 @TestMethodOrder(OrderAnnotation.class)
 public class InventoryControllerTests {
 
+	private static Inventory inventory;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class InventoryControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Inventory getInventory() {
+		return inventory;
+	}
+
+	public static void setInventory(Inventory inventory) {
+		InventoryControllerTests.inventory = inventory;
 	}
 }
