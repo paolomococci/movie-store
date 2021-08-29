@@ -70,7 +70,14 @@ public class InventoryControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Inventory temporaryInventory  = RestAssured.given()
+				.when()
+				.get("/inventory/{id}", InventoryControllerTests.getInventory().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Inventory.class);
+		Assertions.assertNotNull(temporaryInventory.getId());
 	}
 
 	@Test
