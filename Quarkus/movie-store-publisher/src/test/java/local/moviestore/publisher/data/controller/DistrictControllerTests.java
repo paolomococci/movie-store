@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Order;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.moviestore.publisher.data.model.District;
 
@@ -54,7 +55,16 @@ public class DistrictControllerTests {
 	@Test
 	@Order(2)
 	public void createTest() {
-		
+		DistrictControllerTests.setDistrict(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something\"}")
+				.post("/district")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(District.class));
+		Assertions.assertNotNull(DistrictControllerTests.getDistrict().getId());
 	}
 
 	@Test
