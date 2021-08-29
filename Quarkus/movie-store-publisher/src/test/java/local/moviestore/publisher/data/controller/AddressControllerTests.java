@@ -88,7 +88,11 @@ public class AddressControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/address/{id}", AddressControllerTests.getAddress().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static Address getAddress() {
