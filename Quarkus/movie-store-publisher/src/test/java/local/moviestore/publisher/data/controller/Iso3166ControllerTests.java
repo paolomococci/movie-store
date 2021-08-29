@@ -70,7 +70,15 @@ public class Iso3166ControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Iso3166 temporaryIso3166  = RestAssured.given()
+				.when()
+				.get("/iso3166/{id}", Iso3166ControllerTests.getIso3166().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Iso3166.class);
+		Assertions.assertNotNull(temporaryIso3166.getId());
+		Assertions.assertTrue(temporaryIso3166.getName().contentEquals("something"));
 	}
 
 	@Test
