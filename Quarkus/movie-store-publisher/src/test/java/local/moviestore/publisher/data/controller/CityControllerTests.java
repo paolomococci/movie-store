@@ -88,7 +88,11 @@ public class CityControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/city/{id}", CityControllerTests.getCity().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	public static City getCity() {
