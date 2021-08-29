@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Rental;
 @TestMethodOrder(OrderAnnotation.class)
 public class RentalControllerTests {
 
+	private static Rental rental;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class RentalControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Rental getRental() {
+		return rental;
+	}
+
+	public static void setRental(Rental rental) {
+		RentalControllerTests.rental = rental;
 	}
 }
