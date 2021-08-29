@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Address;
 @TestMethodOrder(OrderAnnotation.class)
 public class AddressControllerTests {
 
+	private static Address address;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class AddressControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Address getAddress() {
+		return address;
+	}
+
+	public static void setAddress(Address address) {
+		AddressControllerTests.address = address;
 	}
 }
