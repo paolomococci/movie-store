@@ -35,6 +35,8 @@ import local.moviestore.publisher.data.model.Iso3166;
 @TestMethodOrder(OrderAnnotation.class)
 public class Iso3166ControllerTests {
 
+	private static Iso3166 iso3166;
+
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
@@ -77,5 +79,13 @@ public class Iso3166ControllerTests {
 	@Order(6)
 	public void deleteTest() {
 		
+	}
+
+	public static Iso3166 getIso3166() {
+		return iso3166;
+	}
+
+	public static void setIso3166(Iso3166 iso3166) {
+		Iso3166ControllerTests.iso3166 = iso3166;
 	}
 }
