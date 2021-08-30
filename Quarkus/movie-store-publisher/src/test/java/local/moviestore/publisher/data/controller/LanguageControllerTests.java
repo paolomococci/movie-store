@@ -84,7 +84,15 @@ public class LanguageControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Language> languages = RestAssured.given()
+				.when().get("/language")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Language.class);
+		Assertions.assertFalse(languages.isEmpty());
 	}
 
 	@Test
