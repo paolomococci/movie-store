@@ -98,7 +98,21 @@ public class AddressControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"type\":\"something else\"}")
+				.put("/address/{id}", AddressControllerTests.getAddress().getId())
+				.then()
+				.statusCode(204);
+		Address temporaryAddress  = RestAssured.given()
+				.when()
+				.get("/address/{id}", AddressControllerTests.getAddress().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Address.class);
+		Assertions.assertTrue(temporaryAddress.getType().contentEquals("something else"));
 	}
 
 	@Test
