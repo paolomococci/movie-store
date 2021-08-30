@@ -84,7 +84,15 @@ public class MovieControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Movie> movies = RestAssured.given()
+				.when().get("/movie")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Movie.class);
+		Assertions.assertFalse(movies.isEmpty());
 	}
 
 	@Test
