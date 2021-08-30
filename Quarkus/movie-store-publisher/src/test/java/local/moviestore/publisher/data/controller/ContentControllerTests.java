@@ -84,7 +84,15 @@ public class ContentControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Content> contents = RestAssured.given()
+				.when().get("/content")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Content.class);
+		Assertions.assertFalse(contents.isEmpty());
 	}
 
 	@Test
