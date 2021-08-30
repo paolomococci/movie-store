@@ -84,7 +84,15 @@ public class CustomerControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Customer> customers = RestAssured.given()
+				.when().get("/customer")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Customer.class);
+		Assertions.assertFalse(customers.isEmpty());
 	}
 
 	@Test
