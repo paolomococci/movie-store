@@ -97,7 +97,21 @@ public class InventoryControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{}")
+				.put("/inventory/{id}", InventoryControllerTests.getInventory().getId())
+				.then()
+		.statusCode(204);
+		Inventory temporaryInventory  = RestAssured.given()
+				.when()
+				.get("/inventory/{id}", InventoryControllerTests.getInventory().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Inventory.class);
+		Assertions.assertTrue(temporaryInventory.getId() > 0L);
 	}
 
 	@Test
