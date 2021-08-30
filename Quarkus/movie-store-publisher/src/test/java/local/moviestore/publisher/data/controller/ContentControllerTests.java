@@ -98,7 +98,21 @@ public class ContentControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"subject\":\"something else\"}")
+				.put("/content/{id}", ContentControllerTests.getContent().getId())
+				.then()
+		.statusCode(204);
+		Content temporaryContent  = RestAssured.given()
+				.when()
+				.get("/content/{id}", ContentControllerTests.getContent().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Content.class);
+		Assertions.assertTrue(temporaryContent.getSubject().contentEquals("something else"));
 	}
 
 	@Test
