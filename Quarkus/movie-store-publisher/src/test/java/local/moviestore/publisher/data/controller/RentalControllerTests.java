@@ -83,7 +83,15 @@ public class RentalControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Rental> rentals = RestAssured.given()
+				.when().get("/rental")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Rental.class);
+		Assertions.assertFalse(rentals.isEmpty());
 	}
 
 	@Test
