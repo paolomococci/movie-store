@@ -98,7 +98,21 @@ public class StoreControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/store/{id}", StoreControllerTests.getStore().getId())
+				.then()
+		.statusCode(204);
+		Store temporaryStore  = RestAssured.given()
+				.when()
+				.get("/store/{id}", StoreControllerTests.getStore().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Store.class);
+		Assertions.assertTrue(temporaryStore.getName().contentEquals("something else"));
 	}
 
 	@Test
