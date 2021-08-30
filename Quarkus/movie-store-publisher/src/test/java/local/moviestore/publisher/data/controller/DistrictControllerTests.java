@@ -84,7 +84,15 @@ public class DistrictControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<District> districts = RestAssured.given()
+				.when().get("/district")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", District.class);
+		Assertions.assertFalse(districts.isEmpty());
 	}
 
 	@Test
