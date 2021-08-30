@@ -97,7 +97,21 @@ public class PaymentControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{}")
+				.put("/payment/{id}", PaymentControllerTests.getPayment().getId())
+				.then()
+		.statusCode(204);
+		Payment temporaryPayment  = RestAssured.given()
+				.when()
+				.get("/payment/{id}", PaymentControllerTests.getPayment().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Payment.class);
+		Assertions.assertTrue(temporaryPayment.getId() > 0L);
 	}
 
 	@Test
