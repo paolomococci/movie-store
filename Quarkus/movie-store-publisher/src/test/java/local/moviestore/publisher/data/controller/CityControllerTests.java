@@ -84,7 +84,15 @@ public class CityControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<City> cities = RestAssured.given()
+				.when().get("/city")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", City.class);
+		Assertions.assertFalse(cities.isEmpty());
 	}
 
 	@Test
