@@ -84,7 +84,15 @@ public class Iso3166ControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Iso3166> iso3166List = RestAssured.given()
+				.when().get("/iso3166")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Iso3166.class);
+		Assertions.assertFalse(iso3166List.isEmpty());
 	}
 
 	@Test
