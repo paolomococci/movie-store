@@ -83,7 +83,15 @@ public class PaymentControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Payment> payments = RestAssured.given()
+				.when().get("/payment")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Payment.class);
+		Assertions.assertFalse(payments.isEmpty());
 	}
 
 	@Test
