@@ -84,7 +84,15 @@ public class CategoryControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Category> categories = RestAssured.given()
+				.when().get("/category")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Category.class);
+		Assertions.assertFalse(categories.isEmpty());
 	}
 
 	@Test
