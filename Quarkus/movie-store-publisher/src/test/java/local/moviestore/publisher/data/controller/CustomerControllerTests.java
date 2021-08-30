@@ -98,7 +98,21 @@ public class CustomerControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"somebody else\"}")
+				.put("/customer/{id}", CustomerControllerTests.getCustomer().getId())
+				.then()
+		.statusCode(204);
+		Customer temporaryCustomer  = RestAssured.given()
+				.when()
+				.get("/customer/{id}", CustomerControllerTests.getCustomer().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Customer.class);
+		Assertions.assertTrue(temporaryCustomer.getName().contentEquals("somebody else"));
 	}
 
 	@Test
