@@ -98,7 +98,21 @@ public class CategoryControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/category/{id}", CategoryControllerTests.getCategory().getId())
+				.then()
+				.statusCode(204);
+		Category temporaryCategory  = RestAssured.given()
+				.when()
+				.get("/category/{id}", CategoryControllerTests.getCategory().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Category.class);
+		Assertions.assertTrue(temporaryCategory.getName().contentEquals("something else"));
 	}
 
 	@Test
