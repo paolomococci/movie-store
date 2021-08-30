@@ -84,7 +84,15 @@ public class PlayerControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Player> players = RestAssured.given()
+				.when().get("/player")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Player.class);
+		Assertions.assertFalse(players.isEmpty());
 	}
 
 	@Test
