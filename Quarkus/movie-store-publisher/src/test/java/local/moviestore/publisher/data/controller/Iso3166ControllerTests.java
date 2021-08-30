@@ -98,7 +98,21 @@ public class Iso3166ControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/iso3166/{id}", Iso3166ControllerTests.getIso3166().getId())
+				.then()
+		.statusCode(204);
+		Iso3166 temporaryIso3166  = RestAssured.given()
+				.when()
+				.get("/iso3166/{id}", Iso3166ControllerTests.getIso3166().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Iso3166.class);
+		Assertions.assertTrue(temporaryIso3166.getName().contentEquals("something else"));
 	}
 
 	@Test
