@@ -84,7 +84,15 @@ public class AddressControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Address> addresses = RestAssured.given()
+				.when().get("/address")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Address.class);
+		Assertions.assertFalse(addresses.isEmpty());
 	}
 
 	@Test
