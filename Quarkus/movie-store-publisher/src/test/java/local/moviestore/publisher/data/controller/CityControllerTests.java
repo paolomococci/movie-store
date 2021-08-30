@@ -98,7 +98,21 @@ public class CityControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/city/{id}", CityControllerTests.getCity().getId())
+				.then()
+		.statusCode(204);
+		City temporaryCity  = RestAssured.given()
+				.when()
+				.get("/city/{id}", CityControllerTests.getCity().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(City.class);
+		Assertions.assertTrue(temporaryCity.getName().contentEquals("something else"));
 	}
 
 	@Test
