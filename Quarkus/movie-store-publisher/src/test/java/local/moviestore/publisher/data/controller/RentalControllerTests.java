@@ -97,7 +97,21 @@ public class RentalControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{}")
+				.put("/rental/{id}", RentalControllerTests.getRental().getId())
+				.then()
+		.statusCode(204);
+		Rental temporaryRental  = RestAssured.given()
+				.when()
+				.get("/rental/{id}", RentalControllerTests.getRental().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Rental.class);
+		Assertions.assertTrue(temporaryRental.getId() > 0L);
 	}
 
 	@Test
