@@ -98,7 +98,21 @@ public class DistrictControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/district/{id}", DistrictControllerTests.getDistrict().getId())
+				.then()
+		.statusCode(204);
+		District temporaryDistrict  = RestAssured.given()
+				.when()
+				.get("/district/{id}", DistrictControllerTests.getDistrict().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(District.class);
+		Assertions.assertTrue(temporaryDistrict.getName().contentEquals("something else"));
 	}
 
 	@Test
