@@ -98,7 +98,21 @@ public class MovieControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"title\":\"some other title\"}")
+				.put("/movie/{id}", MovieControllerTests.getMovie().getId())
+				.then()
+		.statusCode(204);
+		Movie temporaryMovie  = RestAssured.given()
+				.when()
+				.get("/movie/{id}", MovieControllerTests.getMovie().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Movie.class);
+		Assertions.assertTrue(temporaryMovie.getTitle().contentEquals("some other title"));
 	}
 
 	@Test
