@@ -98,7 +98,21 @@ public class PlayerControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"somebody else\"}")
+				.put("/player/{id}", PlayerControllerTests.getPlayer().getId())
+				.then()
+		.statusCode(204);
+		Player temporaryPlayer  = RestAssured.given()
+				.when()
+				.get("/player/{id}", PlayerControllerTests.getPlayer().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Player.class);
+		Assertions.assertTrue(temporaryPlayer.getName().contentEquals("somebody else"));
 	}
 
 	@Test
