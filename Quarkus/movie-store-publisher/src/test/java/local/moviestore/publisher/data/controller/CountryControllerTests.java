@@ -84,7 +84,15 @@ public class CountryControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Country> countries = RestAssured.given()
+				.when().get("/country")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Country.class);
+		Assertions.assertFalse(countries.isEmpty());
 	}
 
 	@Test
