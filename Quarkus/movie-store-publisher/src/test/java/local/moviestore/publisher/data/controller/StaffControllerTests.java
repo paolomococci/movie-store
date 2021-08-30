@@ -84,7 +84,15 @@ public class StaffControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Staff> staffList = RestAssured.given()
+				.when().get("/staff")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Staff.class);
+		Assertions.assertFalse(staffList.isEmpty());
 	}
 
 	@Test
