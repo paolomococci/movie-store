@@ -98,7 +98,21 @@ public class LanguageControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"something else\"}")
+				.put("/language/{id}", LanguageControllerTests.getLanguage().getId())
+				.then()
+		.statusCode(204);
+		Language temporaryLanguage  = RestAssured.given()
+				.when()
+				.get("/language/{id}", LanguageControllerTests.getLanguage().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Language.class);
+		Assertions.assertTrue(temporaryLanguage.getName().contentEquals("something else"));
 	}
 
 	@Test
