@@ -84,7 +84,15 @@ public class StoreControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Store> stores = RestAssured.given()
+				.when().get("/store")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Store.class);
+		Assertions.assertFalse(stores.isEmpty());
 	}
 
 	@Test
