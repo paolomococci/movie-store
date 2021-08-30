@@ -98,7 +98,21 @@ public class StaffControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"somebody else\"}")
+				.put("/staff/{id}", StaffControllerTests.getStaff().getId())
+				.then()
+		.statusCode(204);
+		Staff temporaryStaff  = RestAssured.given()
+				.when()
+				.get("/staff/{id}", StaffControllerTests.getStaff().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Staff.class);
+		Assertions.assertTrue(temporaryStaff.getName().contentEquals("somebody else"));
 	}
 
 	@Test
