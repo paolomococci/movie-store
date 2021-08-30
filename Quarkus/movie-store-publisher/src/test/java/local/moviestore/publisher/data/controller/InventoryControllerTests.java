@@ -83,7 +83,15 @@ public class InventoryControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Inventory> inventories = RestAssured.given()
+				.when().get("/inventory")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Inventory.class);
+		Assertions.assertFalse(inventories.isEmpty());
 	}
 
 	@Test
