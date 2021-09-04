@@ -18,5 +18,69 @@
 
 package local.moviestore.data.model;
 
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "city")
 public class City {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private Timestamp updated;
+
+    /* references to other entities */
+
+    @ManyToOne
+    @JoinColumn(name = "country_fk")
+    private Country country;
+
+    @OneToMany(mappedBy = "city")
+    private List<District> districts;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /* getter and setter to references of other entities */
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public List<District> getDistricts() {
+        return districts;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public void setDistricts(List<District> districts) {
+        this.districts = districts;
+    }
 }
