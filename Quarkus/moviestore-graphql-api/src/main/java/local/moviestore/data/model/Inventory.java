@@ -18,5 +18,72 @@
 
 package local.moviestore.data.model;
 
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "inventory")
 public class Inventory {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private Timestamp updated;
+
+    /* references to other entities */
+
+    @ManyToOne
+    @JoinColumn(name = "store_fk")
+    private Store inventoryStore;
+
+    @ManyToOne
+    @JoinColumn(name = "movie_fk")
+    private Movie movie;
+
+    @OneToMany(mappedBy = "inventory")
+    private List<Rental> rentals;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    /* getter and setter to references of other entities */
+
+    public Store getInventoryStore() {
+        return inventoryStore;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public List<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setInventoryStore(Store inventoryStore) {
+        this.inventoryStore = inventoryStore;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public void setRentals(List<Rental> rentals) {
+        this.rentals = rentals;
+    }
 }
