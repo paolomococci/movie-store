@@ -18,5 +18,8 @@
 
 package local.moviestore.data.service;
 
+import javax.enterprise.context.ApplicationScoped;
+
+@ApplicationScoped
 public class Iso3166Service {
 }
