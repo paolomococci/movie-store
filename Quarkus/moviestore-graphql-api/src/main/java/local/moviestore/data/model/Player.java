@@ -18,5 +18,77 @@
 
 package local.moviestore.data.model;
 
+import java.sql.Timestamp;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "player")
 public class Player {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String nickname;
+    private String surname;
+    private Timestamp updated;
+
+    /* references to other entities */
+
+    @ManyToMany(mappedBy = "players")
+    private List<Movie> movies;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    /* getter and setter to references of other entities */
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
+    }
 }
