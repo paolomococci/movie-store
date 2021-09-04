@@ -18,5 +18,99 @@
 
 package local.moviestore.data.model;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
+@Table(name = "payment")
 public class Payment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private Double amount;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date payed;
+
+    private Timestamp updated;
+
+    /* references to other entities */
+
+    @ManyToOne
+    @JoinColumn(name = "rental_fk")
+    private Rental rental;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_fk")
+    private Customer paymentCustomer;
+
+    @ManyToOne
+    @JoinColumn(name = "staff_fk")
+    private Staff paymentStaff;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public Date getPayed() {
+        return payed;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public void setPayed(Date payed) {
+        this.payed = payed;
+    }
+
+    /* getter and setter to references of other entities */
+
+    public Rental getRental() {
+        return rental;
+    }
+
+    public Customer getPaymentCustomer() {
+        return paymentCustomer;
+    }
+
+    public Staff getPaymentStaff() {
+        return paymentStaff;
+    }
+
+    public void setUpdated(Timestamp updated) {
+        this.updated = updated;
+    }
+
+    public void setRental(Rental rental) {
+        this.rental = rental;
+    }
+
+    public void setPaymentCustomer(Customer paymentCustomer) {
+        this.paymentCustomer = paymentCustomer;
+    }
+
+    public void setPaymentStaff(Staff paymentStaff) {
+        this.paymentStaff = paymentStaff;
+    }
 }
