@@ -22,9 +22,9 @@ mvn io.quarkus:quarkus-maven-plugin:2.2.1.Final:create -DprojectGroupId=local.mo
 ./gradlew listExtensions
 ```
 
-### once I find the extension that interests me, I proceed with adding this dependency:
+### for example, once I find the extension that interests me, I proceed with adding this dependency:
 ```
-./gradlew addExtension --extensions="quarkus-resteasy-jackson"
+./gradlew addExtension --extensions="extension_name_of_interest"
 ```
 
 ### now I can start the application in development mode:
