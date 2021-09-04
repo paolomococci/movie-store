@@ -18,5 +18,9 @@
 
 package local.moviestore.data.resource;
 
-public class NativeContentResourceIT {
+import io.quarkus.test.junit.NativeImageTest;
+
+@NativeImageTest
+public class NativeContentResourceIT
+        extends ContentResourceTests {
 }
