@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.Staff;
 import local.moviestore.data.service.StaffService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class StaffResource {
 
     @Inject
     StaffService staffService;
+
+    @Query(value = "allStaff")
+    @Description(value = "returns a list of all staff registered in the system")
+    public List<Staff> allStaff() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
