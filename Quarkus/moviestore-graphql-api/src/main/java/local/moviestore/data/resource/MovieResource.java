@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Movie;
-import local.moviestore.data.service.MovieService;
+import local.moviestore.data.repository.MovieRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class MovieResource {
 
     @Inject
-    MovieService movieService;
+    MovieRepository movieRepository;
 
     @Query(value = "allMovies")
     @Description(value = "returns a list of all movies registered in the system")
