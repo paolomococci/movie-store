@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Content;
-import local.moviestore.data.service.ContentService;
+import local.moviestore.data.repository.ContentRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class ContentResource {
 
     @Inject
-    ContentService contentService;
+    ContentRepository contentRepository;
 
     @Query(value = "allContents")
     @Description(value = "returns a list of all contents registered in the system")
