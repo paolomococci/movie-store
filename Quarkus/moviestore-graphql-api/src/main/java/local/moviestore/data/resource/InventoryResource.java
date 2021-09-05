@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.Inventory;
 import local.moviestore.data.service.InventoryService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class InventoryResource {
 
     @Inject
     InventoryService inventoryService;
+
+    @Query(value = "allInventories")
+    @Description(value = "returns a list of all inventories registered in the system")
+    public List<Inventory> allInventories() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
