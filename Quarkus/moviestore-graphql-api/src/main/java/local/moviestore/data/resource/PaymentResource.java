@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Payment;
-import local.moviestore.data.service.PaymentService;
+import local.moviestore.data.repository.PaymentRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class PaymentResource {
 
     @Inject
-    PaymentService paymentService;
+    PaymentRepository paymentRepository;
 
     @Query(value = "allPayments")
     @Description(value = "returns a list of all payments registered in the system")
