@@ -18,8 +18,13 @@
 
 package local.moviestore.data.repository;
 
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
+import local.moviestore.data.model.Payment;
+
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class PaymentRepository {
+public class PaymentRepository
+        implements PanacheRepository<Payment> {
 }
