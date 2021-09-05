@@ -18,8 +18,13 @@
 
 package local.moviestore.data.repository;
 
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
+import local.moviestore.data.model.Iso3166;
+
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class Iso3166Repository {
+public class Iso3166Repository
+        implements PanacheRepository<Iso3166> {
 }
