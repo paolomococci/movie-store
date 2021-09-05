@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Iso3166;
-import local.moviestore.data.service.Iso3166Service;
+import local.moviestore.data.repository.Iso3166Repository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class Iso3166Resource {
 
     @Inject
-    Iso3166Service iso3166Service;
+    Iso3166Repository iso3166Repository;
 
     @Query(value = "allIso3166")
     @Description(value = "returns a list of all ISO3166 registered in the system")
