@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Staff;
-import local.moviestore.data.service.StaffService;
+import local.moviestore.data.repository.StaffRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class StaffResource {
 
     @Inject
-    StaffService staffService;
+    StaffRepository staffRepository;
 
     @Query(value = "allStaff")
     @Description(value = "returns a list of all staff registered in the system")
