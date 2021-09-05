@@ -16,10 +16,7 @@
  *
  */
 
-package local.moviestore.data.service;
+package local.moviestore.data.repository;
 
-import javax.enterprise.context.ApplicationScoped;
-
-@ApplicationScoped
-public class InventoryService {
+public class InventoryRepository {
 }
