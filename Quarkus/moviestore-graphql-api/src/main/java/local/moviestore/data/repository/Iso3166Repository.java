@@ -16,10 +16,10 @@
  *
  */
 
-package local.moviestore.data.service;
+package local.moviestore.data.repository;
 
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class Iso3166Service {
+public class Iso3166Repository {
 }
