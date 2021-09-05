@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.City;
 import local.moviestore.data.service.CityService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class CityResource {
 
     @Inject
     CityService cityService;
+
+    @Query(value = "allCities")
+    @Description(value = "returns a list of all cities registered in the system")
+    public List<City> allCities() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
