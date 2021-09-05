@@ -18,8 +18,15 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.service.CustomerService;
+
 import org.eclipse.microprofile.graphql.GraphQLApi;
+
+import javax.inject.Inject;
 
 @GraphQLApi
 public class CustomerResource {
+
+    @Inject
+    CustomerService customerService;
 }
