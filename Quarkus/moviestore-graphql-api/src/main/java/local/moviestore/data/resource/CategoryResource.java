@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Category;
-import local.moviestore.data.service.CategoryService;
+import local.moviestore.data.repository.CategoryRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class CategoryResource {
 
     @Inject
-    CategoryService categoryService;
+    CategoryRepository categoryRepository;
 
     @Query(value = "allCategories")
     @Description(value = "returns a list of all categories registered in the system")
