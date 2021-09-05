@@ -18,8 +18,13 @@
 
 package local.moviestore.data.repository;
 
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
+import local.moviestore.data.model.Country;
+
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class CountryRepository {
+public class CountryRepository
+        implements PanacheRepository<Country> {
 }
