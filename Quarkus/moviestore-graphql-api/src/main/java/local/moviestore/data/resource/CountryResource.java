@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.Country;
 import local.moviestore.data.service.CountryService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class CountryResource {
 
     @Inject
     CountryService countryService;
+
+    @Query(value = "allCountries")
+    @Description(value = "returns a list of all countries registered in the system")
+    public List<Country> allCountries() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
