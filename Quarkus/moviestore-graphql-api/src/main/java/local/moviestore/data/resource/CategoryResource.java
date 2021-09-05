@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.Category;
 import local.moviestore.data.service.CategoryService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class CategoryResource {
 
     @Inject
     CategoryService categoryService;
+
+    @Query(value = "allCategories")
+    @Description(value = "returns a list of all categories registered in the system")
+    public List<Category> allCategories() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
