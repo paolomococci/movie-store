@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Rental;
-import local.moviestore.data.service.RentalService;
+import local.moviestore.data.repository.RentalRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class RentalResource {
 
     @Inject
-    RentalService rentalService;
+    RentalRepository rentalRepository;
 
     @Query(value = "allRentals")
     @Description(value = "returns a list of all rentals registered in the system")
