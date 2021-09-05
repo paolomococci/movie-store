@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.District;
 import local.moviestore.data.service.DistrictService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class DistrictResource {
 
     @Inject
     DistrictService districtService;
+
+    @Query(value = "allDistricts")
+    @Description(value = "returns a list of all districts registered in the system")
+    public List<District> allDistricts() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
