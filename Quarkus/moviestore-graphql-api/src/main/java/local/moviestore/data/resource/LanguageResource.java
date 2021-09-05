@@ -18,8 +18,15 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.service.LanguageService;
+
 import org.eclipse.microprofile.graphql.GraphQLApi;
+
+import javax.inject.Inject;
 
 @GraphQLApi
 public class LanguageResource {
+
+    @Inject
+    LanguageService languageService;
 }
