@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Language;
-import local.moviestore.data.service.LanguageService;
+import local.moviestore.data.repository.LanguageRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class LanguageResource {
 
     @Inject
-    LanguageService languageService;
+    LanguageRepository languageRepository;
 
     @Query(value = "allLanguages")
     @Description(value = "returns a list of all languages registered in the system")
