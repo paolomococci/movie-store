@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Customer;
-import local.moviestore.data.service.CustomerService;
+import local.moviestore.data.repository.CustomerRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class CustomerResource {
 
     @Inject
-    CustomerService customerService;
+    CustomerRepository customerRepository;
 
     @Query(value = "allCustomers")
     @Description(value = "returns a list of all customers registered in the system")
