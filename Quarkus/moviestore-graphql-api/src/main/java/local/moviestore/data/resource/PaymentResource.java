@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.Payment;
 import local.moviestore.data.service.PaymentService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class PaymentResource {
 
     @Inject
     PaymentService paymentService;
+
+    @Query(value = "allPayments")
+    @Description(value = "returns a list of all payments registered in the system")
+    public List<Payment> allPayments() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
