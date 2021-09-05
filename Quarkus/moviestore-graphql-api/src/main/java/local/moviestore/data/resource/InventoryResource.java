@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Inventory;
-import local.moviestore.data.service.InventoryService;
+import local.moviestore.data.repository.InventoryRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class InventoryResource {
 
     @Inject
-    InventoryService inventoryService;
+    InventoryRepository inventoryRepository;
 
     @Query(value = "allInventories")
     @Description(value = "returns a list of all inventories registered in the system")
