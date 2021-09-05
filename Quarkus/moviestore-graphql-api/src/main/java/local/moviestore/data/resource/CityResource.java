@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.City;
-import local.moviestore.data.service.CityService;
+import local.moviestore.data.repository.CityRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class CityResource {
 
     @Inject
-    CityService cityService;
+    CityRepository cityRepository;
 
     @Query(value = "allCities")
     @Description(value = "returns a list of all cities registered in the system")
