@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Address;
-import local.moviestore.data.service.AddressService;
+import local.moviestore.data.repository.AddressRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class AddressResource {
 
     @Inject
-    AddressService addressService;
+    AddressRepository addressRepository;
 
     @Query(value = "allAddresses")
     @Description(value = "returns a list of all addresses registered in the system")
