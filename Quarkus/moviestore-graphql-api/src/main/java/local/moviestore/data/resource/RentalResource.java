@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.Rental;
 import local.moviestore.data.service.RentalService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class RentalResource {
 
     @Inject
     RentalService rentalService;
+
+    @Query(value = "allRentals")
+    @Description(value = "returns a list of all rentals registered in the system")
+    public List<Rental> allRentals() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
