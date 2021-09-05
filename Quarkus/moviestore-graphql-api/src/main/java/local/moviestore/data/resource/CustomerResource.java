@@ -18,5 +18,8 @@
 
 package local.moviestore.data.resource;
 
+import org.eclipse.microprofile.graphql.GraphQLApi;
+
+@GraphQLApi
 public class CustomerResource {
 }
