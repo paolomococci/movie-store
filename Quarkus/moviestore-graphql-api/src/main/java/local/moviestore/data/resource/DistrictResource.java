@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.District;
-import local.moviestore.data.service.DistrictService;
+import local.moviestore.data.repository.DistrictRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class DistrictResource {
 
     @Inject
-    DistrictService districtService;
+    DistrictRepository districtRepository;
 
     @Query(value = "allDistricts")
     @Description(value = "returns a list of all districts registered in the system")
