@@ -18,8 +18,15 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.service.CategoryService;
+
 import org.eclipse.microprofile.graphql.GraphQLApi;
+
+import javax.inject.Inject;
 
 @GraphQLApi
 public class CategoryResource {
+
+    @Inject
+    CategoryService categoryService;
 }
