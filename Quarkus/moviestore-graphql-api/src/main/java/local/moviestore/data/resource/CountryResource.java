@@ -19,7 +19,7 @@
 package local.moviestore.data.resource;
 
 import local.moviestore.data.model.Country;
-import local.moviestore.data.service.CountryService;
+import local.moviestore.data.repository.CountryRepository;
 
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -32,7 +32,7 @@ import java.util.List;
 public class CountryResource {
 
     @Inject
-    CountryService countryService;
+    CountryRepository countryRepository;
 
     @Query(value = "allCountries")
     @Description(value = "returns a list of all countries registered in the system")
