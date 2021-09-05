@@ -18,8 +18,15 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.service.CityService;
+
 import org.eclipse.microprofile.graphql.GraphQLApi;
+
+import javax.inject.Inject;
 
 @GraphQLApi
 public class CityResource {
+
+    @Inject
+    CityService cityService;
 }
