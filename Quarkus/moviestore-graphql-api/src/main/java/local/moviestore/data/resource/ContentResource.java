@@ -18,15 +18,26 @@
 
 package local.moviestore.data.resource;
 
+import local.moviestore.data.model.Content;
 import local.moviestore.data.service.ContentService;
 
+import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
+import org.eclipse.microprofile.graphql.Query;
 
 import javax.inject.Inject;
+import java.util.List;
 
 @GraphQLApi
 public class ContentResource {
 
     @Inject
     ContentService contentService;
+
+    @Query(value = "allContents")
+    @Description(value = "returns a list of all contents registered in the system")
+    public List<Content> allContents() {
+        // TODO and, in the future, replace List with CompletionStage
+        return null;
+    }
 }
