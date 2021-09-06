@@ -38,6 +38,6 @@ public class AddressResource {
     @Description(value = "returns a list of all addresses registered in the system")
     public List<Address> allAddresses() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.addressRepository.allAddresses();
     }
 }
