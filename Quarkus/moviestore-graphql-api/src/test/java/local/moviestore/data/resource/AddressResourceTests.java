@@ -19,6 +19,9 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
@@ -31,7 +34,11 @@ public class AddressResourceTests {
     }
 
     @Test
+    @Disabled
     public void emptyTest() {
-
+        RestAssured.given().body(QUERY_ALL_ADDRESSES_TYPE_NAME_CIVIC_PHONE)
+                .then().contentType(ContentType.JSON)
+                .body("data.allAddresses.size()", Matchers.is(0))
+                .statusCode(200);
     }
 }
