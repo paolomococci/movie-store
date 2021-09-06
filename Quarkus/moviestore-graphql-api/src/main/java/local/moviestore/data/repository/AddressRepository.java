@@ -23,8 +23,13 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import local.moviestore.data.model.Address;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class AddressRepository
         implements PanacheRepository<Address> {
+
+    public List<Address> allAddresses() {
+        return listAll();
+    }
 }
