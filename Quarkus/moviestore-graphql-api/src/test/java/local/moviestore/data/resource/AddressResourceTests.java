@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class AddressResourceTests {
 
+    private static final String QUERY_ALL_ADDRESSES_TYPE_NAME_CIVIC_PHONE;
+
+    static {
+        QUERY_ALL_ADDRESSES_TYPE_NAME_CIVIC_PHONE = "{\"query\":\"{ allAddresses { type name civic phone}}\"}";
+    }
+
     @Test
     public void emptyTest() {
 
