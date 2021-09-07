@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class MovieResourceTests {
 
+    private static final String QUERY_ALL_MOVIES;
+
+    static {
+        QUERY_ALL_MOVIES = "";
+    }
+
     @Test
     public void emptyTest() {
 
