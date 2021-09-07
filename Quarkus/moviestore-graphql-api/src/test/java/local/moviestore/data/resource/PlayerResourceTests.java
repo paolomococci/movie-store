@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class PlayerResourceTests {
 
+    private static final String QUERY_ALL_PLAYERS;
+
+    static {
+        QUERY_ALL_PLAYERS = "";
+    }
+
     @Test
     public void emptyTest() {
 
