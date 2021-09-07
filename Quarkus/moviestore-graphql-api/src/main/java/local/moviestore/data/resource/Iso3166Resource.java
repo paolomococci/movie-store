@@ -34,10 +34,10 @@ public class Iso3166Resource {
     @Inject
     Iso3166Repository iso3166Repository;
 
-    @Query(value = "allIso3166")
-    @Description(value = "returns a list of all ISO3166 registered in the system")
-    public List<Iso3166> allIso3166() {
+    @Query(value = "allCountryCodes")
+    @Description(value = "returns a list of all country codes registered in the system")
+    public List<Iso3166> allCountryCodes() {
         // TODO and, in the future, replace List with CompletionStage
-        return this.iso3166Repository.allIso3166();
+        return this.iso3166Repository.allCountryCodes();
     }
 }
