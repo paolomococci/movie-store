@@ -38,6 +38,6 @@ public class RentalResource {
     @Description(value = "returns a list of all rentals registered in the system")
     public List<Rental> allRentals() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.rentalRepository.allRentals();
     }
 }
