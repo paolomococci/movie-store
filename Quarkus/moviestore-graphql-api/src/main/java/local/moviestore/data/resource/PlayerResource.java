@@ -38,6 +38,6 @@ public class PlayerResource {
     @Description(value = "returns a list of all players registered in the system")
     public List<Player> allPlayers() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.playerRepository.allPlayers();
     }
 }
