@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class LanguageResourceTests {
 
+    private static final String QUERY_ALL_LANGUAGES;
+
+    static {
+        QUERY_ALL_LANGUAGES = "";
+    }
+
     @Test
     public void emptyTest() {
 
