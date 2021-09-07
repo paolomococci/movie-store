@@ -38,6 +38,6 @@ public class CityResource {
     @Description(value = "returns a list of all cities registered in the system")
     public List<City> allCities() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.cityRepository.allCities();
     }
 }
