@@ -38,6 +38,6 @@ public class PaymentResource {
     @Description(value = "returns a list of all payments registered in the system")
     public List<Payment> allPayments() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.paymentRepository.allPayments();
     }
 }
