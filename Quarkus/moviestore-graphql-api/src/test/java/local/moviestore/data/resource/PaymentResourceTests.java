@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class PaymentResourceTests {
 
+    private static final String QUERY_ALL_PAYMENTS;
+
+    static {
+        QUERY_ALL_PAYMENTS = "";
+    }
+
     @Test
     public void emptyTest() {
 
