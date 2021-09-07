@@ -23,8 +23,13 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import local.moviestore.data.model.Country;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class CountryRepository
         implements PanacheRepository<Country> {
+
+    public List<Country> allCountries() {
+        return this.listAll();
+    }
 }
