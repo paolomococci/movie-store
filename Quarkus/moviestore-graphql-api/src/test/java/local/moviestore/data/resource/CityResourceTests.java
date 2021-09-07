@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class CityResourceTests {
 
+    private static final String QUERY_ALL_CITIES;
+
+    static {
+        QUERY_ALL_CITIES = "";
+    }
+
     @Test
     public void emptyTest() {
 
