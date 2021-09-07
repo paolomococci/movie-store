@@ -23,8 +23,13 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import local.moviestore.data.model.District;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class DistrictRepository
         implements PanacheRepository<District> {
+
+    public List<District> allDistricts() {
+        return this.listAll();
+    }
 }
