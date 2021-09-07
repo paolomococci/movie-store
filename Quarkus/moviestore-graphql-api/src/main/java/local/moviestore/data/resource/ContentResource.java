@@ -38,6 +38,6 @@ public class ContentResource {
     @Description(value = "returns a list of all contents registered in the system")
     public List<Content> allContents() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.contentRepository.allContents();
     }
 }
