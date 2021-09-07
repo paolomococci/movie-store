@@ -23,8 +23,13 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import local.moviestore.data.model.Inventory;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class InventoryRepository
         implements PanacheRepository<Inventory> {
+
+    public List<Inventory> allInventories() {
+        return this.listAll();
+    }
 }
