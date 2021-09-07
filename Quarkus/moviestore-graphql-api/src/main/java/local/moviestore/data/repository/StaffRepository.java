@@ -29,7 +29,7 @@ import java.util.List;
 public class StaffRepository
         implements PanacheRepository<Staff> {
 
-    public List<Staff> allStaff() {
+    public List<Staff> allStaffs() {
         return this.listAll();
     }
 }
