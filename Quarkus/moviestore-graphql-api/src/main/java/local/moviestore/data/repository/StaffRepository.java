@@ -23,8 +23,13 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import local.moviestore.data.model.Staff;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class StaffRepository
         implements PanacheRepository<Staff> {
+
+    public List<Staff> allStaff() {
+        return this.listAll();
+    }
 }
