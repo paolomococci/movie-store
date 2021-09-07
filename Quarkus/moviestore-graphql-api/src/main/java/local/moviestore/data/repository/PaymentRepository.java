@@ -23,8 +23,13 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import local.moviestore.data.model.Payment;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class PaymentRepository
         implements PanacheRepository<Payment> {
+
+    public List<Payment> allPayments() {
+        return this.listAll();
+    }
 }
