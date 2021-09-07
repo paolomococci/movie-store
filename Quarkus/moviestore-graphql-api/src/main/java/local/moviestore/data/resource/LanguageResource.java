@@ -38,6 +38,6 @@ public class LanguageResource {
     @Description(value = "returns a list of all languages registered in the system")
     public List<Language> allLanguages() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.languageRepository.allLanguages();
     }
 }
