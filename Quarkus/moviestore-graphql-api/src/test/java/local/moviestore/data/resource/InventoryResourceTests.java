@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class InventoryResourceTests {
 
+    private static final String QUERY_ALL_INVENTORIES;
+
+    static {
+        QUERY_ALL_INVENTORIES = "";
+    }
+
     @Test
     public void emptyTest() {
 
