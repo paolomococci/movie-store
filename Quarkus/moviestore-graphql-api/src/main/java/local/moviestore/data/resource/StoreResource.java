@@ -38,6 +38,6 @@ public class StoreResource {
     @Description(value = "returns a list of all stores registered in the system")
     public List<Store> allStores() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.storeRepository.allStores();
     }
 }
