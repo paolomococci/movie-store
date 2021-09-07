@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class CustomerResourceTests {
 
+    private static final String QUERY_ALL_CUSTOMERS;
+
+    static {
+        QUERY_ALL_CUSTOMERS = "";
+    }
+
     @Test
     public void emptyTest() {
 
