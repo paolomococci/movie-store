@@ -38,6 +38,6 @@ public class StaffResource {
     @Description(value = "returns a list of all staffs registered in the system")
     public List<Staff> allStaffs() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.staffRepository.allStaffs();
     }
 }
