@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class Iso3166ResourceTests {
 
+    private static final String QUERY_ALL_ISO3166;
+
+    static {
+        QUERY_ALL_ISO3166 = "";
+    }
+
     @Test
     public void emptyTest() {
 
