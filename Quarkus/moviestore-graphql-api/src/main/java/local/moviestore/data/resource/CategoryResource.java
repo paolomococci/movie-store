@@ -38,6 +38,6 @@ public class CategoryResource {
     @Description(value = "returns a list of all categories registered in the system")
     public List<Category> allCategories() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.categoryRepository.allCategories();
     }
 }
