@@ -38,6 +38,6 @@ public class CountryResource {
     @Description(value = "returns a list of all countries registered in the system")
     public List<Country> allCountries() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.countryRepository.allCountries();
     }
 }
