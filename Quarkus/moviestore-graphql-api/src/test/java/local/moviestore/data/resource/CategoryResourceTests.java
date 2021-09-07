@@ -24,6 +24,12 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class CategoryResourceTests {
 
+    private static final String QUERY_ALL_CATEGORIES;
+
+    static {
+        QUERY_ALL_CATEGORIES = "";
+    }
+
     @Test
     public void emptyTest() {
 
