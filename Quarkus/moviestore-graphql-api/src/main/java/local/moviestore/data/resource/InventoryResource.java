@@ -38,6 +38,6 @@ public class InventoryResource {
     @Description(value = "returns a list of all inventories registered in the system")
     public List<Inventory> allInventories() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.inventoryRepository.allInventories();
     }
 }
