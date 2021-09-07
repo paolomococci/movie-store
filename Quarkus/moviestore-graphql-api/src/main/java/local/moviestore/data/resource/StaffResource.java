@@ -34,9 +34,9 @@ public class StaffResource {
     @Inject
     StaffRepository staffRepository;
 
-    @Query(value = "allStaff")
-    @Description(value = "returns a list of all staff registered in the system")
-    public List<Staff> allStaff() {
+    @Query(value = "allStaffs")
+    @Description(value = "returns a list of all staffs registered in the system")
+    public List<Staff> allStaffs() {
         // TODO and, in the future, replace List with CompletionStage
         return null;
     }
