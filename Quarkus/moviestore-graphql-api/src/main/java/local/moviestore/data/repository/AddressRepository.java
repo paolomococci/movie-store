@@ -30,6 +30,6 @@ public class AddressRepository
         implements PanacheRepository<Address> {
 
     public List<Address> allAddresses() {
-        return listAll();
+        return this.listAll();
     }
 }
