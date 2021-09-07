@@ -23,8 +23,13 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import local.moviestore.data.model.Iso3166;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class Iso3166Repository
         implements PanacheRepository<Iso3166> {
+
+    public List<Iso3166> allIso3166() {
+        return this.listAll();
+    }
 }
