@@ -38,6 +38,6 @@ public class CustomerResource {
     @Description(value = "returns a list of all customers registered in the system")
     public List<Customer> allCustomers() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.customerRepository.allCustomers();
     }
 }
