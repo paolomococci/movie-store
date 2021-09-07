@@ -38,6 +38,6 @@ public class DistrictResource {
     @Description(value = "returns a list of all districts registered in the system")
     public List<District> allDistricts() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.districtRepository.allDistricts();
     }
 }
