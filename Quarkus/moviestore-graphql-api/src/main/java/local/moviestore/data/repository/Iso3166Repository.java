@@ -29,7 +29,7 @@ import java.util.List;
 public class Iso3166Repository
         implements PanacheRepository<Iso3166> {
 
-    public List<Iso3166> allIso3166() {
+    public List<Iso3166> allCountryCodes() {
         return this.listAll();
     }
 }
