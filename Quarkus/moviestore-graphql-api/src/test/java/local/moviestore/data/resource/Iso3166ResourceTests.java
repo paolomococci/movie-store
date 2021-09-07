@@ -24,10 +24,10 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class Iso3166ResourceTests {
 
-    private static final String QUERY_ALL_ISO3166;
+    private static final String QUERY_ALL_COUNTRY_CODES;
 
     static {
-        QUERY_ALL_ISO3166 = "";
+        QUERY_ALL_COUNTRY_CODES = "";
     }
 
     @Test
