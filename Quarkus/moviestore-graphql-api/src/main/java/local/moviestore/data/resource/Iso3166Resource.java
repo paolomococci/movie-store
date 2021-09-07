@@ -38,6 +38,6 @@ public class Iso3166Resource {
     @Description(value = "returns a list of all ISO3166 registered in the system")
     public List<Iso3166> allIso3166() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.iso3166Repository.allIso3166();
     }
 }
