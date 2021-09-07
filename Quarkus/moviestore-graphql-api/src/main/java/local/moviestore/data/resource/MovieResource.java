@@ -38,6 +38,6 @@ public class MovieResource {
     @Description(value = "returns a list of all movies registered in the system")
     public List<Movie> allMovies() {
         // TODO and, in the future, replace List with CompletionStage
-        return null;
+        return this.movieRepository.allMovies();
     }
 }
