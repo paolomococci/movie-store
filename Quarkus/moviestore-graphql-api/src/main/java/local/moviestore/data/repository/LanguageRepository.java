@@ -23,8 +23,13 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import local.moviestore.data.model.Language;
 
 import javax.enterprise.context.ApplicationScoped;
+import java.util.List;
 
 @ApplicationScoped
 public class LanguageRepository
         implements PanacheRepository<Language> {
+
+    public List<Language> allLanguages() {
+        return this.listAll();
+    }
 }
