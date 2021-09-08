@@ -19,15 +19,16 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class PlayerResourceTests {
 
-    private static final String QUERY_ALL_PLAYERS;
+    private static final String QUERY_ALL_PLAYERS_NAME_NICKNAME_SURNAME;
 
     static {
-        QUERY_ALL_PLAYERS = "";
+        QUERY_ALL_PLAYERS_NAME_NICKNAME_SURNAME = "{\"query\":\"{ allPlayers { name nickname surname}}\"}";
     }
 
     @Test
