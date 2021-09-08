@@ -19,15 +19,16 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class PaymentResourceTests {
 
-    private static final String QUERY_ALL_PAYMENTS;
+    private static final String QUERY_ALL_PAYMENTS_AMOUNT_PAYED;
 
     static {
-        QUERY_ALL_PAYMENTS = "";
+        QUERY_ALL_PAYMENTS_AMOUNT_PAYED = "{\"query\":\"{ allPayments { amount payed}}\"}";
     }
 
     @Test
