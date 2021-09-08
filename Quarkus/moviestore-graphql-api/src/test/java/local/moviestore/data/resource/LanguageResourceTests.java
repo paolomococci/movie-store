@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class LanguageResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_LANGUAGES_NAME;
 
     static {
+        PATH_SIZE = "allLanguages.size()";
         QUERY_ALL_LANGUAGES_NAME = "{\"query\":\"{ allLanguages { name}}\"}";
     }
 
