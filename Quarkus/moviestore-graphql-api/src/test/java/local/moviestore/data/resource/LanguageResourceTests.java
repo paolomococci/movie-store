@@ -19,15 +19,16 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class LanguageResourceTests {
 
-    private static final String QUERY_ALL_LANGUAGES;
+    private static final String QUERY_ALL_LANGUAGES_NAME;
 
     static {
-        QUERY_ALL_LANGUAGES = "";
+        QUERY_ALL_LANGUAGES_NAME = "{\"query\":\"{ allLanguages { name}}\"}";
     }
 
     @Test
