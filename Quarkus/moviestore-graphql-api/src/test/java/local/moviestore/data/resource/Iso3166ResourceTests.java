@@ -19,15 +19,16 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class Iso3166ResourceTests {
 
-    private static final String QUERY_ALL_COUNTRY_CODES;
+    private static final String QUERY_ALL_COUNTRY_CODES_NAME_CODE_SIGNATURE;
 
     static {
-        QUERY_ALL_COUNTRY_CODES = "";
+        QUERY_ALL_COUNTRY_CODES_NAME_CODE_SIGNATURE = "{\"query\":\"{ allCountryCodes { name code signature}}\"}";
     }
 
     @Test
