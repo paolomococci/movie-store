@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class CountryResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_COUNTRIES_NAME;
 
     static {
+        PATH_SIZE = "allCountries.size()";
         QUERY_ALL_COUNTRIES_NAME = "{\"query\":\"{ allCountries { name}}\"}";
     }
 
