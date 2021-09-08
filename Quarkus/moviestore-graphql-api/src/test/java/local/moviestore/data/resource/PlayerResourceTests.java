@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class PlayerResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_PLAYERS_NAME_NICKNAME_SURNAME;
 
     static {
+        PATH_SIZE = "allPlayers.size()";
         QUERY_ALL_PLAYERS_NAME_NICKNAME_SURNAME = "{\"query\":\"{ allPlayers { name nickname surname}}\"}";
     }
 
