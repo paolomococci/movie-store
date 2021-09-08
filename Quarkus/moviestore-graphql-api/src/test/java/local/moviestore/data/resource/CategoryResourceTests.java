@@ -19,15 +19,16 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class CategoryResourceTests {
 
-    private static final String QUERY_ALL_CATEGORIES;
+    private static final String QUERY_ALL_CATEGORIES_NAME_DESCRIPTION;
 
     static {
-        QUERY_ALL_CATEGORIES = "";
+        QUERY_ALL_CATEGORIES_NAME_DESCRIPTION = "{\"query\":\"{ allCategories { name description}}\"}";
     }
 
     @Test
