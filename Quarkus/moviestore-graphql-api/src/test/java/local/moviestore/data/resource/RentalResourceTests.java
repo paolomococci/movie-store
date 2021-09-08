@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class RentalResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_RENTALS_RENT_BACK;
 
     static {
+        PATH_SIZE = "allResources.size()";
         QUERY_ALL_RENTALS_RENT_BACK = "{\"query\":\"{ allRents { rent back}}\"}";
     }
 
