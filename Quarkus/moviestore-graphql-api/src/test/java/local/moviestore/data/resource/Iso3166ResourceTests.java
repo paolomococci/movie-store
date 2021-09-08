@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class Iso3166ResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_COUNTRY_CODES_NAME_CODE_SIGNATURE;
 
     static {
+        PATH_SIZE = "allCountryCodes.size()";
         QUERY_ALL_COUNTRY_CODES_NAME_CODE_SIGNATURE = "{\"query\":\"{ allCountryCodes { name code signature}}\"}";
     }
 
