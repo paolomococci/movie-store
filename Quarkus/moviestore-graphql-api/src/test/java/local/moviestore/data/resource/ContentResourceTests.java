@@ -19,15 +19,16 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class ContentResourceTests {
 
-    private static final String QUERY_ALL_CONTENTS;
+    private static final String QUERY_ALL_CONTENTS_SUBJECT;
 
     static {
-        QUERY_ALL_CONTENTS = "";
+        QUERY_ALL_CONTENTS_SUBJECT = "{\"query\":\"{ allContents { subject}}\"}";
     }
 
     @Test
