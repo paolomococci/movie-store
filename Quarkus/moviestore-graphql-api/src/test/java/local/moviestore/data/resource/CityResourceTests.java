@@ -38,6 +38,9 @@ public class CityResourceTests {
 
     @Test
     public void emptyTest() {
-
+        RestAssured.given().body(this.QUERY_ALL_CITIES_NAME)
+                .then().contentType(ContentType.JSON)
+                .body(this.PATH_SIZE, Matchers.is(0))
+                .statusCode(200);
     }
 }
