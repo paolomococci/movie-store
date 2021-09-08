@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class CustomerResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_CUSTOMERS_NAME_NICKNAME_SURNAME_PHONE_MOBILE_BIRTHDAY_ACTIVE;
 
     static {
+        PATH_SIZE = "allCustomers.size()";
         QUERY_ALL_CUSTOMERS_NAME_NICKNAME_SURNAME_PHONE_MOBILE_BIRTHDAY_ACTIVE
                 = "{\"query\":\"{ allCustomers { name nickname surname phone mobile email birthday active}}\"}";
     }
