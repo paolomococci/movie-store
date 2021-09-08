@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class PaymentResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_PAYMENTS_AMOUNT_PAYED;
 
     static {
+        PATH_SIZE = "allPayments.size()";
         QUERY_ALL_PAYMENTS_AMOUNT_PAYED = "{\"query\":\"{ allPayments { amount payed}}\"}";
     }
 
