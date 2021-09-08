@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class MovieResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_MOVIES_TITLE_SUBTITLE_DESCRIPTION_COMEOUT_DURATION_COST_RENT_RATING;
 
     static {
+        PATH_SIZE = "allMovies.size()";
         QUERY_ALL_MOVIES_TITLE_SUBTITLE_DESCRIPTION_COMEOUT_DURATION_COST_RENT_RATING
                 = "{\"query\":\"{ allMovies { title subtitle description comeout duration cost rent rating}}\"}";
     }
