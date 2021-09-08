@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class CategoryResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_CATEGORIES_NAME_DESCRIPTION;
 
     static {
+        PATH_SIZE = "allCategories.size()";
         QUERY_ALL_CATEGORIES_NAME_DESCRIPTION = "{\"query\":\"{ allCategories { name description}}\"}";
     }
 
