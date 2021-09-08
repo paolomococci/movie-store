@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class DistrictResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_DISTRICTS_NAME_CODE;
 
     static {
+        PATH_SIZE = "allDistricts.size()";
         QUERY_ALL_DISTRICTS_NAME_CODE = "{\"query\":\"{ allDistricts { name code}}\"}";
     }
 
