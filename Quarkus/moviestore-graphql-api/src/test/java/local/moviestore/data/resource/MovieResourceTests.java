@@ -20,6 +20,10 @@ package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
 
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
@@ -36,6 +40,9 @@ public class MovieResourceTests {
 
     @Test
     public void emptyTest() {
-
+        RestAssured.given().body(this.QUERY_ALL_MOVIES_TITLE_SUBTITLE_DESCRIPTION_COMEOUT_DURATION_COST_RENT_RATING)
+                .then().contentType(ContentType.JSON)
+                .body(this.PATH_SIZE, Matchers.is(0))
+                .statusCode(200);
     }
 }
