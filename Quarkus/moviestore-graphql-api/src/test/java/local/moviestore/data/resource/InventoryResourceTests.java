@@ -19,15 +19,16 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class InventoryResourceTests {
 
-    private static final String QUERY_ALL_INVENTORIES;
+    private static final String QUERY_ALL_INVENTORIES_UPDATES;
 
     static {
-        QUERY_ALL_INVENTORIES = "";
+        QUERY_ALL_INVENTORIES_UPDATES = "{\"query\":\"{ allInventories { updated}}\"}";
     }
 
     @Test
