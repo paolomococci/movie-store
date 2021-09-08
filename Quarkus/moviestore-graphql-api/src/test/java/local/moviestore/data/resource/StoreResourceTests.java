@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class StoreResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_STORES_NAME;
 
     static {
+        PATH_SIZE = "allStores.size()";
         QUERY_ALL_STORES_NAME = "{\"query\":\"{ allStores { name}}\"}";
     }
 
