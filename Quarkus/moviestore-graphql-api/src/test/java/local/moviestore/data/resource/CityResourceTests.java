@@ -28,9 +28,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class CityResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_CITIES_NAME;
 
     static {
+        PATH_SIZE = "allCities.size()";
         QUERY_ALL_CITIES_NAME = "{\"query\":\"{ allCities { name}}\"}";
     }
 
