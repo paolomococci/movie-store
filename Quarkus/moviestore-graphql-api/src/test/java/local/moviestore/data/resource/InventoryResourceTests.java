@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class InventoryResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_INVENTORIES_UPDATES;
 
     static {
+        PATH_SIZE = "allInventories.size()";
         QUERY_ALL_INVENTORIES_UPDATES = "{\"query\":\"{ allInventories { updated}}\"}";
     }
 
