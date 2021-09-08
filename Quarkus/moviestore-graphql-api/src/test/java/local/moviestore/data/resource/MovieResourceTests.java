@@ -19,15 +19,17 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class MovieResourceTests {
 
-    private static final String QUERY_ALL_MOVIES;
+    private static final String QUERY_ALL_MOVIES_TITLE_SUBTITLE_DESCRIPTION_COMEOUT_DURATION_COST_RENT_RATING;
 
     static {
-        QUERY_ALL_MOVIES = "";
+        QUERY_ALL_MOVIES_TITLE_SUBTITLE_DESCRIPTION_COMEOUT_DURATION_COST_RENT_RATING
+                = "{\"query\":\"{ allMovies { title subtitle description comeout duration cost rent rating}}\"}";
     }
 
     @Test
