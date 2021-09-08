@@ -19,15 +19,19 @@
 package local.moviestore.data.resource;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
 public class CityResourceTests {
 
-    private static final String QUERY_ALL_CITIES;
+    private static final String QUERY_ALL_CITIES_NAME;
 
     static {
-        QUERY_ALL_CITIES = "";
+        QUERY_ALL_CITIES_NAME = "{\"query\":\"{ allCities { name}}\"}";
     }
 
     @Test
