@@ -25,9 +25,11 @@ import org.junit.jupiter.api.Test;
 @QuarkusTest
 public class ContentResourceTests {
 
+    private static final String PATH_SIZE;
     private static final String QUERY_ALL_CONTENTS_SUBJECT;
 
     static {
+        PATH_SIZE = "allContents.size()";
         QUERY_ALL_CONTENTS_SUBJECT = "{\"query\":\"{ allContents { subject}}\"}";
     }
 
