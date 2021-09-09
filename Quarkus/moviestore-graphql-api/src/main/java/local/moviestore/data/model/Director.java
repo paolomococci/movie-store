@@ -33,4 +33,36 @@ public class Director {
     private String nickname;
     private String surname;
     private Timestamp updated;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public Timestamp getUpdated() {
+        return updated;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
 }
