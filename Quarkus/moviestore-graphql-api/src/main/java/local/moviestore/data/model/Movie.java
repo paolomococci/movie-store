@@ -197,10 +197,6 @@ public class Movie {
         return players;
     }
 
-    public void setUpdated(Timestamp updated) {
-        this.updated = updated;
-    }
-
     public void setLanguage(Language language) {
         this.language = language;
     }
