@@ -161,10 +161,6 @@ public class Movie {
 		this.rating = rating;
 	}
 
-	public void setUpdated(Timestamp updated) {
-		this.updated = updated;
-	}
-
 	/* getter and setter to references of other entities */
 
 	public Language getLanguage() {
