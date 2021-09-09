@@ -18,6 +18,20 @@
 
 package local.moviestore.publisher.data.model;
 
+import java.sql.Timestamp;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Producer {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	private String name;
+	private String nickname;
+	private String surname;
+	private Timestamp updated;
 }
