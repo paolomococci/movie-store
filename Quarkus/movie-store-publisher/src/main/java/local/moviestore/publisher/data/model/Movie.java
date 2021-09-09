@@ -80,14 +80,14 @@ public class Movie {
 			name = "movie_content",
 			joinColumns = {@JoinColumn(name = "movie_id")},
 			inverseJoinColumns = {@JoinColumn(name = "content_id")})
-	private List<Category> contents;
+	private List<Content> contents;
 
 	@ManyToMany
 	@JoinTable(
 			name = "movie_player",
 			joinColumns = {@JoinColumn(name = "movie_id")},
 			inverseJoinColumns = {@JoinColumn(name = "player_id")})
-	private List<Category> players;
+	private List<Player> players;
 
 	public Long getId() {
 		return id;
@@ -161,6 +161,10 @@ public class Movie {
 		this.rating = rating;
 	}
 
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
 	/* getter and setter to references of other entities */
 
 	public Language getLanguage() {
@@ -175,16 +179,12 @@ public class Movie {
 		return categories;
 	}
 
-	public List<Category> getContents() {
+	public List<Content> getContents() {
 		return contents;
 	}
 
-	public List<Category> getPlayers() {
+	public List<Player> getPlayers() {
 		return players;
-	}
-
-	public void setUpdated(Timestamp updated) {
-		this.updated = updated;
 	}
 
 	public void setLanguage(Language language) {
@@ -199,11 +199,11 @@ public class Movie {
 		this.categories = categories;
 	}
 
-	public void setContents(List<Category> contents) {
+	public void setContents(List<Content> contents) {
 		this.contents = contents;
 	}
 
-	public void setPlayers(List<Category> players) {
+	public void setPlayers(List<Player> players) {
 		this.players = players;
 	}
 }
