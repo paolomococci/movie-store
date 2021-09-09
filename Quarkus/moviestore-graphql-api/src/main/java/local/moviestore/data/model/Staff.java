@@ -167,10 +167,6 @@ public class Staff {
         return payments;
     }
 
-    public void setUpdated(Timestamp updated) {
-        this.updated = updated;
-    }
-
     public void setStaffAddress(Address staffAddress) {
         this.staffAddress = staffAddress;
     }
