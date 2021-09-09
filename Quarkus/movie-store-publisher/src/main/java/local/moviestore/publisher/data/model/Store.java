@@ -90,10 +90,6 @@ public class Store {
 		return inventories;
 	}
 
-	public void setUpdated(Timestamp updated) {
-		this.updated = updated;
-	}
-
 	public void setStoreAddress(Address storeAddress) {
 		this.storeAddress = storeAddress;
 	}
