@@ -108,10 +108,6 @@ public class Rental {
 		return payments;
 	}
 
-	public void setUpdated(Timestamp updated) {
-		this.updated = updated;
-	}
-
 	public void setInventory(Inventory inventory) {
 		this.inventory = inventory;
 	}
