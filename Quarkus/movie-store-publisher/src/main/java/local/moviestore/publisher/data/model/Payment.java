@@ -98,10 +98,6 @@ public class Payment {
 		return paymentStaff;
 	}
 
-	public void setUpdated(Timestamp updated) {
-		this.updated = updated;
-	}
-
 	public void setRental(Rental rental) {
 		this.rental = rental;
 	}
