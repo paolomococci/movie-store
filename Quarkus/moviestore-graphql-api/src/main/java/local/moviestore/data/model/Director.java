@@ -20,6 +20,7 @@ package local.moviestore.data.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "director")
@@ -33,6 +34,11 @@ public class Director {
     private String nickname;
     private String surname;
     private Timestamp updated;
+
+    /* reference to movie entity */
+
+    @ManyToMany(mappedBy = "directors")
+    private List<Movie> movies;
 
     public Long getId() {
         return id;
@@ -64,5 +70,15 @@ public class Director {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    /* getter and setter to references of other entities */
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
     }
 }
