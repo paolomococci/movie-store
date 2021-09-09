@@ -89,6 +89,20 @@ public class Movie {
 			inverseJoinColumns = {@JoinColumn(name = "player_id")})
 	private List<Player> players;
 
+	@ManyToMany
+	@JoinTable(
+			name = "movie_director",
+			joinColumns = {@JoinColumn(name = "movie_id")},
+			inverseJoinColumns = {@JoinColumn(name = "director_id")})
+	private List<Director> directors;
+
+	@ManyToMany
+	@JoinTable(
+			name = "movie_producer",
+			joinColumns = {@JoinColumn(name = "movie_id")},
+			inverseJoinColumns = {@JoinColumn(name = "producer_id")})
+	private List<Producer> producers;
+
 	public Long getId() {
 		return id;
 	}
