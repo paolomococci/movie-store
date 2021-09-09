@@ -78,14 +78,14 @@ public class Player {
 		this.surname = surname;
 	}
 
+	public void setUpdated(Timestamp updated) {
+		this.updated = updated;
+	}
+
 	/* getter and setter to references of other entities */
 
 	public List<Movie> getMovies() {
 		return movies;
-	}
-
-	public void setUpdated(Timestamp updated) {
-		this.updated = updated;
 	}
 
 	public void setMovies(List<Movie> movies) {
