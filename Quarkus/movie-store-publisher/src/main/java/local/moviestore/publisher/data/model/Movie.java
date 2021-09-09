@@ -216,4 +216,20 @@ public class Movie {
 	public void setPlayers(List<Player> players) {
 		this.players = players;
 	}
+
+	public List<Director> getDirectors() {
+		return directors;
+	}
+
+	public List<Producer> getProducers() {
+		return producers;
+	}
+
+	public void setDirectors(List<Director> directors) {
+		this.directors = directors;
+	}
+
+	public void setProducers(List<Producer> producers) {
+		this.producers = producers;
+	}
 }
