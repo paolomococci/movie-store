@@ -124,11 +124,11 @@ public class InventoryControllerTests {
 				.statusCode(204);
 	}
 
-	public static Inventory getInventory() {
+	protected static Inventory getInventory() {
 		return inventory;
 	}
 
-	public static void setInventory(Inventory inventory) {
+	protected static void setInventory(Inventory inventory) {
 		InventoryControllerTests.inventory = inventory;
 	}
 }
