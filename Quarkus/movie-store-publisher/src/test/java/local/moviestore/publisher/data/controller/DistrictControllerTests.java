@@ -125,11 +125,11 @@ public class DistrictControllerTests {
 				.statusCode(204);
 	}
 
-	public static District getDistrict() {
+	protected static District getDistrict() {
 		return district;
 	}
 
-	public static void setDistrict(District district) {
+	protected static void setDistrict(District district) {
 		DistrictControllerTests.district = district;
 	}
 }
