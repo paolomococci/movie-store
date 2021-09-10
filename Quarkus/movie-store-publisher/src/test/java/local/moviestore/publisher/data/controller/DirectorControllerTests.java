@@ -23,8 +23,19 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 
+import local.moviestore.publisher.data.model.Director;
+
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
 public class DirectorControllerTests {
 
+	private static Director director;
+
+	protected static Director getDirector() {
+		return director;
+	}
+
+	protected static void setDirector(Director director) {
+		DirectorControllerTests.director = director;
+	}
 }
