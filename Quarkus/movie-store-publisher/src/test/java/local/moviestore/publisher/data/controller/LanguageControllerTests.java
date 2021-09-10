@@ -125,11 +125,11 @@ public class LanguageControllerTests {
 				.statusCode(204);
 	}
 
-	public static Language getLanguage() {
+	protected static Language getLanguage() {
 		return language;
 	}
 
-	public static void setLanguage(Language language) {
+	protected static void setLanguage(Language language) {
 		LanguageControllerTests.language = language;
 	}
 }
