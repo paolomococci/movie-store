@@ -18,6 +18,13 @@
 
 package local.moviestore.publisher.data.controller;
 
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+
+import io.quarkus.test.junit.QuarkusTest;
+
+@QuarkusTest
+@TestMethodOrder(OrderAnnotation.class)
 public class ProducerControllerTests {
 
 }
