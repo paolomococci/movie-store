@@ -29,6 +29,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 import local.moviestore.publisher.data.model.Director;
 
@@ -55,7 +56,16 @@ public class DirectorControllerTests {
 	@Test
 	@Order(2)
 	public void createTest() {
-		
+		DirectorControllerTests.setDirector(RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"someone\"}")
+				.post("/director")
+				.then()
+				.statusCode(201)
+				.extract()
+				.as(Director.class));
+		Assertions.assertNotNull(DirectorControllerTests.getDirector().getId());
 	}
 
 	@Test
