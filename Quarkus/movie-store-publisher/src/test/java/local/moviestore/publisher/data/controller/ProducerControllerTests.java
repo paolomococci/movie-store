@@ -85,7 +85,15 @@ public class ProducerControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Producer> producers = RestAssured.given()
+				.when().get("/producer")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Producer.class);
+		Assertions.assertFalse(producers.isEmpty());
 	}
 
 	@Test
