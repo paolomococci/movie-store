@@ -125,11 +125,11 @@ public class AddressControllerTests {
 				.statusCode(204);
 	}
 
-	public static Address getAddress() {
+	protected static Address getAddress() {
 		return address;
 	}
 
-	public static void setAddress(Address address) {
+	protected static void setAddress(Address address) {
 		AddressControllerTests.address = address;
 	}
 }
