@@ -119,7 +119,11 @@ public class DirectorControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/director/{id}", DirectorControllerTests.getDirector().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	protected static Director getDirector() {
