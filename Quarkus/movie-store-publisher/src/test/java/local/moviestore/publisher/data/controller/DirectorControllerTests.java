@@ -21,9 +21,14 @@ package local.moviestore.publisher.data.controller;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+
+import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
 
 import local.moviestore.publisher.data.model.Director;
 
@@ -36,7 +41,15 @@ public class DirectorControllerTests {
 	@Test
 	@Order(1)
 	public void readAllEmptyTest() {
-		
+		List<Director> directors = RestAssured.given()
+				.when().get("/director")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Director.class);
+		Assertions.assertTrue(directors.isEmpty());
 	}
 
 	@Test
