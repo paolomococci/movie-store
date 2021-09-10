@@ -18,6 +18,14 @@
 
 package local.moviestore.publisher.data.controller;
 
-public interface DirectorController {
+import io.quarkus.hibernate.orm.rest.data.panache.PanacheRepositoryResource;
+import io.quarkus.rest.data.panache.ResourceProperties;
+
+import local.moviestore.publisher.data.model.Director;
+import local.moviestore.publisher.data.repository.DirectorRepository;
+
+@ResourceProperties(path = "director")
+public interface DirectorController 
+		extends PanacheRepositoryResource<DirectorRepository, Director, Long> {
 
 }
