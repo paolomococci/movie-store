@@ -125,11 +125,11 @@ public class Iso3166ControllerTests {
 				.statusCode(204);
 	}
 
-	public static Iso3166 getIso3166() {
+	protected static Iso3166 getIso3166() {
 		return iso3166;
 	}
 
-	public static void setIso3166(Iso3166 iso3166) {
+	protected static void setIso3166(Iso3166 iso3166) {
 		Iso3166ControllerTests.iso3166 = iso3166;
 	}
 }
