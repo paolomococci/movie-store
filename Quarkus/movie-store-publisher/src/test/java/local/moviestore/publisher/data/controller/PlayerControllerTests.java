@@ -125,11 +125,11 @@ public class PlayerControllerTests {
 				.statusCode(204);
 	}
 
-	public static Player getPlayer() {
+	protected static Player getPlayer() {
 		return player;
 	}
 
-	public static void setPlayer(Player player) {
+	protected static void setPlayer(Player player) {
 		PlayerControllerTests.player = player;
 	}
 }
