@@ -99,7 +99,21 @@ public class DirectorControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"somebody else\"}")
+				.put("/director/{id}", DirectorControllerTests.getDirector().getId())
+				.then()
+				.statusCode(204);
+		Director temporaryDirector  = RestAssured.given()
+				.when()
+				.get("/director/{id}", DirectorControllerTests.getDirector().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Director.class);
+		Assertions.assertTrue(temporaryDirector.getName().contentEquals("somebody else"));
 	}
 
 	@Test
