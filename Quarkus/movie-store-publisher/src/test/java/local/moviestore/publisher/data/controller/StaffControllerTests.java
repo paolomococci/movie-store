@@ -125,11 +125,11 @@ public class StaffControllerTests {
 				.statusCode(204);
 	}
 
-	public static Staff getStaff() {
+	protected static Staff getStaff() {
 		return staff;
 	}
 
-	public static void setStaff(Staff staff) {
+	protected static void setStaff(Staff staff) {
 		StaffControllerTests.staff = staff;
 	}
 }
