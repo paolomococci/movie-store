@@ -125,11 +125,11 @@ public class StoreControllerTests {
 				.statusCode(204);
 	}
 
-	public static Store getStore() {
+	protected static Store getStore() {
 		return store;
 	}
 
-	public static void setStore(Store store) {
+	protected static void setStore(Store store) {
 		StoreControllerTests.store = store;
 	}
 }
