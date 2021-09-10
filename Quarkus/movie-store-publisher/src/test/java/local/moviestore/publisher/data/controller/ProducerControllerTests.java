@@ -71,7 +71,15 @@ public class ProducerControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Producer temporaryProducer  = RestAssured.given()
+				.when()
+				.get("/producer/{id}", ProducerControllerTests.getProducer().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Producer.class);
+		Assertions.assertNotNull(temporaryProducer.getId());
+		Assertions.assertTrue(temporaryProducer.getName().contentEquals("someone"));
 	}
 
 	@Test
