@@ -125,11 +125,11 @@ public class ContentControllerTests {
 				.statusCode(204);
 	}
 
-	public static Content getContent() {
+	protected static Content getContent() {
 		return content;
 	}
 
-	public static void setContent(Content content) {
+	protected static void setContent(Content content) {
 		ContentControllerTests.content = content;
 	}
 }
