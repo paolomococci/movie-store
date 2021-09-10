@@ -125,11 +125,11 @@ public class CityControllerTests {
 				.statusCode(204);
 	}
 
-	public static City getCity() {
+	protected static City getCity() {
 		return city;
 	}
 
-	public static void setCity(City city) {
+	protected static void setCity(City city) {
 		CityControllerTests.city = city;
 	}
 }
