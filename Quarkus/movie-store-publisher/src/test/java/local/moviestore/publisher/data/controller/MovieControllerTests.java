@@ -125,11 +125,11 @@ public class MovieControllerTests {
 				.statusCode(204);
 	}
 
-	public static Movie getMovie() {
+	protected static Movie getMovie() {
 		return movie;
 	}
 
-	public static void setMovie(Movie movie) {
+	protected static void setMovie(Movie movie) {
 		MovieControllerTests.movie = movie;
 	}
 }
