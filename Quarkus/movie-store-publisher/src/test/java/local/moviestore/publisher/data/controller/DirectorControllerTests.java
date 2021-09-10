@@ -71,7 +71,15 @@ public class DirectorControllerTests {
 	@Test
 	@Order(3)
 	public void readTest() {
-		
+		Director temporaryDirector  = RestAssured.given()
+				.when()
+				.get("/director/{id}", DirectorControllerTests.getDirector().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Director.class);
+		Assertions.assertNotNull(temporaryDirector.getId());
+		Assertions.assertTrue(temporaryDirector.getName().contentEquals("someone"));
 	}
 
 	@Test
