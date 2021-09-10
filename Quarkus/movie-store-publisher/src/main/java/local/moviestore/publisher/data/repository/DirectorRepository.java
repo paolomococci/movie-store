@@ -18,6 +18,14 @@
 
 package local.moviestore.publisher.data.repository;
 
-public class DirectorRepository {
+import javax.enterprise.context.ApplicationScoped;
+
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
+import local.moviestore.publisher.data.model.Director;
+
+@ApplicationScoped
+public class DirectorRepository 
+		implements PanacheRepository<Director> {
 
 }
