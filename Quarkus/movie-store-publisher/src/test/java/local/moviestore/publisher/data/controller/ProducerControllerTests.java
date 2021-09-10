@@ -23,8 +23,19 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import io.quarkus.test.junit.QuarkusTest;
 
+import local.moviestore.publisher.data.model.Producer;
+
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
 public class ProducerControllerTests {
 
+	private static Producer producer;
+
+	protected static Producer getProducer() {
+		return producer;
+	}
+
+	protected static void setProducer(Producer producer) {
+		ProducerControllerTests.producer = producer;
+	}
 }
