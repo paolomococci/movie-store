@@ -125,11 +125,11 @@ public class CustomerControllerTests {
 				.statusCode(204);
 	}
 
-	public static Customer getCustomer() {
+	protected static Customer getCustomer() {
 		return customer;
 	}
 
-	public static void setCustomer(Customer customer) {
+	protected static void setCustomer(Customer customer) {
 		CustomerControllerTests.customer = customer;
 	}
 }
