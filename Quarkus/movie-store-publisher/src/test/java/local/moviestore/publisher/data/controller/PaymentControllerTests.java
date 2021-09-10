@@ -124,11 +124,11 @@ public class PaymentControllerTests {
 				.statusCode(204);
 	}
 
-	public static Payment getPayment() {
+	protected static Payment getPayment() {
 		return payment;
 	}
 
-	public static void setPayment(Payment payment) {
+	protected static void setPayment(Payment payment) {
 		PaymentControllerTests.payment = payment;
 	}
 }
