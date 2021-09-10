@@ -124,11 +124,11 @@ public class RentalControllerTests {
 				.statusCode(204);
 	}
 
-	public static Rental getRental() {
+	protected static Rental getRental() {
 		return rental;
 	}
 
-	public static void setRental(Rental rental) {
+	protected static void setRental(Rental rental) {
 		RentalControllerTests.rental = rental;
 	}
 }
