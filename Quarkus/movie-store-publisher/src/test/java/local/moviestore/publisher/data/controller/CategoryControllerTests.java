@@ -125,11 +125,11 @@ public class CategoryControllerTests {
 				.statusCode(204);
 	}
 
-	public static Category getCategory() {
+	protected static Category getCategory() {
 		return category;
 	}
 
-	public static void setCategory(Category category) {
+	protected static void setCategory(Category category) {
 		CategoryControllerTests.category = category;
 	}
 }
