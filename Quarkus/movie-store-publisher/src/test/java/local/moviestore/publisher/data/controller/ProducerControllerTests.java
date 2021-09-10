@@ -99,7 +99,21 @@ public class ProducerControllerTests {
 	@Test
 	@Order(5)
 	public void updateTest() {
-		
+		RestAssured.given()
+				.when()
+				.contentType(ContentType.JSON)
+				.body("{\"name\":\"somebody else\"}")
+				.put("/producer/{id}", ProducerControllerTests.getProducer().getId())
+				.then()
+				.statusCode(204);
+		Producer temporaryProducer  = RestAssured.given()
+				.when()
+				.get("/producer/{id}", ProducerControllerTests.getProducer().getId())
+				.then()
+				.statusCode(200)
+				.extract()
+				.as(Producer.class);
+		Assertions.assertTrue(temporaryProducer.getName().contentEquals("somebody else"));
 	}
 
 	@Test
