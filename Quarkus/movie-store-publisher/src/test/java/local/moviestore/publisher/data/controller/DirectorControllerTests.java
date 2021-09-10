@@ -85,7 +85,15 @@ public class DirectorControllerTests {
 	@Test
 	@Order(4)
 	public void readAllTest() {
-		
+		List<Director> directors = RestAssured.given()
+				.when().get("/director")
+				.then()
+				.statusCode(200)
+				.extract()
+				.body()
+				.jsonPath()
+				.getList(".", Director.class);
+		Assertions.assertFalse(directors.isEmpty());
 	}
 
 	@Test
