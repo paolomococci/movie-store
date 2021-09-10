@@ -119,7 +119,11 @@ public class ProducerControllerTests {
 	@Test
 	@Order(6)
 	public void deleteTest() {
-		
+		RestAssured.given()
+				.when()
+				.delete("/producer/{id}", ProducerControllerTests.getProducer().getId())
+				.then()
+				.statusCode(204);
 	}
 
 	protected static Producer getProducer() {
