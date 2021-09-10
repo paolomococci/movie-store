@@ -125,11 +125,11 @@ public class CountryControllerTests {
 				.statusCode(204);
 	}
 
-	public static Country getCountry() {
+	protected static Country getCountry() {
 		return country;
 	}
 
-	public static void setCountry(Country country) {
+	protected static void setCountry(Country country) {
 		CountryControllerTests.country = country;
 	}
 }
