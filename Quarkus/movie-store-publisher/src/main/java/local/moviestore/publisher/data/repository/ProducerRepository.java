@@ -18,6 +18,14 @@
 
 package local.moviestore.publisher.data.repository;
 
-public class ProducerRepository {
+import javax.enterprise.context.ApplicationScoped;
+
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
+
+import local.moviestore.publisher.data.model.Producer;
+
+@ApplicationScoped
+public class ProducerRepository 
+		implements PanacheRepository<Producer> {
 
 }
