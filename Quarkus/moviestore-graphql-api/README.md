@@ -102,6 +102,16 @@ type Customer {
   updated: DateTime
 }
 
+type Director {
+  id: BigInteger
+  movies: [Movie]
+  name: String
+  nickname: String
+  surname: String
+  "ISO-8601"
+  updated: DateTime
+}
+
 type District {
   addresses: [Address]
   city: City
@@ -143,15 +153,17 @@ type Movie {
   categories: [Category]
   "ISO-8601"
   comeout: String
-  contents: [Category]
+  contents: [Content]
   cost: Float
   description: String
+  directors: [Director]
   "ISO-8601"
   duration: String
   id: BigInteger
   inventories: [Inventory]
   language: Language
-  players: [Category]
+  players: [Player]
+  producers: [Producer]
   rating: Float
   rent: Float
   subtitle: String
@@ -173,6 +185,16 @@ type Payment {
 }
 
 type Player {
+  id: BigInteger
+  movies: [Movie]
+  name: String
+  nickname: String
+  surname: String
+  "ISO-8601"
+  updated: DateTime
+}
+
+type Producer {
   id: BigInteger
   movies: [Movie]
   name: String
