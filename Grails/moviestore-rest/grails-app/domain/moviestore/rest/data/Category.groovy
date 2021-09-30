@@ -18,7 +18,6 @@
 
 package moviestore.rest.data
 
-
 import grails.rest.*
 
 @Resource(readOnly = false, formats = ['json', 'xml'])
