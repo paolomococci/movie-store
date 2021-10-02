@@ -20,7 +20,11 @@ package moviestore.rest.data
 
 import grails.rest.*
 
-@Resource(readOnly = false, formats = ['json', 'xml'])
+@Resource(
+        readOnly = false,
+        formats = ['json', 'xml'],
+        uri = "/api/producer"
+)
 class Producer {
 
 }
