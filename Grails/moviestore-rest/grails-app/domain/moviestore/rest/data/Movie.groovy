@@ -61,10 +61,10 @@ class Movie {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
-        title size: 1..127
-        subtitle size: 8..127
-        description size: 16..255
-        rating max: 1, min: 0
+        title size: 1..127, matches: "^[a-zA-Z0-9_-]*"
+        subtitle size: 8..127, matches: "^[a-zA-Z0-9_-]*"
+        description size: 16..255, matches: "^[a-zA-Z0-9_-]*"
+        rating range: 0..1
     }
 
     String toString() {
