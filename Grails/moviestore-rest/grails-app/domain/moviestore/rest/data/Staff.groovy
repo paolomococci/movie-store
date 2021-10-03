@@ -20,6 +20,7 @@ package moviestore.rest.data
 
 import grails.rest.*
 
+import javax.validation.constraints.Email
 import java.sql.Timestamp
 
 @Resource(
@@ -34,11 +35,24 @@ class Staff {
     String nickname
     String surname
     String mobile
+
+    @Email
     String email
+
     String username
     String password
     Boolean active
     Timestamp updated
+
+    static hasMany = [
+            rentals: Rental,
+            payments: Payment
+    ]
+
+    static belongsTo = [
+            address: Address,
+            store: Store
+    ]
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
