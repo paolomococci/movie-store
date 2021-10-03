@@ -56,6 +56,13 @@ class Staff {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
+        name size: 1..127
+        nickname size: 1..127
+        surname size: 1..127
+        mobile size: 10..31
+        email size: 16..255
+        username size: 8..127
+        password size: 12..31
     }
 
     String toString() {
