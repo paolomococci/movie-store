@@ -44,8 +44,8 @@ class District {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
-        name size: 1..127
-        zipCode size: 5..15
+        name size: 1..127, matches: "^[a-zA-Z_-]*"
+        zipCode size: 5..15, matches: "^[a-zA-Z0-9_-]*"
     }
 
     String toString() {
