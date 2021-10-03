@@ -34,6 +34,14 @@ class District {
     String zipCode
     Timestamp updated
 
+    static hasMany = [
+            addresses: Address
+    ]
+
+    static belongsTo = [
+            city: City
+    ]
+
     static constraints = {
         code size: 8..12, blank: false, unique: true
     }
