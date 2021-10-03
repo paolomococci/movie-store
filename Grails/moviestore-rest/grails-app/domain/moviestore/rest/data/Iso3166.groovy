@@ -34,6 +34,10 @@ class Iso3166 {
     String signature
     Timestamp updated
 
+    static hasMany = [
+            countries: Country
+    ]
+
     static constraints = {
         code size: 8..12, blank: false, unique: true
     }
