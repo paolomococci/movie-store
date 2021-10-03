@@ -43,7 +43,7 @@ class City {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
-        name size: 1..127
+        name size: 1..127, matches: "^[a-zA-Z_-]*"
     }
 
     String toString() {
