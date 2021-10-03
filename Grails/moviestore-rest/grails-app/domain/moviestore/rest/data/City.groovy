@@ -33,6 +33,14 @@ class City {
     String name
     Timestamp updated
 
+    static hasMany = [
+            districts: District
+    ]
+
+    static belongsTo = [
+            country: Country
+    ]
+
     static constraints = {
         code size: 8..12, blank: false, unique: true
     }
