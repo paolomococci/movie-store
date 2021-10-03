@@ -41,6 +41,9 @@ class Producer {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
+        name size: 1..127
+        nickname size: 1..127
+        surname size: 1..127
     }
 
     String toString() {
