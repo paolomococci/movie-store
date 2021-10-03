@@ -53,13 +53,13 @@ class Staff {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
-        name size: 1..127
-        nickname size: 1..127
-        surname size: 1..127
-        mobile size: 10..31
+        name size: 1..127, matches: "^[a-zA-Z_-]*"
+        nickname size: 1..127, matches: "^[a-zA-Z_-]*"
+        surname size: 1..127, matches: "^[a-zA-Z_-]*"
+        mobile size: 10..31, matches: "^[0-9-]*"
         email size: 16..255, email: true, unique: true
-        username size: 8..127, unique: true
-        password size: 12..31
+        username size: 8..127, unique: true, matches: "^[a-z0-9]*"
+        password size: 12..31, matches: "^[a-zA-Z0-9]*"
     }
 
     String toString() {
