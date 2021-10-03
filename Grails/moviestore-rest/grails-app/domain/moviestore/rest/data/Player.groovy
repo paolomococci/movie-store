@@ -35,6 +35,10 @@ class Player {
     String surname
     Timestamp updated
 
+    static hasMany = [
+            movies: Movie
+    ]
+
     static constraints = {
         code size: 8..12, blank: false, unique: true
     }
