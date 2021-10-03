@@ -18,6 +18,8 @@
 
 package moviestore.rest.data
 
+import com.fasterxml.jackson.annotation.JsonFormat
+
 import grails.rest.*
 
 import java.sql.Date
@@ -35,8 +37,13 @@ class Movie {
     String title
     String subtitle
     String description
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     Date comeOut
+
+    @JsonFormat(pattern = "HH:mm:ss")
     Time duration
+
     Double cost
     Double rent
     Double rating
@@ -54,6 +61,9 @@ class Movie {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
+        title size: 1..127
+        subtitle size: 8..127
+        description size: 16..255
     }
 
     String toString() {
