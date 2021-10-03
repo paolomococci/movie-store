@@ -19,9 +19,9 @@
 package moviestore.rest.data
 
 import com.fasterxml.jackson.annotation.JsonFormat
+
 import grails.rest.*
 
-import javax.validation.constraints.Email
 import java.sql.Timestamp
 
 @Resource(
@@ -36,8 +36,6 @@ class Customer {
     String nickname
     String surname
     String mobile
-
-    @Email
     String email
 
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -61,7 +59,7 @@ class Customer {
         nickname size: 1..127
         surname size: 1..127
         mobile size: 10..31
-        email size: 16..255
+        email size: 16..255, email: true
     }
 
     String toString() {
