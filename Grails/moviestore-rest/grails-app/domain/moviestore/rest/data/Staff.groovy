@@ -20,7 +20,6 @@ package moviestore.rest.data
 
 import grails.rest.*
 
-import javax.validation.constraints.Email
 import java.sql.Timestamp
 
 @Resource(
@@ -35,8 +34,6 @@ class Staff {
     String nickname
     String surname
     String mobile
-
-    @Email
     String email
 
     String username
@@ -60,8 +57,8 @@ class Staff {
         nickname size: 1..127
         surname size: 1..127
         mobile size: 10..31
-        email size: 16..255
-        username size: 8..127
+        email size: 16..255, email: true
+        username size: 8..127, unique: true
         password size: 12..31
     }
 
