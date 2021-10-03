@@ -20,6 +20,9 @@ package moviestore.rest.data
 
 import grails.rest.*
 
+import java.sql.Date
+import java.sql.Timestamp
+
 @Resource(
         readOnly = false,
         formats = ['json', 'xml'],
@@ -28,6 +31,9 @@ import grails.rest.*
 class Rental {
 
     String code
+    Date rent
+    Date back
+    Timestamp updated
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
