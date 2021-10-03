@@ -47,7 +47,7 @@ class Address {
     ]
 
     static constraints = {
-        code size: 8..15, blank: false, unique: true
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
         type size: 3..255, matches: "^[a-zA-Z]*"
         name size: 1..127, matches: "^[a-zA-Z_-]*"
         civic size: 1..15, matches: "^[a-zA-Z0-9-]*"
