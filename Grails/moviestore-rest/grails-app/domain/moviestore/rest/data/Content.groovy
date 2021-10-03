@@ -39,6 +39,7 @@ class Content {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
+        subject size: 8..255
     }
 
     String toString() {
