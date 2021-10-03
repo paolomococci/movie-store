@@ -64,6 +64,7 @@ class Movie {
         title size: 1..127
         subtitle size: 8..127
         description size: 16..255
+        rating max: 1, min: 0
     }
 
     String toString() {
