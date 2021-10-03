@@ -18,8 +18,10 @@
 
 package moviestore.rest.data
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import grails.rest.*
 
+import javax.validation.constraints.Email
 import java.sql.Timestamp
 
 @Resource(
@@ -34,8 +36,24 @@ class Customer {
     String nickname
     String surname
     String mobile
+
+    @Email
     String email
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    Date birthday
+
     Timestamp updated
+
+    static hasMany = [
+            rentals: Rental,
+            payments: Payment
+    ]
+
+    static belongsTo = [
+            address: Address,
+            store: Store
+    ]
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
