@@ -33,6 +33,16 @@ class Store {
     String name
     Timestamp updated
 
+    static hasMany = [
+            staff: Staff,
+            customers: Customer,
+            inventories: Inventory
+    ]
+
+    static belongsTo = [
+            address: Address
+    ]
+
     static constraints = {
         code size: 8..12, blank: false, unique: true
     }
