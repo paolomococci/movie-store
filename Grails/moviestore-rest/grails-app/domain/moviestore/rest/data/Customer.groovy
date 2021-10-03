@@ -55,10 +55,10 @@ class Customer {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
-        name size: 1..127
-        nickname size: 1..127
-        surname size: 1..127
-        mobile size: 10..31
+        name size: 1..127, matches: "^[a-zA-Z-]*"
+        nickname size: 1..127, matches: "^[a-zA-Z-]*"
+        surname size: 1..127, matches: "^[a-zA-Z-]*"
+        mobile size: 10..31, matches: "^[0-9-]*"
         email size: 16..255, email: true, unique: true
     }
 
