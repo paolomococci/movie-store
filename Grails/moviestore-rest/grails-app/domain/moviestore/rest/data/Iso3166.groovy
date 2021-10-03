@@ -40,6 +40,8 @@ class Iso3166 {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
+        name size: 1..127
+        signature size: 3..7
     }
 
     String toString() {
