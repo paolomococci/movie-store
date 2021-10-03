@@ -40,6 +40,8 @@ class Category {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
+        name size: 1..127
+        description size: 255
     }
 
     String toString() {
