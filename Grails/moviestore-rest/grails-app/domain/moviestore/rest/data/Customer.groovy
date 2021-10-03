@@ -59,7 +59,7 @@ class Customer {
         nickname size: 1..127
         surname size: 1..127
         mobile size: 10..31
-        email size: 16..255, email: true
+        email size: 16..255, email: true, unique: true
     }
 
     String toString() {
