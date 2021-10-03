@@ -27,4 +27,13 @@ import grails.rest.*
 )
 class Customer {
 
+    String code
+
+    static constraints = {
+        code size: 8..12, blank: false, unique: true
+    }
+
+    String toString() {
+        code
+    }
 }
