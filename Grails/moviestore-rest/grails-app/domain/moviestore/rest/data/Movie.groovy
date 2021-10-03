@@ -60,7 +60,7 @@ class Movie {
     ]
 
     static constraints = {
-        code size: 8..12, blank: false, unique: true
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
         title size: 1..127, matches: "^[a-zA-Z0-9_-]*"
         subtitle size: 8..127, matches: "^[a-zA-Z0-9_-]*"
         description size: 16..255, matches: "^[a-zA-Z0-9_-]*"
