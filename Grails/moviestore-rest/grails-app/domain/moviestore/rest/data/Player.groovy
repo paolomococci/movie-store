@@ -40,7 +40,7 @@ class Player {
     ]
 
     static constraints = {
-        code size: 8..12, blank: false, unique: true
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
         name size: 1..127, matches: "^[a-zA-Z_-]*"
         nickname size: 1..127, matches: "^[a-zA-Z_-]*"
         surname size: 1..127, matches: "^[a-zA-Z_-]*"
