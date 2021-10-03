@@ -36,6 +36,16 @@ class Address {
     String phone
     Timestamp updated
 
+    static hasMany = [
+            stores: Store,
+            staff: Staff,
+            customers: Customer
+    ]
+
+    static belongsTo = [
+            district: District
+    ]
+
     static constraints = {
         code size: 8..12, blank: false, unique: true
     }
