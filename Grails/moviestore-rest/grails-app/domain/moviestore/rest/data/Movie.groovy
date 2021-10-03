@@ -42,6 +42,16 @@ class Movie {
     Double rating
     Timestamp updated
 
+    static hasMany = [
+            categories: Category,
+            contents: Content,
+            directors: Director,
+            inventories: Inventory,
+            languages: Language,
+            players: Player,
+            producers: Producer
+    ]
+
     static constraints = {
         code size: 8..12, blank: false, unique: true
     }
