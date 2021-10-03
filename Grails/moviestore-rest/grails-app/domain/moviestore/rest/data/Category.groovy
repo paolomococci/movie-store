@@ -40,8 +40,8 @@ class Category {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
-        name size: 1..127
-        description size: 255
+        name size: 1..127, matches: "^[a-zA-Z_-]*"
+        description size: 255, matches: "^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*"
     }
 
     String toString() {
