@@ -41,9 +41,9 @@ class Director {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
-        name size: 1..127
-        nickname size: 1..127
-        surname size: 1..127
+        name size: 1..127, matches: "^[a-zA-Z-]*"
+        nickname size: 1..127, matches: "^[a-zA-Z-]*"
+        surname size: 1..127, matches: "^[a-zA-Z-]*"
     }
 
     String toString() {
