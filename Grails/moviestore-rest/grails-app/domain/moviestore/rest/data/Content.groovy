@@ -39,7 +39,7 @@ class Content {
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
-        subject size: 8..255
+        subject size: 8..255, matches: "^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*"
     }
 
     String toString() {
