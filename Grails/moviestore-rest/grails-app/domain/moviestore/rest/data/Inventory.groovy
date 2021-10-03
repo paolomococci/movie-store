@@ -20,6 +20,8 @@ package moviestore.rest.data
 
 import grails.rest.*
 
+import java.sql.Timestamp
+
 @Resource(
         readOnly = false,
         formats = ['json', 'xml'],
@@ -28,6 +30,7 @@ import grails.rest.*
 class Inventory {
 
     String code
+    Timestamp updated
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
