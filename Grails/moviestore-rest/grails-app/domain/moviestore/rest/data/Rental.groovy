@@ -18,6 +18,7 @@
 
 package moviestore.rest.data
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import grails.rest.*
 
 import java.sql.Date
@@ -31,9 +32,24 @@ import java.sql.Timestamp
 class Rental {
 
     String code
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     Date rent
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     Date back
+
     Timestamp updated
+
+    static hasMany = [
+            payments: Payment
+    ]
+
+    static belongsTo = [
+            customer: Customer,
+            inventory: Inventory,
+            staff: Staff
+    ]
 
     static constraints = {
         code size: 8..12, blank: false, unique: true
