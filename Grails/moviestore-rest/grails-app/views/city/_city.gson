@@ -1,0 +1,7 @@
+import moviestore.rest.data.City
+
+model {
+	City city
+}
+
+json g.render(city, [resolveTemplate: false])
