@@ -1,0 +1,7 @@
+import moviestore.rest.data.Content
+
+model {
+	Content content
+}
+
+json tmpl.content(content)
