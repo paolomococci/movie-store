@@ -1,0 +1,7 @@
+import moviestore.rest.data.Category
+
+model {
+	Iterable<Category> categoryList
+}
+
+json tmpl.category(categoryList ?: [])
