@@ -38,3 +38,8 @@ create-domain-resource moviestore.rest.data.Rental
 create-domain-resource moviestore.rest.data.Staff
 create-domain-resource moviestore.rest.data.Store
 ```
+
+### after adding properties, constraints and methods to each domain resource
+```
+generate-all moviestore.rest.data.Address
+```
