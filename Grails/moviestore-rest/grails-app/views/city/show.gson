@@ -1,0 +1,7 @@
+import moviestore.rest.data.City
+
+model {
+	City city
+}
+
+json tmpl.city(city)
