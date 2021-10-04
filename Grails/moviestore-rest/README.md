@@ -42,4 +42,5 @@ create-domain-resource moviestore.rest.data.Store
 ### after adding properties, constraints and methods to each domain resource
 ```
 generate-all moviestore.rest.data.Address
+generate-all moviestore.rest.data.Category
 ```
