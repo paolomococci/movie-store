@@ -44,4 +44,5 @@ create-domain-resource moviestore.rest.data.Store
 generate-all moviestore.rest.data.Address
 generate-all moviestore.rest.data.Category
 generate-all moviestore.rest.data.City
+generate-all moviestore.rest.data.Content
 ```
