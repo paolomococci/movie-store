@@ -46,4 +46,5 @@ generate-all moviestore.rest.data.Category
 generate-all moviestore.rest.data.City
 generate-all moviestore.rest.data.Content
 generate-all moviestore.rest.data.Country
+generate-all moviestore.rest.data.Customer
 ```
