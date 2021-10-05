@@ -1,0 +1,7 @@
+import moviestore.rest.data.Iso3166
+
+model {
+	Iso3166 iso3166
+}
+
+json tmpl.iso3166(iso3166)
