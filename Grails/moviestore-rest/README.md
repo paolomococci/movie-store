@@ -50,4 +50,5 @@ generate-all moviestore.rest.data.Customer
 generate-all moviestore.rest.data.Director
 generate-all moviestore.rest.data.District
 generate-all moviestore.rest.data.Inventory
+generate-all moviestore.rest.data.Iso3166
 ```
