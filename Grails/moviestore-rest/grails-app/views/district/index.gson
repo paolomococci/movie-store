@@ -1,0 +1,7 @@
+import moviestore.rest.data.District
+
+model {
+	Iterable<District> districtList
+}
+
+json tmpl.district(districtList ?: [])
