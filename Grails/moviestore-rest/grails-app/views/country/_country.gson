@@ -1,0 +1,7 @@
+import moviestore.rest.data.Country
+
+model {
+	Country country
+}
+
+json g.render(country, [resolveTemplate: false])
