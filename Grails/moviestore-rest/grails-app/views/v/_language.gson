@@ -1,0 +1,7 @@
+import moviestore.rest.data.Language
+
+model {
+	Language language
+}
+
+json g.render(language, [resolveTemplate: false])
