@@ -1,0 +1,7 @@
+import moviestore.rest.data.Iso3166
+
+model {
+	Iso3166 iso3166
+}
+
+json g.render(iso3166, [resolveTemplate: false])
