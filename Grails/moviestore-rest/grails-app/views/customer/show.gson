@@ -1,0 +1,7 @@
+import moviestore.rest.data.Customer
+
+model {
+	Customer customer
+}
+
+json tmpl.customer(customer)
