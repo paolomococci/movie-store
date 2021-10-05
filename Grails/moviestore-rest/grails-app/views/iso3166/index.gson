@@ -1,0 +1,7 @@
+import moviestore.rest.data.Iso3166
+
+model {
+	Iterable<Iso3166> iso3166List
+}
+
+json tmpl.iso3166(iso3166List ?: [])
