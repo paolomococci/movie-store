@@ -1,0 +1,7 @@
+import moviestore.rest.data.Store
+
+model {
+	Store store
+}
+
+json g.render(store, [resolveTemplate: false])
