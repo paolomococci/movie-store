@@ -1,0 +1,7 @@
+import moviestore.rest.data.Store
+
+model {
+	Iterable<Store> storeList
+}
+
+json tmpl.store(storeList ?: [])
