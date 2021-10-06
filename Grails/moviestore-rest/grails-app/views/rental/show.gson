@@ -1,0 +1,7 @@
+import moviestore.rest.data.Rental
+
+model {
+	Rental rental
+}
+
+json tmpl.rental(rental)
