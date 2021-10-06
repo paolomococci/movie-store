@@ -1,0 +1,7 @@
+import moviestore.rest.data.Payment
+
+model {
+	Iterable<Payment> paymentList
+}
+
+json tmpl.payment(paymentList ?: [])
