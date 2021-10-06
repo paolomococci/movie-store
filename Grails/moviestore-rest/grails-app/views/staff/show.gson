@@ -1,0 +1,7 @@
+import moviestore.rest.data.Staff
+
+model {
+	Staff staff
+}
+
+json tmpl.staff(staff)
