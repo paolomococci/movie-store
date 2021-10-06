@@ -1,0 +1,7 @@
+import moviestore.rest.data.Rental
+
+model {
+	Rental rental
+}
+
+json g.render(rental, [resolveTemplate: false])
