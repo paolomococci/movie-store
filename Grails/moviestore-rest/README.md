@@ -57,4 +57,5 @@ generate-all moviestore.rest.data.Payment
 generate-all moviestore.rest.data.Player
 generate-all moviestore.rest.data.Producer
 generate-all moviestore.rest.data.Rental
+generate-all moviestore.rest.data.Staff
 ```
