@@ -1,0 +1,7 @@
+import moviestore.rest.data.Payment
+
+model {
+	Payment payment
+}
+
+json tmpl.payment(payment)
