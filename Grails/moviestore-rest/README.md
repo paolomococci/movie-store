@@ -54,4 +54,5 @@ generate-all moviestore.rest.data.Iso3166
 generate-all moviestore.rest.data.Language
 generate-all moviestore.rest.data.Movie
 generate-all moviestore.rest.data.Payment
+generate-all moviestore.rest.data.Player
 ```
