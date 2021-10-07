@@ -1,8 +1,0 @@
-{
-  "short_name": "Movie Store",
-  "name": "Movie Store Single Page Application",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000",
-  "background_color": "#fff"
-}
