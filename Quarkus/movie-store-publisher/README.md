@@ -2,7 +2,7 @@
 
 ## scaffolding:
 ```
-mvn io.quarkus:quarkus-maven-plugin:2.2.3.Final:create -DprojectGroupId=local.moviestore -DprojectArtifactId=publisher -Dextensions="resteasy,resteasy-jackson,quarkus-hibernate-validator,quarkus-jdbc-mariadb,quarkus-hibernate-orm-panache,quarkus-hibernate-orm-rest-data-panache" -DclassName="local.moviestore.publisher.SampleEndpoint" -Dpath="/sample" -DnoExamples
+mvn io.quarkus:quarkus-maven-plugin:2.3.0.Final:create -DprojectGroupId=local.moviestore -DprojectArtifactId=publisher -Dextensions="resteasy,resteasy-jackson,quarkus-hibernate-validator,quarkus-jdbc-mariadb,quarkus-hibernate-orm-panache,quarkus-hibernate-orm-rest-data-panache" -DclassName="local.moviestore.publisher.SampleEndpoint" -Dpath="/sample" -DnoExamples
 ```
 
 ## after starting the application with the following command:
