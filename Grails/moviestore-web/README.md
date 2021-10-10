@@ -17,22 +17,22 @@ grails
 ```
 ### and once I get the prompt grails
 ```
-create-domain-resource moviestore.web.data.Address
-create-domain-resource moviestore.web.data.Category
-create-domain-resource moviestore.web.data.City
-create-domain-resource moviestore.web.data.Content
-create-domain-resource moviestore.web.data.Country
-create-domain-resource moviestore.web.data.Customer
-create-domain-resource moviestore.web.data.Director
-create-domain-resource moviestore.web.data.District
-create-domain-resource moviestore.web.data.Inventory
-create-domain-resource moviestore.web.data.Iso3166
-create-domain-resource moviestore.web.data.Language
-create-domain-resource moviestore.web.data.Movie
-create-domain-resource moviestore.web.data.Payment
-create-domain-resource moviestore.web.data.Player
-create-domain-resource moviestore.web.data.Producer
-create-domain-resource moviestore.web.data.Rental
-create-domain-resource moviestore.web.data.Staff
-create-domain-resource moviestore.web.data.Store
+create-domain-class moviestore.web.data.Address
+create-domain-class moviestore.web.data.Category
+create-domain-class moviestore.web.data.City
+create-domain-class moviestore.web.data.Content
+create-domain-class moviestore.web.data.Country
+create-domain-class moviestore.web.data.Customer
+create-domain-class moviestore.web.data.Director
+create-domain-class moviestore.web.data.District
+create-domain-class moviestore.web.data.Inventory
+create-domain-class moviestore.web.data.Iso3166
+create-domain-class moviestore.web.data.Language
+create-domain-class moviestore.web.data.Movie
+create-domain-class moviestore.web.data.Payment
+create-domain-class moviestore.web.data.Player
+create-domain-class moviestore.web.data.Producer
+create-domain-class moviestore.web.data.Rental
+create-domain-class moviestore.web.data.Staff
+create-domain-class moviestore.web.data.Store
 ```
