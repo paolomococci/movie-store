@@ -20,16 +20,16 @@ package moviestore.web.data
 
 import grails.gorm.services.Service
 
-@Service(Store)
-interface StoreService {
+@Service(Staff)
+interface StaffService {
 
-    Store get(Serializable id)
+    Staff get(Serializable id)
 
-    List<Store> list(Map args)
+    List<Staff> list(Map args)
 
     Long count()
 
     void delete(Serializable id)
 
-    Store save(Store store)
+    Staff save(Staff staff)
 }

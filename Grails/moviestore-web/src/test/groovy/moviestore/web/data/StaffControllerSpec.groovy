@@ -24,9 +24,9 @@ import grails.validation.ValidationException
 
 import spock.lang.*
 
-class StoreControllerSpec
+class StaffControllerSpec
         extends Specification
-        implements ControllerUnitTest<StoreController>, DomainUnitTest<Store> {
+        implements ControllerUnitTest<StaffController>, DomainUnitTest<Staff> {
 
     def populateValidParams(params) {
         assert params != null
@@ -38,7 +38,7 @@ class StoreControllerSpec
 
     void "Test the index action returns the correct model"() {
         given:
-        controller.storeService = Mock(StoreService) {
+        controller.staffService = Mock(StaffService) {
             1 * list(_) >> []
             1 * count() >> 0
         }
@@ -47,8 +47,8 @@ class StoreControllerSpec
         controller.index()
 
         then:"The model is correct"
-        !model.storeList
-        model.storeCount == 0
+        !model.staffList
+        model.staffCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -56,7 +56,7 @@ class StoreControllerSpec
         controller.create()
 
         then:"The model is correctly created"
-        model.store!= null
+        model.staff!= null
     }
 
     void "Test the save action with a null instance"() {
@@ -66,14 +66,14 @@ class StoreControllerSpec
         controller.save(null)
 
         then:"A 404 error is returned"
-        response.redirectedUrl == '/store/index'
+        response.redirectedUrl == '/staff/index'
         flash.message != null
     }
 
     void "Test the save action correctly persists"() {
         given:
-        controller.storeService = Mock(StoreService) {
-            1 * save(_ as Store)
+        controller.staffService = Mock(StaffService) {
+            1 * save(_ as Staff)
         }
 
         when:"The save action is executed with a valid instance"
@@ -81,38 +81,38 @@ class StoreControllerSpec
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
         populateValidParams(params)
-        def store = new Store(params)
-        store.id = 1
+        def staff = new Staff(params)
+        staff.id = 1
 
-        controller.save(store)
+        controller.save(staff)
 
         then:"A redirect is issued to the show action"
-        response.redirectedUrl == '/store/show/1'
+        response.redirectedUrl == '/staff/show/1'
         controller.flash.message != null
     }
 
     void "Test the save action with an invalid instance"() {
         given:
-        controller.storeService = Mock(StoreService) {
-            1 * save(_ as Store) >> { Store store ->
-                throw new ValidationException("Invalid instance", store.errors)
+        controller.staffService = Mock(StaffService) {
+            1 * save(_ as Staff) >> { Staff staff ->
+                throw new ValidationException("Invalid instance", staff.errors)
             }
         }
 
         when:"The save action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
-        def store = new Store()
-        controller.save(store)
+        def staff = new Staff()
+        controller.save(staff)
 
         then:"The create view is rendered again with the correct model"
-        model.store != null
+        model.staff != null
         view == 'create'
     }
 
     void "Test the show action with a null id"() {
         given:
-        controller.storeService = Mock(StoreService) {
+        controller.staffService = Mock(StaffService) {
             1 * get(null) >> null
         }
 
@@ -125,20 +125,20 @@ class StoreControllerSpec
 
     void "Test the show action with a valid id"() {
         given:
-        controller.storeService = Mock(StoreService) {
-            1 * get(2) >> new Store()
+        controller.staffService = Mock(StaffService) {
+            1 * get(2) >> new Staff()
         }
 
         when:"A domain instance is passed to the show action"
         controller.show(2)
 
         then:"A model is populated containing the domain instance"
-        model.store instanceof Store
+        model.staff instanceof Staff
     }
 
     void "Test the edit action with a null id"() {
         given:
-        controller.storeService = Mock(StoreService) {
+        controller.staffService = Mock(StaffService) {
             1 * get(null) >> null
         }
 
@@ -151,15 +151,15 @@ class StoreControllerSpec
 
     void "Test the edit action with a valid id"() {
         given:
-        controller.storeService = Mock(StoreService) {
-            1 * get(2) >> new Store()
+        controller.staffService = Mock(StaffService) {
+            1 * get(2) >> new Staff()
         }
 
         when:"A domain instance is passed to the show action"
         controller.edit(2)
 
         then:"A model is populated containing the domain instance"
-        model.store instanceof Store
+        model.staff instanceof Staff
     }
 
 
@@ -170,14 +170,14 @@ class StoreControllerSpec
         controller.update(null)
 
         then:"A 404 error is returned"
-        response.redirectedUrl == '/store/index'
+        response.redirectedUrl == '/staff/index'
         flash.message != null
     }
 
     void "Test the update action correctly persists"() {
         given:
-        controller.storeService = Mock(StoreService) {
-            1 * save(_ as Store)
+        controller.staffService = Mock(StaffService) {
+            1 * save(_ as Staff)
         }
 
         when:"The save action is executed with a valid instance"
@@ -185,31 +185,31 @@ class StoreControllerSpec
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'PUT'
         populateValidParams(params)
-        def store = new Store(params)
-        store.id = 1
+        def staff = new Staff(params)
+        staff.id = 1
 
-        controller.update(store)
+        controller.update(staff)
 
         then:"A redirect is issued to the show action"
-        response.redirectedUrl == '/store/show/1'
+        response.redirectedUrl == '/staff/show/1'
         controller.flash.message != null
     }
 
     void "Test the update action with an invalid instance"() {
         given:
-        controller.storeService = Mock(StoreService) {
-            1 * save(_ as Store) >> { Store store ->
-                throw new ValidationException("Invalid instance", store.errors)
+        controller.staffService = Mock(StaffService) {
+            1 * save(_ as Staff) >> { Staff staff ->
+                throw new ValidationException("Invalid instance", staff.errors)
             }
         }
 
         when:"The save action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'PUT'
-        controller.update(new Store())
+        controller.update(new Staff())
 
         then:"The edit view is rendered again with the correct model"
-        model.store != null
+        model.staff != null
         view == 'edit'
     }
 
@@ -220,13 +220,13 @@ class StoreControllerSpec
         controller.delete(null)
 
         then:"A 404 is returned"
-        response.redirectedUrl == '/store/index'
+        response.redirectedUrl == '/staff/index'
         flash.message != null
     }
 
     void "Test the delete action with an instance"() {
         given:
-        controller.storeService = Mock(StoreService) {
+        controller.staffService = Mock(StaffService) {
             1 * delete(2)
         }
 
@@ -236,7 +236,7 @@ class StoreControllerSpec
         controller.delete(2)
 
         then:"The user is redirected to index"
-        response.redirectedUrl == '/store/index'
+        response.redirectedUrl == '/staff/index'
         flash.message != null
     }
 }
