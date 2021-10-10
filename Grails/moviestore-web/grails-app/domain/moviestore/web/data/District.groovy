@@ -28,6 +28,9 @@ class District {
     Timestamp updated
 
     static constraints = {
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
+        name size: 1..127, matches: "^[a-zA-Z_-]*"
+        zipCode size: 5..15, matches: "^[a-zA-Z0-9_-]*"
     }
 
     String toString() {

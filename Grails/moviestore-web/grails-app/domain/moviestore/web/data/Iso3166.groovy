@@ -29,6 +29,10 @@ class Iso3166 {
     Timestamp updated
 
     static constraints = {
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
+        name size: 1..127, matches: "^[a-zA-Z_-]*"
+        mark unique: true
+        signature size: 3..7, matches: "^[A-Z]*"
     }
 
     String toString() {

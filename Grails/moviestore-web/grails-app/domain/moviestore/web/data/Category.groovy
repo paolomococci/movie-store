@@ -28,6 +28,9 @@ class Category {
     Timestamp updated
 
     static constraints = {
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
+        name size: 1..127, matches: "^[a-zA-Z_-]*"
+        description size: 255, matches: "^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*"
     }
 
     String toString() {

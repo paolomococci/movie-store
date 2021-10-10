@@ -36,6 +36,11 @@ class Movie {
     Timestamp updated
 
     static constraints = {
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
+        title size: 1..127, matches: "^[a-zA-Z0-9_-]*"
+        subtitle size: 8..127, matches: "^[a-zA-Z0-9_-]*"
+        description size: 16..255, matches: "^[a-zA-Z0-9_-]*"
+        rating range: 0..1
     }
 
     String toString() {

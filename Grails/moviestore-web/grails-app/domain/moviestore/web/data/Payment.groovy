@@ -29,6 +29,7 @@ class Payment {
     Timestamp updated
 
     static constraints = {
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
     }
 
     String toString() {

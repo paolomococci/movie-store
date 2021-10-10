@@ -34,6 +34,14 @@ class Staff {
     Timestamp updated
 
     static constraints = {
+        code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
+        name size: 1..127, matches: "^[a-zA-Z_-]*"
+        nickname size: 1..127, matches: "^[a-zA-Z_-]*"
+        surname size: 1..127, matches: "^[a-zA-Z_-]*"
+        mobile size: 10..31, matches: "^[0-9-]*"
+        email size: 16..255, email: true, unique: true
+        username size: 8..127, unique: true, matches: "^[a-z0-9]*"
+        password size: 12..31, matches: "^[a-zA-Z0-9]*"
     }
 
     String toString() {
