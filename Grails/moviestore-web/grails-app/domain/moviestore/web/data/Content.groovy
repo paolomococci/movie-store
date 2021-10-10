@@ -28,4 +28,8 @@ class Content {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

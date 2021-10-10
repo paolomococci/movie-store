@@ -35,4 +35,8 @@ class Staff {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

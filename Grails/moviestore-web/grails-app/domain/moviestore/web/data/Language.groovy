@@ -28,4 +28,8 @@ class Language {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

@@ -30,4 +30,8 @@ class Director {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

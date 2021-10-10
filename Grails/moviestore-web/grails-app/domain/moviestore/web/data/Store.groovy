@@ -28,4 +28,8 @@ class Store {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

@@ -30,4 +30,8 @@ class Rental {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

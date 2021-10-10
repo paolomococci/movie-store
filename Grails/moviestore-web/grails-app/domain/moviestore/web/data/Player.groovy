@@ -30,4 +30,8 @@ class Player {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

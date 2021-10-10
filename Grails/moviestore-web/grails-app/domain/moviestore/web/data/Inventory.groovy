@@ -27,4 +27,8 @@ class Inventory {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

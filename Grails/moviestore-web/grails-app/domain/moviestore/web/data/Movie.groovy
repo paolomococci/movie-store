@@ -37,4 +37,8 @@ class Movie {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

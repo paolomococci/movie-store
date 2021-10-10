@@ -30,4 +30,8 @@ class Iso3166 {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

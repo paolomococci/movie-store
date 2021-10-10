@@ -30,4 +30,8 @@ class Producer {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

@@ -28,4 +28,8 @@ class City {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

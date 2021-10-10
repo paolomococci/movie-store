@@ -29,4 +29,8 @@ class Category {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

@@ -29,4 +29,8 @@ class District {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

@@ -33,4 +33,8 @@ class Customer {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

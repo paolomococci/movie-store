@@ -30,4 +30,8 @@ class Payment {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }

@@ -28,4 +28,8 @@ class Country {
 
     static constraints = {
     }
+
+    String toString() {
+        code
+    }
 }
