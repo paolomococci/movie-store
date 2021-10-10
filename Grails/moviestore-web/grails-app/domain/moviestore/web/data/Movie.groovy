@@ -18,7 +18,22 @@
 
 package moviestore.web.data
 
+import java.sql.Date
+import java.sql.Time
+import java.sql.Timestamp
+
 class Movie {
+
+    String code
+    String title
+    String subtitle
+    String description
+    Date comeOut
+    Time duration
+    Double cost
+    Double rent
+    Double rating
+    Timestamp updated
 
     static constraints = {
     }

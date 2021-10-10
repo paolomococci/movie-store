@@ -18,7 +18,13 @@
 
 package moviestore.web.data
 
+import java.sql.Timestamp
+
 class Content {
+
+    String code
+    String subject
+    Timestamp updated
 
     static constraints = {
     }

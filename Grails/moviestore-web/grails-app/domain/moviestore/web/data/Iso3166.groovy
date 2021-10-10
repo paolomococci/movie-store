@@ -18,7 +18,15 @@
 
 package moviestore.web.data
 
+import java.sql.Timestamp
+
 class Iso3166 {
+
+    String code
+    String name
+    Integer mark
+    String signature
+    Timestamp updated
 
     static constraints = {
     }

@@ -18,7 +18,16 @@
 
 package moviestore.web.data
 
+import java.sql.Timestamp
+
 class Address {
+
+    String code
+    String type
+    String name
+    String civic
+    String phone
+    Timestamp updated
 
     static constraints = {
     }

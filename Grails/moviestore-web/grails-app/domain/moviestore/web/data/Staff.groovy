@@ -18,7 +18,20 @@
 
 package moviestore.web.data
 
+import java.sql.Timestamp
+
 class Staff {
+
+    String code
+    String name
+    String nickname
+    String surname
+    String mobile
+    String email
+    String username
+    String password
+    Boolean active
+    Timestamp updated
 
     static constraints = {
     }

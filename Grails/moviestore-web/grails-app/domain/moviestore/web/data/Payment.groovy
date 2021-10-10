@@ -18,7 +18,15 @@
 
 package moviestore.web.data
 
+import java.sql.Date
+import java.sql.Timestamp
+
 class Payment {
+
+    String code
+    Double amount
+    Date payed
+    Timestamp updated
 
     static constraints = {
     }

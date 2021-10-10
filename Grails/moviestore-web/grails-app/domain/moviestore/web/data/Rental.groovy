@@ -18,7 +18,15 @@
 
 package moviestore.web.data
 
+import java.sql.Date
+import java.sql.Timestamp
+
 class Rental {
+
+    String code
+    Date rent
+    Date back
+    Timestamp updated
 
     static constraints = {
     }
