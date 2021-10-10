@@ -28,6 +28,10 @@ class Iso3166 {
     String signature
     Timestamp updated
 
+    static hasMany = [
+            countries: Country
+    ]
+
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
         name size: 1..127, matches: "^[a-zA-Z_-]*"

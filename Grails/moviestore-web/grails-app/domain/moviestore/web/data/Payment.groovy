@@ -28,6 +28,12 @@ class Payment {
     Date payed
     Timestamp updated
 
+    static belongsTo = [
+            customer: Customer,
+            rental: Rental,
+            staff: Staff
+    ]
+
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
     }

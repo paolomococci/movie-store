@@ -26,6 +26,14 @@ class City {
     String name
     Timestamp updated
 
+    static hasMany = [
+            districts: District
+    ]
+
+    static belongsTo = [
+            country: Country
+    ]
+
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
         name size: 1..127, matches: "^[a-zA-Z_-]*"

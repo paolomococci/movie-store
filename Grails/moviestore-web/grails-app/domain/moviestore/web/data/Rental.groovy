@@ -28,6 +28,16 @@ class Rental {
     Date back
     Timestamp updated
 
+    static hasMany = [
+            payments: Payment
+    ]
+
+    static belongsTo = [
+            customer: Customer,
+            inventory: Inventory,
+            staff: Staff
+    ]
+
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
     }

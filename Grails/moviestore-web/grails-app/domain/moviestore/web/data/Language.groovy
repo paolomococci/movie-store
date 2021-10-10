@@ -24,7 +24,11 @@ class Language {
 
     String code
     String name
-    Timestamp updated
+    Timestamp updatedupdated
+
+    static hasMany = [
+            movies: Movie
+    ]
 
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"

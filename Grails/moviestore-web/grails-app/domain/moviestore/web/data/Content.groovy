@@ -26,6 +26,10 @@ class Content {
     String subject
     Timestamp updated
 
+    static hasMany = [
+            movies: Movie
+    ]
+
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
         subject size: 8..255, matches: "^[a-zA-Z]*[a-zA-Z0-9 -]*[a-zA-Z]*"

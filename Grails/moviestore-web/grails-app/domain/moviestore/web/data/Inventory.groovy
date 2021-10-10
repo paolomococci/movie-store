@@ -25,6 +25,15 @@ class Inventory {
     String code
     Timestamp updated
 
+    static hasMany = [
+            rentals: Rental
+    ]
+
+    static belongsTo = [
+            store: Store,
+            movie: Movie
+    ]
+
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
     }

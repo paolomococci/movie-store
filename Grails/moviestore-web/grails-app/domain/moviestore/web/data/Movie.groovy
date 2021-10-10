@@ -35,6 +35,16 @@ class Movie {
     Double rating
     Timestamp updated
 
+    static hasMany = [
+            categories: Category,
+            contents: Content,
+            directors: Director,
+            inventories: Inventory,
+            languages: Language,
+            players: Player,
+            producers: Producer
+    ]
+
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
         title size: 1..127, matches: "^[a-zA-Z0-9_-]*"

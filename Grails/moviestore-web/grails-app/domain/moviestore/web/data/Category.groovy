@@ -27,6 +27,10 @@ class Category {
     String description
     Timestamp updated
 
+    static hasMany = [
+            movies: Movie
+    ]
+
     static constraints = {
         code size: 8..15, blank: false, unique: true, matches: "^[0-9]*"
         name size: 1..127, matches: "^[a-zA-Z_-]*"
