@@ -58,3 +58,5 @@ generate-all moviestore.web.data.Rental
 generate-all moviestore.web.data.Staff
 generate-all moviestore.web.data.Store
 ```
+
+## screenshot of create address
