@@ -240,9 +240,3 @@ class RentalControllerSpec
         flash.message != null
     }
 }
-
-
-
-
-
-

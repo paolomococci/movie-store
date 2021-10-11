@@ -240,9 +240,3 @@ class StoreControllerSpec
         flash.message != null
     }
 }
-
-
-
-
-
-

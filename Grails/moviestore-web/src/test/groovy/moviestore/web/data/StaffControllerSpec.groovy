@@ -240,9 +240,3 @@ class StaffControllerSpec
         flash.message != null
     }
 }
-
-
-
-
-
-

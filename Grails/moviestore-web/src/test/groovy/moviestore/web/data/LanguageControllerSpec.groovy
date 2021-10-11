@@ -1,3 +1,21 @@
+/**
+ *
+ * Copyright 2020 paolo mococci
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * 	   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed following in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
 package moviestore.web.data
 
 import grails.testing.gorm.DomainUnitTest
@@ -6,9 +24,9 @@ import grails.validation.ValidationException
 
 import spock.lang.*
 
-class PaymentControllerSpec
+class LanguageControllerSpec
         extends Specification
-        implements ControllerUnitTest<PaymentController>, DomainUnitTest<Payment> {
+        implements ControllerUnitTest<LanguageController>, DomainUnitTest<Language> {
 
     def populateValidParams(params) {
         assert params != null
@@ -20,7 +38,7 @@ class PaymentControllerSpec
 
     void "Test the index action returns the correct model"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
+        controller.languageService = Mock(LanguageService) {
             1 * list(_) >> []
             1 * count() >> 0
         }
@@ -29,8 +47,8 @@ class PaymentControllerSpec
         controller.index()
 
         then:"The model is correct"
-        !model.paymentList
-        model.paymentCount == 0
+        !model.languageList
+        model.languageCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -38,7 +56,7 @@ class PaymentControllerSpec
         controller.create()
 
         then:"The model is correctly created"
-        model.payment!= null
+        model.language!= null
     }
 
     void "Test the save action with a null instance"() {
@@ -48,14 +66,14 @@ class PaymentControllerSpec
         controller.save(null)
 
         then:"A 404 error is returned"
-        response.redirectedUrl == '/payment/index'
+        response.redirectedUrl == '/language/index'
         flash.message != null
     }
 
     void "Test the save action correctly persists"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
-            1 * save(_ as Payment)
+        controller.languageService = Mock(LanguageService) {
+            1 * save(_ as Language)
         }
 
         when:"The save action is executed with a valid instance"
@@ -63,38 +81,38 @@ class PaymentControllerSpec
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
         populateValidParams(params)
-        def payment = new Payment(params)
-        payment.id = 1
+        def language = new Language(params)
+        language.id = 1
 
-        controller.save(payment)
+        controller.save(language)
 
         then:"A redirect is issued to the show action"
-        response.redirectedUrl == '/payment/show/1'
+        response.redirectedUrl == '/language/show/1'
         controller.flash.message != null
     }
 
     void "Test the save action with an invalid instance"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
-            1 * save(_ as Payment) >> { Payment payment ->
-                throw new ValidationException("Invalid instance", payment.errors)
+        controller.languageService = Mock(LanguageService) {
+            1 * save(_ as Language) >> { Language language ->
+                throw new ValidationException("Invalid instance", language.errors)
             }
         }
 
         when:"The save action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'POST'
-        def payment = new Payment()
-        controller.save(payment)
+        def language = new Language()
+        controller.save(language)
 
         then:"The create view is rendered again with the correct model"
-        model.payment != null
+        model.language != null
         view == 'create'
     }
 
     void "Test the show action with a null id"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
+        controller.languageService = Mock(LanguageService) {
             1 * get(null) >> null
         }
 
@@ -107,20 +125,20 @@ class PaymentControllerSpec
 
     void "Test the show action with a valid id"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
-            1 * get(2) >> new Payment()
+        controller.languageService = Mock(LanguageService) {
+            1 * get(2) >> new Language()
         }
 
         when:"A domain instance is passed to the show action"
         controller.show(2)
 
         then:"A model is populated containing the domain instance"
-        model.payment instanceof Payment
+        model.language instanceof Language
     }
 
     void "Test the edit action with a null id"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
+        controller.languageService = Mock(LanguageService) {
             1 * get(null) >> null
         }
 
@@ -133,15 +151,15 @@ class PaymentControllerSpec
 
     void "Test the edit action with a valid id"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
-            1 * get(2) >> new Payment()
+        controller.languageService = Mock(LanguageService) {
+            1 * get(2) >> new Language()
         }
 
         when:"A domain instance is passed to the show action"
         controller.edit(2)
 
         then:"A model is populated containing the domain instance"
-        model.payment instanceof Payment
+        model.language instanceof Language
     }
 
 
@@ -152,14 +170,14 @@ class PaymentControllerSpec
         controller.update(null)
 
         then:"A 404 error is returned"
-        response.redirectedUrl == '/payment/index'
+        response.redirectedUrl == '/language/index'
         flash.message != null
     }
 
     void "Test the update action correctly persists"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
-            1 * save(_ as Payment)
+        controller.languageService = Mock(LanguageService) {
+            1 * save(_ as Language)
         }
 
         when:"The save action is executed with a valid instance"
@@ -167,31 +185,31 @@ class PaymentControllerSpec
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'PUT'
         populateValidParams(params)
-        def payment = new Payment(params)
-        payment.id = 1
+        def language = new Language(params)
+        language.id = 1
 
-        controller.update(payment)
+        controller.update(language)
 
         then:"A redirect is issued to the show action"
-        response.redirectedUrl == '/payment/show/1'
+        response.redirectedUrl == '/language/show/1'
         controller.flash.message != null
     }
 
     void "Test the update action with an invalid instance"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
-            1 * save(_ as Payment) >> { Payment payment ->
-                throw new ValidationException("Invalid instance", payment.errors)
+        controller.languageService = Mock(LanguageService) {
+            1 * save(_ as Language) >> { Language language ->
+                throw new ValidationException("Invalid instance", language.errors)
             }
         }
 
         when:"The save action is executed with an invalid instance"
         request.contentType = FORM_CONTENT_TYPE
         request.method = 'PUT'
-        controller.update(new Payment())
+        controller.update(new Language())
 
         then:"The edit view is rendered again with the correct model"
-        model.payment != null
+        model.language != null
         view == 'edit'
     }
 
@@ -202,13 +220,13 @@ class PaymentControllerSpec
         controller.delete(null)
 
         then:"A 404 is returned"
-        response.redirectedUrl == '/payment/index'
+        response.redirectedUrl == '/language/index'
         flash.message != null
     }
 
     void "Test the delete action with an instance"() {
         given:
-        controller.paymentService = Mock(PaymentService) {
+        controller.languageService = Mock(LanguageService) {
             1 * delete(2)
         }
 
@@ -218,7 +236,7 @@ class PaymentControllerSpec
         controller.delete(2)
 
         then:"The user is redirected to index"
-        response.redirectedUrl == '/payment/index'
+        response.redirectedUrl == '/language/index'
         flash.message != null
     }
 }

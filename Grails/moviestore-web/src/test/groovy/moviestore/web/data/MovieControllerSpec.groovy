@@ -240,9 +240,3 @@ class MovieControllerSpec
         flash.message != null
     }
 }
-
-
-
-
-
-

@@ -240,9 +240,3 @@ class PlayerControllerSpec
         flash.message != null
     }
 }
-
-
-
-
-
-

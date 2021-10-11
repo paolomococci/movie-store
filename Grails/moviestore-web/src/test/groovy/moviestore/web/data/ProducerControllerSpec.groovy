@@ -240,9 +240,3 @@ class ProducerControllerSpec
         flash.message != null
     }
 }
-
-
-
-
-
-
