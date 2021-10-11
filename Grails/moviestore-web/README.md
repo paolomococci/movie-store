@@ -60,4 +60,4 @@ generate-all moviestore.web.data.Store
 ```
 
 ## screenshot of create address
-![Address, create view]()
+![Address, create view](https://github.com/paolomococci/movie-store/blob/master/Grails/moviestore-web/screenshots/screenshot_moviestore-web_address_create.png)
