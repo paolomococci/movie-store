@@ -39,6 +39,7 @@ create-domain-class moviestore.web.data.Store
 
 ### and now, after adding properties, constraints and methods to each domain resource, I add everything else
 ```
+generate-all moviestore.web.data.Content
 generate-all moviestore.web.data.Country
 generate-all moviestore.web.data.Customer
 generate-all moviestore.web.data.Director
