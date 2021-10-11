@@ -60,3 +60,4 @@ generate-all moviestore.web.data.Store
 ```
 
 ## screenshot of create address
+![Address, create view]()
