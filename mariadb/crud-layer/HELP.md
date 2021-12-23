@@ -2,7 +2,7 @@
 
 ## RESTful perspective:
 
-```
+```shell
 $ curl -v -i -H "Content-Type:application/json" -d '{"name":"action","description":"simple action movie"}' http://127.0.0.1:8080/categories
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
@@ -90,7 +90,7 @@ Date: Tue, 07 Apr 2020 08:06:40 GMT
 
 ## database perspective:
 
-```
+```shell
 MariaDB [moviestoredb]> select * from category;
 +-------+--------+---------------------+---------------------+
 | id    | name   | description         | updated             |
@@ -304,7 +304,7 @@ Date: Fri, 10 Apr 2020 07:32:24 GMT
 ...
 ```
 
-```
+```shell
 MariaDB [moviestoredb]> select * from iso3166;
 +-------+---------------------+------+-----------+---------------------+
 | id    | name                | code | signature | updated             |
