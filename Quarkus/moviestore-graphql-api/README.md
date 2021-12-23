@@ -3,37 +3,44 @@
 ## application developed to provide a complete and understandable description of the data exposed in the API, thanks to the GraphQL language
 
 ### I start the new project with the scaffolding of the application:
-```
+
+```shell
 mvn io.quarkus:quarkus-maven-plugin:2.6.0.Final:create -DprojectGroupId=local.moviestore -DprojectArtifactId=moviestore-graphql-api -DclassName="local.moviestore.MoviestoreAtWorkResource" -Dextensions="resteasy,graphql,quarkus-hibernate-validator,quarkus-jdbc-mariadb,quarkus-hibernate-orm-panache" -DnoExamples -DbuildTool=gradle
 ```
 
 ### I start a test session with:
-```
+
+```shell
 ./gradlew test
 ```
 
 ### I start a test native session with:
-```
+
+```shell
 ./gradlew testNative
 ```
 
 ### how to get a list of extensions available with:
-```
+
+```shell
 ./gradlew listExtensions
 ```
 
 ### for example, once I find the extension that interests me, I proceed with adding this dependency:
-```
+
+```shell
 ./gradlew addExtension --extensions="extension_name_of_interest"
 ```
 
 ### now I can start the application in development mode:
-```
+
+```shell
 ./gradlew quarkusDev
 ```
 
 ## at this point, requesting resource /graphql/schema.graphql on localhost port 8080, I get:
-```
+
+```shell
 type Address {
   civic: String
   district: District
