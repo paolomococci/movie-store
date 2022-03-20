@@ -1,6 +1,6 @@
 # moviestore-graphql-api
 
-## application developed to provide a complete and understandable description of the data exposed in the API, thanks to the GraphQL language
+## application developed to provide a complete and understandable description of the data exposed in the API, thanks to the GraphQL
 
 ### I start the new project with the scaffolding of the application:
 
