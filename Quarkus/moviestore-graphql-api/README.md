@@ -5,7 +5,7 @@
 ### I start the new project with the scaffolding of the application:
 
 ```shell
-mvn io.quarkus:quarkus-maven-plugin:2.16.2.Final:create -DprojectGroupId=local.moviestore -DprojectArtifactId=moviestore-graphql-api -DclassName="local.moviestore.MoviestoreAtWorkResource" -Dextensions="resteasy,graphql,quarkus-hibernate-validator,quarkus-jdbc-mariadb,quarkus-hibernate-orm-panache" -DnoExamples -DbuildTool=gradle
+mvn io.quarkus:quarkus-maven-plugin:2.16.3.Final:create -DprojectGroupId=local.moviestore -DprojectArtifactId=moviestore-graphql-api -DclassName="local.moviestore.MoviestoreAtWorkResource" -Dextensions="resteasy,graphql,quarkus-hibernate-validator,quarkus-jdbc-mariadb,quarkus-hibernate-orm-panache" -DnoExamples -DbuildTool=gradle
 ```
 
 ### I start a test session with:
